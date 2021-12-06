@@ -1,5 +1,11 @@
 # Food Ya
 
+## Members
+* Aldhair Vera
+* Fernando Rodriguez
+* Lizeth Sucasaca
+* Pedro Morante
+
 ## Coding Rules
 
 ### Commit Message Format

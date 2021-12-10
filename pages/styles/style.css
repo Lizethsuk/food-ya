@@ -1,0 +1,57 @@
+/* Navbar */
+
+
+/* Banner */
+
+
+/* Grid */
+.restaurants{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.restaurant{
+    max-width: 300px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 0px;
+    margin: 10px ;
+    border-radius: 10px;
+    overflow-x: hidden;
+}
+ .restaurant h3{
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0 auto;
+    color: #4C4C4C;
+}
+.div-img img{
+    width: 100%;
+}
+.div-content{
+    padding: 20px;
+}
+.div-content p{
+    font-size: 17px;
+    margin: 8px 0px;
+}
+.ulStars{
+    list-style: none;
+    padding-left: 0px;
+    margin: 5px 0px;
+    
+}
+.ulStars li{
+    display: inline;
+}
+.star{
+    width: 22px;
+    margin-right: 3px;
+    
+}
+
+
+/* Footer */
+

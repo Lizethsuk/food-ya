@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ya! - Home</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+
+    <!-- Banner -->
+
+    <!-- Grid -->
+    <div class="restaurants" id="restaurants"></div>
+    <!-- Footer -->
+
+
+    <script>
+        const restaurants = [
+               {
+                   name: 'Las canastitas',
+                   type: 'Polleria',
+                   stars: 5,
+                   img: {
+                       url: 'https://i.ibb.co/yhbYvNG/img-1.jpg'
+                   }
+               },
+               {
+                   name: 'Doña Lucha',
+                   type: 'Anticucheria',
+                   
+                   stars: 4,
+                   img: {
+                       url: 'https://i.ibb.co/8M51bnY/img-2.jpg'
+                   }
+               },
+               {
+                   name: 'When Wha',
+                   type: `Chifa `,
+                    stars: 4,
+                   img: {
+                       url: 'https://i.ibb.co/f0qGzMs/img-3.jpg'
+                   }
+               },
+               {
+                   name: 'Diego',
+                   type: 'Caldo de gallina y sopas',
+                   stars: 5,
+                   img: {
+                       url: 'https://i.ibb.co/KFbmT5F/img-4.jpg'
+                   }
+               },
+               {
+                   name: 'La buena pizza',
+                   type: 'Pizzas',
+                   stars: 4,
+                   img: {
+                       url: 'https://i.ibb.co/PG2ykFV/img-5.jpg'
+                   }
+               },
+               {
+                   name: 'Bravazo',
+                   type: 'Hamburguesas, salchipapas y más',
+                   
+                   stars: 5,
+                   img: {
+                       url: 'https://i.ibb.co/1nD31w4/img-6.jpg'
+                   }
+               }
+   
+           ];
+   
+           let cardContainer = document.getElementById('restaurants');
+   
+           for (let i = 0; i < restaurants.length; i++) {
+               const div = document.createElement('div');
+               div.className = `restaurant`;
+               cardContainer.appendChild(div);
+               //img
+               const imgDiv=document.createElement('div');
+               imgDiv.className = `div-img`;
+               
+               imgDiv.innerHTML= `<img src='${restaurants[i].img.url}'>`;
+               div.appendChild(imgDiv);
+               const contentDiv=document.createElement('div');
+               contentDiv.className = `div-content`;
+               div.appendChild(contentDiv);
+   
+               //H3
+               const h3 = document.createElement('h3');
+               h3.innerHTML = `${restaurants[i].name} `;
+               contentDiv.appendChild(h3);
+   
+               //p
+               const p = document.createElement('p');
+               p.innerHTML = `${restaurants[i].type}`;
+               contentDiv.appendChild(p);
+   
+   
+               //ul
+               const ul = document.createElement('ul');
+   
+               //skills
+               
+   
+               for (let q = 0; q < restaurants[i].stars; q++) {
+                   const liStar = document.createElement('li');
+                   liStar.innerHTML = `<img class='star' src='https://i.ibb.co/8ccRc2x/pngwing-com-removebg-preview.png'/>`;
+                   contentDiv.appendChild(liStar);
+                   ul.appendChild(liStar);
+                   ul.className= 'ulStars'
+               };
+               contentDiv.appendChild(ul);
+               for (let m in restaurants[i].stars) {
+                   const li = document.createElement('li');
+                   li.innerHTML = `<img src='${restaurants[i].stars[m]}'`;
+                   ul.appendChild(li);
+                   
+               }
+               contentDiv.appendChild(ul);
+           }
+   
+   </script>
+   
+</body>
+
+</html>

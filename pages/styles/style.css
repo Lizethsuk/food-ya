@@ -1,0 +1,50 @@
+/* Navbar */
+body{
+  margin: 0px;
+}
+nav {
+  display:flex;
+  background-color: #E8C670;
+  align-items: center;
+  height: 100px;
+    
+  }
+figure {
+  margin-right: 80px;
+  }
+.btn{
+  border-radius: 20px;
+  margin: 30px;
+  font-size:14px;
+  font-weight:bold;
+  color:white;
+  background:#649DFF;
+  border:1px;
+  width:120px;
+  height:40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: helvetica;
+  }
+
+  .btn:hover{
+    opacity: 0.6;
+  }
+
+  li{
+    display: inline-block;
+  }
+
+  .btns{
+    margin-left: auto;
+  }
+/* Banner */
+
+
+/* Grid */
+
+
+/* Footer */
+

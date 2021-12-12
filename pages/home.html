@@ -26,7 +26,8 @@
                    stars: 5,
                    img: {
                        url: 'https://i.ibb.co/yhbYvNG/img-1.jpg'
-                   }
+                   },
+                   link: '#'
                },
                {
                    name: 'Doña Lucha',
@@ -35,7 +36,8 @@
                    stars: 4,
                    img: {
                        url: 'https://i.ibb.co/8M51bnY/img-2.jpg'
-                   }
+                   },
+                   link: '#'
                },
                {
                    name: 'When Wha',
@@ -43,7 +45,8 @@
                     stars: 4,
                    img: {
                        url: 'https://i.ibb.co/f0qGzMs/img-3.jpg'
-                   }
+                   },
+                   link: '#'
                },
                {
                    name: 'Diego',
@@ -51,7 +54,8 @@
                    stars: 5,
                    img: {
                        url: 'https://i.ibb.co/KFbmT5F/img-4.jpg'
-                   }
+                   },
+                   link: '#'
                },
                {
                    name: 'La buena pizza',
@@ -59,16 +63,18 @@
                    stars: 4,
                    img: {
                        url: 'https://i.ibb.co/PG2ykFV/img-5.jpg'
-                   }
+                   },
+                   link: '#'
                },
                {
                    name: 'Bravazo',
-                   type: 'Hamburguesas, salchipapas y más',
+                   type: 'Hamburguesas / salchipapas ',
                    
                    stars: 5,
                    img: {
                        url: 'https://i.ibb.co/1nD31w4/img-6.jpg'
-                   }
+                   },
+                   link: '#'
                }
    
            ];
@@ -95,13 +101,17 @@
                contentDiv.appendChild(h3);
    
                //p
+               const divTypeUl = document.createElement('div');
+               divTypeUl.className = 'divUlType';
                const p = document.createElement('p');
                p.innerHTML = `${restaurants[i].type}`;
-               contentDiv.appendChild(p);
+               divTypeUl.appendChild(p);
+               contentDiv.appendChild(divTypeUl);
    
    
                //ul
                const ul = document.createElement('ul');
+               
    
                //skills
                
@@ -109,19 +119,28 @@
                for (let q = 0; q < restaurants[i].stars; q++) {
                    const liStar = document.createElement('li');
                    liStar.innerHTML = `<img class='star' src='https://i.ibb.co/8ccRc2x/pngwing-com-removebg-preview.png'/>`;
-                   contentDiv.appendChild(liStar);
+                   /* contentDiv.appendChild(liStar); */
                    ul.appendChild(liStar);
                    ul.className= 'ulStars'
                };
-               contentDiv.appendChild(ul);
-               for (let m in restaurants[i].stars) {
-                   const li = document.createElement('li');
-                   li.innerHTML = `<img src='${restaurants[i].stars[m]}'`;
-                   ul.appendChild(li);
-                   
-               }
-               contentDiv.appendChild(ul);
+               divTypeUl.appendChild(ul);
+              /* 
+               contentDiv.appendChild(ul); */
+               contentDiv.appendChild(divTypeUl)
+
+
+               //button
+               const divBtn = document.createElement('div');
+               divBtn.className = 'divBtn';
+               const btn = document.createElement('a');
+               btn.className = 'btnClass';
+               btn.setAttribute('href', `${restaurants[i].link}`);
+               btn.innerHTML = 'pide ya!';
+               divBtn.appendChild(btn);
+               contentDiv.appendChild(divBtn)
+   
            }
+           
    
    </script>
    

@@ -9,6 +9,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #F4ECE1;
+    color: #4C4C4C;
+    
     
 }
 .restaurant{
@@ -31,24 +34,46 @@
     width: 100%;
 }
 .div-content{
-    padding: 20px;
+    padding: 20px 15px;
 }
 .div-content p{
-    font-size: 17px;
+    font-size: 14.9px;
     margin: 8px 0px;
+}
+.divBtn{
+    text-align: center;
+    padding: 5px 0px;
+}
+.divBtn .btnClass{
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    background-color: #51B2AF;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 12px;
+}
+.divUlType{
+    display: flex;
+    justify-content: space-between;
 }
 .ulStars{
     list-style: none;
     padding-left: 0px;
     margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    
     
 }
 .ulStars li{
     display: inline;
 }
 .star{
-    width: 22px;
-    margin-right: 3px;
+    width: 17.4px;
+    margin-right: 1px;
     
 }
 

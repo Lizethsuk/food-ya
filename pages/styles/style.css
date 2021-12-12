@@ -6,6 +6,7 @@
 body{
   margin: 0px;
   font-family: 'Readex Pro', sans-serif;
+    background: #F4ECE1;
 }
 
 /* Navbar */
@@ -97,7 +98,7 @@ nav figure {
     width: 100%;
     height: 100%;
  
-    color:white;
+    color:#F4ECE1;
     border-radius: 5px;
 }
 
@@ -117,15 +118,18 @@ nav figure {
     margin: 10px 0 0 0;
     font-size: 1.5em;
     padding: 10px;
-    background: #649DFF;
+    /* background: #649DFF; */
+    background: #51B2AF;
     border-radius: 5px;
-    color: white;
+    color: #F4ECE1;
     text-decoration: none;
     transition: all 0.5s ease;
 }
 
+
 .banner .banner-text a:hover{
-    background: rgba(102, 158, 255, 0.85);
+    /* background: rgba(102, 158, 255, 0.85); */
+    background: rgba(81, 178, 175, 0.85);
 }
 
 /* Grid */

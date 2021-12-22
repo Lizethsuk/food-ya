@@ -15,7 +15,7 @@ Prefix is suggested based on the [Angular convention](https://github.com/angular
 * build: Changes that affect the build system or external dependencies
 * ci: Changes to our CI configuration files and scripts
 * chore: updating elements but no production code change
-* docs: Documentation only chan
+* docs: Documentation only changes
 * feat: A new feature
 * fix: A bug fix
 * perf: A code change that improves performance

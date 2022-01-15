@@ -1,4 +1,4 @@
-import Landing from './views/Landing';
+import Landing from './pages/Landing/';
 
 function App() {
   return (

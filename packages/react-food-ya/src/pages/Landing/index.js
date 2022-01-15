@@ -1,9 +1,8 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import Grid from '../components/Grid';
-import Banner from '../components/Banner';
-import Navbar from '../components/Navbar';
-
+import Footer from '../../components/Footer/';
+import Grid from '../../components/Grid';
+import Banner from '../../components/Banner';
+import Navbar from '../../components/Navbar';
 
 class Landing extends React.Component {
     render() {

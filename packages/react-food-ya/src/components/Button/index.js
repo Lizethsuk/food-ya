@@ -1,6 +1,7 @@
 import React from 'react';
 import { VscPassFilled } from "react-icons/vsc";
 import PropTypes from "prop-types";
+import './style.scss';
 
 // class Button extends React.Component {
 //     render() {

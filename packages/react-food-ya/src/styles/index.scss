@@ -1,0 +1,30 @@
+@import "variables";
+
+.App {
+    text-align: center;
+}
+
+body {
+    font-family: "Readex Pro", sans-serif;
+    background: $color_cream;
+}
+
+.default-button {
+    width: 150px;
+    height: 50px;
+    background: $color_green;
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Navbar */
+
+/* Banner */
+
+/* Grid */
+
+/* Footer */
+
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");

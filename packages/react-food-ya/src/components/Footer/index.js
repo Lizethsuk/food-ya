@@ -1,6 +1,7 @@
 import { React } from "react";
 import { IconContext } from "react-icons/lib";
 import { BsFacebook, BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs";
+import "./style.scss";
 
 const Footer = () => {
   return (

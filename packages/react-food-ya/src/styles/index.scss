@@ -16,30 +16,5 @@ body {
 /* Grid */
 
 /* Footer */
-.main-footer {
-  background-color: $color_brown;
-}
-.row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.col-1 {
-  margin: 10px;
-}
-.col-2 > ul {
-  display: flex;
-  justify-content: space-between;
-}
-li {
-  list-style-type: none;
-  margin-right: 10px;
-}
-.contact {
-  font-family: roboto;
-  font-size: 18px;
-  color: $color_cream;
-  margin: 0;
-}
 
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");

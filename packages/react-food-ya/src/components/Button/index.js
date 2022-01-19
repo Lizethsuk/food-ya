@@ -17,7 +17,6 @@ const Button = ({ content, url, buttonStyle }) => {
 
     return (
         <a className={buttonStyle} href={url}>
-            <VscPassFilled />
             {content}
         </a>
     )

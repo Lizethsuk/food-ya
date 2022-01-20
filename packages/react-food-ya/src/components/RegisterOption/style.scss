@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.register-option{
+    width: 200px;
+    
+    padding:40px 20px;
+    border-radius:10px;
+    background:rgba($color_cream,.7);
+    box-shadow:  0.3em 0.3em 1em rgba($color_brown,0.5);
+    
+
+    .register-img{
+        width:200px;
+        border-radius:10px;
+    }
+    .register-description{
+        margin-bottom:60px;
+    }
+}

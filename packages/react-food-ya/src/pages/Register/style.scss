@@ -9,54 +9,63 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-form{
-    
-    background-color: $color_cream;
-    border-radius: 30px;
-    width: 30%;
-    min-width: 450px;
-    padding: 40px 80px; 
-    a:nth-child(10), a:nth-child(11){
-        padding: 20px;
+    .FormRegister{
+        background-color: $color_cream;
+        border-radius: 30px;
+        width: 30%;
+        min-width: 450px;
+        padding: 40px 80px; 
+        a:nth-child(10), a:nth-child(11){
+            padding: 20px;
+        }
+
+        .Group{
+            display: flex;
+            flex-wrap: nowrap;
+
+            div:first-child {
+                flex: 1 0 auto;
+                input{
+                    width: calc(100% - 25px);
+                }
+            }
+
+            div:last-child {
+                flex: 1 0 auto;
+                input{
+                    width: calc(100% - 25px);
+                }
+            }
+        }
+
+        #ciudad{
+            margin-bottom: 60px;
+        }
+
+        .Reg-button{
+            font-size: 20px;
+            background: $color_green;
+            padding: 15px 35px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            border: none;
+            &:hover{
+                cursor: pointer;
+                background: #337AFF;
+            }
+        }
+
+        hr{
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
     }
 }
 
-.Group{
-    display: flex;
-    flex-wrap: nowrap;
-    div:first-child {
-        
-		flex: 1 0 auto;
-        input{
-            width: calc(100% - 25px);
-        }
-	}
-    div:last-child {
-        
-		flex: 1 0 auto;
-        input{
-            width: calc(100% - 25px);
-        }
-	}
-}
 
-#ciudad{
-    margin-bottom: 60px;
-}
 
-.Reg-button{
-    font-size: 20px;
-    background: $color_green;
-    padding: 15px 35px;
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
-    border: none;
-}
 
-hr{
-    margin-top: 60px;
-    margin-bottom: 40px;
-}
+
+

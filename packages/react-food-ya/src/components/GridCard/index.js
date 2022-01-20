@@ -40,7 +40,7 @@ function GridCard (props)  {
     return (
         <li className='card'  >
          <div className='div-img'>
-                <img className='imgAvatar' src={contact.img.url} />
+                <img className='imgAvatar' alt="" src={contact.img.url} />
             </div> 
             <div className='content-div'>
                 <h2>{contact.name}</h2>
@@ -52,7 +52,7 @@ function GridCard (props)  {
                 </div>
                 
             </div>
-            <Button />
+            <Button buttonStyle={"fit-content-button margin-top"} content={"Ir a Restaurante"} url={"/restaurant"}/>
            
         </li>
     )

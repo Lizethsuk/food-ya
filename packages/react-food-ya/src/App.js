@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register/";
 import SignIn from "./pages/SignIn/";
+import RestaurantPage from "./pages/RestaurantPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/register-selection" element={<RegisterSelection />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/restaurant" element={<RestaurantPage/>}/>
           <Route path="/sign-in" element={<SignIn />} />
         </Routes>
         <Footer />

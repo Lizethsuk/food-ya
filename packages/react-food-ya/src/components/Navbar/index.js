@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const Navbar = ()=>{
     return(
       <nav>
-        <Link to="/">
+        <Link className="logo-link" to="/">
           <img src="https://i.ibb.co/GH040rw/logo-color.png" width="150" alt="logo"></img>          
         </Link>
         <ul className="ButtonContainer">

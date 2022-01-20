@@ -1,9 +1,11 @@
-import Landing from './pages/Landing/';
+/* import Landing from './pages/Landing/'; */
+import RestaurantPage from './pages/RestaurantPage/';
+
 
 function App() {
   return (
     <div className="App">
-      <Landing />
+      <RestaurantPage />
     </div>
   );
 }

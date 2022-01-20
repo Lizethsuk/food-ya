@@ -17,4 +17,130 @@ body {
 
 /* Footer */
 
+
+/*Restaurant */
+.restaurant-section{
+  
+    background-color: #F4ECE1;
+    color: #4C4C4C;
+    display: flex;
+   
+
+   
+        .divMenu{
+            text-align: center;
+            h4{
+                font-size: 30px;
+            }
+            .divUlType{
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                margin: 0 auto;
+                max-width: 950px;
+                  flex-wrap: wrap;
+                  .card{
+                    max-width: 390px;
+                      width: 100%;
+                      background-color: white;
+                      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                      padding: 0px 0px 0px;
+                      margin: 10px ;
+                      border-radius: 10px;
+                      overflow-x: hidden;
+                      display: flex;
+                      justify-content: space-between;
+                      .content-div{
+                        padding: 5px 15px;
+                        width: 185px;
+                        h2{
+                            margin-bottom: 5px;
+                            margin-top: 0px;
+                            text-align: left;
+                            }
+                        h3{
+                            margin: 5px auto;
+                        }    
+                        p{
+                            font-size: 12px;
+                        }    
+                            span{
+                                font-size: 12.5px;
+                                text-align: left;
+                                } 
+                                .ulStars{
+                                    list-style: none;
+                                    padding-left: 0px;
+                                    .star{
+                                        font-size: 15.3px;
+                                        letter-spacing: 0rem;
+                                        color: goldenrod;
+                                        }
+                                    }           
+            
+                        }
+                      .divBtn{
+                         margin: auto 0;
+                         padding: 0px 3px;
+            
+                        .btnPlus{
+                            height: 40px;
+                            width: 40px;
+                            font-size: 16px;
+                            background-color: $color_green;
+                            text-decoration: none;
+                            padding: 10px 15px;
+                            border-radius: 20px;
+                            color: #FFFFFF;
+                        }
+                      }  
+                        
+                        .div-description{
+                            text-align: left;
+                            
+                            }  
+                            .div-img img{
+                                width: 100%;
+                                max-width: 170px;
+                                height: 100%;
+                                max-height: 130px;
+                                display: block;
+                                }     
+                      
+                    }  
+                }
+        }
+        
+        .infoRestaurant{
+            margin-top: 10px;
+            background-color: #FFFFFF;
+            max-width: 250px;
+            width: 100%;
+            max-height: 400px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            img{
+                border-radius: 200px;
+                width: 80px;
+                margin: 0 auto;
+            }
+
+            .ulDescription{
+                list-style: none; 
+                padding-left: 0px;
+                text-align: left;
+                li{
+                    line-height: 30px;
+                    margin-bottom: 12px;
+                    svg{
+                        padding-right: 10px;
+                        color: #4C4C4C;
+                        font-size: 20px
+                    }
+                }
+            }
+
+        }    
+  }
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");

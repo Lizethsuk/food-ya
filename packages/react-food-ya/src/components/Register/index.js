@@ -44,7 +44,7 @@ const Register = ()=>{
     }
     return(
         
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className = "FormRegister">
                 <h1>Registrar</h1>
                 <div className = "Group">
                 <Input name='name' type='text' label='Nombre' onChange={handleChange} />

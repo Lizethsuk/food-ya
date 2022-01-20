@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.main-footer {
+  background-color: $color_brown;
+  .container {
+    .row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .col-1 {
+        margin: 10px;
+      }
+      .col-2 {
+        ul {
+          display: flex;
+          justify-content: space-between;
+          li {
+            list-style-type: none;
+            margin-right: 10px;
+          }
+        }
+      }
+      .col {
+        .contact {
+          font-family: roboto;
+          font-size: 18px;
+          color: $color_cream;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

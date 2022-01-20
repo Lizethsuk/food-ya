@@ -28,11 +28,11 @@ Button.propTypes = {
     buttonStyle: PropTypes.string
 }
 
-// Button.defaultProps = {
-//     content: "Press me",
-//     url: "https://es.reactjs.org/docs/create-a-new-react-app.html",
-//     buttonStyle: 'default-button'
-// }
+Button.defaultProps = {
+    content: "Press me",
+    url: "https://es.reactjs.org/docs/create-a-new-react-app.html",
+    buttonStyle: 'default-button'
+}
 
 export default Button;
 

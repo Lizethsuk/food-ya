@@ -1,4 +1,5 @@
 import Landing from './pages/Landing/';
+import RegisterPage from './pages/Register/';
 
 function App() {
   return (

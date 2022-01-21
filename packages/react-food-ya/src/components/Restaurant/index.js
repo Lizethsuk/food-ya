@@ -133,7 +133,7 @@ function Restaurant(props) {
     <div className="restaurant-section">
       <div className="infoRestaurant">
         <h1>{restaurantDescription.name}</h1>
-        <img src={restaurantDescription.img.url} alt=""/>
+        <img src={restaurantDescription.img.url} alt="" />
         <ul className="ulDescription">
           <li>
             <VscVerified />

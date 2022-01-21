@@ -2,6 +2,7 @@ import { React } from "react";
 import { IconContext } from "react-icons/lib";
 import { BsFacebook, BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,9 +10,9 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           {/* col-1 */}
-          <div className="col-1">
+          <Link className="col-1" to="/">
             <img src="https://i.ibb.co/DDsSFVZ/logo.png" alt="logo" />
-          </div>
+          </Link>
           {/* col-2 */}
           <IconContext.Provider value={{ color: "#f4ece1", size: "24px" }}>
             <div className="col-2">

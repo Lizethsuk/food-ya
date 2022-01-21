@@ -66,69 +66,11 @@ function Restaurant(props) {
       },
     ],
   };
-  const restaurants = [
-    {
-      name: "1 Pollo",
-      type: "Polleria",
-      stars: 5,
-      img: {
-        url: "https://i.ibb.co/yhbYvNG/img-1.jpg",
-      },
-      link: "#",
-    },
-    {
-      name: "1/2 Pollo",
-      type: "Anticucheria",
-
-      stars: 4,
-      img: {
-        url: "https://wongfood.vteximg.com.br/arquivos/ids/268644-1000-1000/535911-1.jpg",
-      },
-      link: "#",
-    },
-    {
-      name: "1/4 Pollo",
-      type: `Chifa `,
-      stars: 4,
-      img: {
-        url: "https://scontent.flim20-1.fna.fbcdn.net/v/t1.6435-9/174703768_4199099163475196_2799609174270896535_n.png",
-      },
-      link: "#",
-    },
-    {
-      name: "1l de chicha",
-      type: "Caldo de gallina y sopas",
-      stars: 5,
-      img: {
-        url: "https://i.ibb.co/KFbmT5F/img-4.jpg",
-      },
-      link: "#",
-    },
-    {
-      name: "Ensalada",
-      type: "Pizzas",
-      stars: 4,
-      img: {
-        url: "https://i.ibb.co/PG2ykFV/img-5.jpg",
-      },
-      link: "#",
-    },
-    {
-      name: "Bravazo",
-      type: "Hamburguesas / salchipapas ",
-
-      stars: 4,
-      img: {
-        url: "https://i.ibb.co/1nD31w4/img-6.jpg",
-      },
-      link: "#",
-    },
-  ];
   const menuRestaurant = restaurantDescription.menu;
-  console.log(menuRestaurant);
   const listMenu = menuRestaurant.map((contact, index) => (
     <CardMenu contact={contact} key={index} />
   ));
+  
   return (
     <div className="restaurant-section">
       <div className="infoRestaurant">

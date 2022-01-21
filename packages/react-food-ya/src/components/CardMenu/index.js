@@ -15,7 +15,7 @@ function CardMenu(props) {
         </div>
       </div>
       <div className="divBtn">
-        <a className="btnPlus" href="">
+        <a className="btnPlus" href="$">
           {" "}
           +{" "}
         </a>

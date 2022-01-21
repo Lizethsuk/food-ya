@@ -3,9 +3,12 @@ import "./style.scss";
 
 const Input = ({ name, type, label, placeholder, onChange }) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className="input-container">
+      <label className="input-label" htmlFor={name}>
+        {label}
+      </label>
       <input
+        className="input-content"
         type={type}
         id={name}
         name={name}

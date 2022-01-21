@@ -1,4 +1,4 @@
-import { React, Component } from "react";
+import { React } from "react";
 import GridCard from "../GridCard/";
 
 function Grid(props) {
@@ -60,7 +60,7 @@ function Grid(props) {
       link: "#",
     },
   ];
-  console.log(restaurants[0].name);
+
   const listRestaurants = restaurants.map((contact, index) => (
     <GridCard contact={contact} key={index} />
   ));

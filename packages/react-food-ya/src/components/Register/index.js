@@ -37,7 +37,6 @@ const Register = () => {
       alert("No coinciden las contraseñas");
     } else {
       alert("usuario registrado");
-      console.log(name, surname, email, pass, dni, direction, district, city);
     }
   };
   return (

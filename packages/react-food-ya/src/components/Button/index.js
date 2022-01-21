@@ -3,16 +3,6 @@ import PropTypes from "prop-types";
 import "./style.scss";
 import { Link } from "react-router-dom";
 
-// class Button extends React.Component {
-//     render() {
-//         return (
-//             <a className={this.props.info.buttonStyle} href={this.props.info.url}>
-//                 {this.props.info.content}
-//             </a>
-//         )
-//     }
-// }
-
 const Button = ({ content, url, buttonStyle }) => {
   return (
     <Link className={buttonStyle} to={url}>

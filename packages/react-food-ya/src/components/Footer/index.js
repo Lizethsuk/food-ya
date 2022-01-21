@@ -9,13 +9,12 @@ const Footer = () => {
     <div className="main-footer">
       <div className="container">
         <div className="row">
-          {/* col-1 */}
-          <Link className="col-1" to="/">
+          <Link className="logo-container" to="/">
             <img src="https://i.ibb.co/DDsSFVZ/logo.png" alt="logo" />
           </Link>
-          {/* col-2 */}
+
           <IconContext.Provider value={{ color: "#f4ece1", size: "24px" }}>
-            <div className="col-2">
+            <div className="social-media-container">
               <ul className="list-unstyled">
                 <li>
                   <a href="https://www.facebook.com/">
@@ -40,7 +39,7 @@ const Footer = () => {
               </ul>
             </div>
           </IconContext.Provider>
-          {/* col-3 */}
+
           <div className="col">
             <p className="contact">example@gmail.com</p>
             <p className="contact">#555555555555</p>

@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="main-footer">
-      <div className="container">
-        <div className="row">
+      <div className="container-footer">
+        <div className="row-footer">
           <Link className="logo-container" to="/">
             <img src="https://i.ibb.co/DDsSFVZ/logo.png" alt="logo" />
           </Link>
@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
           </IconContext.Provider>
 
-          <div className="col">
+          <div className="contact-container">
             <p className="contact">example@gmail.com</p>
             <p className="contact">#555555555555</p>
           </div>

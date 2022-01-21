@@ -2,8 +2,8 @@
 
 .main-footer {
   background-color: $color_brown;
-  .container {
-    .row {
+  .container-footer {
+    .row-footer {
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -20,7 +20,7 @@
           }
         }
       }
-      .col {
+      .contact-container {
         .contact {
           font-family: roboto;
           font-size: 18px;

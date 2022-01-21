@@ -11,13 +11,16 @@
 }
 
 .fit-content-button {
-  width: 150px;
+  // width: fit-content;
   height: fit-content;
   background: $color_green;
   padding: 10px 25px;
   border-radius: 10px;
-  color: white;
+  color: $color_cream;
   text-decoration: none;
+  &:hover{
+    color:$color_cream;
+  }
   &.margin-top {
     display: block;
     margin: auto;

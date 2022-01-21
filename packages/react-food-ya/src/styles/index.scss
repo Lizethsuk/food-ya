@@ -9,6 +9,13 @@ body {
   background: $color_cream;
 }
 
+a {
+  color: $color_cream !important;
+  &:hover {
+    color: $color_cream !important;
+  }
+}
+
 /* Navbar */
 
 /* Banner */

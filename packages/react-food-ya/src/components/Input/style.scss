@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+label {
+  display: block;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+input {
+  border: 1px solid;
+  border-color: black;
+  display: block;
+  width: calc(100% - 15px);
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 300;
+  border-radius: 7px;
+  &:focus {
+    border: 3px solid;
+  }
+  margin-bottom: 20px;
+}

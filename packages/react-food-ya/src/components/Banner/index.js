@@ -1,6 +1,7 @@
 import { React, Component } from "react";
-import Button from "../Button";
+import CustomButton from "../CustomButton";
 import "./style.scss";
+
 
 class Banner extends Component {
   render() {
@@ -10,7 +11,7 @@ class Banner extends Component {
         <div className="banner-text">
           <h1>Food Ya!</h1>
           <p>Find your favourite food here!</p>
-          <Button content={"Try here!"} url={"/register-selection"} />
+          <CustomButton content={"Try here!"} url={"/register-selection"} />
         </div>
       </div>
     );

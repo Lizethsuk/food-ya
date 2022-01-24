@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../../components/Input";
-import Button from "../../components/Button";
+import CustomButton from "../../components/CustomButton";
 import "./style.scss";
 
 const SignIn = () => {
@@ -11,7 +11,7 @@ const SignIn = () => {
           <form className="sign-in-option-container">
             <Input name={"email"} label={"Correo electrónico"} type={"text"}/>
             <Input name={"password"} label={"Contraseña"} type={"password"}/>
-            <Button content={"Sign In"} url={"/"} buttonStyle={"fit-content-button"}/>
+            <CustomButton content={"Sign In"} url={"/"} buttonStyle={"fit-content-button"}/>
           </form>
         </div>
     </div>

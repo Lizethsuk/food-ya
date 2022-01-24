@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/";
+import CustomButton from "../CustomButton";
 import "./style.scss";
 import { Link } from "react-router-dom";
 
@@ -15,10 +15,10 @@ const Navbar = () => {
       </Link>
       <ul className="ButtonContainer">
         <li>
-          <Button content="Sign In" url="/sign-in" buttonStyle="ButtonHeader" />
+          <CustomButton content="Sign In" url="/sign-in" buttonStyle="ButtonHeader" />
         </li>
         <li>
-          <Button
+          <CustomButton
             content="Sign Up"
             url="/register-selection"
             buttonStyle="ButtonHeader"

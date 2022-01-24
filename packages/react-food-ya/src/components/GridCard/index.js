@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/";
+import CustomButton from "../CustomButton";
 
 function GridCard(props) {
   const contact = props.contact;
@@ -17,7 +17,7 @@ function GridCard(props) {
           </ul>
         </div>
       </div>
-      <Button
+      <CustomButton
         buttonStyle={"fit-content-button margin-top"}
         content={"Ir a Restaurante"}
         url={"/restaurant"}

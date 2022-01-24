@@ -1,7 +1,7 @@
 import React from "react";
 import RegisterOption from "../../components/RegisterOption";
 import "./style.scss";
-import Button from "../../components/Button/";
+import CustomButton from "../../components/CustomButton/";
 
 const RegisterSelection = () => {
   return (
@@ -27,7 +27,7 @@ const RegisterSelection = () => {
             url={"/register"}
           />
         </div>
-        <Button content="Sign In" buttonStyle={"fit-content-button margin"} url={"/sign-in"} />
+        <CustomButton content="Sign In" buttonStyle={"fit-content-button margin"} url={"/sign-in"} />
       </div>
     </div>
   );

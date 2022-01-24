@@ -7,7 +7,7 @@ const SignIn = () => {
   return (
     <div className="sign-in-page">
         <div className="sign-in-container">
-          <h2 className="sign-in-title">Sign In</h2>
+          <h2 className="sign-in-title">Iniciar Sesión</h2>
           <form className="sign-in-option-container">
             <Input name={"email"} label={"Correo electrónico"} type={"text"}/>
             <Input name={"password"} label={"Contraseña"} type={"password"}/>

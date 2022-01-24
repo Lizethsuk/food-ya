@@ -6,7 +6,6 @@ import CustomButton from "../../components/CustomButton/";
 const RegisterSelection = () => {
   return (
     <div className="register-selection-page">
-
       <div className="register-container">
         <h2 className="register-title">Elija que perfil desea crear</h2>
         <div className="register-option-container">

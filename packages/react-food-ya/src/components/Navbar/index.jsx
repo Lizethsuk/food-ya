@@ -1,9 +1,9 @@
-import React from "react";
-import CustomButton from "../CustomButton";
-import "./style.scss";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import React from 'react';
+import CustomButton from '../CustomButton';
+import './style.scss';
 
-const Navbar = () => {
+function Navbar() {
   return (
     <nav>
       <Link className="logo-link" to="/">
@@ -11,7 +11,7 @@ const Navbar = () => {
           src="https://i.ibb.co/GH040rw/logo-color.png"
           width="150"
           alt="logo"
-        ></img>
+        />
       </Link>
       <ul className="ButtonContainer">
         <li>
@@ -27,6 +27,6 @@ const Navbar = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default Navbar;

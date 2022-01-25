@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Input from "../Input/";
-import { FcGoogle } from "react-icons/fc";
-import { ImFacebook2 } from "react-icons/im";
-import { IconContext } from "react-icons";
+import React, { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import { ImFacebook2 } from 'react-icons/im';
+import { IconContext } from 'react-icons';
+import Input from '../Input';
 
-const Register = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [confpass, setConfpass] = useState("");
-  const [dni, setDni] = useState("");
-  const [direction, setDirection] = useState("");
-  const [district, setDistrict] = useState("");
-  const [city, setCity] = useState("");
+function Register() {
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [confpass, setConfpass] = useState('');
+  const [dni, setDni] = useState('');
+  const [direction, setDirection] = useState('');
+  const [district, setDistrict] = useState('');
+  const [city, setCity] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,9 +34,9 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (pass !== confpass) {
-      alert("No coinciden las contraseñas");
+      alert('No coinciden las contraseñas');
     } else {
-      alert("usuario registrado");
+      alert('usuario registrado');
     }
   };
   return (
@@ -91,7 +91,7 @@ const Register = () => {
         Registrar
       </button>
       <hr size="3px" color="black" />
-      <IconContext.Provider value={{ size: "40px" }}>
+      <IconContext.Provider value={{ size: '40px' }}>
         <a href="https://www.facebook.com/">
           <ImFacebook2 />
         </a>
@@ -101,6 +101,6 @@ const Register = () => {
       </IconContext.Provider>
     </form>
   );
-};
+}
 
 export default Register;

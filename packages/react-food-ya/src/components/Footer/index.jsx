@@ -1,10 +1,12 @@
-import { React } from "react";
-import { IconContext } from "react-icons/lib";
-import { BsFacebook, BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs";
-import "./style.scss";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { IconContext } from 'react-icons/lib';
+import {
+  BsFacebook, BsTwitter, BsLinkedin, BsYoutube,
+} from 'react-icons/bs';
+import './style.scss';
+import { Link } from 'react-router-dom';
 
-const Footer = () => {
+function Footer() {
   return (
     <div className="main-footer">
       <div className="container-footer">
@@ -13,7 +15,7 @@ const Footer = () => {
             <img src="https://i.ibb.co/DDsSFVZ/logo.png" alt="logo" />
           </Link>
 
-          <IconContext.Provider value={{ color: "#f4ece1", size: "24px" }}>
+          <IconContext.Provider value={{ color: '#f4ece1', size: '24px' }}>
             <div className="social-media-container">
               <ul className="list-unstyled">
                 <li>
@@ -48,6 +50,6 @@ const Footer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Footer;

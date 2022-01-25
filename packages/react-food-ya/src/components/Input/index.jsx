@@ -1,7 +1,9 @@
-import React from "react";
-import "./style.scss";
+import React from 'react';
+import './style.scss';
 
-const Input = ({ name, type, label, placeholder, onChange }) => {
+function Input({
+  name, type, label, placeholder, onChange,
+}) {
   return (
     <div className="input-container">
       <label className="input-label" htmlFor={name}>
@@ -17,6 +19,6 @@ const Input = ({ name, type, label, placeholder, onChange }) => {
       />
     </div>
   );
-};
+}
 
 export default Input;

@@ -1,8 +1,8 @@
-import React from "react";
-import CustomButton from "../CustomButton";
+import React from 'react';
+import CustomButton from '../CustomButton';
 
 function GridCard(props) {
-  const contact = props.contact;
+  const { contact } = props;
   return (
     <li className="card">
       <div className="div-img">
@@ -13,14 +13,14 @@ function GridCard(props) {
         <div className="div-type-start">
           <span>{contact.type}</span>
           <ul className="ulStars">
-            <li className="star">{" ★ ".repeat(contact.stars)}</li>
+            <li className="star">{' ★ '.repeat(contact.stars)}</li>
           </ul>
         </div>
       </div>
       <CustomButton
-        buttonStyle={"fit-content-button margin-top"}
-        content={"Ir a Restaurante"}
-        url={"/restaurant"}
+        buttonStyle="fit-content-button margin-top"
+        content="Ir a Restaurante"
+        url="/restaurant"
       />
     </li>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function CardMenu({
   img, name, price, description,
@@ -25,5 +26,19 @@ function CardMenu({
     </li>
   );
 }
+
+CardMenu.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.string,
+  description: PropTypes.string,
+};
+
+CardMenu.defaultProps = {
+  img: 'Default Image',
+  name: 'Default Name',
+  price: 's./ 10',
+  description: 'Default Description',
+};
 
 export default CardMenu;

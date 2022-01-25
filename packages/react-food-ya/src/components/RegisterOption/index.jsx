@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CustomButton from '../CustomButton';
 import './style.scss';
 
@@ -13,5 +14,19 @@ function RegisterOption({
     </div>
   );
 }
+
+RegisterOption.propTypes = {
+  imgContent: PropTypes.string,
+  text: PropTypes.string,
+  content: PropTypes.string,
+  url: PropTypes.string,
+};
+
+RegisterOption.defaultProps = {
+  imgContent: 'Default Image',
+  text: 'Default Text',
+  content: 'Default Description',
+  url: 'defaultUrl',
+};
 
 export default RegisterOption;

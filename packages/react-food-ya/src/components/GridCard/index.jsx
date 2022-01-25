@@ -1,19 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CustomButton from '../CustomButton';
 
-function GridCard(props) {
-  const { contact } = props;
+function GridCard({
+  img, name, type, stars,
+}) {
+  // const { contact } = props;
   return (
     <li className="card">
       <div className="div-img">
-        <img className="imgAvatar" alt="" src={contact.img.url} />
+        <img className="imgAvatar" alt="" src={img.url} />
       </div>
       <div className="content-div">
-        <h2>{contact.name}</h2>
+        <h2>{name}</h2>
         <div className="div-type-start">
-          <span>{contact.type}</span>
+          <span>{type}</span>
           <ul className="ulStars">
-            <li className="star">{' ★ '.repeat(contact.stars)}</li>
+            <li className="star">{' ★ '.repeat(stars)}</li>
           </ul>
         </div>
       </div>
@@ -25,4 +28,19 @@ function GridCard(props) {
     </li>
   );
 }
+
+GridCard.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  stars: PropTypes.number,
+};
+
+GridCard.defaultProps = {
+  img: 'Default Image',
+  name: 'Default name',
+  type: 'Default Type',
+  stars: 2,
+};
+
 export default GridCard;

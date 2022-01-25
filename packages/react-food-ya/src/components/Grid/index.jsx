@@ -67,12 +67,14 @@ function Grid() {
     },
   ];
 
-  const listRestaurants = restaurants.map((contact) => (
-    <GridCard contact={contact} key={contact.id} />
-  ));
   return (
     <div className="grid-section">
-      <ul className="divUlType">{listRestaurants}</ul>
+      <ul className="divUlType">
+        { restaurants.map((restaurant) => (
+          // eslint-disable-next-line max-len
+          <GridCard img={restaurant.img} name={restaurant.name} type={restaurant.type} stars={restaurant.stars} key={restaurant.id} />
+        ))}
+      </ul>
     </div>
   );
 }

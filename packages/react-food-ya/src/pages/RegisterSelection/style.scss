@@ -6,9 +6,7 @@
   background-size: cover;
   background-position: center;
   padding:$section_padding;
-  height: 100vh;
-
-  // @media ()
+  height: auto;
 
   .register-container {
     margin: auto;
@@ -20,7 +18,7 @@
     align-items: center;
 
     .register-title {
-      margin-top: 30px;
+      margin: 30px 0 20px 0;
       color: $color_brown;
     }
 
@@ -33,6 +31,7 @@
     }
 
     .container{
+      margin-bottom: 10px;
       .row{
         .col-md-6{
           .card{

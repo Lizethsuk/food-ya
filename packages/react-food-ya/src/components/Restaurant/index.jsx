@@ -1,6 +1,10 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
 import CardMenu from '../CardMenu';
+import './style.scss';
 
 function Restaurant() {
   const restaurantDescription = {
@@ -72,37 +76,47 @@ function Restaurant() {
   };
   const menuRestaurant = restaurantDescription.menu;
   const listMenu = menuRestaurant.map((contact) => (
-    <CardMenu contact={contact} key={contact.id} />
+    // eslint-disable-next-line max-len
+    <CardMenu img={contact.img} name={contact.name} price={contact.price} description={contact.description} key={contact.id} />
   ));
 
   return (
-    <div className="restaurant-section">
-      <div className="infoRestaurant">
-        <h1>{restaurantDescription.name}</h1>
-        <img src={restaurantDescription.img.url} alt="" />
-        <ul className="ulDescription">
-          <li>
-            <VscVerified />
-            {restaurantDescription.type}
-          </li>
-          <li>
-            <VscHistory />
-            {restaurantDescription.schedule}
-          </li>
-          <li>
-            <VscStarFull />
-            {restaurantDescription.points}
-          </li>
-        </ul>
-      </div>
-      <div className="divMenu">
-        <h4>
-          Menú de
-          {restaurantDescription.name}
-        </h4>
-        <ul className="divUlType">{listMenu}</ul>
-      </div>
-    </div>
+    <Container fluid className="restaurant-section">
+      <Row>
+        <Col lg={3}>
+          <div className="infoRestaurant">
+            <h1>{restaurantDescription.name}</h1>
+            <img src={restaurantDescription.img.url} alt="" />
+            <ul className="ulDescription">
+              <li>
+                <VscVerified />
+                {restaurantDescription.type}
+              </li>
+              <li>
+                <VscHistory />
+                {restaurantDescription.schedule}
+              </li>
+              <li>
+                <VscStarFull />
+                {restaurantDescription.points}
+              </li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={9}>
+          <div className="divMenu">
+            <h4>
+              Menú de
+              {' '}
+              {restaurantDescription.name}
+            </h4>
+            <Container fluid>
+              <Row>{listMenu}</Row>
+            </Container>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

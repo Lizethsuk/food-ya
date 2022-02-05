@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './pages/Landing';
 import RegisterSelection from './pages/RegisterSelection';
 import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import CustomNavbar from './components/Navbar';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import RestaurantPage from './pages/RestaurantPage';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <CustomNavbar />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/register-selection" element={<RegisterSelection />} />

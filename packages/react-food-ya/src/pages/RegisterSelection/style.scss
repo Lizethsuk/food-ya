@@ -5,12 +5,13 @@
   background-image: url(https://www.cypressgreen.in/blog/wp-content/uploads/2021/03/food-1536x1024.jpg);
   background-size: cover;
   background-position: center;
-
+  padding:$section_padding;
   height: 100vh;
+
+  // @media ()
 
   .register-container {
     margin: auto;
-    width: calc(60% - 10px);
     background: $color_cream;
     border-radius: 10px;
     display: flex;
@@ -29,6 +30,16 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+    }
+
+    .container{
+      .row{
+        .col-md-6{
+          .card{
+            margin-bottom:15px;
+          }
+        }
+      }
     }
 
     .default-button {

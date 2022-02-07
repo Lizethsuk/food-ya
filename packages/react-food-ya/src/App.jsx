@@ -3,7 +3,8 @@ import Landing from './pages/Landing';
 import RegisterSelection from './pages/RegisterSelection';
 import Footer from './components/Footer';
 import CustomNavbar from './components/Navbar';
-import Register from './pages/Register';
+import RegisterUser from './pages/RegisterUser';
+import RegisterRestaurant from './pages/RegisterRestaurant';
 import SignIn from './pages/SignIn';
 import RestaurantPage from './pages/RestaurantPage';
 
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/register-selection" element={<RegisterSelection />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register-user" element={<RegisterUser />} />
+          <Route path="/register-restaurant" element={<RegisterRestaurant />} />
           <Route path="/restaurant" element={<RestaurantPage />} />
           <Route path="/sign-in" element={<SignIn />} />
         </Routes>

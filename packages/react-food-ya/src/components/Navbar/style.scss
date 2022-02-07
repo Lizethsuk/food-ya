@@ -4,6 +4,11 @@ body {
   margin: 0px;
 }
 
+.container-fluid{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
 .navbar {
   display: flex;
   background-color: $color_yellow;
@@ -17,6 +22,7 @@ body {
 }
 
 .ButtonHeader {
+  z-index: 2;
   border-radius: 20px;
   margin: 20px;
   font-size: 14px;
@@ -38,19 +44,27 @@ body {
   }
 }
 
-.ButtonContainer {
-  margin-right: 5%;
-  li {
-    display: inline-block;
-    &:first-child {
-      a {
-        margin-right: 2vw;
-      }
-    }
-    &:last-child {
-      a {
-        margin-left: 2vw;
-      }
-    }
+.show{
+  background-color: $color_yellow;
+  z-index: 3;
+  .ButtonHeader{
+    width: 180px;
   }
 }
+
+// .ButtonContainer {
+//   margin-right: 5%;
+//   li {
+//     display: inline-block;
+//     &:first-child {
+//       a {
+//         margin-right: 2vw;
+//       }
+//     }
+//     &:last-child {
+//       a {
+//         margin-left: 2vw;
+//       }
+//     }
+//   }
+// }

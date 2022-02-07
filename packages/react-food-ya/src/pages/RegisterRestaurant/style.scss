@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.register-page {
+.register-restaurant {
   background: url(https://iili.io/7XpyPf.md.png);
   background-size: cover;
   background-position: center;
@@ -11,28 +11,26 @@
   justify-content: center;
   padding: $section_padding;
 
-  form {
+  .form-restaurant {
     background-color: $color_cream;
+    outline: 1px solid $color_brown;
     border-radius: $border_radius;
     width: 100%;
     max-width: 450px;
     padding: 40px 20px;
+
+    .form-control{
+      border:1px solid $color_brown;
+    }
       
     .form-label{
-      text-align: left;
-    }
-
-    #ciudad {
-      margin-bottom: 60px;
+      display: flex;
     }
 
     .Reg-button {
       font-size: 20px;
       background: $color_green;
-      padding: 15px 35px;
-      border-radius: 25px;
-      color: white;
-      text-decoration: none;
+      border-radius: 10px;
       border: none;
       &:hover {
         cursor: pointer;

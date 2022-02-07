@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.register-restaurant {
+  background: url(https://iili.io/7XpyPf.md.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $section_padding;
+
+  .form-restaurant {
+    background-color: $color_cream;
+    outline: 1px solid $color_brown;
+    border-radius: $border_radius;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 20px;
+
+    .form-control{
+      border:1px solid $color_brown;
+    }
+      
+    .form-label{
+      display: flex;
+    }
+
+    .Reg-button {
+      font-size: 20px;
+      background: $color_green;
+      border-radius: 10px;
+      border: none;
+      &:hover {
+        cursor: pointer;
+        background: #337aff;
+      }
+    }
+
+    hr {
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+  }
+}

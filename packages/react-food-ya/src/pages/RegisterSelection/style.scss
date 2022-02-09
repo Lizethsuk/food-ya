@@ -8,6 +8,10 @@
   padding:$section_padding;
   height: auto;
 
+  @media (min-width: $tablet){
+    height:100vh;
+  }
+
   .register-container {
     margin: auto;
     background: $color_cream;

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 // import React, { useState } from 'react';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
@@ -10,7 +10,7 @@ import {
 
 function FormRestaurant() {
   const [restaurantState, setRestaurant] = useState({});
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,11 +19,17 @@ function FormRestaurant() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (restaurantState.password !== restaurantState.password_configuration) {
-      navigate('/register-selection');
-    } else {
-      navigate('/');
-    }
+    // if (restaurantState.password !== restaurantState.password_configuration) {
+    //   navigate('/register-selection');
+    // } else {
+    //   navigate('/');
+    // }
+    fetch('https://food-ya-backend.herokuapp.com/api/restaurants', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(restaurantState),
+    })
+      .then((res) => res.json());
   };
 
   return (
@@ -41,10 +47,10 @@ function FormRestaurant() {
           <Form.Control type="text" name="surname" onChange={handleChange} />
         </Col>
 
-        <Col sm="12" className="mb-3">
+        {/* <Col sm="12" className="mb-3">
           <Form.Label>Correo</Form.Label>
           <Form.Control type="text" name="email" onChange={handleChange} />
-        </Col>
+        </Col> */}
 
         <Col sm="6" className="mb-3">
           <Form.Label>Contraseña</Form.Label>
@@ -53,7 +59,7 @@ function FormRestaurant() {
 
         <Col sm="6" className="mb-3">
           <Form.Label>Confirmar Contraseña</Form.Label>
-          <Form.Control type="text" name="password_configuration" onChange={handleChange} />
+          <Form.Control type="text" name="password_confirmation" onChange={handleChange} />
         </Col>
 
         <Col sm="12" className="mb-3">
@@ -61,7 +67,7 @@ function FormRestaurant() {
           <Form.Control type="text" name="dni" onChange={handleChange} />
         </Col>
 
-        <Col sm="12" className="mb-3">
+        {/* <Col sm="12" className="mb-3">
           <Form.Label>Dirección</Form.Label>
           <Form.Control type="text" name="direction" onChange={handleChange} />
         </Col>
@@ -74,7 +80,7 @@ function FormRestaurant() {
         <Col sm="6" className="mb-3">
           <Form.Label>Ciudad</Form.Label>
           <Form.Control type="text" name="city" onChange={handleChange} />
-        </Col>
+        </Col> */}
         <h2>Datos del Restaurant</h2>
         <Col sm="12" className="mb-3">
           <Form.Label>Razón Social</Form.Label>
@@ -87,7 +93,7 @@ function FormRestaurant() {
         </Col>
         <Col sm="6" className="mb-3">
           <Form.Label>Teléfono del local</Form.Label>
-          <Form.Control type="text" name="phone_number" onChange={handleChange} />
+          <Form.Control type="text" name="business_phone" onChange={handleChange} />
         </Col>
         <Col sm="12" className="mb-3">
           <Form.Label>Correo del local</Form.Label>

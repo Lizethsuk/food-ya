@@ -8,6 +8,10 @@
   padding: 50px $section_padding;
   height: auto;
 
+  @media (min-width: $tablet){
+    height:100vh;
+  }
+
   .sign-in-container {
     margin: auto;
     width: 450px;

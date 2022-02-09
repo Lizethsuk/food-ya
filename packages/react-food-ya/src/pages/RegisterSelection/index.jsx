@@ -15,13 +15,13 @@ function RegisterSelection() {
               imgContent="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/f37288f1ff264310c703ea536190f79c.svg "
               text="Registra tu restaurante"
               content="Restaurante"
-              url="/register"
+              url="/register-restaurant"
             />
             <RegisterOption
               imgContent="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/d68c5f5ddd33d16a8d6855987410673b.svg"
               text="Registrate para pedir"
               content="Usuario"
-              url="/register"
+              url="/register-user"
             />
           </Row>
         </Container>

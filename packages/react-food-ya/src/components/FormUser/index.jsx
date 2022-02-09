@@ -24,11 +24,9 @@ function FormUser() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userState),
     })
-      .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then((res) => console.log(res));
+      .then((res) => res.json());
+    // console.log(res);
+    // .then((res) => console.log(res));
   };
 
   return (

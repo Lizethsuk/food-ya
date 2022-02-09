@@ -29,7 +29,7 @@ function CustomNavbar() {
     //   </ul>
     // </nav>
     <Navbar expand="md">
-      <Container fluid>
+      <Container className="pe-0 ps-0">
         <Navbar.Brand>
           <Link className="logo-link" to="/">
             <img

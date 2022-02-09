@@ -4,11 +4,6 @@ body {
   margin: 0px;
 }
 
-.container-fluid{
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-}
-
 .navbar {
   display: flex;
   background-color: $color_yellow;
@@ -18,6 +13,9 @@ body {
   .logo-link {
     margin-left: 5%;
     cursor: pointer;
+  }
+  .navbar-toggler{
+    margin: 15px;
   }
 }
 

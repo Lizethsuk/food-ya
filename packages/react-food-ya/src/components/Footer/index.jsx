@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className="main-footer">
-      <Container fluid>
+      <Container>
         <Row>
           <Col md={4} sm={6} className="pe-0 ps-0">
             <Link className="logo-container" to="/">

@@ -1,46 +1,148 @@
 @import "../../styles/variables";
 
-.register-restaurant {
-  background: url(https://iili.io/7XpyPf.md.png);
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $section_padding;
+.register-restaurant{
+    .bannerRegisterRestaurant{
+        background-image: url('https://www.cocacolaep.com/assets/Spain/Blog-Rojo-y-en-Botella/2021/smart-restaurants/876d50b149/ryb_smart_restaurants_G_900x550__ScaleMaxWidthWzk0MF0.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 40px 0px;
 
-  .form-restaurant {
-    background-color: $color_cream;
-    outline: 1px solid $color_brown;
-    border-radius: $border_radius;
-    width: 100%;
-    max-width: 450px;
-    padding: 40px 20px;
-
-    .form-control{
-      border:1px solid $color_brown;
+        .bannerCol{
+            color: white;
+            text-align: left;
+            height: 100vh;
+            display: table;
+            .bannerDiv{
+                display: table-cell;
+                vertical-align: middle;
+                text-align: left;
+            h2{
+                font-size: 40px;
+                font-weight: bold;
+            }
+            p{
+                font-size: 18px;
+                line-height: 19px;
+                font-weight: bold;
+            }
+            }
+        }
     }
-      
-    .form-label{
-      display: flex;
-    }
-
-    .Reg-button {
-      font-size: 20px;
-      background: $color_green;
-      border-radius: 10px;
-      border: none;
-      &:hover {
-        cursor: pointer;
-        background: #337aff;
+    .FormRegister {
+        background-color: $color_cream;
+        border-radius: 30px;
+        width: 30%;
+        min-width: 450px;
+        padding: 40px 80px;
+        a:nth-child(10),
+        a:nth-child(11) {
+          padding: 20px;
+        }
+    
+        .Group {
+          display: flex;
+          flex-wrap: nowrap;
+    
+          div:first-child {
+            flex: 1 0 auto;
+            input {
+              width: calc(100% - 25px);
+            }
+          }
+    
+          div:last-child {
+            flex: 1 0 auto;
+            input {
+              width: calc(100% - 25px);
+            }
+          }
+        }
+    
+        #ciudad {
+          margin-bottom: 60px;
+        }
+    
+        .Reg-button {
+          font-size: 20px;
+          background: $color_green;
+          padding: 15px 35px;
+          border-radius: 25px;
+          color: white;
+          text-decoration: none;
+          border: none;
+          &:hover {
+            cursor: pointer;
+            background: #337aff;
+          }
+        }
+    
+        hr {
+          margin-top: 60px;
+          margin-bottom: 40px;
+        }
       }
-    }
+    .sectionStep{
+        padding: 60px 0px;
+        h2{
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        svg{
+            font-size: 60px;
+            margin-bottom: 20px;
+            fill: $color_yellow;
+        }
+    }  
+    .sectionWin {
+        .bgCol{
+            background-image: url('https://socios.pedidosya.com/resource/PedidosYaResource/PedidosYaResource/images/bg_checklist-min.jpg');
+            background-size: cover;
 
-    hr {
-      margin-top: 60px;
-      margin-bottom: 40px;
+        }
+        .colWin {
+            color: white;
+            text-align: left;
+            background-color: $color_green;
+            .divText{
+                width: 80%;     
+                margin: auto;
+                padding: 90px 0px;
+                ul{
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+            }
+        }
     }
-  }
+    .sectionWork{
+        padding: 60px 0px;
+        h2{
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        h1{
+            font-size: 98px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #f0356d;
+        }
+        .fit-content-button {
+            margin-top: 20px;
+        }
+    }
+    .sectionMore {
+        text-align: left;
+        padding: 60px 0;
+        background-color: #f1f1f1;
+        h3 {
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .accordion-button:not(.collapsed), .accordion-button:focus {
+            text-decoration: none;
+            box-shadow: 0 0 0 0.20rem rgba(238, 185, 10, 0.48)
+        }
+        
+    } 
 }

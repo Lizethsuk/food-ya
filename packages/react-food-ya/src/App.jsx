@@ -4,6 +4,8 @@ import RegisterSelection from './pages/RegisterSelection';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Register from './pages/Register';
+import ConfirmationRegister from './pages/ConfirmationRegister';
+import RegisterRestaurant from './pages/RegisterRestaurant';
 import SignIn from './pages/SignIn';
 import RestaurantPage from './pages/RestaurantPage';
 
@@ -17,6 +19,8 @@ function App() {
           <Route path="/register-selection" element={<RegisterSelection />} />
           <Route path="/register" element={<Register />} />
           <Route path="/restaurant" element={<RestaurantPage />} />
+          <Route path="/register-restaurant-one" element={<RegisterRestaurant />} />
+          <Route path="/confirmation-register" element={<ConfirmationRegister />} />
           <Route path="/sign-in" element={<SignIn />} />
         </Routes>
         <Footer />

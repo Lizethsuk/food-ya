@@ -13,13 +13,13 @@ function Footer() {
     <div className="main-footer">
       <Container fluid>
         <Row>
-          <Col md={4} sm={6}>
+          <Col md={4} sm={6} className="pe-0 ps-0">
             <Link className="logo-container" to="/">
               <img src="https://i.ibb.co/DDsSFVZ/logo.png" alt="logo" />
             </Link>
           </Col>
           <Col
-            className="align-items-center d-flex justify-content-center"
+            className="align-items-center d-flex justify-content-center pe-0 ps-0"
             md={4}
             sm={6}
           >
@@ -50,7 +50,7 @@ function Footer() {
               </div>
             </IconContext.Provider>
           </Col>
-          <Col md={4} sm={12}>
+          <Col md={4} sm={12} className="pe-0 ps-0">
             <div className="contact-container">
               <p className="contact">foodya@foodya.com</p>
               <p className="contact">999 999 9999</p>

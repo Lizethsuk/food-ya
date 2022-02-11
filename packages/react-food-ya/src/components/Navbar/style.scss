@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+
+body {
+  margin: 0px;
+}
+
+nav {
+  display: flex;
+  background-color: $color_yellow;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  .logo-link {
+    margin-left: 5%;
+    cursor: pointer;
+  }
+}
+
+.ButtonHeader {
+  border-radius: 20px;
+  margin: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: $color_green;
+  border: 1px;
+  width: 120px;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: helvetica;
+
+  &:hover {
+    opacity: 0.6;
+    transition: all 0.3s;
+  }
+}
+
+.ButtonContainer {
+  margin-right: 5%;
+  li {
+    display: inline-block;
+    &:first-child {
+      a {
+        margin-right: 2vw;
+      }
+    }
+    &:last-child {
+      a {
+        margin-left: 2vw;
+      }
+    }
+  }
+}

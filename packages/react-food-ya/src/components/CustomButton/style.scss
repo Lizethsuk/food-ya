@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.default-button {
+  width: 150px;
+  height: 50px;
+  background: $color_green;
+  padding: 10px 25px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.fit-content-button {
+  // width: fit-content;
+  height: fit-content;
+  background: $color_green;
+  padding: 10px 25px;
+  border-radius: 10px;
+  color: $color_cream;
+  text-decoration: none;
+  &:hover{
+    color:$color_cream;
+  }
+  &.margin-top {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+.margin {
+  margin-bottom: 20px;
+}

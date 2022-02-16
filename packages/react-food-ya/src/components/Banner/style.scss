@@ -5,10 +5,9 @@
   background: url(https://iili.io/7XpyPf.md.png);
   background-size: cover;
   background-position: center;
-  width: calc(90% - 40px);
-  height: 500px;
+  width: calc(95% - 40px) !important;
   padding: 20px;
-  margin: 20px auto;
+  margin: 20px 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -16,6 +15,11 @@
   position: relative;
   border-radius: 10px;
   box-shadow: 0px 0px 10px $color_brown;
+
+  @media (min-width: $tablet){
+    height:400px;
+  }
+
   .banner-img {
     z-index: 1;
     background-color: rgba($color_brown, 0.4);

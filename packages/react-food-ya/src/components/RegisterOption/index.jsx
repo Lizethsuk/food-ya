@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Card, Col,
+} from 'react-bootstrap';
 import CustomButton from '../CustomButton';
 import './style.scss';
 
@@ -7,11 +10,15 @@ function RegisterOption({
   imgContent, text, content, url,
 }) {
   return (
-    <div className="register-option">
-      <img className="register-img" src={imgContent} alt="A" />
-      <p className="register-description">{text}</p>
-      <CustomButton content={content} url={url} />
-    </div>
+    <Col md={6}>
+      <Card>
+        <Card.Img variant="top" src={imgContent} alt="A" />
+        <Card.Body>
+          <Card.Title>{text}</Card.Title>
+          <CustomButton content={content} url={url} />
+        </Card.Body>
+      </Card>
+    </Col>
   );
 }
 

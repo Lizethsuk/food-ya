@@ -1,5 +1,9 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import GridCard from '../GridCard';
+import './style.scss';
 
 function Grid() {
   const restaurants = [
@@ -69,12 +73,19 @@ function Grid() {
 
   return (
     <div className="grid-section">
-      <ul className="divUlType">
-        { restaurants.map((restaurant) => (
-          // eslint-disable-next-line max-len
-          <GridCard img={restaurant.img} name={restaurant.name} type={restaurant.type} stars={restaurant.stars} key={restaurant.id} />
-        ))}
-      </ul>
+      <Container>
+        <Row>
+          <Col>
+            <h2>Los mas populares</h2>
+          </Col>
+        </Row>
+        <Row className="divUlType">
+          { restaurants.map((restaurant) => (
+            // eslint-disable-next-line max-len
+            <GridCard img={restaurant.img} name={restaurant.name} type={restaurant.type} stars={restaurant.stars} key={restaurant.id} />
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 }

@@ -17,3 +17,14 @@
     margin-bottom: 60px;
   }
 }
+
+.card{
+  box-shadow: 0.3em 0.3em 1em rgba($color_brown, 0.5);
+
+  .card-body{
+    .card-title{
+      color:$color_brown;
+      margin-bottom:45px;
+    }
+  }
+}

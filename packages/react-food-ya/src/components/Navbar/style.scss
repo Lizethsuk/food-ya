@@ -4,7 +4,7 @@ body {
   margin: 0px;
 }
 
-nav {
+.navbar {
   display: flex;
   background-color: $color_yellow;
   align-items: center;
@@ -14,9 +14,13 @@ nav {
     margin-left: 5%;
     cursor: pointer;
   }
+  .navbar-toggler{
+    margin: 15px;
+  }
 }
 
 .ButtonHeader {
+  z-index: 2;
   border-radius: 20px;
   margin: 20px;
   font-size: 14px;
@@ -38,19 +42,27 @@ nav {
   }
 }
 
-.ButtonContainer {
-  margin-right: 5%;
-  li {
-    display: inline-block;
-    &:first-child {
-      a {
-        margin-right: 2vw;
-      }
-    }
-    &:last-child {
-      a {
-        margin-left: 2vw;
-      }
-    }
+.show{
+  background-color: $color_yellow;
+  z-index: 3;
+  .ButtonHeader{
+    width: 180px;
   }
 }
+
+// .ButtonContainer {
+//   margin-right: 5%;
+//   li {
+//     display: inline-block;
+//     &:first-child {
+//       a {
+//         margin-right: 2vw;
+//       }
+//     }
+//     &:last-child {
+//       a {
+//         margin-left: 2vw;
+//       }
+//     }
+//   }
+// }

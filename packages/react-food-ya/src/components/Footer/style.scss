@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+.main-footer {
+  background-color: $color_brown;
+  padding: 30px 0;
+  .logo-container {
+    margin: 10px;
+  }
+  .social-media-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        list-style-type: none;
+        margin: 0 12px;
+      }
+    }
+  }
+  .contact-container {
+    .contact {
+      font-family: roboto;
+      font-size: 18px;
+      color: $color_cream;
+      margin: 0;
+    }
+  }
+}

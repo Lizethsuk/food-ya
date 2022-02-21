@@ -1,0 +1,84 @@
+@import "variables";
+
+.App {
+  text-align: center;
+  background: $color_cream;
+}
+
+body {
+  font-family: "Readex Pro", sans-serif;
+  background: $color_cream;
+}
+
+a {
+  color: $color_cream !important;
+  &:hover {
+    color: $color_cream !important;
+  }
+}
+
+/* Navbar */
+
+/* Banner */
+
+/* Grid */
+.grid-section {
+  background-color: #f4ece1;
+  color: #4c4c4c;
+
+  .card {
+    max-width: 270px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: 0px 0px 19px;
+    margin: 10px;
+    border-radius: 10px;
+    overflow-x: hidden;
+    .content-div {
+      padding: 10px 15px;
+      h2 {
+        margin-bottom: 5px;
+        margin-top: 0px;
+        text-align: left;
+      }
+      span {
+        font-size: 12.5px;
+        text-align: left;
+      }
+      .ulStars {
+        list-style: none;
+        padding-left: 0px;
+        .star {
+          font-size: 15.3px;
+          letter-spacing: 0rem;
+          color: goldenrod;
+        }
+      }
+    }
+    .div-type-start {
+      display: flex;
+      padding: 0px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .div-img img {
+      width: 100%;
+    }
+  }
+
+  .divUlType {
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 auto;
+    justify-content: space-around;
+    max-width: 950px;
+    flex-wrap: wrap;
+  }
+}
+/* Footer */
+
+
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");

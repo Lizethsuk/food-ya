@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.confirmation-register {
+    .sectionWin {
+        .bgCol{
+            background-color: #E8F4FB;
+            display: flex;
+            align-items: flex-start;
+            .boxWhite {
+                background-color: #FFFFFF;
+                color: #4C4C4C;
+                max-width: 360px;
+                width: 100%;
+                padding: 20px 25px;
+                text-align: left;
+                font-size: 14px;
+                margin-top: 30px ;
+                p{
+                    line-height: 16px;
+                }
+            }
+
+        }
+        .colWin {
+            color: #4C4C4C;
+            text-align: left;
+            .divText{
+                max-width: 450px;
+                width: 100%;     
+                margin: auto;
+                padding: 90px 0px;
+                ul{
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

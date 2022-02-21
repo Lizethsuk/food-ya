@@ -1,0 +1,43 @@
+
+.cardGrid {
+    max-width: 270px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: 0px 0px 10px;
+    margin: 10px auto;
+    border-radius: 10px;
+    overflow-x: hidden;
+    .content-div {
+      padding: 10px 15px;
+      h2 {
+        margin-bottom: 5px;
+        margin-top: 0px;
+        text-align: left;
+        font-size: 23px;
+      }
+      span {
+        font-size: 12.5px;
+        text-align: left;
+      }
+      .ulStars {
+        list-style: none;
+        padding-left: 0px;
+        .star {
+          font-size: 17.3px;
+          letter-spacing: 0rem;
+          color: goldenrod;
+        }
+      }
+    }
+    .div-type-start {
+      display: flex;
+      padding: 0px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .div-img img {
+      width: 100%;
+    }
+  }

@@ -1,11 +1,19 @@
-import React from 'react';
+/* eslint-disable no-unused-expressions */
+/* eslint-disable import/no-cycle */
+import React, { useContext } from 'react';
 import {
   Container, Navbar, Nav,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
+import { ThemeContext } from '../../App';
 import './style.scss';
 
 function CustomNavbar() {
+  const { theme, setTheme } = useContext(ThemeContext);
+  const ToggleTheme = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
   return (
     // <nav>
     //   <Link className="logo-link" to="/">
@@ -28,12 +36,12 @@ function CustomNavbar() {
     //     </li>
     //   </ul>
     // </nav>
-    <Navbar expand="md">
+    <Navbar expand="md" className={theme}>
       <Container className="pe-0 ps-0">
         <Navbar.Brand>
           <Link className="logo-link" to="/">
             <img
-              src="https://i.ibb.co/GH040rw/logo-color.png"
+              src={theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/GH040rw/logo-color.png'}
               width="150"
               alt="logo"
             />
@@ -44,6 +52,7 @@ function CustomNavbar() {
           <Nav className="ms-auto align-items-end">
             <Nav.Link href="/sign-in" className="ButtonHeader">Sign In</Nav.Link>
             <Nav.Link href="/register-selection" className="ButtonHeader">Sign Up</Nav.Link>
+            <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill /> }</button>
           </Nav>
         </Navbar.Collapse>
       </Container>

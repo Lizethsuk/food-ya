@@ -2,7 +2,17 @@
 
 .App {
   text-align: center;
-  background: $color_cream;
+  &.light{
+    background: $color_cream;
+    color: #4c4c4c;
+
+  }
+  &.dark{
+    background: #615d5d;
+    color: $color_cream;
+    background-image: none;
+    filter: brightness(80%); 
+  }
 }
 
 body {
@@ -23,10 +33,9 @@ a {
 
 /* Grid */
 .grid-section {
-  background-color: #f4ece1;
-  color: #4c4c4c;
+ /*  color: #4c4c4c; */
 
-  .card {
+  /* .card {
     max-width: 270px;
     width: 100%;
     background-color: white;
@@ -65,7 +74,7 @@ a {
     .div-img img {
       width: 100%;
     }
-  }
+  } */
 
   .divUlType {
     display: flex;

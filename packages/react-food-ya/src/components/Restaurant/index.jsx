@@ -1,9 +1,11 @@
-import React from 'react';
+/* eslint-disable import/no-cycle */
+import React, { useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
 import CardMenu from '../CardMenu';
+import { ThemeContext } from '../../App';
 import './style.scss';
 
 function Restaurant() {
@@ -79,12 +81,13 @@ function Restaurant() {
     // eslint-disable-next-line max-len
     <CardMenu img={contact.img} name={contact.name} price={contact.price} description={contact.description} key={contact.id} />
   ));
+  const { theme } = useContext(ThemeContext);
 
   return (
     <Container fluid className="restaurant-section">
       <Row>
         <Col lg={3}>
-          <div className="infoRestaurant">
+          <div className={`infoRestaurant ${theme}`}>
             <h1>{restaurantDescription.name}</h1>
             <img src={restaurantDescription.img.url} alt="" />
             <ul className="ulDescription">

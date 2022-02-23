@@ -6,16 +6,34 @@ body {
 
 .navbar {
   display: flex;
-  background-color: $color_yellow;
   align-items: center;
   justify-content: space-between;
   height: 100px;
+  
+  &.light{
+    background-color: $color_yellow; 
+  }
+  &.dark{
+    background-color: #333333; 
+    img{
+      width: 70px;
+    }
+  }
   .logo-link {
     margin-left: 5%;
     cursor: pointer;
   }
   .navbar-toggler{
     margin: 15px;
+  }
+  .buttonTheme{
+    background-color: transparent;
+    border-radius: 50px !important;
+    line-height: 25px;
+    margin: auto;
+    &.dark{
+      color: #fac721ef;
+    }
   }
 }
 

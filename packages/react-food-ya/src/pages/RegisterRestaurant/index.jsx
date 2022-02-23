@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable import/no-cycle */
+import React, { useContext } from 'react';
 import './style.scss';
 import {
   Container, Row, Col, Accordion,
@@ -7,8 +8,10 @@ import { GiArchiveRegister, GiOpenFolder } from 'react-icons/gi';
 import { FaLaughWink } from 'react-icons/fa';
 import CustomButton from '../../components/CustomButton';
 import FormRestaurant from '../../components/FormRestaurant';
+import { ThemeContext } from '../../App';
 
 function RegisterRestaurant() {
+  const { theme } = useContext(ThemeContext);
   // eslint-disable-next-line max-len
   return (
     <div className="register-restaurant">
@@ -144,7 +147,7 @@ function RegisterRestaurant() {
           </Row>
         </Container>
       </section>
-      <section className="sectionMore">
+      <section className={`sectionMore ${theme}`}>
         <Container>
           <Row>
             <Col>

@@ -1,15 +1,19 @@
-import React from 'react';
+/* eslint-disable import/no-cycle */
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import CustomButton from '../CustomButton';
 import './style.scss';
+import { ThemeContext } from '../../App';
 
 function GridCard({
   img, name, type, stars,
 }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Col lg={4} md={6}>
-      <li className="cardGrid">
+      <li className={`cardGrid ${theme}`}>
         <div className="div-img">
           <img className="imgAvatar" alt="" src={img.url} />
         </div>

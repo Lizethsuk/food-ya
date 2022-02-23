@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Card, Col,
-} from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import CustomButton from '../CustomButton';
 import './style.scss';
 

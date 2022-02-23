@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Container, Navbar, Nav,
-} from 'react-bootstrap';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -32,18 +30,18 @@ function CustomNavbar() {
       <Container className="pe-0 ps-0">
         <Navbar.Brand>
           <Link className="logo-link" to="/">
-            <img
-              src="https://i.ibb.co/GH040rw/logo-color.png"
-              width="150"
-              alt="logo"
-            />
+            <img src="https://i.ibb.co/GH040rw/logo-color.png" width="150" alt="logo" />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
           <Nav className="ms-auto align-items-end">
-            <Nav.Link href="/sign-in" className="ButtonHeader">Sign In</Nav.Link>
-            <Nav.Link href="/register-selection" className="ButtonHeader">Sign Up</Nav.Link>
+            <Nav.Link href="/sign-in" className="ButtonHeader">
+              Sign In
+            </Nav.Link>
+            <Nav.Link href="/register-selection" className="ButtonHeader">
+              Sign Up
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

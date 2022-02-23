@@ -80,9 +80,15 @@ function Grid() {
           </Col>
         </Row>
         <Row className="divUlType">
-          { restaurants.map((restaurant) => (
+          {restaurants.map((restaurant) => (
             // eslint-disable-next-line max-len
-            <GridCard img={restaurant.img} name={restaurant.name} type={restaurant.type} stars={restaurant.stars} key={restaurant.id} />
+            <GridCard
+              img={restaurant.img}
+              name={restaurant.name}
+              type={restaurant.type}
+              stars={restaurant.stars}
+              key={restaurant.id}
+            />
           ))}
         </Row>
       </Container>

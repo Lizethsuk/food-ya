@@ -27,7 +27,6 @@ function GridCard({
             url="/restaurant"
           />
         </div>
-
       </li>
     </Col>
   );

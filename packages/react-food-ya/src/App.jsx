@@ -8,6 +8,7 @@ import ConfirmationRegister from './pages/ConfirmationRegister';
 import RegisterRestaurant from './pages/RegisterRestaurant';
 import SignIn from './pages/SignIn';
 import RestaurantPage from './pages/RestaurantPage';
+import DishesManager from './pages/DishesManager';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register-restaurant-one" element={<RegisterRestaurant />} />
           <Route path="/confirmation-register" element={<ConfirmationRegister />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/dish-manager" element={<DishesManager />} />
         </Routes>
         <Footer />
       </BrowserRouter>

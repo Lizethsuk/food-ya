@@ -56,16 +56,12 @@ function RegisterRestaurant() {
             </Col>
             <Col md={4}>
               <GiOpenFolder />
-              <p>
-                Luego, necesitamos que agregues
-                algunos datos y documentación de tu local.
-              </p>
+              <p>Luego, necesitamos que agregues algunos datos y documentación de tu local.</p>
             </Col>
             <Col md={4}>
               <FaLaughWink />
               <p>
-                Una vez que lo completes,
-                ¡ya estarás listo para que empecemos a trabajar juntos!
+                Una vez que lo completes, ¡ya estarás listo para que empecemos a trabajar juntos!
               </p>
             </Col>
           </Row>
@@ -80,10 +76,7 @@ function RegisterRestaurant() {
                 <ul>
                   <li>Van a aumentar tus ventas.</li>
                   <li>Va a mejorar la visibilidad de tu local.</li>
-                  <li>
-                    Vas a optimizar tu sistema
-                    de entrega a domicilio.
-                  </li>
+                  <li>Vas a optimizar tu sistema de entrega a domicilio.</li>
                 </ul>
               </div>
             </Col>
@@ -127,9 +120,7 @@ function RegisterRestaurant() {
             </Col>
             <Col lg={3} md={6}>
               <h1>4</h1>
-              <p>
-                El cliente recibe el pedido.
-              </p>
+              <p>El cliente recibe el pedido.</p>
             </Col>
           </Row>
           <Row>
@@ -139,7 +130,6 @@ function RegisterRestaurant() {
                 content="Quiero registrarme"
                 url="/restaurant"
               />
-
             </Col>
           </Row>
         </Container>
@@ -159,21 +149,19 @@ function RegisterRestaurant() {
                   <Accordion.Body>
                     Hay tres maneras de recibir pedidos, con tres sistemas de recepción distintos.
                     Vía Desktop, es decir, con un aplicativo que el equipo de Bienvenida instala
-                    fácilmente en la computadora de tu local.
-                    Vía POS, que es un sistema de recepción independiente, parecido al de Visa,
-                    en el que se imprimirá un ticket correspondiente a cada pedido.
-                    Y si usas un sistema de facturación, podemos integrarnos para que recibas el
-                    pedido y facturarlo dentro de tu sistema.
+                    fácilmente en la computadora de tu local. Vía POS, que es un sistema de
+                    recepción independiente, parecido al de Visa, en el que se imprimirá un ticket
+                    correspondiente a cada pedido. Y si usas un sistema de facturación, podemos
+                    integrarnos para que recibas el pedido y facturarlo dentro de tu sistema.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>¿Cómo es el proceso cuando entra un pedido?</Accordion.Header>
                   <Accordion.Body>
                     Los pedidos ingresan a tu sistema y a partir de que confirmas la recepción,
-                    tienes alrededor de 15 minutos para prepararlo.
-                    Si el pago es online, el cadete simplemente se lo llevará.
-                    Si el pago es en efectivo, el cadete te pagará cuando lo retire.
-                    Luego al entregarlo le cobrará al usuario el importe.
+                    tienes alrededor de 15 minutos para prepararlo. Si el pago es online, el cadete
+                    simplemente se lo llevará. Si el pago es en efectivo, el cadete te pagará cuando
+                    lo retire. lo retire. Luego al entregarlo le cobrará al usuario el importe.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
@@ -186,17 +174,15 @@ function RegisterRestaurant() {
                 <Accordion.Item eventKey="4">
                   <Accordion.Header>¿Cómo gestiono mi local?</Accordion.Header>
                   <Accordion.Body>
-                    Para gestionar tu catálogo de productos, tus horarios de atención
-                    online y ver cómo se desempeña tu negocio, dispones de Partner Portal.
-                    Esta herramienta es segura, fácil de usar y te permitirá controlar tu
-                    local con independencia. Además, te ofrecemos soporte las 24 horas en
-                    el chat de Ayuda en Línea.
+                    Para gestionar tu catálogo de productos, tus horarios de atención online y ver
+                    cómo se desempeña tu negocio, dispones de Partner Portal. Esta herramienta es
+                    segura, fácil de usar y te permitirá controlar tu local con independencia.
+                    Además, te ofrecemos soporte las 24 horas en el chat de Ayuda en Línea.
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
             </Col>
           </Row>
-
         </Container>
       </section>
     </div>

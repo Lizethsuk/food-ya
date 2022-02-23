@@ -18,11 +18,7 @@ function Footer() {
               <img src="https://i.ibb.co/DDsSFVZ/logo.png" alt="logo" />
             </Link>
           </Col>
-          <Col
-            className="align-items-center d-flex justify-content-center pe-0 ps-0"
-            md={4}
-            sm={6}
-          >
+          <Col className="align-items-center d-flex justify-content-center pe-0 ps-0" md={4} sm={6}>
             <IconContext.Provider value={{ color: '#f4ece1', size: '24px' }}>
               <div className="social-media-container">
                 <ul className="list-unstyled">

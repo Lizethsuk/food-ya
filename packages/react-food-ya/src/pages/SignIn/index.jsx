@@ -22,11 +22,7 @@ function SignIn() {
                 <Form.Control type="text" placeholder="Normal text" />
               </Col>
             </Col>
-            <CustomButton
-              content="Sign In"
-              url="/"
-              buttonStyle="fit-content-button"
-            />
+            <CustomButton content="Sign In" url="/" buttonStyle="fit-content-button" />
           </Form.Group>
         </Form>
       </div>

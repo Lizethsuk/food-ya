@@ -23,8 +23,7 @@ function FormUser() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userState),
-    })
-      .then((res) => res.json());
+    }).then((res) => res.json());
     // console.log(res);
     // .then((res) => console.log(res));
   };
@@ -107,7 +106,9 @@ function FormUser() {
           <Form.Label>Ciudad</Form.Label>
           <Form.Control type="text" name="city" onChange={handleChange} />
         </Col>
-        <Button type="submit" className="Reg-button">Registrar</Button>
+        <Button type="submit" className="Reg-button">
+          Registrar
+        </Button>
       </Form.Group>
     </Form>
   );

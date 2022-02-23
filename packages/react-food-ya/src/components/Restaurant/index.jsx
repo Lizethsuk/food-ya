@@ -77,7 +77,13 @@ function Restaurant() {
   const menuRestaurant = restaurantDescription.menu;
   const listMenu = menuRestaurant.map((contact) => (
     // eslint-disable-next-line max-len
-    <CardMenu img={contact.img} name={contact.name} price={contact.price} description={contact.description} key={contact.id} />
+    <CardMenu
+      img={contact.img}
+      name={contact.name}
+      price={contact.price}
+      description={contact.description}
+      key={contact.id}
+    />
   ));
 
   return (
@@ -107,7 +113,6 @@ function Restaurant() {
           <div className="divMenu">
             <h4>
               Menú de
-              {' '}
               {restaurantDescription.name}
             </h4>
             <Container fluid>

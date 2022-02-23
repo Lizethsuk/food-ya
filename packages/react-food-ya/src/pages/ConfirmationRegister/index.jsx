@@ -29,20 +29,18 @@ function ConfirmationRegister() {
               <div className="boxWhite">
                 <h4>Consejo</h4>
                 <strong>
-                  ¿Por qué te pedimos el número de registro y dirección de
-                  facturación?
+                  ¿Por qué te pedimos el número de registro y dirección de facturación?
                 </strong>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  numquam laborum commodi voluptates nesciunt suscipit ipsum totam quo at ab culpa!
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. numquam laborum commodi
+                  voluptates nesciunt suscipit ipsum totam quo at ab culpa!
                 </p>
                 <strong>
-                  ¿Por qué te pedimos el número de registro y dirección de
-                  facturación?
+                  ¿Por qué te pedimos el número de registro y dirección de facturación?
                 </strong>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Sint mollitia id eveniet, consectetur impedit nemo quia atque voluptas
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint mollitia id eveniet,
+                  consectetur impedit nemo quia atque voluptas
                 </p>
               </div>
             </Col>

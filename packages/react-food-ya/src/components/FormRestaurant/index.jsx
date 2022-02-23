@@ -29,8 +29,7 @@ function FormRestaurant() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(restaurantState),
-    })
-      .then((res) => res.json());
+    }).then((res) => res.json());
   };
 
   return (
@@ -104,7 +103,9 @@ function FormRestaurant() {
           <Form.Label>Dirección del local</Form.Label>
           <Form.Control type="text" name="business_address" onChange={handleChange} />
         </Col>
-        <Button type="submit" className="Reg-button">Registar</Button>
+        <Button type="submit" className="Reg-button">
+          Registar
+        </Button>
       </Form.Group>
     </Form>
   );

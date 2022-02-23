@@ -1,49 +1,58 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import {
-  React, createContext, useState, useEffect,
+  React, createContext, useState,
 } from 'react';
 
 const MenuManageContext = createContext();
 
 function MenuManageProvider(props) {
-  const [menu, setMenu] = useState({});
+  // const [menu, setMenu] = useState({});
+  const [menu, setMenu] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-
-  }, [menu]);
-
   const InitMenu = (elements) => {
-    elements.forEach((item) => {
-      if (!menu.hasOwnProperty(item)) { menu[item] = 0; }
+    // const copy = { ...menu };
+    const copy = [...menu];
+    elements.forEach((item, index) => {
+      // if (!copy.hasOwnProperty(item.name)) { copy[item.name] = 0; }
+      copy.push({
+        id: index, name: item.name, img: item.img, value: 0,
+      });
     });
-    console.log(menu);
+    setMenu(copy);
     setIsLoading(false);
   };
 
   const AddToMenu = (name) => {
-    if (menu.hasOwnProperty(name)) {
-      menu[name] += 1;
-    }
-    console.log(menu);
-    // else {
-    //   menu[name] = 1;
+    // const copy = { ...menu };
+    // if (copy.hasOwnProperty(name)) {
+    //   copy[name] += 1;
     // }
+    const copy = [...menu];
+    copy.forEach((item) => {
+      if (item.name === name) { item.value += 1; }
+    });
+
+    setMenu(copy);
   };
 
   const RemoveFromMenu = (name) => {
-    if (menu.hasOwnProperty(name)) {
-      if (menu[name] > 1) { menu[name] -= 1; }
-      // else { delete menu[name]; }
-    }
-    console.log(menu);
-
-    // else {
-    //   console.log('NO EXISTS');
+    // const copy = { ...menu };
+    // if (copy.hasOwnProperty(name)) {
+    //   if (copy[name] > 0) { copy[name] -= 1; }
     // }
+    const copy = [...menu];
+    // copy.forEach((item) => (item.name === name && item.value > 0 ? item.value - 1 : item.value));
+    copy.forEach((item) => {
+      if (item.name === name && item.value > 0) { item.value -= 1; }
+    });
+
+    setMenu(copy);
+    // console.log(menu);
   };
 
   return (

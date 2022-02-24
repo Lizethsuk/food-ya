@@ -25,7 +25,7 @@ function FormRestaurant() {
     // } else {
     //   navigate('/');
     // }
-    fetch('https://food-ya-backend.herokuapp.com/api/restaurants', {
+    fetch('https://foodya-backend.herokuapp.com/api/restaurants', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(restaurantState),
@@ -47,10 +47,10 @@ function FormRestaurant() {
           <Form.Control type="text" name="surname" onChange={handleChange} />
         </Col>
 
-        {/* <Col sm="12" className="mb-3">
+        <Col sm="12" className="mb-3">
           <Form.Label>Correo</Form.Label>
           <Form.Control type="text" name="email" onChange={handleChange} />
-        </Col> */}
+        </Col>
 
         <Col sm="6" className="mb-3">
           <Form.Label>Contraseña</Form.Label>
@@ -67,7 +67,7 @@ function FormRestaurant() {
           <Form.Control type="text" name="dni" onChange={handleChange} />
         </Col>
 
-        {/* <Col sm="12" className="mb-3">
+        <Col sm="12" className="mb-3">
           <Form.Label>Dirección</Form.Label>
           <Form.Control type="text" name="direction" onChange={handleChange} />
         </Col>
@@ -80,7 +80,7 @@ function FormRestaurant() {
         <Col sm="6" className="mb-3">
           <Form.Label>Ciudad</Form.Label>
           <Form.Control type="text" name="city" onChange={handleChange} />
-        </Col> */}
+        </Col>
         <h2>Datos del Restaurant</h2>
         <Col sm="12" className="mb-3">
           <Form.Label>Razón Social</Form.Label>

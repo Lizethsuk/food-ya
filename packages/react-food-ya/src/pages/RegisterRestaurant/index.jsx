@@ -8,7 +8,7 @@ import { GiArchiveRegister, GiOpenFolder } from 'react-icons/gi';
 import { FaLaughWink } from 'react-icons/fa';
 import CustomButton from '../../components/CustomButton';
 import FormRestaurant from '../../components/FormRestaurant';
-import { ThemeContext } from '../../App';
+import { ThemeContext } from '../../context/themeContext';
 
 function RegisterRestaurant() {
   const { theme } = useContext(ThemeContext);

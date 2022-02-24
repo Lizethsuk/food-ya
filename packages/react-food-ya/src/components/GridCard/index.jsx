@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import CustomButton from '../CustomButton';
 import './style.scss';
-import { ThemeContext } from '../../App';
+import { ThemeContext } from '../../context/themeContext';
 
 function GridCard({
   img, name, type, stars,

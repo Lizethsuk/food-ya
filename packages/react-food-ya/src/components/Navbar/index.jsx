@@ -6,7 +6,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
-import { ThemeContext } from '../../App';
+import { ThemeContext } from '../../context/themeContext';
 import './style.scss';
 
 function CustomNavbar() {
@@ -50,8 +50,8 @@ function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
           <Nav className="ms-auto align-items-end">
-            <Nav.Link href="/sign-in" className="ButtonHeader">Sign In</Nav.Link>
-            <Nav.Link href="/register-selection" className="ButtonHeader">Sign Up</Nav.Link>
+            <Link to="/sign-in" className="ButtonHeader">Sign In</Link>
+            <Link to="/register-selection" className="ButtonHeader">Sign Up</Link>
             <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill /> }</button>
           </Nav>
         </Navbar.Collapse>

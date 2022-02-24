@@ -8,7 +8,7 @@ import {
 } from 'react-icons/bs';
 import './style.scss';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../App';
+import { ThemeContext } from '../../context/themeContext';
 
 function Footer() {
   const { theme } = useContext(ThemeContext);

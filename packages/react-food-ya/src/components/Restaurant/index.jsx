@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
 import CardMenu from '../CardMenu';
-import { ThemeContext } from '../../App';
+import { ThemeContext } from '../../context/themeContext';
 import './style.scss';
 
 function Restaurant() {

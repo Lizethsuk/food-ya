@@ -28,15 +28,21 @@ function DishesManager() {
               <ul className="ulDescription">
                 <li>
                   <VscVerified />
-                  {restaurantDescription.type}
+                  <span>
+                    {restaurantDescription.type}
+                  </span>
                 </li>
                 <li>
                   <VscHistory />
-                  {restaurantDescription.schedule}
+                  <span>
+                    {restaurantDescription.schedule}
+                  </span>
                 </li>
                 <li>
                   <VscStarFull />
-                  {restaurantDescription.points}
+                  <span>
+                    {restaurantDescription.points}
+                  </span>
                 </li>
               </ul>
             </div>

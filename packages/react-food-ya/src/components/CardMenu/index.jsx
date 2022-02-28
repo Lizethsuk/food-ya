@@ -31,11 +31,9 @@ function CardMenu({
           <p>
             {value}
           </p>
-
           <Button onClick={() => RemoveFromMenu(name)}>
             <FaMinusCircle className="btnPlus" />
           </Button>
-
         </div>
       </div>
     </Col>

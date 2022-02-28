@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
-import { FaPlusCircle } from 'react-icons/fa';
+import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import './style.scss';
 import { Button } from 'react-bootstrap';
 import { MenuManageContext } from '../../context/menuManageContext';
@@ -33,7 +33,7 @@ function CardMenu({
           </p>
 
           <Button onClick={() => RemoveFromMenu(name)}>
-            <FaPlusCircle className="btnPlus" />
+            <FaMinusCircle className="btnPlus" />
           </Button>
 
         </div>

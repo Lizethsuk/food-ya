@@ -9,30 +9,64 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  
-  &.light{
-    background-color: $color_yellow; 
+
+  &.light {
+    background-color: $color_yellow;
   }
-  &.dark{
-    background-color: #333333; 
-    img{
+  &.dark {
+    background-color: $color_dark;
+    img {
       width: 70px;
     }
   }
   .logo-link {
-    margin-left: 5%;
+    margin-left: 50px;
     cursor: pointer;
   }
-  .navbar-toggler{
+  .navbar-expand-md .navbar-collapse {
+    margin-right: 30px;
+  }
+  .navbar-toggler {
     margin: 15px;
   }
-  .buttonTheme{
+  .buttonTheme {
     background-color: transparent;
     border-radius: 50px !important;
     line-height: 25px;
     margin: auto;
-    &.dark{
+    &.dark {
       color: #fac721ef;
+    }
+  }
+  .navUser {
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    margin: auto 5px;
+    .img-user {
+      border-radius: 50%;
+      width: 35px;
+      margin-right: 7px;
+    }
+    h4 {
+      color: $color_navbar;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 0px;
+    }
+    p {
+      font-size: 13px;
+      color: $color_navbar;
+    }
+  }
+  .navSesion {
+    display: flex;
+    align-items: center;
+    margin: auto 50px auto 4px;
+    color: $color_navbar !important;
+    p {
+      margin-bottom: 0px;
+      font-size: 12.9px;
     }
   }
 }
@@ -40,7 +74,7 @@ body {
 .ButtonHeader {
   z-index: 2;
   border-radius: 20px;
-  margin: 20px;
+  margin: 10px 35px 10px 0px;
   font-size: 14px;
   font-weight: bold;
   color: white;
@@ -60,10 +94,10 @@ body {
   }
 }
 
-.show{
+.show {
   background-color: $color_yellow;
   z-index: 3;
-  .ButtonHeader{
+  .ButtonHeader {
     width: 180px;
   }
 }

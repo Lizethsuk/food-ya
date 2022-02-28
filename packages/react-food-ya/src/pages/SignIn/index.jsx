@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
 // import Input from '../../components/Input';
 import CustomButton from '../../components/CustomButton';
 import './style.scss';
+import { UserContext } from '../../context/userContext';
 
 function SignIn() {
+  const { ChangeTokenState } = useContext(UserContext);
   return (
     <div className="sign-in-page">
       <div className="sign-in-container">
@@ -22,7 +24,7 @@ function SignIn() {
                 <Form.Control type="text" placeholder="Normal text" />
               </Col>
             </Col>
-            <CustomButton content="Sign In" url="/" buttonStyle="fit-content-button" />
+            <CustomButton content="Sign In" url="/" buttonStyle="fit-content-button" callback={ChangeTokenState} />
           </Form.Group>
         </Form>
       </div>

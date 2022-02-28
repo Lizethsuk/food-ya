@@ -9,12 +9,15 @@ import './styles/index.scss';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './context/themeContext';
+import { UserProvider } from './context/userContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <UserProvider>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

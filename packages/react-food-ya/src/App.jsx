@@ -15,7 +15,7 @@ import RestaurantPage from './pages/RestaurantPage';
 export const UserContext = React.createContext(undefined);
 
 const mockUser = {
-  token: false,
+  token: true,
 };
 function App() {
   const [user, setUser] = useState(mockUser);

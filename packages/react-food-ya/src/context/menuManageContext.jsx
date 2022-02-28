@@ -20,7 +20,13 @@ function MenuManageProvider(props) {
     elements.forEach((item, index) => {
       // if (!copy.hasOwnProperty(item.name)) { copy[item.name] = 0; }
       copy.push({
-        id: index, name: item.name, img: item.img, value: 0,
+        id: index,
+        name: item.name,
+        img: item.img,
+        price: `s./${item.price}`,
+        stars: item.stars,
+        description: item.description,
+        value: 0,
       });
     });
     setMenu(copy);

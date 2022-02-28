@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-constructed-context-values */
 // import React, { useState } from 'react';
 import React, { useState } from 'react';
@@ -5,7 +6,6 @@ import React, { useState } from 'react';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
-
 // import CustomButton from '../CustomButton';
 
 function FormUser() {
@@ -27,7 +27,6 @@ function FormUser() {
     // console.log(res);
     // .then((res) => console.log(res));
   };
-
   return (
     // <form className="FormRegister">
     //   <h1>Registrar</h1>

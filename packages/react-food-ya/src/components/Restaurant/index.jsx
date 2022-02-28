@@ -1,9 +1,11 @@
-import React from 'react';
+/* eslint-disable import/no-cycle */
+import React, { useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
 import CardMenu from '../CardMenu';
+import { ThemeContext } from '../../context/themeContext';
 import './style.scss';
 import { MenuManageProvider } from '../../context/menuManageContext';
 
@@ -75,13 +77,14 @@ function Restaurant() {
       key={contact.id}
     />
   ));
+  const { theme } = useContext(ThemeContext);
 
   return (
     <Container fluid className="restaurant-section">
       <MenuManageProvider>
         <Row>
           <Col lg={3}>
-            <div className="infoRestaurant">
+            <div className={`infoRestaurant ${theme}`}>
               <h1>{restaurantDescription.name}</h1>
               <img src={restaurantDescription.img} alt="" />
               <ul className="ulDescription">

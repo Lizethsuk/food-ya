@@ -1,8 +1,17 @@
 @import "../../styles/variables";
 
 .main-footer {
-  background-color: $color_brown;
+  
   padding: 30px 0;
+  &.dark{
+    background-color: #4C4C4C;
+    .logo-container img{
+      width: 70px;
+    }
+  }
+  &.light{
+    background-color: $color_brown;
+  }
   .logo-container {
     margin: 10px;
   }

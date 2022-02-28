@@ -17,16 +17,14 @@ function FormUser() {
     setUser({ ...userState, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch('https://food-ya-backend.herokuapp.com/api/users', {
+    const response = await fetch('https://foodya-backend.herokuapp.com/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userState),
-    })
-      .then((res) => res.json());
-    // console.log(res);
-    // .then((res) => console.log(res));
+    });
+    console.log(await response.json());
   };
 
   return (

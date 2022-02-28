@@ -11,18 +11,57 @@ body {
   justify-content: space-between;
   height: 100px;
   .logo-link {
-    margin-left: 5%;
+    margin-left: 50px;
     cursor: pointer;
+  }
+  .navbar-expand-md .navbar-collapse{
+    margin-right: 30px;
   }
   .navbar-toggler{
     margin: 15px;
   }
+  .navUser{
+    display: flex;
+    align-items: center;
+    text-decoration: none!important;
+    margin: auto 5px;
+    .img-user{
+      border-radius: 200px;
+      width: 70px;
+      margin-right: 3px ;
+
+    }
+    h4{
+      color: #4C4C4C;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 0px;
+      
+    }
+    p{
+      font-size: 13px;
+      color: #4C4C4C;
+    }
+
+  }
+  .navSesion{
+    display: flex;
+    align-items: center;
+    margin: auto 50px auto 4px;
+    color: #4C4C4C !important;
+    p{
+      margin-bottom: 0px;
+      font-size: 12.9px;
+    }
+
+  }
+  
 }
 
 .ButtonHeader {
   z-index: 2;
   border-radius: 20px;
-  margin: 20px;
+  margin: 10px 35px 10px 0px;
   font-size: 14px;
   font-weight: bold;
   color: white;

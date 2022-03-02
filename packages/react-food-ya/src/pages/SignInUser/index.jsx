@@ -11,20 +11,21 @@ function SignIn() {
     <div className="sign-in-page">
       <div className="sign-in-container">
         <h2 className="sign-in-title">Iniciar Sesión</h2>
+        <h3 className="sign-in-subtitle">Usuario</h3>
         <Form className="sign-in-option-container">
           <Form.Group as={Row} controlId="formFile" className="mb-3">
             <Col>
               <Col sm="12" className="mb-3 m-auto">
                 <Form.Label>Correo electrónico</Form.Label>
-                <Form.Control type="text" placeholder="Normal text" />
+                <Form.Control type="text" placeholder="foodya@foodya.com" />
               </Col>
 
               <Col sm="12" className="mb-3 m-auto">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="text" placeholder="Normal text" />
+                <Form.Control type="password" placeholder="**********" />
               </Col>
             </Col>
-            <CustomButton content="Sign In" url="/" buttonStyle="fit-content-button" callback={ChangeTokenState} />
+            <CustomButton content="Sign In" url="/home" buttonStyle="fit-content-button" callback={ChangeTokenState} />
           </Form.Group>
         </Form>
       </div>

@@ -4,7 +4,7 @@ import { Card, Col } from 'react-bootstrap';
 import CustomButton from '../CustomButton';
 import './style.scss';
 
-function RegisterOption({
+function Option({
   imgContent, text, content, url,
 }) {
   return (
@@ -20,18 +20,18 @@ function RegisterOption({
   );
 }
 
-RegisterOption.propTypes = {
+Option.propTypes = {
   imgContent: PropTypes.string,
   text: PropTypes.string,
   content: PropTypes.string,
   url: PropTypes.string,
 };
 
-RegisterOption.defaultProps = {
+Option.defaultProps = {
   imgContent: 'Default Image',
   text: 'Default Text',
   content: 'Default Description',
   url: 'defaultUrl',
 };
 
-export default RegisterOption;
+export default Option;

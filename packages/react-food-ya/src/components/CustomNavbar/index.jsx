@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-cycle */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Container, Navbar, Nav,
 } from 'react-bootstrap';
@@ -11,16 +12,17 @@ import './style.scss';
 import { UserContext } from '../../context/userContext';
 
 function CustomNavbar() {
-  const { user, ChangeTokenState } = useContext(UserContext);
+  const { ChangeTokenState, user } = useContext(UserContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const ToggleTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
+
   return (
     <Navbar expand="md" className={theme}>
       <Container className="pe-0 ps-0">
         <Navbar.Brand>
-          <Link className="logo-link" to="/">
+          <Link className="logo-link" to={!user ? '/' : '/home'}>
             <img
               src={theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/GH040rw/logo-color.png'}
               width="150"
@@ -30,7 +32,7 @@ function CustomNavbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
-          {user.token
+          {user
             ? (
               <Nav className="ms-auto align-items-end">
                 <Link to="/sign-in" className="navUser">
@@ -49,7 +51,7 @@ function CustomNavbar() {
             )
             : (
               <Nav className="ms-auto align-items-end">
-                <Link to="/sign-in" className="ButtonHeader">Sign In</Link>
+                <Link to="/sign-in-selection" className="ButtonHeader">Sign In</Link>
                 <Link to="/register-selection" className="ButtonHeader">Sign Up</Link>
                 <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>
               </Nav>
@@ -59,5 +61,13 @@ function CustomNavbar() {
     </Navbar>
   );
 }
+
+// CustomNavbar.propTypes = {
+//   token: PropTypes.bool,
+// };
+
+// CustomNavbar.defaultProps = {
+//   token: false,
+// };
 
 export default CustomNavbar;

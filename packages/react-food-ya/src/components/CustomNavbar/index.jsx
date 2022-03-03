@@ -43,7 +43,7 @@ function CustomNavbar() {
                   />
                   <h4>{localStorage.getItem('name')}</h4>
                 </Link>
-                <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(false); }}>
+                <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(''); }}>
                   <p>Cerrar Sesión</p>
                 </Link>
                 <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>

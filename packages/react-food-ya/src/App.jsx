@@ -2,7 +2,9 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import React, { useContext, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route, Navigate,
+} from 'react-router-dom';
 import Home from './pages/Home';
 import Landing from './pages/Landing';
 import RegisterSelection from './pages/RegisterSelection';
@@ -21,7 +23,7 @@ import { UserContext } from './context/userContext';
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const { Initialize } = useContext(UserContext);
+  const { Initialize, user } = useContext(UserContext);
 
   useEffect(() => {
     Initialize();
@@ -32,20 +34,23 @@ function App() {
       <BrowserRouter>
         <CustomNavbar />
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/register-selection" element={<RegisterSelection />} />
-          <Route path="/register-user" element={<RegisterUser />} />
-          <Route path="/register-restaurant" element={<RegisterRestaurant />} />
+          <Route path="/" element={(user ? <Navigate to="/home" /> : <Landing />)} />
+          {/* <Route path="/register-selection" element={<RegisterSelection />} /> */}
+          <Route
+            path="/register-selection"
+            element={(user ? <Navigate to="/home" /> : <RegisterSelection />)}
+          />
+          <Route path="/register-user" element={(user ? <Navigate to="/home" /> : <RegisterUser />)} />
+          <Route path="/register-restaurant" element={(user ? <Navigate to="/home" /> : <RegisterRestaurant />)} />
           <Route path="/restaurant" element={<RestaurantPage />} />
-
-          <Route path="/register-restaurant-one" element={<RegisterRestaurant />} />
-          <Route path="/confirmation-register" element={<ConfirmationRegister />} />
-          <Route path="/sign-in-selection" element={<SignInSelection />} />
-          <Route path="/sign-in-user" element={<SignInUser />} />
-          <Route path="/sign-in-restaurant" element={<SignInRestaurant />} />
+          <Route path="/confirmation-register" element={(user ? <Navigate to="/home" /> : <ConfirmationRegister />)} />
+          <Route path="/sign-in-selection" element={(user ? <Navigate to="/home" /> : <SignInSelection />)} />
+          <Route path="/sign-in-user" element={(user ? <Navigate to="/home" /> : <SignInUser />)} />
+          <Route path="/sign-in-restaurant" element={(user ? <Navigate to="/home" /> : <SignInRestaurant />)} />
           <Route path="/home" element={<Home />} />
 
           <Route path="/dish-manager" element={<DishesManager />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -8,6 +8,8 @@ const handleErrors = require('./middleware/handleErrors')
 const usersRouter = require('./controllers/users')
 const restaurantsRouter = require('./controllers/restaurants')
 const usersloginRouter = require('./controllers/userslogin')
+const restaurantsloginRouter = require('./controllers/restaurantslogin')
+
 
 
 app.use(cors())
@@ -21,6 +23,8 @@ app.get('/',(req,res)=>{
 app.use('/api/users', usersRouter)
 app.use('/api/restaurants', restaurantsRouter)
 app.use('/api/userslogin', usersloginRouter)
+app.use('/api/restaurantslogin', restaurantsloginRouter)
+
 
 app.use(notFound)
 app.use(handleErrors)   

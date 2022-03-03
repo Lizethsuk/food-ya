@@ -1,4 +1,3 @@
-const joi=require('joi');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const usersloginRouter = require('express').Router()

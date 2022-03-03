@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 // import React, { useState } from 'react';
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
@@ -10,7 +10,7 @@ import {
 
 function FormUser() {
   const [userState, setUser] = useState({});
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,12 +19,14 @@ function FormUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://foodya-backend.herokuapp.com/api/users', {
+    const response = await fetch('http://localhost:3001/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userState),
-    }).then((res) => res.json());
-    console.log(await response.json());
+    });
+    const responsejson = await response.json();
+    console.log(responsejson);
+    navigate('/');
   };
   return (
     // <form className="FormRegister">

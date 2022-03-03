@@ -14,8 +14,8 @@ function UserProvider(props) {
     if (localStorage.getItem('token') !== null) {
       setUser(localStorage.getItem('token'));
     } else {
-      localStorage.setItem('token', false);
-      setUser(false);
+      localStorage.setItem('token', '');
+      setUser('');
     }
   };
 

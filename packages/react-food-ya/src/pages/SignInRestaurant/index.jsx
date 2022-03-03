@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 const login = async (credentials) => {
-  const response = await fetch('https://foodya-backend.herokuapp.com/api/restaurantslogin', {
+  const response = await fetch('http://localhost:3001/api/restaurantslogin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials),
@@ -41,7 +41,7 @@ function SignIn() {
         <h2 className="sign-in-title">Iniciar Sesión</h2>
         <h3 className="sign-in-subtitle">Restaurante</h3>
         <Form className="sign-in-option-container" onSubmit={handleSubmit}>
-          <Form.Group as={Row} controlId="formFile" className="mb-3">
+          <Form.Group as={Row} className="mb-3">
             <Col>
               <Col sm="12" className="mb-3 m-auto">
                 <Form.Label>Correo electrónico</Form.Label>

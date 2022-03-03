@@ -19,13 +19,12 @@ import DishesManager from './pages/DishesManager';
 import { ThemeContext } from './context/themeContext';
 import { UserContext } from './context/userContext';
 
-const mockUser = false;
 function App() {
   const { theme } = useContext(ThemeContext);
   const { Initialize } = useContext(UserContext);
 
   useEffect(() => {
-    Initialize(mockUser);
+    Initialize();
   }, []);
 
   return (

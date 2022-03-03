@@ -35,13 +35,13 @@ function CustomNavbar() {
           {user
             ? (
               <Nav className="ms-auto align-items-end">
-                <Link to="/sign-in" className="navUser">
+                <Link to="/" className="navUser">
                   <img
                     src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"
                     alt="logo"
                     className="img-user"
                   />
-                  <h4>Maria Fernanda</h4>
+                  <h4>{localStorage.getItem('name')}</h4>
                 </Link>
                 <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(false); }}>
                   <p>Cerrar Sesión</p>

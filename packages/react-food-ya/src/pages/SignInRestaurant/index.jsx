@@ -29,6 +29,7 @@ function SignIn() {
     e.preventDefault();
     try {
       const user = await login(userState);
+      localStorage.setItem('name', user.name);
       ChangeTokenState(user.token);
       navigate('/');
     } catch {

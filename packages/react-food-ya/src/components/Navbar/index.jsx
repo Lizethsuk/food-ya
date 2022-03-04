@@ -3,11 +3,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 import {
-  Container, Navbar, Nav,
+  Container, Navbar, Nav, Badge, Button,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './style.scss';
 import React, { useContext } from 'react';
+import { FiShoppingCart } from 'react-icons/fi';
 import { UserContext } from '../../App';
 
 function CustomNavbar() {
@@ -66,6 +67,12 @@ function CustomNavbar() {
                   />
                   <h4>Maria Fernanda</h4>
                 </Link>
+                <a className="btn">
+                  <FiShoppingCart />
+                  {' '}
+                  <Badge bg="danger">0</Badge>
+                  <span className="visually-hidden">unread messages</span>
+                </a>
                 <Link to="/" className="navSesion">
 
                   <p>Cerrar Sesión</p>

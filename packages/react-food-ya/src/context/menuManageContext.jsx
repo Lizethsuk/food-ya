@@ -13,6 +13,7 @@ function MenuManageProvider(props) {
   // const [menu, setMenu] = useState({});
   const [menu, setMenu] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [countProducts, setCountProducts] = useState(0);
 
   const InitMenu = (elements) => {
     // const copy = { ...menu };
@@ -29,6 +30,7 @@ function MenuManageProvider(props) {
         value: 0,
       });
     });
+    setCountProducts(0);
     setMenu(copy);
     setIsLoading(false);
   };
@@ -43,6 +45,12 @@ function MenuManageProvider(props) {
       if (item.name === name) { item.value += 1; }
     });
 
+    let countElementsInMenu = 0;
+    copy.forEach((item) => {
+      if (item.value > 0) { countElementsInMenu += 1; }
+    });
+    setCountProducts(countElementsInMenu);
+
     setMenu(copy);
   };
 
@@ -52,18 +60,29 @@ function MenuManageProvider(props) {
     //   if (copy[name] > 0) { copy[name] -= 1; }
     // }
     const copy = [...menu];
-    // copy.forEach((item) => (item.name === name && item.value > 0 ? item.value - 1 : item.value));
     copy.forEach((item) => {
       if (item.name === name && item.value > 0) { item.value -= 1; }
     });
 
+    let countElementsInMenu = 0;
+    copy.forEach((item) => {
+      if (item.value > 0) { countElementsInMenu += 1; }
+    });
+    setCountProducts(countElementsInMenu);
+
     setMenu(copy);
-    // console.log(menu);
   };
 
   return (
     <MenuManageContext.Provider value={{
-      menu, setMenu, AddToMenu, RemoveFromMenu, InitMenu, isLoading, setIsLoading,
+      menu,
+      setMenu,
+      AddToMenu,
+      RemoveFromMenu,
+      InitMenu,
+      isLoading,
+      setIsLoading,
+      countProducts,
     }}
     >
       {props.children}

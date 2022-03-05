@@ -3,17 +3,20 @@
 /* eslint-disable import/no-cycle */
 import React, { useContext, useState } from 'react';
 import {
-  Container, Navbar, Nav,
+  Container, Navbar, Nav, Badge, Button,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
+import { FiShoppingCart } from 'react-icons/fi';
 import { ThemeContext } from '../../context/themeContext';
 import './style.scss';
 import { UserContext } from '../../context/userContext';
+import { MenuManageContext } from '../../context/menuManageContext';
 
 function CustomNavbar() {
   const { ChangeTokenState, user } = useContext(UserContext);
   const { theme, setTheme } = useContext(ThemeContext);
+  const { countProducts } = useContext(MenuManageContext);
   const ToggleTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
@@ -42,6 +45,12 @@ function CustomNavbar() {
                     className="img-user"
                   />
                   <h4>Maria Fernanda</h4>
+                </Link>
+                <Link to="/" className="btn">
+                  <FiShoppingCart />
+                  {' '}
+                  <Badge bg="danger">{countProducts}</Badge>
+                  <span className="visually-hidden">unread messages</span>
                 </Link>
                 <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(false); }}>
                   <p>Cerrar Sesión</p>

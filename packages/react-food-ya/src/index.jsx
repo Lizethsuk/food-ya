@@ -10,14 +10,17 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './context/themeContext';
 import { UserProvider } from './context/userContext';
+import { MenuManageProvider } from './context/menuManageContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </UserProvider>
+    <MenuManageProvider>
+      <UserProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </UserProvider>
+    </MenuManageProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

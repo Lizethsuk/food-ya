@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import { MenuManageContext } from '../../context/menuManageContext';
 
 function CardMenu({
-  img, name, price, description, value,
+  img, name, price, description, value, points,
 }) {
   const { AddToMenu, RemoveFromMenu } = useContext(MenuManageContext);
 
@@ -20,6 +20,10 @@ function CardMenu({
         <div className="content-div">
           <h2>{name}</h2>
           <div className="div-description">
+            <ul className="ulStars">
+              <li className="star">{' ★ '.repeat(points)}</li>
+            </ul>
+
             <h3>{price}</h3>
             <p>{description}</p>
           </div>
@@ -46,6 +50,7 @@ CardMenu.propTypes = {
   price: PropTypes.string,
   description: PropTypes.string,
   value: PropTypes.number,
+  points: PropTypes.number,
 };
 
 CardMenu.defaultProps = {
@@ -54,6 +59,7 @@ CardMenu.defaultProps = {
   price: 's./ 10',
   description: 'Default Description',
   value: 0,
+  points: 1,
 };
 
 export default CardMenu;

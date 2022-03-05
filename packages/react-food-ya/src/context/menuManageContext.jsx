@@ -18,6 +18,7 @@ function MenuManageProvider(props) {
   const ClearMenu = () => {
     setMenu([]);
     setId(-1);
+    setCountProducts(0);
   };
 
   const InitMenu = (elements, currId) => {
@@ -29,8 +30,8 @@ function MenuManageProvider(props) {
           id: index,
           name: item.name,
           img: item.img,
-          price: `s./${item.price}`,
-          stars: item.stars,
+          price: `S/ ${item.price}`,
+          points: item.points,
           description: item.description,
           value: 0,
         });

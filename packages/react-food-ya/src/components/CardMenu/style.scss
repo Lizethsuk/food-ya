@@ -58,6 +58,16 @@
 
   .div-description {
     text-align: left;
+    .ulStars {
+      list-style: none;
+      padding-left: 0px;
+      margin: 0px;
+      .star {
+        font-size: 17.3px;
+        letter-spacing: 0rem;
+        color: goldenrod;
+      }
+    }
   }
   .div-img img {
     width: 120px;

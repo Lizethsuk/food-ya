@@ -59,6 +59,25 @@ body {
       color: $color_navbar;
     }
   }
+  .btn {
+    background-color: transparent;
+    border-color: transparent;
+    margin: auto 0px;
+    /*     pointer-events:none;
+ */
+    :hover {
+      background-color: $color_yellow;
+    }
+    svg {
+      font-size: 21px;
+      color: #4c4c4c;
+    }
+    .badge {
+      top: -7px !important;
+      left: -6px !important;
+      border-radius: 20px !important;
+    }
+  }
   .navSesion {
     display: flex;
     align-items: center;

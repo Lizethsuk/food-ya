@@ -46,7 +46,7 @@ function App() {
           <Route path="/sign-in-restaurant" element={<SignInRestaurant />} />
           <Route path="/home" element={<Home />} />
 
-          <Route path="/dish-manager" element={<DishesManager />} />
+          <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         </Routes>
         <Footer />
       </BrowserRouter>

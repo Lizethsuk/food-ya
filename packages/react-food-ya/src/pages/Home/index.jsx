@@ -1,10 +1,10 @@
 import React from 'react';
-import Grid from '../../components/Grid';
+import GridLogin from '../../components/GridLogin';
 
 function Home() {
   return (
     <div className="landing-page">
-      <Grid />
+      <GridLogin />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 // import React, { useState } from 'react';
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
@@ -11,25 +11,26 @@ import './style.scss';
 
 function FormRestaurant() {
   const [restaurantState, setRestaurant] = useState({});
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRestaurant({ ...restaurantState, [name]: value });
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
     // if (restaurantState.password !== restaurantState.password_configuration) {
     //   navigate('/register-selection');
     // } else {
-    //   navigate('/');
     // }
-    fetch('https://foodya-backend.herokuapp.com/api/restaurants', {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:3001/api/restaurants', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(restaurantState),
-    }).then((res) => res.json());
+    });
+    const responsejson = await response.json();
+    console.log(responsejson);
+    navigate('/');
   };
 
   return (

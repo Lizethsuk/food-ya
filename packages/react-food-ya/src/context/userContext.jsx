@@ -9,13 +9,13 @@ const UserContext = createContext(undefined);
 function UserProvider(props) {
   const [user, setUser] = useState(false);
 
-  const Initialize = (mockUser) => {
+  const Initialize = () => {
     // useLocalStorage('token', mockUser);
     if (localStorage.getItem('token') !== null) {
       setUser(localStorage.getItem('token'));
     } else {
-      localStorage.setItem('token', mockUser);
-      setUser(mockUser);
+      localStorage.setItem('token', '');
+      setUser('');
     }
   };
 

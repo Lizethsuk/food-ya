@@ -20,7 +20,7 @@ body {
     }
   }
   .logo-link {
-    margin-left: 50px;
+    margin-left: 0px;
     cursor: pointer;
   }
   .navbar-expand-md .navbar-collapse {
@@ -119,6 +119,11 @@ body {
   .ButtonHeader {
     width: 180px;
   }
+}
+@media (max-width: 480px) {
+  .navbar .logo-link {
+    margin-left: 16px;
+}
 }
 
 // .ButtonContainer {

@@ -49,7 +49,7 @@ function Footer() {
               </div>
             </IconContext.Provider>
           </Col>
-          <Col md={4} sm={12} className="pe-0 ps-0">
+          <Col md={4} sm={12} className="pe-0 ps-0 d-flex align-items-center justify-content-center">
             <div className="contact-container">
               <p className="contact">foodya@foodya.com</p>
               <p className="contact">999 999 9999</p>

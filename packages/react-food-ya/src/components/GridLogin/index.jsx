@@ -12,10 +12,11 @@ function GridLogin() {
   const FetchEverything = async (info) => {
     setRestaurants(info);
     setIsLoading(false);
+    console.log(info);
   };
 
   const getRestaurants = () => {
-    const url = 'http://localhost:3000/restaurant_dish.json';
+    const url = 'http://localhost:3001/api/menus';
     fetch(url)
       .then((response) => response.json())
       .then((restaurantsFetched) => (FetchEverything(restaurantsFetched)))
@@ -48,7 +49,7 @@ function GridLogin() {
                 stars={restaurant.points}
                 key={restaurant.id}
                 isLogin
-                id={restaurant.id}
+                id={restaurant.idRestaurant}
               />
             ))
           }

@@ -17,17 +17,18 @@ function DishesManager() {
   const [isLoading, setIsLoading] = useState(true);
   const { restaurantId } = useParams();
 
-  const FetchEverything = async (info) => {
-    setRestaurant(info[restaurantId]);
-    await InitMenu(info[restaurantId].dishes, restaurantId);
+  const FetchEverything = async (menu) => {
+    setRestaurant(menu);
+    await InitMenu(menu.dishes, restaurantId);
     setIsLoading(false);
+    console.log(menu);
   };
 
   const getRestaurant = () => {
-    const url = 'http://localhost:3000/restaurant_dish.json';
+    const url = `http://localhost:3001/api/menus/${restaurantId}`;
     fetch(url)
       .then((response) => response.json())
-      .then((restaurants) => (FetchEverything(restaurants)))
+      .then((menu) => (FetchEverything(menu)))
       .catch((error) => console.log(error));
   };
 

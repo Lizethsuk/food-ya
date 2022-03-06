@@ -4,9 +4,11 @@ import {
   Container,
   Row,
   Col,
+  Spinner,
 } from 'react-bootstrap';
 import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
 import './style.scss';
+import { motion } from 'framer-motion';
 import ShowDishes from './ShowDishes';
 import { MenuManageContext } from '../../context/menuManageContext';
 
@@ -41,54 +43,64 @@ function DishesManager() {
 
   return (
     <Container fluid className="restaurant-section">
-      {
-        isLoading && <p>Is Loading</p>
-      }
-      {
-        !isLoading && (
-          <Row>
-            <Col lg={3}>
-              <div className="infoRestaurant">
-                <h1>{restaurant.name}</h1>
-                <img src={restaurant.inner_img} alt="" />
-                <ul className="ulDescription">
-                  <li>
-                    <VscVerified />
-                    <span>
-                      {restaurant.type}
-                    </span>
-                  </li>
-                  <li>
-                    <VscHistory />
-                    <span>
-                      {restaurant.schedule}
-                    </span>
-                  </li>
-                  <li>
-                    <VscStarFull />
-                    <span>
-                      {restaurant.points}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </Col>
-            <Col lg={9}>
-              <div className="divMenu">
-                <h4>
-                  Menú de
-                  {' '}
-                  {restaurant.name}
-                </h4>
-                <Container fluid>
-                  <ShowDishes />
-                </Container>
-              </div>
-            </Col>
-          </Row>
-        )
-
-      }
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
+        {
+          isLoading && (
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          )
+        }
+        {
+          !isLoading && (
+            <Row>
+              <Col lg={3}>
+                <div className="infoRestaurant">
+                  <h1>{restaurant.name}</h1>
+                  <img src={restaurant.inner_img} alt="" />
+                  <ul className="ulDescription">
+                    <li>
+                      <VscVerified />
+                      <span>
+                        {restaurant.type}
+                      </span>
+                    </li>
+                    <li>
+                      <VscHistory />
+                      <span>
+                        {restaurant.schedule}
+                      </span>
+                    </li>
+                    <li>
+                      <VscStarFull />
+                      <span>
+                        {restaurant.points}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </Col>
+              <Col lg={9}>
+                <div className="divMenu">
+                  <h4>
+                    Menú de
+                    {' '}
+                    {restaurant.name}
+                  </h4>
+                  <Container fluid>
+                    <ShowDishes />
+                  </Container>
+                </div>
+              </Col>
+            </Row>
+          )
+        }
+      </motion.div>
     </Container>
 
   );

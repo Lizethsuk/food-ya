@@ -79,12 +79,12 @@ function FormUser() {
 
         <Col sm="6" className="mb-3">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="text" name="password" onChange={handleChange} />
+          <Form.Control type="password" name="password" onChange={handleChange} />
         </Col>
 
         <Col sm="6" className="mb-3">
           <Form.Label>Confirmar Contraseña</Form.Label>
-          <Form.Control type="text" name="password_confirmation" onChange={handleChange} />
+          <Form.Control type="password" name="password_confirmation" onChange={handleChange} />
         </Col>
 
         <Col sm="12" className="mb-3">

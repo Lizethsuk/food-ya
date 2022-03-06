@@ -2,21 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
-import { Link, useNavigate } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function CustomButton({
   content, url, buttonStyle, callback, isLogin, id,
 }) {
   const navigate = useNavigate();
 
+  const RedirectTo = () => {
+    if (callback) { callback(true); }
+    navigate(`${url}`);
+  };
+
   return (
     <>
       {
         !isLogin && (
-          <Link className={buttonStyle} to={url} onClick={() => { callback(true); }}>
+          <button className={buttonStyle} type="button" onClick={() => RedirectTo()}>
             {content}
-          </Link>
+          </button>
         )
       }
       {

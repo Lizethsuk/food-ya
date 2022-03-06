@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-cycle */
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import {
   Container, Navbar, Nav, Badge, Button,
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 import { ThemeContext } from '../../context/themeContext';
@@ -14,18 +14,29 @@ import { UserContext } from '../../context/userContext';
 import { MenuManageContext } from '../../context/menuManageContext';
 
 function CustomNavbar() {
-  const { ChangeTokenState, user } = useContext(UserContext);
+  const { ClearTokenState, user } = useContext(UserContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const { countProducts } = useContext(MenuManageContext);
+  const navigate = useNavigate();
+
   const ToggleTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
+  const LogOut = () => {
+    ClearTokenState();
+    navigate('/');
+  };
+
+  const ShoppingCart = () => {
+    navigate('/shopping-cart');
   };
 
   return (
     <Navbar expand="md" className={theme}>
       <Container className="pe-0 ps-0">
         <Navbar.Brand>
-          <Link className="logo-link" to={!user ? '/' : '/home'}>
+          <Link className="logo-link" to={!user.token ? '/' : '/home'}>
             <img
               src={theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/GH040rw/logo-color.png'}
               width="150"
@@ -36,7 +47,7 @@ function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
           {
-            user && (
+            user.token && (
               <Nav className="ms-auto align-items-end">
                 <Link to="/" className="navUser">
                   <img
@@ -46,20 +57,20 @@ function CustomNavbar() {
                   />
                   <h4>{localStorage.getItem('name')}</h4>
                 </Link>
-                <Link to="/" className="btn">
+                <button type="button" className="btn" onClick={() => ShoppingCart()}>
                   <FiShoppingCart />
                   {' '}
                   <Badge bg="danger">{countProducts}</Badge>
                   <span className="visually-hidden">unread messages</span>
-                </Link>
-                <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(false); }}>
+                </button>
+                <button type="button" className="navSesion" onClick={() => LogOut()}>
                   <p>Cerrar Sesión</p>
-                </Link>
+                </button>
                 <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>
               </Nav>
             )
           }
-          {!user
+          {!user.token
             && (
               <Nav className="ms-auto align-items-end">
                 <Link to="/sign-in-selection" className="ButtonHeader">Sign In</Link>
@@ -72,13 +83,5 @@ function CustomNavbar() {
     </Navbar>
   );
 }
-
-// CustomNavbar.propTypes = {
-//   token: PropTypes.bool,
-// };
-
-// CustomNavbar.defaultProps = {
-//   token: false,
-// };
 
 export default CustomNavbar;

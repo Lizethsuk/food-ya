@@ -17,10 +17,10 @@ function FormRestaurant() {
     const { name, value } = e.target;
     setRestaurant({ ...restaurantState, [name]: value });
   };
-    // if (restaurantState.password !== restaurantState.password_configuration) {
-    //   navigate('/register-selection');
-    // } else {
-    // }
+  // if (restaurantState.password !== restaurantState.password_configuration) {
+  //   navigate('/register-selection');
+  // } else {
+  // }
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch('http://localhost:3001/api/restaurants', {
@@ -55,12 +55,12 @@ function FormRestaurant() {
 
         <Col sm="6" className="mb-3">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="text" name="password" onChange={handleChange} />
+          <Form.Control type="password" name="password" onChange={handleChange} />
         </Col>
 
         <Col sm="6" className="mb-3">
           <Form.Label>Confirmar Contraseña</Form.Label>
-          <Form.Control type="text" name="password_confirmation" onChange={handleChange} />
+          <Form.Control type="password" name="password_confirmation" onChange={handleChange} />
         </Col>
 
         <Col sm="12" className="mb-3">

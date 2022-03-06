@@ -29,8 +29,9 @@ function SignIn() {
     e.preventDefault();
     try {
       const user = await login(userState);
-      localStorage.setItem('name', user.name);
-      ChangeTokenState(user.token);
+      // localStorage.setItem('name', user.name);
+      // ChangeTokenState(user.token);
+      ChangeTokenState(user.token, user.name);
       navigate('/');
     } catch {
       console.log('no logeo');

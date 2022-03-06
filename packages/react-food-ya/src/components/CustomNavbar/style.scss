@@ -82,6 +82,8 @@ body {
     display: flex;
     align-items: center;
     margin: auto 50px auto 4px;
+    background: none;
+    border: none;
     color: $color_navbar !important;
     p {
       margin-bottom: 0px;
@@ -123,7 +125,7 @@ body {
 @media (max-width: 480px) {
   .navbar .logo-link {
     margin-left: 16px;
-}
+  }
 }
 
 // .ButtonContainer {

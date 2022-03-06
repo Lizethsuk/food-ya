@@ -75,7 +75,7 @@ GridCard.propTypes = {
   type: PropTypes.string,
   stars: PropTypes.number,
   isLogin: PropTypes.bool,
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 
 GridCard.defaultProps = {
@@ -84,7 +84,7 @@ GridCard.defaultProps = {
   type: 'Default Type',
   stars: 2,
   isLogin: false,
-  id: 0,
+  id: '0',
 };
 
 export default GridCard;

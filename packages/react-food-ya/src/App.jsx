@@ -18,6 +18,7 @@ import SignInUser from './pages/SignInUser';
 import SignInRestaurant from './pages/SignInRestaurant';
 import RestaurantPage from './pages/RestaurantPage';
 import DishesManager from './pages/DishesManager';
+import NotFound from './pages/NotFound';
 import { ThemeContext } from './context/themeContext';
 import { UserContext } from './context/userContext';
 
@@ -29,27 +30,30 @@ function App() {
     Initialize();
   }, []);
 
+  const condition = user.token !== '';
+
   return (
     <div className={`App ${theme}`}>
       <BrowserRouter>
         <CustomNavbar />
         <Routes>
-          <Route path="/" element={(user ? <Navigate to="/home" /> : <Landing />)} />
+          <Route path="/" element={(condition ? <Navigate to="/home" /> : <Landing />)} />
           {/* <Route path="/register-selection" element={<RegisterSelection />} /> */}
           <Route
             path="/register-selection"
-            element={(user ? <Navigate to="/home" /> : <RegisterSelection />)}
+            element={(condition ? <Navigate to="/home" /> : <RegisterSelection />)}
           />
-          <Route path="/register-user" element={(user ? <Navigate to="/home" /> : <RegisterUser />)} />
-          <Route path="/register-restaurant" element={(user ? <Navigate to="/home" /> : <RegisterRestaurant />)} />
+          <Route path="/register-user" element={(condition ? <Navigate to="/home" /> : <RegisterUser />)} />
+          <Route path="/register-restaurant" element={(condition ? <Navigate to="/home" /> : <RegisterRestaurant />)} />
           <Route path="/restaurant" element={<RestaurantPage />} />
-          <Route path="/confirmation-register" element={(user ? <Navigate to="/home" /> : <ConfirmationRegister />)} />
-          <Route path="/sign-in-selection" element={(user ? <Navigate to="/home" /> : <SignInSelection />)} />
-          <Route path="/sign-in-user" element={(user ? <Navigate to="/home" /> : <SignInUser />)} />
-          <Route path="/sign-in-restaurant" element={(user ? <Navigate to="/home" /> : <SignInRestaurant />)} />
+          <Route path="/confirmation-register" element={(condition ? <Navigate to="/home" /> : <ConfirmationRegister />)} />
+          <Route path="/sign-in-selection" element={(condition ? <Navigate to="/home" /> : <SignInSelection />)} />
+          <Route path="/sign-in-user" element={(condition ? <Navigate to="/home" /> : <SignInUser />)} />
+          <Route path="/sign-in-restaurant" element={(condition ? <Navigate to="/home" /> : <SignInRestaurant />)} />
           <Route path="/home" element={<Home />} />
 
           <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

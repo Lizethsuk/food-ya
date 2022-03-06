@@ -9,6 +9,7 @@ const usersRouter = require('./controllers/users')
 const restaurantsRouter = require('./controllers/restaurants')
 const usersloginRouter = require('./controllers/userslogin')
 const restaurantsloginRouter = require('./controllers/restaurantslogin')
+const menuRouter = require('./controllers/menus.js')
 
 
 
@@ -20,11 +21,13 @@ app.get('/',(req,res)=>{
     res.send('<h1>Backend foodya</h1>')
 })
 
+
+
 app.use('/api/users', usersRouter)
 app.use('/api/restaurants', restaurantsRouter)
 app.use('/api/userslogin', usersloginRouter)
 app.use('/api/restaurantslogin', restaurantsloginRouter)
-
+app.use('/api/menus', menuRouter)
 
 app.use(notFound)
 app.use(handleErrors)   

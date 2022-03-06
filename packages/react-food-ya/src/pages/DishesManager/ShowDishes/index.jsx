@@ -19,7 +19,7 @@ function ShowDishes() {
         !isLoading && menu.map((dish) => (
           <CardMenu
             key={dish.id}
-            stars={dish.stars}
+            points={dish.points}
             img={dish.img}
             name={dish.name}
             price={dish.price}

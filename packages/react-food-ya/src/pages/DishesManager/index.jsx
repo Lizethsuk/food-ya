@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Container,
   Row,
@@ -10,14 +11,15 @@ import ShowDishes from './ShowDishes';
 import { MenuManageContext } from '../../context/menuManageContext';
 
 function DishesManager() {
-  const { menu, InitMenu } = useContext(MenuManageContext);
+  const { InitMenu, ClearMenu } = useContext(MenuManageContext);
 
   const [restaurant, setRestaurant] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const { restaurantId } = useParams();
 
   const FetchEverything = async (info) => {
-    setRestaurant(info[0]);
-    await InitMenu(info[0].dishes);
+    setRestaurant(info[restaurantId]);
+    await InitMenu(info[restaurantId].dishes, restaurantId);
     setIsLoading(false);
   };
 
@@ -30,19 +32,11 @@ function DishesManager() {
   };
 
   useEffect(() => {
-    if (menu.length === 0) {
-      // InitMenu([
-      //   {
-      //     id: 0, name: '1 Pollo', price: 54, description: 'pollo, papas y ensalada', stars: 5, img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-      //   },
-      //   {
-      //     id: 1, name: '1/2 Pollo', price: 28, description: 'pollo, papas y ensalada', stars: 5, img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-      //   },
-      //   {
-      //     id: 2, name: '1/4 Pollo', price: 16, description: 'pollo, papas y ensalada', stars: 5, img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-      //   }]);
-      getRestaurant();
-    }
+    setIsLoading(true);
+    getRestaurant();
+    return (() => {
+      ClearMenu();
+    });
   }, []);
 
   return (
@@ -56,7 +50,7 @@ function DishesManager() {
             <Col lg={3}>
               <div className="infoRestaurant">
                 <h1>{restaurant.name}</h1>
-                <img src={restaurant.img} alt="" />
+                <img src={restaurant.inner_img} alt="" />
                 <ul className="ulDescription">
                   <li>
                     <VscVerified />

@@ -10,36 +10,40 @@ import {
 const MenuManageContext = createContext();
 
 function MenuManageProvider(props) {
-  // const [menu, setMenu] = useState({});
   const [menu, setMenu] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [countProducts, setCountProducts] = useState(0);
+  const [id, setId] = useState(-1);
 
-  const InitMenu = (elements) => {
-    // const copy = { ...menu };
-    const copy = [...menu];
-    elements.forEach((item, index) => {
-      // if (!copy.hasOwnProperty(item.name)) { copy[item.name] = 0; }
-      copy.push({
-        id: index,
-        name: item.name,
-        img: item.img,
-        price: `s./${item.price}`,
-        stars: item.stars,
-        description: item.description,
-        value: 0,
-      });
-    });
+  const ClearMenu = () => {
+    setMenu([]);
+    setId(-1);
     setCountProducts(0);
-    setMenu(copy);
+  };
+
+  const InitMenu = (elements, currId) => {
+    setIsLoading(true);
+    if (currId !== id) {
+      const copy = [...menu];
+      elements.forEach((item, index) => {
+        copy.push({
+          id: index,
+          name: item.name,
+          img: item.img,
+          price: `S/ ${item.price}`,
+          points: item.points,
+          description: item.description,
+          value: 0,
+        });
+      });
+      setCountProducts(0);
+      setMenu(copy);
+      setId(currId);
+    }
     setIsLoading(false);
   };
 
   const AddToMenu = (name) => {
-    // const copy = { ...menu };
-    // if (copy.hasOwnProperty(name)) {
-    //   copy[name] += 1;
-    // }
     const copy = [...menu];
     copy.forEach((item) => {
       if (item.name === name) { item.value += 1; }
@@ -55,10 +59,6 @@ function MenuManageProvider(props) {
   };
 
   const RemoveFromMenu = (name) => {
-    // const copy = { ...menu };
-    // if (copy.hasOwnProperty(name)) {
-    //   if (copy[name] > 0) { copy[name] -= 1; }
-    // }
     const copy = [...menu];
     copy.forEach((item) => {
       if (item.name === name && item.value > 0) { item.value -= 1; }
@@ -83,6 +83,7 @@ function MenuManageProvider(props) {
       isLoading,
       setIsLoading,
       countProducts,
+      ClearMenu,
     }}
     >
       {props.children}

@@ -49,8 +49,7 @@ function App() {
           <Route path="/sign-in-restaurant" element={(user ? <Navigate to="/home" /> : <SignInRestaurant />)} />
           <Route path="/home" element={<Home />} />
 
-          <Route path="/dish-manager" element={<DishesManager />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -3,13 +3,15 @@ import React, { useContext } from 'react';
 import CustomButton from '../../components/CustomButton';
 import './style.scss';
 import { UserContext } from '../../context/userContext';
+import { ThemeContext } from '../../context/themeContext';
 
 function NotFound() {
   const { user } = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className="landing-page">
-      <div className="error-container">
+      <div className={`error-container ${theme}`}>
         <h2>Oops! Page not found.</h2>
         <h1>404</h1>
         <p>We can't find the page you're looking for.</p>

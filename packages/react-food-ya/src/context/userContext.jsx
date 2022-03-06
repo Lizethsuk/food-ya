@@ -18,11 +18,6 @@ function UserProvider(props) {
     }
   };
 
-  // const ChangeTokenState = (value) => {
-  //   localStorage.setItem('token', value);
-  //   // setUser(value);
-  //   setUser({ ...user, token: value });
-  // };
   const ChangeTokenState = (tokenValue, nameValue) => {
     localStorage.setItem('token', tokenValue);
     localStorage.setItem('name', nameValue);

@@ -29,65 +29,88 @@ body {
   .navbar-toggler {
     margin: 15px;
   }
-  .buttonTheme {
-    background-color: transparent;
-    border-radius: 50px !important;
-    line-height: 25px;
-    margin: auto;
+  .login {
+    .buttonTheme {
+      background-color: transparent;
+      border-radius: 50px !important;
+      line-height: 25px;
+      margin: auto;
+      &.dark {
+        color: $color_highlight;
+      }
+    }
+    .navUser {
+      display: flex;
+      align-items: center;
+      text-decoration: none !important;
+      margin: auto 5px;
+      .img-user {
+        border-radius: 50%;
+        width: 35px;
+        margin-right: 7px;
+      }
+      h4 {
+        color: $color_navbar;
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 0px;
+      }
+      p {
+        font-size: 13px;
+        color: $color_navbar;
+      }
+    }
+    .btn {
+      background-color: transparent;
+      border-color: transparent;
+      margin: auto 0px;
+      svg {
+        font-size: 21px;
+        color: $color_navbar;
+      }
+      .badge {
+        top: -7px !important;
+        left: -6px !important;
+        border-radius: 20px !important;
+      }
+      &:hover {
+        color: $color_yellow;
+        // background-color: $color_yellow;
+      }
+    }
+    .navSesion {
+      display: flex;
+      align-items: center;
+      margin: auto 50px auto 4px;
+      background: none;
+      border: none;
+      color: $color_navbar;
+      p {
+        margin-bottom: 0px;
+        font-size: 12.9px;
+      }
+    }
+
     &.dark {
-      color: #fac721ef;
-    }
-  }
-  .navUser {
-    display: flex;
-    align-items: center;
-    text-decoration: none !important;
-    margin: auto 5px;
-    .img-user {
-      border-radius: 50%;
-      width: 35px;
-      margin-right: 7px;
-    }
-    h4 {
-      color: $color_navbar;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 0px;
-    }
-    p {
-      font-size: 13px;
-      color: $color_navbar;
-    }
-  }
-  .btn {
-    background-color: transparent;
-    border-color: transparent;
-    margin: auto 0px;
-    /*     pointer-events:none;
- */
-    :hover {
-      background-color: $color_yellow;
-    }
-    svg {
-      font-size: 21px;
-      color: #4c4c4c;
-    }
-    .badge {
-      top: -7px !important;
-      left: -6px !important;
-      border-radius: 20px !important;
-    }
-  }
-  .navSesion {
-    display: flex;
-    align-items: center;
-    margin: auto 50px auto 4px;
-    background: none;
-    border: none;
-    color: $color_navbar !important;
-    p {
-      margin-bottom: 0px;
-      font-size: 12.9px;
+      .navUser {
+        h4 {
+          color: $color_cream;
+        }
+        p {
+          color: $color_cream;
+        }
+      }
+      .btn {
+        svg {
+          color: $color_cream;
+        }
+        .badge {
+          box-shadow: 0px 0px 10px #dc3545;
+        }
+      }
+      .navSesion {
+        color: $color_cream;
+      }
     }
   }
 }

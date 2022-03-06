@@ -1,10 +1,12 @@
+@import "../../styles/variables";
+
 .error-container {
   width: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
-  color: #343434;
+  color: $color_navbar;
 
   h1 {
     font-size: 160px;
@@ -14,20 +16,9 @@
     background: url(bg.jpg) center no-repeat;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+  }
 
-    a {
-      text-decoration: none;
-      background: #e55039aa;
-      color: #fff;
-      padding: 12px 24px;
-      display: inline-block;
-      border-radius: 25px;
-      font-size: 14px;
-      text-transform: uppercase;
-      transition: 0.4s;
-      &:hover {
-        background: #e55039;
-      }
-    }
+  &.dark {
+    color: $color_cream;
   }
 }

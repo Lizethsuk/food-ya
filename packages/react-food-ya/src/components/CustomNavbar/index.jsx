@@ -15,13 +15,9 @@ import { MenuManageContext } from '../../context/menuManageContext';
 
 function CustomNavbar() {
   const { ClearTokenState, user } = useContext(UserContext);
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, ToggleTheme } = useContext(ThemeContext);
   const { countProducts } = useContext(MenuManageContext);
   const navigate = useNavigate();
-
-  const ToggleTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
 
   const LogOut = () => {
     ClearTokenState();
@@ -48,7 +44,7 @@ function CustomNavbar() {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
           {
             user.token && (
-              <Nav className="ms-auto align-items-end">
+              <Nav className={`ms-auto align-items-end login ${theme}`}>
                 <Link to="/" className="navUser">
                   <img
                     src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"

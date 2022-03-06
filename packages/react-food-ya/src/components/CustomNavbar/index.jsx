@@ -46,7 +46,6 @@ function CustomNavbar() {
                   />
                   <h4>{localStorage.getItem('name')}</h4>
                 </Link>
-<<<<<<< HEAD
                 <Link to="/" className="btn">
                   <FiShoppingCart />
                   {' '}
@@ -54,9 +53,6 @@ function CustomNavbar() {
                   <span className="visually-hidden">unread messages</span>
                 </Link>
                 <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(false); }}>
-=======
-                <Link to="/" className="navSesion" onClick={() => { ChangeTokenState(''); }}>
->>>>>>> 1b06fc4a4a56a161906a14bcf87366d6eb6f07e4
                   <p>Cerrar Sesión</p>
                 </Link>
                 <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>

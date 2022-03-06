@@ -5,7 +5,7 @@
   color: #4c4c4c;
   padding: 40px 0px;
   width: 100%;
-  min-height: 69vh;
+  min-height: 76vh;
 
   .divMenu {
     text-align: center;
@@ -39,8 +39,8 @@
       justify-content: center;
       align-items: center;
       max-width: 244px;
-          width: 100%;
-          margin: auto;
+      width: 100%;
+      margin: auto;
 
       li {
         margin-bottom: 12px;
@@ -86,8 +86,8 @@
         text-align: center;
         display: flex;
         max-width: 405px;
-          width: 100%;
-          margin: auto;
+        width: 100%;
+        margin: auto;
         li {
           line-height: 30px;
           display: inline;
@@ -99,23 +99,20 @@
   }
 }
 @media (max-width: 480px) {
-  
-    .restaurant-section{
-      .infoRestaurant {
-
-        .ulDescription {
-          display: block;
-          max-width: 244px;
-          width: 100%;
-          margin: auto;
-          li {
-            line-height: 17px;
-            display: inline;
-            padding: 0px 15px;
-            font-size: 17.4px;
-          }
+  .restaurant-section {
+    .infoRestaurant {
+      .ulDescription {
+        display: block;
+        max-width: 244px;
+        width: 100%;
+        margin: auto;
+        li {
+          line-height: 17px;
+          display: inline;
+          padding: 0px 15px;
+          font-size: 17.4px;
         }
       }
     }
-  
+  }
 }

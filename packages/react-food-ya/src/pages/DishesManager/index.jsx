@@ -21,7 +21,6 @@ function DishesManager() {
     setRestaurant(menu);
     await InitMenu(menu.dishes, restaurantId);
     setIsLoading(false);
-    console.log(menu);
   };
 
   const getRestaurant = () => {
@@ -29,7 +28,7 @@ function DishesManager() {
     fetch(url)
       .then((response) => response.json())
       .then((menu) => (FetchEverything(menu)))
-      .catch((error) => console.log(error));
+      .catch((error) => error(error));
   };
 
   useEffect(() => {

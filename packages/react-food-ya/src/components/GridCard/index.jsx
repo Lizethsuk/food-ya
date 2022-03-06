@@ -32,7 +32,7 @@ function GridCard({
                 <CustomButton
                   buttonStyle="fit-content-button "
                   content="Ir a Restaurante"
-                  url="/restaurant"
+                  url="/sign-in-selection"
                 />
               </div>
             </li>

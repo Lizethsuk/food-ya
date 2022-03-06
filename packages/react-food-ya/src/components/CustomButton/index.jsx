@@ -36,7 +36,7 @@ CustomButton.propTypes = {
   buttonStyle: PropTypes.string,
   callback: PropTypes.func,
   isLogin: PropTypes.bool,
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 
 CustomButton.defaultProps = {
@@ -45,7 +45,7 @@ CustomButton.defaultProps = {
   buttonStyle: 'default-button',
   callback: null,
   isLogin: false,
-  id: 0,
+  id: '0',
 };
 
 export default CustomButton;

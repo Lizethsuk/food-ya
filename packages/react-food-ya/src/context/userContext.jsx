@@ -2,7 +2,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState, createContext } from 'react';
-// import useLocalStorage from '../customHooks/useLocalStorage';
 
 const UserContext = createContext(undefined);
 
@@ -10,7 +9,6 @@ function UserProvider(props) {
   const [user, setUser] = useState(false);
 
   const Initialize = () => {
-    // useLocalStorage('token', mockUser);
     if (localStorage.getItem('token') !== null) {
       setUser(localStorage.getItem('token'));
     } else {

@@ -12,7 +12,6 @@ function GridLogin() {
   const FetchEverything = async (info) => {
     setRestaurants(info);
     setIsLoading(false);
-    console.log(info);
   };
 
   const getRestaurants = () => {
@@ -20,7 +19,7 @@ function GridLogin() {
     fetch(url)
       .then((response) => response.json())
       .then((restaurantsFetched) => (FetchEverything(restaurantsFetched)))
-      .catch((error) => console.log(error));
+      .catch((error) => error(error));
   };
 
   useEffect(() => {

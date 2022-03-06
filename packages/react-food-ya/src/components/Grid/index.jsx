@@ -11,63 +11,43 @@ function Grid() {
       id: 0,
       name: 'Las Canastitas',
       type: 'Polleria',
-      stars: 5,
-      img: {
-        url: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-      },
-      link: '#',
+      points: 5,
+      img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
     },
     {
       id: 1,
       name: 'Doña Lucha',
       type: 'Anticucheria',
-
-      stars: 4,
-      img: {
-        url: 'https://i.ibb.co/8M51bnY/img-2.jpg',
-      },
-      link: '#',
+      points: 4,
+      img: 'https://i.ibb.co/8M51bnY/img-2.jpg',
     },
     {
       id: 2,
       name: 'When Wha',
       type: 'Chifa ',
-      stars: 4,
-      img: {
-        url: 'https://i.ibb.co/f0qGzMs/img-3.jpg',
-      },
-      link: '#',
+      points: 4,
+      img: 'https://i.ibb.co/f0qGzMs/img-3.jpg',
     },
     {
       id: 3,
       name: 'Diego',
       type: 'Caldo de gallina y sopas',
-      stars: 5,
-      img: {
-        url: 'https://i.ibb.co/KFbmT5F/img-4.jpg',
-      },
-      link: '#',
+      points: 5,
+      img: 'https://i.ibb.co/KFbmT5F/img-4.jpg',
     },
     {
       id: 4,
       name: 'La buena pizza',
       type: 'Pizzas',
-      stars: 4,
-      img: {
-        url: 'https://i.ibb.co/PG2ykFV/img-5.jpg',
-      },
-      link: '#',
+      points: 4,
+      img: 'https://i.ibb.co/PG2ykFV/img-5.jpg',
     },
     {
       id: 5,
       name: 'Bravazo',
       type: 'Hamburguesas / salchipapas ',
-
-      stars: 4,
-      img: {
-        url: 'https://i.ibb.co/1nD31w4/img-6.jpg',
-      },
-      link: '#',
+      points: 4,
+      img: 'https://i.ibb.co/1nD31w4/img-6.jpg',
     },
   ];
 
@@ -86,7 +66,7 @@ function Grid() {
               img={restaurant.img}
               name={restaurant.name}
               type={restaurant.type}
-              stars={restaurant.stars}
+              stars={restaurant.points}
               key={restaurant.id}
             />
           ))}

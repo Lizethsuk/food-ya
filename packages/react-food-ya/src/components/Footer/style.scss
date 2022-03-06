@@ -1,18 +1,18 @@
 @import "../../styles/variables";
 
 .main-footer {
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
   width: 100%;
-  
+
   padding: 30px 0;
-  &.dark{
-    background-color: #4C4C4C;
-    .logo-container img{
+  &.dark {
+    background-color: #4c4c4c;
+    .logo-container img {
       width: 70px;
     }
   }
-  &.light{
+  &.light {
     background-color: $color_brown;
   }
   .logo-container {
@@ -41,7 +41,7 @@
   }
 }
 @media (max-width: 992px) {
-  .main-footer{
+  .main-footer {
     position: relative;
   }
 }

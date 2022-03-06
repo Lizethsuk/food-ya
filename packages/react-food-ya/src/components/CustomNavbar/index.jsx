@@ -35,8 +35,8 @@ function CustomNavbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
-          {user
-            ? (
+          {
+            user && (
               <Nav className="ms-auto align-items-end">
                 <Link to="/" className="navUser">
                   <img
@@ -58,7 +58,9 @@ function CustomNavbar() {
                 <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>
               </Nav>
             )
-            : (
+          }
+          {!user
+            && (
               <Nav className="ms-auto align-items-end">
                 <Link to="/sign-in-selection" className="ButtonHeader">Sign In</Link>
                 <Link to="/register-selection" className="ButtonHeader">Sign Up</Link>

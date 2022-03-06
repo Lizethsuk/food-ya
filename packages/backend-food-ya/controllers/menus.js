@@ -15,6 +15,7 @@ menuRouter.put('/:id', async(req, res) => {
 });
 menuRouter.post('/:id', async(req, res) => {
     const {id} = req.params;
+    console.log(req.body);
     const data =req.body;
     const newMenu = Menu({
         idRestaurant: id,
@@ -33,7 +34,7 @@ menuRouter.get('/:id',async (req,res,next)=>{
     try{
         const menu = await Menu.findOne({idRestaurant: id})
         if(menu){
-            res.status(200).json(menu.dishes)
+            res.status(200).json(menu)
         }
         else{
             res.status(204).end()

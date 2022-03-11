@@ -39,7 +39,7 @@ function AppRoutes() {
         <Route path="/sign-in-selection" element={(condition ? <Navigate to="/home" /> : <SignInSelection />)} />
         <Route path="/sign-in-user" element={(condition ? <Navigate to="/home" /> : <SignInUser />)} />
         <Route path="/sign-in-restaurant" element={(condition ? <Navigate to="/home" /> : <SignInRestaurant />)} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={(condition ? <Home /> : <Navigate to="/" />)} />
 
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         <Route path="*" element={<NotFound />} />

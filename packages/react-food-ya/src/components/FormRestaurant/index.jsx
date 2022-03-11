@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Form, Row, Col, Button,
+  Form, Row, Col, Button, Modal,
 } from 'react-bootstrap';
 import './style.scss';
 
@@ -11,6 +11,10 @@ import './style.scss';
 
 function FormRestaurant() {
   const [restaurantState, setRestaurant] = useState({});
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -30,7 +34,8 @@ function FormRestaurant() {
     });
     const responsejson = await response.json();
     console.log(responsejson);
-    navigate('/');
+    /*    navigate('/'); */
+    setTimeout((() => { navigate('/'); }), 3500);
   };
 
   return (
@@ -104,10 +109,16 @@ function FormRestaurant() {
           <Form.Label>Dirección del local</Form.Label>
           <Form.Control type="text" name="business_address" onChange={handleChange} />
         </Col>
-        <Button type="submit" className="Reg-button">
-          Registar
+        <Button type="submit" className="Reg-button" onClick={handleShow}>
+          Registrar
         </Button>
       </Form.Group>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>Gracias por registrarte!!!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Revisa tu correo, para confirmar tu registro!</Modal.Body>
+      </Modal>
     </Form>
   );
 }

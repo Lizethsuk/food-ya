@@ -11,7 +11,8 @@ const userSchema = new Schema({
     direction: String,
     district: String,
     city: String,
-    date: Date
+    date: Date,
+    confirmation: {type: Boolean, default: false}
 })
 
 userSchema.set('toJSON', {

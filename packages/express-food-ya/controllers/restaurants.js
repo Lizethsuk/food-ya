@@ -2,7 +2,8 @@ const restaurantsRouter = require('express').Router()
 const Restaurant = require('../models/Restaurant')
 const joi=require('joi');
 const bcrypt = require('bcrypt');
-
+/* const nodemailer = require("nodemailer");
+ */
 restaurantsRouter.get('/', async(req,res)=>{
     const restaurants = await Restaurant.find({})
     res.json(restaurants)

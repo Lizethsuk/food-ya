@@ -2,7 +2,9 @@ const usersRouter = require('express').Router()
 const joi=require('joi');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const User = require('../models/User')
+const User = require('../models/User');
+const main = require('./mailing.js');
+const html = require('./template.js')
 
 const getTokenFrom = request => {
     const authorization = request.get('authorization')
@@ -88,6 +90,7 @@ usersRouter.post('/', async(req,res)=>{
             })
 
             savedUser = await newUser.save()
+            main({email, html, token:'tutoken' })
             res.status(201).json({ success: true, message: 'User has been created', data: savedUser })
         } else {
         res.status(400).json({ success: false, message: 'Validation error', data: value, error: error.details })

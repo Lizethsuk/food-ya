@@ -17,7 +17,8 @@ const restaurantSchema = new Schema({
     business_phone: String,
     business_email: String,
     business_address: String,
-    date: Date
+    date: Date,
+    confirmation: {type: Boolean, default: false}
 })
 
 restaurantSchema.set('toJSON', {

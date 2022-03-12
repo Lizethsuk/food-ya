@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
-import './style.scss';
+// import './style.scss';
 import { Button } from 'react-bootstrap';
 import { MenuManageContext } from '../../context/menuManageContext';
+import { CardMenuContainer } from './style';
 
 function CardMenu({
   img, name, price, description, value, points,
@@ -13,7 +14,7 @@ function CardMenu({
 
   return (
     <Col xl={4} lg={6} md={6} sm={6}>
-      <div className="cardMenu">
+      <CardMenuContainer>
         <div className="div-img">
           <img className="imgAvatar" src={img} alt="" />
         </div>
@@ -39,7 +40,7 @@ function CardMenu({
             <FaMinusCircle className="btnPlus" />
           </Button>
         </div>
-      </div>
+      </CardMenuContainer>
     </Col>
   );
 }

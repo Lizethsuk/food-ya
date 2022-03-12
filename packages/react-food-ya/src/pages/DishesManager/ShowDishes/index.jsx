@@ -7,7 +7,6 @@ import {
   Row,
 } from 'react-bootstrap';
 import { MenuManageContext } from '../../../context/menuManageContext';
-import './style.scss';
 import CardMenu from '../../../components/CardMenu';
 
 function ShowDishes() {

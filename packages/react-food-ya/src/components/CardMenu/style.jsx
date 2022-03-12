@@ -1,6 +1,16 @@
-@import "../../styles/variables";
+/* eslint-disable import/prefer-default-export */
+import styled from 'styled-components';
 
-.cardMenu {
+// const CardContainer = styled.div`
+//   display: flex;
+//   width: 100%;
+//   max-width: calc(60% - 20px);
+//   margin: 0 auto;
+//   justify-content: space-evenly;
+//   align-items: center;
+// `;
+
+const CardMenuContainer = styled.div`
   max-width: 390px;
   width: 100%;
   background-color: white;
@@ -71,22 +81,26 @@
       }
     }
   }
-  .div-img img {
-    width: 120px;
-    height: 120px;
-    object-fit: none;
-    display: block;
+  .div-img {
+    img{
+      width: 120px;
+      height: 120px;
+      object-fit: none;
+      display: block;
+    }
   }
-}
-@media (max-width: 480px) {
-  .restaurant-section .infoRestaurant{
-    max-width: 356px;
+  @media (max-width: 480px) {
+    .content-div{
+      h2{
+        font-size: 13.5px;
+        line-height: 13px;
+      }
+    }
+    .div-img{
+      img{
+        width: 107px;
+      }
+    }
   }
-  .cardMenu .content-div h2{
-    font-size: 13.5px;
-    line-height: 13px;
-  }
-  .cardMenu .div-img img{
-    width: 107px;
-  }
-}
+`;
+export { CardMenuContainer };

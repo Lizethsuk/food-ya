@@ -7,6 +7,7 @@ import Landing from '../pages/Landing';
 import RegisterSelection from '../pages/RegisterSelection';
 import SignInSelection from '../pages/SignInSelection';
 import Footer from '../components/Footer';
+import Confirmation from '../components/Confirmation';
 import CustomNavbar from '../components/CustomNavbar';
 import RegisterUser from '../pages/RegisterUser';
 import ConfirmationRegister from '../pages/ConfirmationRegister';
@@ -40,7 +41,7 @@ function AppRoutes() {
         <Route path="/sign-in-user" element={(condition ? <Navigate to="/home" /> : <SignInUser />)} />
         <Route path="/sign-in-restaurant" element={(condition ? <Navigate to="/home" /> : <SignInRestaurant />)} />
         <Route path="/home" element={(condition ? <Home /> : <Navigate to="/" />)} />
-
+        <Route path="/confirmation/:token" element={<Confirmation />} />
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

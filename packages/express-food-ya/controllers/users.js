@@ -6,6 +6,15 @@ const User = require('../models/User');
 const main = require('./mailing.js');
 const html = require('./template.js')
 
+const createToken = (req)=> {
+    const {email} = req.body;
+    const vToken = {
+        email: email
+    }
+    const token = jwt.sign(vToken, 'liz');
+    return token
+}
+
 const getTokenFrom = request => {
     const authorization = request.get('authorization')
     if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
@@ -90,7 +99,9 @@ usersRouter.post('/', async(req,res)=>{
             })
 
             savedUser = await newUser.save()
-            main({email, html, token:'tutoken' })
+            const token = createToken(req);
+            main({mail: user.email, bhtml: html, urlToken: token })
+
             res.status(201).json({ success: true, message: 'User has been created', data: savedUser })
         } else {
         res.status(400).json({ success: false, message: 'Validation error', data: value, error: error.details })

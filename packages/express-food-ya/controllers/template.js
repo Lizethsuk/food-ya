@@ -191,7 +191,7 @@ const html = (token)=>{
     
                                   <td width="100%" style="padding:18px 0px 21px" valign="middle">
                                     <div style="text-align:center;font-size:35px;color:#ffffff">
-                                      <a href="http://localhost:3000/${token}" target="_blank"
+                                      <a href="http://localhost:3000/confirmation/${token}" target="_blank"
                                         style="text-decoration:none;text-align:center;color:#ffffff">
                                         Continuar registro!
     

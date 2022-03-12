@@ -1,8 +1,14 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
+import { colorBrown } from '../../styles/variables.styled';
 
-const CardMenuContainer = styled.div`
-  max-width: 390px;
+const OffCanvasTitle = styled.h2`
+  color:${colorBrown};
+  font-size:40px;
+`;
+
+const OrderCard = styled.div`
+  max-width: calc(100% - 20px);
   width: 100%;
   background-color: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -12,7 +18,12 @@ const CardMenuContainer = styled.div`
   display: flex;
   padding: 0px;
   justify-content: space-between;
-  .content-div {
+  .div-description {
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
     padding: 10px 0px 5px 5px;
     max-width: 185px;
     width: 100%;
@@ -24,7 +35,7 @@ const CardMenuContainer = styled.div`
       line-height: 13.1px;
     }
     h3 {
-      margin: 5px auto;
+      margin: 0;
       font-size: 18px;
     }
     p {
@@ -32,34 +43,6 @@ const CardMenuContainer = styled.div`
       margin-bottom: 0px;
       line-height: 14px;
     }
-  }
-  .divBtn {
-    margin: auto 5px;
-    padding: 0px 6px 5px;
-    background-color: rgb(234, 227, 227);
-    border-radius: 20px;
-    p {
-      margin-bottom: 0px;
-    }
-    .btn {
-      padding: 0px;
-      background: transparent;
-      border: none;
-    }
-    .btnPlus {
-      fill: #4c4c4c;
-      display: block;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      font-size: 12px;
-      text-decoration: none;
-      line-height: 36px;
-    }
-  }
-
-  .div-description {
-    text-align: left;
     .ulStars {
       list-style: none;
       padding-left: 0px;
@@ -80,13 +63,12 @@ const CardMenuContainer = styled.div`
       display: block;
     }
   }
+  .mid-container{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+  }
   @media (max-width: 480px) {
-    .content-div{
-      h2{
-        font-size: 13.5px;
-        line-height: 13px;
-      }
-    }
     .div-img{
       img{
         width: 107px;
@@ -94,4 +76,17 @@ const CardMenuContainer = styled.div`
     }
   }
 `;
-export { CardMenuContainer };
+
+const TotalContainer = styled.p`
+  width: 100%;
+  text-align: right;
+  border-top: 2.5px solid ${colorBrown};
+  max-width: calc(100% - 20px);
+  padding: 15px 0;
+  margin:0 10px;
+  font-size:25px;
+  font-weight:600;
+  color:${colorBrown};
+`;
+
+export { OffCanvasTitle, OrderCard, TotalContainer };

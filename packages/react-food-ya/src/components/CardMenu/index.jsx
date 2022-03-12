@@ -24,8 +24,11 @@ function CardMenu({
             <ul className="ulStars">
               <li className="star">{' ★ '.repeat(points)}</li>
             </ul>
-
-            <h3>{price}</h3>
+            <h3>
+              S/
+              {' '}
+              {price}
+            </h3>
             <p>{description}</p>
           </div>
         </div>

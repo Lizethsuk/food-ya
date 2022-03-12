@@ -16,6 +16,7 @@ import SignInRestaurant from '../pages/SignInRestaurant';
 import RestaurantPage from '../pages/RestaurantPage';
 import DishesManager from '../pages/DishesManager';
 import NotFound from '../pages/NotFound';
+import PaymentGateway from '../pages/PaymentGateway';
 import { UserContext } from '../context/userContext';
 
 function AppRoutes() {
@@ -42,6 +43,7 @@ function AppRoutes() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
+        <Route path="/payment" element={<PaymentGateway />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

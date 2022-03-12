@@ -11,6 +11,7 @@ const MenuManageContext = createContext();
 
 function MenuManageProvider(props) {
   const [menu, setMenu] = useState([]);
+  const [selectedMenu, setSelectedMenu] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [countProducts, setCountProducts] = useState(0);
   const [id, setId] = useState(-1);
@@ -30,7 +31,7 @@ function MenuManageProvider(props) {
           id: index,
           name: item.name,
           img: item.img,
-          price: `S/ ${item.price}`,
+          price: item.price,
           points: item.points,
           description: item.description,
           value: 0,
@@ -49,6 +50,9 @@ function MenuManageProvider(props) {
       if (item.name === name) { item.value += 1; }
     });
 
+    const selectedCopy = copy.filter((item) => item.value > 0);
+    setSelectedMenu(selectedCopy);
+
     let countElementsInMenu = 0;
     copy.forEach((item) => {
       if (item.value > 0) { countElementsInMenu += 1; }
@@ -64,6 +68,9 @@ function MenuManageProvider(props) {
       if (item.name === name && item.value > 0) { item.value -= 1; }
     });
 
+    const selectedCopy = copy.filter((item) => item.name === name && item.value > 0);
+    setSelectedMenu(selectedCopy);
+
     let countElementsInMenu = 0;
     copy.forEach((item) => {
       if (item.value > 0) { countElementsInMenu += 1; }
@@ -71,6 +78,29 @@ function MenuManageProvider(props) {
     setCountProducts(countElementsInMenu);
 
     setMenu(copy);
+  };
+
+  const GetTotal = () => {
+    const selectedCopy = [...selectedMenu];
+    let total = 0;
+    selectedCopy.forEach((item) => {
+      total += (item.value * item.price);
+    });
+    return total;
+  };
+
+  const SaveData = () => {
+    localStorage.setItem('products', JSON.stringify(selectedMenu));
+  };
+
+  const GetProducts = () => {
+    let storageContent = [];
+    if (localStorage.getItem('products') !== null) {
+      storageContent = JSON.parse(localStorage.getItem('products'));
+    } else {
+      console.log('ERROR');
+    }
+    return storageContent;
   };
 
   return (
@@ -82,8 +112,13 @@ function MenuManageProvider(props) {
       InitMenu,
       isLoading,
       setIsLoading,
+      selectedMenu,
+      setSelectedMenu,
       countProducts,
       ClearMenu,
+      GetTotal,
+      SaveData,
+      GetProducts,
     }}
     >
       {props.children}

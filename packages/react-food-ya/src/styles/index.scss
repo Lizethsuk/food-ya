@@ -54,4 +54,10 @@ a {
   min-height: 76vh;
 }
 
+.full-width-button {
+  max-width: calc(100% - 20px);
+  width: 100%;
+  margin: auto !important;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");

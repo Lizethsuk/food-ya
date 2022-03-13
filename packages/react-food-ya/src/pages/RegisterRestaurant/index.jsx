@@ -1,9 +1,7 @@
 /* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import './style.scss';
-import {
-  Container, Row, Col, Accordion,
-} from 'react-bootstrap/';
+import { Container, Row, Col, Accordion } from 'react-bootstrap/';
 import { GiArchiveRegister, GiOpenFolder } from 'react-icons/gi';
 import { FaLaughWink } from 'react-icons/fa';
 import CustomButton from '../../components/CustomButton';
@@ -23,11 +21,7 @@ function RegisterRestaurant() {
                 <div className="bannerDiv">
                   <h2>Registra tu negocio!</h2>
                   <p>
-                    Regístrate en simples pasos y empieza
-                    {' '}
-                    <br />
-                    a hacer crecer tu negocio junto a
-                    {' '}
+                    Regístrate en simples pasos y empieza <br />a hacer crecer tu negocio junto a{' '}
                     <br />
                     nosotros.
                   </p>
@@ -51,9 +45,7 @@ function RegisterRestaurant() {
             <Col md={4}>
               <GiArchiveRegister />
               <p>
-                Primero, completa un sencillo
-                {' '}
-                <br />
+                Primero, completa un sencillo <br />
                 formulario.
               </p>
             </Col>
@@ -97,27 +89,20 @@ function RegisterRestaurant() {
             <Col lg={3} md={6}>
               <h1>1</h1>
               <p>
-                El cliente realiza un pedido a tu
-                {' '}
-                <br />
+                El cliente realiza un pedido a tu <br />
                 local desde PedidosYa.
               </p>
             </Col>
             <Col lg={3} md={6}>
               <h1>2</h1>
               <p>
-                Recibes el pedido y comienzas
-                {' '}
-                <br />
-                a preparlo lo antes posible.
+                Recibes el pedido y comienzas <br />a preparlo lo antes posible.
               </p>
             </Col>
             <Col lg={3} md={6}>
               <h1>3</h1>
               <p>
-                El repartidor retira el pedido en
-                {' '}
-                <br />
+                El repartidor retira el pedido en <br />
                 tu local y lo lleva al cliente.
               </p>
             </Col>

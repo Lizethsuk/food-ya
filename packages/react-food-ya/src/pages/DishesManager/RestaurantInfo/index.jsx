@@ -1,20 +1,10 @@
 import PropTypes from 'prop-types';
-import {
-  Container,
-  Row,
-  Col,
-} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
 import ShowDishes from '../ShowDishes';
 import { DivMenu, InfoRestaurant } from './style';
 
-function RestaurantInfo({
-  name,
-  innerImg,
-  type,
-  schedule,
-  points,
-}) {
+function RestaurantInfo({ name, innerImg, type, schedule, points }) {
   return (
     <Row>
       <Col lg={3}>
@@ -24,32 +14,22 @@ function RestaurantInfo({
           <ul className="ulDescription">
             <li>
               <VscVerified />
-              <span>
-                {type}
-              </span>
+              <span>{type}</span>
             </li>
             <li>
               <VscHistory />
-              <span>
-                {schedule}
-              </span>
+              <span>{schedule}</span>
             </li>
             <li>
               <VscStarFull />
-              <span>
-                {points}
-              </span>
+              <span>{points}</span>
             </li>
           </ul>
         </InfoRestaurant>
       </Col>
       <Col lg={9}>
         <DivMenu>
-          <h4>
-            Menú de
-            {' '}
-            {name}
-          </h4>
+          <h4>Menú de {name}</h4>
           <Container fluid>
             <ShowDishes />
           </Container>
@@ -64,7 +44,7 @@ RestaurantInfo.propTypes = {
   innerImg: PropTypes.string,
   type: PropTypes.string,
   schedule: PropTypes.string,
-  points: PropTypes.number,
+  points: PropTypes.number
 };
 
 RestaurantInfo.defaultProps = {
@@ -72,7 +52,7 @@ RestaurantInfo.defaultProps = {
   innerImg: 'NOT IMAGE',
   type: 'Default',
   schedule: 'de 0 a 0',
-  points: 5,
+  points: 5
 };
 
 export default RestaurantInfo;

@@ -58,26 +58,26 @@ const InfoRestaurant = styled.div`
   }
   @media (max-width: 992px) {
     margin: 10px auto 20px;
-      padding: 15px 5px;
-      max-width: 450px;
-      width: 100%;
-      h1 {
-        font-size: 1.9rem;
-      }
+    padding: 15px 5px;
+    max-width: 450px;
+    width: 100%;
+    h1 {
+      font-size: 1.9rem;
+    }
 
-      .ulDescription {
-        text-align: center;
-        display: flex;
-        max-width: 405px;
-        width: 100%;
-        margin: auto;
-        li {
-          line-height: 30px;
-          display: inline;
-          padding: 10px 5px;
-          font-size: 17.4px;
-        }
+    .ulDescription {
+      text-align: center;
+      display: flex;
+      max-width: 405px;
+      width: 100%;
+      margin: auto;
+      li {
+        line-height: 30px;
+        display: inline;
+        padding: 10px 5px;
+        font-size: 17.4px;
       }
+    }
   }
   @media (max-width: 480px) {
     .ulDescription {

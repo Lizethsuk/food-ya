@@ -22,5 +22,5 @@ ReactDOM.render(
       </UserProvider>
     </MenuManageProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

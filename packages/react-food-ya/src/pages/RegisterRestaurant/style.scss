@@ -1,160 +1,159 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
-.register-restaurant{
-    .bannerRegisterRestaurant{
-        background-image: url('https://www.cocacolaep.com/assets/Spain/Blog-Rojo-y-en-Botella/2021/smart-restaurants/876d50b149/ryb_smart_restaurants_G_900x550__ScaleMaxWidthWzk0MF0.jpg');
+.register-restaurant {
+  .bannerRegisterRestaurant {
+    background-image: url('https://www.cocacolaep.com/assets/Spain/Blog-Rojo-y-en-Botella/2021/smart-restaurants/876d50b149/ryb_smart_restaurants_G_900x550__ScaleMaxWidthWzk0MF0.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     padding: 40px 0px;
 
-        .bannerCol{
-            color: white;
-            text-align: left;
-            height: 100vh;
-            display: table;
-            .bannerDiv{
-                display: table-cell;
-                vertical-align: middle;
-                text-align: left;
-            h2{
-                font-size: 40px;
-                font-weight: bold;
-            }
-            p{
-                font-size: 18px;
-                line-height: 19px;
-                font-weight: bold;
-            }
-            }
+    .bannerCol {
+      color: white;
+      text-align: left;
+      height: 100vh;
+      display: table;
+      .bannerDiv {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+        h2 {
+          font-size: 40px;
+          font-weight: bold;
         }
-    }
-    .FormRegister {
-        background-color: $color_cream;
-        border-radius: 30px;
-        width: 30%;
-        min-width: 450px;
-        padding: 40px 80px;
-        a:nth-child(10),
-        a:nth-child(11) {
-          padding: 20px;
-        }
-    
-        .Group {
-          display: flex;
-          flex-wrap: nowrap;
-    
-          div:first-child {
-            flex: 1 0 auto;
-            input {
-              width: calc(100% - 25px);
-            }
-          }
-    
-          div:last-child {
-            flex: 1 0 auto;
-            input {
-              width: calc(100% - 25px);
-            }
-          }
-        }
-    
-        #ciudad {
-          margin-bottom: 60px;
-        }
-    
-        .Reg-button {
-          font-size: 20px;
-          background: $color_green;
-          padding: 15px 35px;
-          border-radius: 25px;
-          color: white;
-          text-decoration: none;
-          border: none;
-          &:hover {
-            cursor: pointer;
-            background: #337aff;
-          }
-        }
-    
-        hr {
-          margin-top: 60px;
-          margin-bottom: 40px;
+        p {
+          font-size: 18px;
+          line-height: 19px;
+          font-weight: bold;
         }
       }
-    .sectionStep{
-        padding: 60px 0px;
-        h2{
-            font-size: 30px;
-            margin-bottom: 40px;
-        }
-        svg{
-            font-size: 60px;
-            margin-bottom: 20px;
-            fill: $color_yellow;
-        }
-    }  
-    .sectionWin {
-        .bgCol{
-            background-image: url('https://socios.pedidosya.com/resource/PedidosYaResource/PedidosYaResource/images/bg_checklist-min.jpg');
-            background-size: cover;
-
-        }
-        .colWin {
-            color: white;
-            text-align: left;
-            background-color: $color_green;
-            .divText{
-                width: 80%;     
-                margin: auto;
-                padding: 90px 0px;
-                ul{
-                    font-size: 25px;
-                    font-weight: bold;
-                }
-            }
-        }
     }
-    .sectionWork{
-        padding: 60px 0px;
-        h2{
-            font-size: 30px;
-            margin-bottom: 40px;
-        }
-        h1{
-            font-size: 98px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #f0356d;
-        }
-        .fit-content-button {
-            margin-top: 20px;
-        }
+  }
+  .FormRegister {
+    background-color: $color_cream;
+    border-radius: 30px;
+    width: 30%;
+    min-width: 450px;
+    padding: 40px 80px;
+    a:nth-child(10),
+    a:nth-child(11) {
+      padding: 20px;
     }
-    .sectionMore {
-        text-align: left;
-        padding: 60px 0;
-        background-color: #f1f1f1;
-        color: #4C4C4C;
-        h3 {
-            margin-bottom: 30px;
-            font-weight: bold
-        }
-        &.dark{
-            .accordion-button:not(.collapsed), .accordion-button:focus {
-                text-decoration: none;
-                box-shadow: 0 0 0 0.20rem rgba(64, 59, 48, 0.5)
-            }
-            .show{
-                background-color: $color_brown;
-                color: $color_cream;
-              }
 
+    .Group {
+      display: flex;
+      flex-wrap: nowrap;
+
+      div:first-child {
+        flex: 1 0 auto;
+        input {
+          width: calc(100% - 25px);
         }
-        .accordion-button:not(.collapsed), .accordion-button:focus {
-            text-decoration: none;
-            box-shadow: 0 0 0 0.20rem rgba(238, 185, 10, 0.48)
+      }
+
+      div:last-child {
+        flex: 1 0 auto;
+        input {
+          width: calc(100% - 25px);
         }
-        
-    } 
+      }
+    }
+
+    #ciudad {
+      margin-bottom: 60px;
+    }
+
+    .Reg-button {
+      font-size: 20px;
+      background: $color_green;
+      padding: 15px 35px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      border: none;
+      &:hover {
+        cursor: pointer;
+        background: #337aff;
+      }
+    }
+
+    hr {
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+  }
+  .sectionStep {
+    padding: 60px 0px;
+    h2 {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+    svg {
+      font-size: 60px;
+      margin-bottom: 20px;
+      fill: $color_yellow;
+    }
+  }
+  .sectionWin {
+    .bgCol {
+      background-image: url('https://socios.pedidosya.com/resource/PedidosYaResource/PedidosYaResource/images/bg_checklist-min.jpg');
+      background-size: cover;
+    }
+    .colWin {
+      color: white;
+      text-align: left;
+      background-color: $color_green;
+      .divText {
+        width: 80%;
+        margin: auto;
+        padding: 90px 0px;
+        ul {
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .sectionWork {
+    padding: 60px 0px;
+    h2 {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 98px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #f0356d;
+    }
+    .fit-content-button {
+      margin-top: 20px;
+    }
+  }
+  .sectionMore {
+    text-align: left;
+    padding: 60px 0;
+    background-color: #f1f1f1;
+    color: #4c4c4c;
+    h3 {
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    &.dark {
+      .accordion-button:not(.collapsed),
+      .accordion-button:focus {
+        text-decoration: none;
+        box-shadow: 0 0 0 0.2rem rgba(64, 59, 48, 0.5);
+      }
+      .show {
+        background-color: $color_brown;
+        color: $color_cream;
+      }
+    }
+    .accordion-button:not(.collapsed),
+    .accordion-button:focus {
+      text-decoration: none;
+      box-shadow: 0 0 0 0.2rem rgba(238, 185, 10, 0.48);
+    }
+  }
 }

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { colorBrown } from '../../styles/variables.styled';
 
 const OffCanvasTitle = styled.h2`
-  color:${colorBrown};
-  font-size:40px;
+  color: ${colorBrown};
+  font-size: 40px;
 `;
 
 const OrderCard = styled.div`
@@ -19,11 +19,11 @@ const OrderCard = styled.div`
   padding: 0px;
   justify-content: space-between;
   .div-description {
-    text-align:left;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:flex-start;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 10px 0px 5px 5px;
     max-width: 185px;
     width: 100%;
@@ -56,21 +56,21 @@ const OrderCard = styled.div`
     }
   }
   .div-img {
-    img{
+    img {
       width: 120px;
       height: 120px;
       object-fit: none;
       display: block;
     }
   }
-  .mid-container{
-    display:flex;
-    justify-content:center;
+  .mid-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
   @media (max-width: 480px) {
-    .div-img{
-      img{
+    .div-img {
+      img {
         width: 107px;
       }
     }
@@ -83,10 +83,10 @@ const TotalContainer = styled.p`
   border-top: 2.5px solid ${colorBrown};
   max-width: calc(100% - 20px);
   padding: 15px 0;
-  margin:0 10px;
-  font-size:25px;
-  font-weight:600;
-  color:${colorBrown};
+  margin: 0 10px;
+  font-size: 25px;
+  font-weight: 600;
+  color: ${colorBrown};
 `;
 
 export { OffCanvasTitle, OrderCard, TotalContainer };

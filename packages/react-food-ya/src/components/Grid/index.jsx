@@ -12,43 +12,43 @@ function Grid() {
       name: 'Las Canastitas',
       type: 'Polleria',
       points: 5,
-      img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
+      img: 'https://i.ibb.co/yhbYvNG/img-1.jpg'
     },
     {
       id: 1,
       name: 'Doña Lucha',
       type: 'Anticucheria',
       points: 4,
-      img: 'https://i.ibb.co/8M51bnY/img-2.jpg',
+      img: 'https://i.ibb.co/8M51bnY/img-2.jpg'
     },
     {
       id: 2,
       name: 'When Wha',
       type: 'Chifa ',
       points: 4,
-      img: 'https://i.ibb.co/f0qGzMs/img-3.jpg',
+      img: 'https://i.ibb.co/f0qGzMs/img-3.jpg'
     },
     {
       id: 3,
       name: 'Diego',
       type: 'Caldo de gallina y sopas',
       points: 5,
-      img: 'https://i.ibb.co/KFbmT5F/img-4.jpg',
+      img: 'https://i.ibb.co/KFbmT5F/img-4.jpg'
     },
     {
       id: 4,
       name: 'La buena pizza',
       type: 'Pizzas',
       points: 4,
-      img: 'https://i.ibb.co/PG2ykFV/img-5.jpg',
+      img: 'https://i.ibb.co/PG2ykFV/img-5.jpg'
     },
     {
       id: 5,
       name: 'Bravazo',
       type: 'Hamburguesas / salchipapas ',
       points: 4,
-      img: 'https://i.ibb.co/1nD31w4/img-6.jpg',
-    },
+      img: 'https://i.ibb.co/1nD31w4/img-6.jpg'
+    }
   ];
 
   return (

@@ -2,9 +2,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
-import {
-  Container, Navbar, Nav, Badge, Button,
-} from 'react-bootstrap';
+import { Container, Navbar, Nav, Badge, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -34,7 +32,9 @@ function CustomNavbar() {
         <Navbar.Brand>
           <Link className="logo-link" to={!user.token ? '/' : '/home'}>
             <img
-              src={theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/GH040rw/logo-color.png'}
+              src={
+                theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/GH040rw/logo-color.png'
+              }
               width="150"
               alt="logo"
             />
@@ -42,38 +42,47 @@ function CustomNavbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
-          {
-            user.token && (
-              <Nav className={`ms-auto align-items-end login ${theme}`}>
-                <Link to="/" className="navUser">
-                  <img
-                    src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"
-                    alt="logo"
-                    className="img-user"
-                  />
-                  <h4>{localStorage.getItem('name')}</h4>
-                </Link>
-                <button type="button" className="btn" onClick={() => ShoppingCart()}>
-                  <FiShoppingCart />
-                  {' '}
-                  <Badge bg="danger">{countProducts}</Badge>
-                  <span className="visually-hidden">unread messages</span>
-                </button>
-                <button type="button" className="navSesion" onClick={() => LogOut()}>
-                  <p>Cerrar Sesión</p>
-                </button>
-                <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>
-              </Nav>
-            )
-          }
-          {!user.token
-            && (
-              <Nav className="ms-auto align-items-end">
-                <Link to="/sign-in-selection" className="ButtonHeader">Sign In</Link>
-                <Link to="/register-selection" className="ButtonHeader">Sign Up</Link>
-                <button type="button" className={`buttonTheme ${theme}`} onClick={() => ToggleTheme()}>{theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}</button>
-              </Nav>
-            )}
+          {user.token && (
+            <Nav className={`ms-auto align-items-end login ${theme}`}>
+              <Link to="/" className="navUser">
+                <img
+                  src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"
+                  alt="logo"
+                  className="img-user"
+                />
+                <h4>{localStorage.getItem('name')}</h4>
+              </Link>
+              <button type="button" className="btn" onClick={() => ShoppingCart()}>
+                <FiShoppingCart /> <Badge bg="danger">{countProducts}</Badge>
+                <span className="visually-hidden">unread messages</span>
+              </button>
+              <button type="button" className="navSesion" onClick={() => LogOut()}>
+                <p>Cerrar Sesión</p>
+              </button>
+              <button
+                type="button"
+                className={`buttonTheme ${theme}`}
+                onClick={() => ToggleTheme()}>
+                {theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}
+              </button>
+            </Nav>
+          )}
+          {!user.token && (
+            <Nav className="ms-auto align-items-end">
+              <Link to="/sign-in-selection" className="ButtonHeader">
+                Sign In
+              </Link>
+              <Link to="/register-selection" className="ButtonHeader">
+                Sign Up
+              </Link>
+              <button
+                type="button"
+                className={`buttonTheme ${theme}`}
+                onClick={() => ToggleTheme()}>
+                {theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}
+              </button>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

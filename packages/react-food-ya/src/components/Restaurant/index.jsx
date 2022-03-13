@@ -25,7 +25,7 @@ function Restaurant() {
         description: 'pollo, papas y ensalada',
         stars: 5,
         img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-        link: '#',
+        link: '#'
       },
       {
         id: 1,
@@ -34,7 +34,7 @@ function Restaurant() {
         stars: 4,
         description: '1/2 pollo, papas y ensalada',
         img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-        link: '#',
+        link: '#'
       },
       {
         id: 2,
@@ -43,7 +43,7 @@ function Restaurant() {
         stars: 4,
         description: '1/4 pollo, papas y ensalada',
         img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-        link: '#',
+        link: '#'
       },
       {
         id: 3,
@@ -52,7 +52,7 @@ function Restaurant() {
         description: '1l de chicha natural',
         stars: 5,
         img: 'https://wongfood.vteximg.com.br/arquivos/ids/268644-1000-1000/535911-1.jpg',
-        link: '#',
+        link: '#'
       },
       {
         id: 4,
@@ -61,9 +61,9 @@ function Restaurant() {
         description: 'Ensalada de palta, lechuga, zanahoria y tomate',
         stars: 4,
         img: 'https://i.ibb.co/yhbYvNG/img-1.jpg',
-        link: '#',
-      },
-    ],
+        link: '#'
+      }
+    ]
   };
   const menuRestaurant = restaurantDescription.menu;
   const listMenu = menuRestaurant.map((contact) => (

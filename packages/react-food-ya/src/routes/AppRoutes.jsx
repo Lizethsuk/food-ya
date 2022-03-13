@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  BrowserRouter, Routes, Route, Navigate,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import Landing from '../pages/Landing';
 import RegisterSelection from '../pages/RegisterSelection';
@@ -27,19 +25,37 @@ function AppRoutes() {
     <BrowserRouter>
       <CustomNavbar />
       <Routes>
-        <Route path="/" element={(condition ? <Navigate to="/home" /> : <Landing />)} />
+        <Route path="/" element={condition ? <Navigate to="/home" /> : <Landing />} />
         {/* <Route path="/register-selection" element={<RegisterSelection />} /> */}
         <Route
           path="/register-selection"
-          element={(condition ? <Navigate to="/home" /> : <RegisterSelection />)}
+          element={condition ? <Navigate to="/home" /> : <RegisterSelection />}
         />
-        <Route path="/register-user" element={(condition ? <Navigate to="/home" /> : <RegisterUser />)} />
-        <Route path="/register-restaurant" element={(condition ? <Navigate to="/home" /> : <RegisterRestaurant />)} />
+        <Route
+          path="/register-user"
+          element={condition ? <Navigate to="/home" /> : <RegisterUser />}
+        />
+        <Route
+          path="/register-restaurant"
+          element={condition ? <Navigate to="/home" /> : <RegisterRestaurant />}
+        />
         <Route path="/restaurant" element={<RestaurantPage />} />
-        <Route path="/confirmation-register" element={(condition ? <Navigate to="/home" /> : <ConfirmationRegister />)} />
-        <Route path="/sign-in-selection" element={(condition ? <Navigate to="/home" /> : <SignInSelection />)} />
-        <Route path="/sign-in-user" element={(condition ? <Navigate to="/home" /> : <SignInUser />)} />
-        <Route path="/sign-in-restaurant" element={(condition ? <Navigate to="/home" /> : <SignInRestaurant />)} />
+        <Route
+          path="/confirmation-register"
+          element={condition ? <Navigate to="/home" /> : <ConfirmationRegister />}
+        />
+        <Route
+          path="/sign-in-selection"
+          element={condition ? <Navigate to="/home" /> : <SignInSelection />}
+        />
+        <Route
+          path="/sign-in-user"
+          element={condition ? <Navigate to="/home" /> : <SignInUser />}
+        />
+        <Route
+          path="/sign-in-restaurant"
+          element={condition ? <Navigate to="/home" /> : <SignInRestaurant />}
+        />
         <Route path="/home" element={<Home />} />
 
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />

@@ -3,9 +3,7 @@
 /* eslint-disable indent */
 /* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
-import {
-  Row,
-} from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { MenuManageContext } from '../../../context/menuManageContext';
 import CardMenu from '../../../components/CardMenu';
 
@@ -14,8 +12,8 @@ function ShowDishes() {
 
   return (
     <Row>
-      {
-        !isLoading && menu.map((dish) => (
+      {!isLoading &&
+        menu.map((dish) => (
           <CardMenu
             key={dish.id}
             points={dish.points}
@@ -25,8 +23,7 @@ function ShowDishes() {
             description={dish.description}
             value={dish.value}
           />
-        ))
-      }
+        ))}
     </Row>
   );
 }

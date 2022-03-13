@@ -25,7 +25,11 @@ function SignInSelection() {
             />
           </Row>
         </Container>
-        <CustomButton content="Register" buttonStyle="fit-content-button margin" url="/register-selection" />
+        <CustomButton
+          content="Register"
+          buttonStyle="fit-content-button margin"
+          url="/register-selection"
+        />
       </div>
     </div>
   );

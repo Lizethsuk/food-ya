@@ -4,32 +4,31 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
 
-function CustomButton({
-  content, url, buttonStyle, callback, isLogin, id,
-}) {
+function CustomButton({ content, url, buttonStyle, callback, isLogin, id }) {
   const navigate = useNavigate();
 
   const RedirectTo = () => {
-    if (callback) { callback(true); }
+    if (callback) {
+      callback(true);
+    }
     navigate(`${url}`);
   };
 
   return (
     <>
-      {
-        !isLogin && (
-          <button className={buttonStyle} type="button" onClick={() => RedirectTo()}>
-            {content}
-          </button>
-        )
-      }
-      {
-        isLogin && (
-          <button className={buttonStyle} type="button" onClick={() => navigate(`/dish-manager/${id}`)}>
-            {content}
-          </button>
-        )
-      }
+      {!isLogin && (
+        <button className={buttonStyle} type="button" onClick={() => RedirectTo()}>
+          {content}
+        </button>
+      )}
+      {isLogin && (
+        <button
+          className={buttonStyle}
+          type="button"
+          onClick={() => navigate(`/dish-manager/${id}`)}>
+          {content}
+        </button>
+      )}
     </>
   );
 }
@@ -40,7 +39,7 @@ CustomButton.propTypes = {
   buttonStyle: PropTypes.string,
   callback: PropTypes.func,
   isLogin: PropTypes.bool,
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 
 CustomButton.defaultProps = {
@@ -49,7 +48,7 @@ CustomButton.defaultProps = {
   buttonStyle: 'default-button',
   callback: null,
   isLogin: false,
-  id: '0',
+  id: '0'
 };
 
 export default CustomButton;

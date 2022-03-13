@@ -7,9 +7,7 @@ import { Button } from 'react-bootstrap';
 import { MenuManageContext } from '../../context/menuManageContext';
 import { CardMenuContainer } from './style';
 
-function CardMenu({
-  img, name, price, description, value, points,
-}) {
+function CardMenu({ img, name, price, description, value, points }) {
   const { AddToMenu, RemoveFromMenu } = useContext(MenuManageContext);
 
   return (
@@ -24,11 +22,7 @@ function CardMenu({
             <ul className="ulStars">
               <li className="star">{' ★ '.repeat(points)}</li>
             </ul>
-            <h3>
-              S/
-              {' '}
-              {price}
-            </h3>
+            <h3>S/ {price}</h3>
             <p>{description}</p>
           </div>
         </div>
@@ -36,9 +30,7 @@ function CardMenu({
           <Button onClick={() => AddToMenu(name)}>
             <FaPlusCircle className="btnPlus" />
           </Button>
-          <p>
-            {value}
-          </p>
+          <p>{value}</p>
           <Button onClick={() => RemoveFromMenu(name)}>
             <FaMinusCircle className="btnPlus" />
           </Button>
@@ -54,7 +46,7 @@ CardMenu.propTypes = {
   price: PropTypes.string,
   description: PropTypes.string,
   value: PropTypes.number,
-  points: PropTypes.number,
+  points: PropTypes.number
 };
 
 CardMenu.defaultProps = {
@@ -63,7 +55,7 @@ CardMenu.defaultProps = {
   price: 's./ 10',
   description: 'Default Description',
   value: 0,
-  points: 1,
+  points: 1
 };
 
 export default CardMenu;

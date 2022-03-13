@@ -1,8 +1,6 @@
 import React from 'react';
 import './style.scss';
-import {
-  Container, Row, Col, Form,
-} from 'react-bootstrap/';
+import { Container, Row, Col, Form } from 'react-bootstrap/';
 
 function ConfirmationRegister() {
   // eslint-disable-next-line max-len

@@ -1,15 +1,15 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .register-selection-page {
   display: flex;
   background-image: url(https://www.cypressgreen.in/blog/wp-content/uploads/2021/03/food-1536x1024.jpg);
   background-size: cover;
   background-position: center;
-  padding:$section_padding;
+  padding: $section_padding;
   height: auto;
 
-  @media (min-width: $tablet){
-    height:100vh;
+  @media (min-width: $tablet) {
+    height: 100vh;
   }
 
   .register-container {
@@ -34,12 +34,12 @@
       align-items: center;
     }
 
-    .container{
+    .container {
       margin-bottom: 10px;
-      .row{
-        .col-md-6{
-          .card{
-            margin-bottom:15px;
+      .row {
+        .col-md-6 {
+          .card {
+            margin-bottom: 15px;
           }
         }
       }
@@ -47,7 +47,7 @@
 
     .default-button {
       // margin-bottom: 30px;
-      margin:auto;
+      margin: auto;
     }
   }
 }

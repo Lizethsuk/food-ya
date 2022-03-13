@@ -10,7 +10,11 @@ function ThemeProvider(props) {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    if (!localStorage.getItem('theme')) { localStorage.setItem('theme', 'light'); } else { setTheme(localStorage.getItem('theme')); }
+    if (!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      setTheme(localStorage.getItem('theme'));
+    }
   }, []);
 
   const ToggleTheme = () => {

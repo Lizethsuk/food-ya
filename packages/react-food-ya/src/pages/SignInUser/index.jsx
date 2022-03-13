@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react';
-import {
-  Form, Row, Col, Button,
-} from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 // import Input from '../../components/Input';
 // import CustomButton from '../../components/CustomButton';
 import './style.scss';
@@ -12,7 +10,7 @@ const login = async (credentials) => {
   const response = await fetch('http://localhost:3001/api/userslogin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(credentials),
+    body: JSON.stringify(credentials)
   });
   return response.json();
 };
@@ -47,15 +45,27 @@ function SignIn() {
             <Col>
               <Col sm="12" className="mb-3 m-auto">
                 <Form.Label>Correo electrónico</Form.Label>
-                <Form.Control type="text" name="email" placeholder="foodya@foodya.com" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="email"
+                  placeholder="foodya@foodya.com"
+                  onChange={handleChange}
+                />
               </Col>
 
               <Col sm="12" className="mb-3 m-auto">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" name="password" placeholder="**********" onChange={handleChange} />
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="**********"
+                  onChange={handleChange}
+                />
               </Col>
             </Col>
-            <Button type="submit" className="Reg-button">Sign In</Button>
+            <Button type="submit" className="Reg-button">
+              Sign In
+            </Button>
             {/* <CustomButton content="Sign In" url="/home"
             buttonStyle="fit-content-button" callback={ChangeTokenState} /> */}
           </Form.Group>

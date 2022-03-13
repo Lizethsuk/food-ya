@@ -73,7 +73,7 @@ const CardMenuContainer = styled.div`
     }
   }
   .div-img {
-    img{
+    img {
       width: 120px;
       height: 120px;
       object-fit: none;
@@ -81,14 +81,14 @@ const CardMenuContainer = styled.div`
     }
   }
   @media (max-width: 480px) {
-    .content-div{
-      h2{
+    .content-div {
+      h2 {
         font-size: 13.5px;
         line-height: 13px;
       }
     }
-    .div-img{
-      img{
+    .div-img {
+      img {
         width: 107px;
       }
     }

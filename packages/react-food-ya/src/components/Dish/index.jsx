@@ -12,11 +12,13 @@ function Dish({ item }) {
       <Card.Body>
         <Card.Title>{item.name}</Card.Title>
         <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-          <Button variant="primary" onClick={() => AddToMenu(item.name)}>+</Button>
-          <Card.Text style={{ height: '100%', marginBottom: '0px' }}>
-            {item.value}
-          </Card.Text>
-          <Button variant="primary" onClick={() => RemoveFromMenu(item.name)}>-</Button>
+          <Button variant="primary" onClick={() => AddToMenu(item.name)}>
+            +
+          </Button>
+          <Card.Text style={{ height: '100%', marginBottom: '0px' }}>{item.value}</Card.Text>
+          <Button variant="primary" onClick={() => RemoveFromMenu(item.name)}>
+            -
+          </Button>
         </div>
       </Card.Body>
     </Card>

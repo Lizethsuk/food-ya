@@ -18,7 +18,7 @@ function GridLogin() {
     const url = 'http://localhost:3001/api/menus';
     fetch(url)
       .then((response) => response.json())
-      .then((restaurantsFetched) => (FetchEverything(restaurantsFetched)))
+      .then((restaurantsFetched) => FetchEverything(restaurantsFetched))
       .catch((error) => error(error));
   };
 
@@ -38,8 +38,8 @@ function GridLogin() {
           </Col>
         </Row>
         <Row className="divUlType">
-          {
-            !isLoading && restaurants.map((restaurant) => (
+          {!isLoading &&
+            restaurants.map((restaurant) => (
               // eslint-disable-next-line max-len
               <GridCard
                 img={restaurant.card_img}
@@ -50,8 +50,7 @@ function GridLogin() {
                 isLogin
                 id={restaurant.idRestaurant}
               />
-            ))
-          }
+            ))}
         </Row>
       </Container>
     </div>

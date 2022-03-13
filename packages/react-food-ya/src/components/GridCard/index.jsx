@@ -7,64 +7,58 @@ import CustomButton from '../CustomButton';
 import './style.scss';
 import { ThemeContext } from '../../context/themeContext';
 
-function GridCard({
-  img, name, type, stars, isLogin, id,
-}) {
+function GridCard({ img, name, type, stars, isLogin, id }) {
   const { theme } = useContext(ThemeContext);
 
   return (
     <>
-      {
-        !isLogin && (
-          <Col lg={4} md={6}>
-            <li className={`cardGrid ${theme}`}>
-              <div className="div-img">
-                <img className="imgAvatar" alt="" src={img} />
+      {!isLogin && (
+        <Col lg={4} md={6}>
+          <li className={`cardGrid ${theme}`}>
+            <div className="div-img">
+              <img className="imgAvatar" alt="" src={img} />
+            </div>
+            <div className="content-div">
+              <h2>{name}</h2>
+              <div className="div-type-start">
+                <span>{type}</span>
+                <ul className="ulStars">
+                  <li className="star">{' ★ '.repeat(stars)}</li>
+                </ul>
               </div>
-              <div className="content-div">
-                <h2>{name}</h2>
-                <div className="div-type-start">
-                  <span>{type}</span>
-                  <ul className="ulStars">
-                    <li className="star">{' ★ '.repeat(stars)}</li>
-                  </ul>
-                </div>
-                <CustomButton
-                  buttonStyle="fit-content-button "
-                  content="Ir a Restaurante"
-                  url="/sign-in-selection"
-                />
+              <CustomButton
+                buttonStyle="fit-content-button "
+                content="Ir a Restaurante"
+                url="/sign-in-selection"
+              />
+            </div>
+          </li>
+        </Col>
+      )}
+      {isLogin && (
+        <Col lg={4} md={6}>
+          <li className={`cardGrid ${theme}`}>
+            <div className="div-img">
+              <img className="imgAvatar" alt="" src={img} />
+            </div>
+            <div className="content-div">
+              <h2>{name}</h2>
+              <div className="div-type-start">
+                <span>{type}</span>
+                <ul className="ulStars">
+                  <li className="star">{' ★ '.repeat(stars)}</li>
+                </ul>
               </div>
-            </li>
-          </Col>
-        )
-      }
-      {
-        isLogin && (
-          <Col lg={4} md={6}>
-            <li className={`cardGrid ${theme}`}>
-              <div className="div-img">
-                <img className="imgAvatar" alt="" src={img} />
-              </div>
-              <div className="content-div">
-                <h2>{name}</h2>
-                <div className="div-type-start">
-                  <span>{type}</span>
-                  <ul className="ulStars">
-                    <li className="star">{' ★ '.repeat(stars)}</li>
-                  </ul>
-                </div>
-                <CustomButton
-                  buttonStyle="fit-content-button "
-                  content="Ir a Restaurante"
-                  isLogin
-                  id={id}
-                />
-              </div>
-            </li>
-          </Col>
-        )
-      }
+              <CustomButton
+                buttonStyle="fit-content-button "
+                content="Ir a Restaurante"
+                isLogin
+                id={id}
+              />
+            </div>
+          </li>
+        </Col>
+      )}
     </>
   );
 }
@@ -75,7 +69,7 @@ GridCard.propTypes = {
   type: PropTypes.string,
   stars: PropTypes.number,
   isLogin: PropTypes.bool,
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 
 GridCard.defaultProps = {
@@ -84,7 +78,7 @@ GridCard.defaultProps = {
   type: 'Default Type',
   stars: 2,
   isLogin: false,
-  id: '0',
+  id: '0'
 };
 
 export default GridCard;

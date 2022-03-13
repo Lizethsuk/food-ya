@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .register-option {
   max-width: 200px;
@@ -18,13 +18,13 @@
   }
 }
 
-.card{
+.card {
   box-shadow: 0.3em 0.3em 1em rgba($color_brown, 0.5);
 
-  .card-body{
-    .card-title{
-      color:$color_brown;
-      margin-bottom:45px;
+  .card-body {
+    .card-title {
+      color: $color_brown;
+      margin-bottom: 45px;
     }
   }
 }

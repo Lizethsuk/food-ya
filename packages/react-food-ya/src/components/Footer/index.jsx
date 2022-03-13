@@ -3,9 +3,7 @@
 import React, { useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { IconContext } from 'react-icons/lib';
-import {
-  BsFacebook, BsTwitter, BsLinkedin, BsYoutube,
-} from 'react-icons/bs';
+import { BsFacebook, BsTwitter, BsLinkedin, BsYoutube } from 'react-icons/bs';
 import './style.scss';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../context/themeContext';
@@ -18,7 +16,10 @@ function Footer() {
         <Row>
           <Col md={4} sm={6} className="pe-0 ps-0">
             <Link className="logo-container" to="/">
-              <img src={theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/DDsSFVZ/logo.png'} alt="logo" />
+              <img
+                src={theme === 'dark' ? '../../favicon.ico' : 'https://i.ibb.co/DDsSFVZ/logo.png'}
+                alt="logo"
+              />
             </Link>
           </Col>
           <Col className="align-items-center d-flex justify-content-center pe-0 ps-0" md={4} sm={6}>
@@ -49,7 +50,10 @@ function Footer() {
               </div>
             </IconContext.Provider>
           </Col>
-          <Col md={4} sm={12} className="pe-0 ps-0 d-flex align-items-center justify-content-center">
+          <Col
+            md={4}
+            sm={12}
+            className="pe-0 ps-0 d-flex align-items-center justify-content-center">
             <div className="contact-container">
               <p className="contact">foodya@foodya.com</p>
               <p className="contact">999 999 9999</p>

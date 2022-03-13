@@ -3,9 +3,7 @@
 // import React, { useState } from 'react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Form, Row, Col, Button,
-} from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 // import CustomButton from '../CustomButton';
 
 function FormUser() {
@@ -22,7 +20,7 @@ function FormUser() {
     const response = await fetch('http://localhost:3001/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userState),
+      body: JSON.stringify(userState)
     });
     const responsejson = await response.json();
     console.log(responsejson);

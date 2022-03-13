@@ -10,7 +10,11 @@ function UserProvider(props) {
 
   const Initialize = () => {
     if (localStorage.getItem('token') !== null) {
-      setUser({ ...user, token: localStorage.getItem('token'), name: localStorage.getItem('name') });
+      setUser({
+        ...user,
+        token: localStorage.getItem('token'),
+        name: localStorage.getItem('name')
+      });
     } else {
       localStorage.setItem('token', '');
       localStorage.setItem('name', '');
@@ -31,10 +35,14 @@ function UserProvider(props) {
   };
 
   return (
-    <UserContext.Provider value={{
-      user, setUser, Initialize, ChangeTokenState, ClearTokenState,
-    }}
-    >
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        Initialize,
+        ChangeTokenState,
+        ClearTokenState
+      }}>
       {props.children}
     </UserContext.Provider>
   );

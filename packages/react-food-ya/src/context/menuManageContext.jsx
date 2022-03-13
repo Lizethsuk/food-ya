@@ -3,9 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-constructed-context-values */
-import {
-  React, createContext, useState,
-} from 'react';
+import { React, createContext, useState } from 'react';
 
 const MenuManageContext = createContext();
 
@@ -34,7 +32,7 @@ function MenuManageProvider(props) {
           price: item.price,
           points: item.points,
           description: item.description,
-          value: 0,
+          value: 0
         });
       });
       setCountProducts(0);
@@ -47,7 +45,9 @@ function MenuManageProvider(props) {
   const AddToMenu = (name) => {
     const copy = [...menu];
     copy.forEach((item) => {
-      if (item.name === name) { item.value += 1; }
+      if (item.name === name) {
+        item.value += 1;
+      }
     });
 
     const selectedCopy = copy.filter((item) => item.value > 0);
@@ -55,7 +55,9 @@ function MenuManageProvider(props) {
 
     let countElementsInMenu = 0;
     copy.forEach((item) => {
-      if (item.value > 0) { countElementsInMenu += 1; }
+      if (item.value > 0) {
+        countElementsInMenu += 1;
+      }
     });
     setCountProducts(countElementsInMenu);
 
@@ -65,7 +67,9 @@ function MenuManageProvider(props) {
   const RemoveFromMenu = (name) => {
     const copy = [...menu];
     copy.forEach((item) => {
-      if (item.name === name && item.value > 0) { item.value -= 1; }
+      if (item.name === name && item.value > 0) {
+        item.value -= 1;
+      }
     });
 
     const selectedCopy = copy.filter((item) => item.name === name && item.value > 0);
@@ -73,7 +77,9 @@ function MenuManageProvider(props) {
 
     let countElementsInMenu = 0;
     copy.forEach((item) => {
-      if (item.value > 0) { countElementsInMenu += 1; }
+      if (item.value > 0) {
+        countElementsInMenu += 1;
+      }
     });
     setCountProducts(countElementsInMenu);
 
@@ -84,7 +90,7 @@ function MenuManageProvider(props) {
     const selectedCopy = [...selectedMenu];
     let total = 0;
     selectedCopy.forEach((item) => {
-      total += (item.value * item.price);
+      total += item.value * item.price;
     });
     return total;
   };
@@ -104,23 +110,23 @@ function MenuManageProvider(props) {
   };
 
   return (
-    <MenuManageContext.Provider value={{
-      menu,
-      setMenu,
-      AddToMenu,
-      RemoveFromMenu,
-      InitMenu,
-      isLoading,
-      setIsLoading,
-      selectedMenu,
-      setSelectedMenu,
-      countProducts,
-      ClearMenu,
-      GetTotal,
-      SaveData,
-      GetProducts,
-    }}
-    >
+    <MenuManageContext.Provider
+      value={{
+        menu,
+        setMenu,
+        AddToMenu,
+        RemoveFromMenu,
+        InitMenu,
+        isLoading,
+        setIsLoading,
+        selectedMenu,
+        setSelectedMenu,
+        countProducts,
+        ClearMenu,
+        GetTotal,
+        SaveData,
+        GetProducts
+      }}>
       {props.children}
     </MenuManageContext.Provider>
   );

@@ -4,9 +4,7 @@ import { Card, Col } from 'react-bootstrap';
 import CustomButton from '../CustomButton';
 import './style.scss';
 
-function Option({
-  imgContent, text, content, url,
-}) {
+function Option({ imgContent, text, content, url }) {
   return (
     <Col md={6}>
       <Card>
@@ -24,14 +22,14 @@ Option.propTypes = {
   imgContent: PropTypes.string,
   text: PropTypes.string,
   content: PropTypes.string,
-  url: PropTypes.string,
+  url: PropTypes.string
 };
 
 Option.defaultProps = {
   imgContent: 'Default Image',
   text: 'Default Text',
   content: 'Default Description',
-  url: 'defaultUrl',
+  url: 'defaultUrl'
 };
 
 export default Option;

@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function Input({
-  name, type, label, placeholder, onChange,
-}) {
+function Input({ name, type, label, placeholder, onChange }) {
   return (
     <div className="input-container">
       <label className="input-label" htmlFor={name}>
@@ -27,7 +25,7 @@ Input.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 Input.defaultProps = {
@@ -35,7 +33,7 @@ Input.defaultProps = {
   type: 'Default Name',
   label: 's./ 10',
   placeholder: ' ',
-  onChange: null,
+  onChange: null
 };
 
 export default Input;

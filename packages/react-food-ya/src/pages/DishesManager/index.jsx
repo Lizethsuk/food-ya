@@ -1,14 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Spinner, Offcanvas } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import './style.scss';
 import { motion } from 'framer-motion';
 import { FiShoppingCart } from 'react-icons/fi';
 import { MenuManageContext } from '../../context/menuManageContext';
 import RestaurantInfo from './RestaurantInfo';
-import { OrderCard, TotalContainer, OffCanvasTitle } from './style';
 import CustomSimpleButton from '../../components/CustomSimpleButton';
-import CustomButton from '../../components/CustomButton';
+import PaymentModal from './PaymentModal';
 
 function DishesManager() {
   const { InitMenu, ClearMenu, countProducts, selectedMenu, GetTotal, SaveData } =
@@ -51,8 +50,7 @@ function DishesManager() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-      >
+        transition={{ duration: 1 }}>
         {isLoading && (
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -71,45 +69,21 @@ function DishesManager() {
         <CustomSimpleButton
           disabled={countProducts <= 0}
           callback={handleShow}
+          buttonStyle="fit-content center content"
           content={
-            <>
+            <div>
               <FiShoppingCart />
-              Shop
-            </>
+              <span>Checkout</span>
+            </div>
           }
         />
-        <Offcanvas show={show} onHide={handleClose} placement="end">
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>
-              <OffCanvasTitle>Pedidos</OffCanvasTitle>
-            </Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            {selectedMenu.map((item) => (
-              <OrderCard key={item.id}>
-                <div className="div-img">
-                  <img className="imgAvatar" src={item.img} alt="" />
-                </div>
-                <div className="mid-container">x {item.value}</div>
-                <div className="div-description">
-                  <h2>{item.name}</h2>
-                  <ul className="ulStars">
-                    <li className="star">{' ★ '.repeat(item.points)}</li>
-                  </ul>
-                  <h3>S/ {item.price}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </OrderCard>
-            ))}
-            <TotalContainer>Total: S/ {GetTotal()}</TotalContainer>
-            <CustomButton
-              content="Accept"
-              buttonStyle="full-button"
-              url="/payment"
-              callback={SaveData}
-            />
-          </Offcanvas.Body>
-        </Offcanvas>
+        <PaymentModal
+          show={show}
+          handleClose={handleClose}
+          selectedMenu={selectedMenu}
+          GetTotal={GetTotal}
+          SaveData={SaveData}
+        />
       </motion.div>
     </Container>
   );

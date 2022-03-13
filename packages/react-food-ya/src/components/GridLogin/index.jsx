@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+import { Container, Col, Row } from 'react-bootstrap/';
 import GridCard from '../GridCard';
 import './style.scss';
 

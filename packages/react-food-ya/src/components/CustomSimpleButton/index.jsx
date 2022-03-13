@@ -12,8 +12,7 @@ function CustomSimpleButton({ content, buttonStyle, callback, disabled }) {
         disabled={disabled}
         className={buttonStyle}
         type="button"
-        onClick={() => callback()}
-      >
+        onClick={() => callback()}>
         {content}
       </ButtonContainer>
     </>

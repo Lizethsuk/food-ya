@@ -38,6 +38,17 @@ const ButtonContainer = styled.button`
     width: 100%;
     margin: 0 auto;
   }
+  &.center {
+    margin: auto;
+  }
+  &.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      margin-left: 10px;
+    }
+  }
   &:disabled {
     background: ${colorDisabledGreen};
   }

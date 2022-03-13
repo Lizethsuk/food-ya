@@ -27,21 +27,25 @@ const OrderCard = styled.div`
     padding: 10px 0px 5px 5px;
     max-width: 185px;
     width: 100%;
-    h2 {
+    .card-title {
       margin-bottom: 5px;
       margin-top: 0px;
       text-align: left;
       font-size: 16px;
       line-height: 13.1px;
     }
-    h3 {
+    .card-price {
       margin: 0;
-      font-size: 18px;
+      font-size: 16px;
     }
-    p {
+    .card-description {
       font-size: 12px;
       margin-bottom: 0px;
       line-height: 14px;
+    }
+    .card-value {
+      margin: 0;
+      font-size: 18px;
     }
     .ulStars {
       list-style: none;
@@ -75,6 +79,101 @@ const OrderCard = styled.div`
       }
     }
   }
+  &.checkout {
+    height: 200px;
+    /* max-width: calc(40% - 20px); */
+    justify-content: flex-start;
+
+    .div-img {
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: none;
+        display: block;
+      }
+    }
+    .div-description {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 10px 0px 5px 20px;
+      max-width: 185px;
+      width: 100%;
+      .card-title {
+        margin-bottom: 10px;
+        margin-top: 0px;
+        text-align: left;
+        font-size: 20px;
+        line-height: 13.1px;
+      }
+      .card-price {
+        margin: 0px 0px 5px 0px;
+        font-size: 20px;
+      }
+      .card-description {
+        font-size: 16px;
+        margin-bottom: 15px;
+        line-height: 14px;
+      }
+      .card-value {
+        margin: 0;
+        font-size: 18px;
+      }
+      .ulStars {
+        height: fit-content;
+        list-style: none;
+        padding-left: 0px;
+        margin: 0px 0px 10px 0px;
+        .star {
+          font-size: 21.3px;
+          letter-spacing: 0rem;
+          color: goldenrod;
+          line-height: 12px;
+        }
+      }
+    }
+    @media (max-width: 720px) {
+      height: 150px;
+      .div-img {
+        img {
+          width: 150px;
+          height: 150px;
+          object-fit: none;
+          display: block;
+        }
+      }
+      .div-description {
+        max-width: 150px;
+        padding: 10px 0px 5px 10px;
+
+        .card-title {
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+        .card-price {
+          font-size: 16px;
+        }
+        .card-description {
+          font-size: 12px;
+          margin-bottom: 15px;
+        }
+        .card-value {
+          margin: 0;
+          font-size: 14px;
+        }
+        .ulStars {
+          .star {
+            font-size: 17.3px;
+            letter-spacing: 0rem;
+            color: goldenrod;
+            line-height: 12px;
+          }
+        }
+      }
+    }
+  }
 `;
 
 const TotalContainer = styled.p`
@@ -87,6 +186,11 @@ const TotalContainer = styled.p`
   font-size: 25px;
   font-weight: 600;
   color: ${colorBrown};
+  &.checkout {
+    /* max-width: calc(45% - 20px); */
+    margin: auto;
+    padding-right: 30px;
+  }
 `;
 
 export { OffCanvasTitle, OrderCard, TotalContainer };

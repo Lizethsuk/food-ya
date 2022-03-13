@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-cycle */
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Container, Navbar, Nav, Badge, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 import { ThemeContext } from '../../context/themeContext';
@@ -12,10 +12,12 @@ import { UserContext } from '../../context/userContext';
 import { MenuManageContext } from '../../context/menuManageContext';
 
 function CustomNavbar() {
+  const [isInRestaurant, setIsInRestaurant] = useState(false);
   const { ClearTokenState, user } = useContext(UserContext);
   const { theme, ToggleTheme } = useContext(ThemeContext);
   const { countProducts } = useContext(MenuManageContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const LogOut = () => {
     ClearTokenState();
@@ -25,6 +27,10 @@ function CustomNavbar() {
   const ShoppingCart = () => {
     navigate('/shopping-cart');
   };
+  useEffect(() => {
+    const restaurantRoute = '/dish-manager/';
+    setIsInRestaurant(location.pathname.includes(restaurantRoute));
+  }, [location]);
 
   return (
     <Navbar expand="md" className={theme}>
@@ -52,10 +58,12 @@ function CustomNavbar() {
                 />
                 <h4>{localStorage.getItem('name')}</h4>
               </Link>
-              <button type="button" className="btn" onClick={() => ShoppingCart()}>
-                <FiShoppingCart /> <Badge bg="danger">{countProducts}</Badge>
-                <span className="visually-hidden">unread messages</span>
-              </button>
+              {isInRestaurant && (
+                <button type="button" className="btn" onClick={() => ShoppingCart()}>
+                  <FiShoppingCart /> <Badge bg="danger">{countProducts}</Badge>
+                  <span className="visually-hidden">unread messages</span>
+                </button>
+              )}
               <button type="button" className="navSesion" onClick={() => LogOut()}>
                 <p>Cerrar Sesión</p>
               </button>

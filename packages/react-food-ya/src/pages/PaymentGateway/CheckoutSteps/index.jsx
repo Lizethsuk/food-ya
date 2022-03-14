@@ -9,6 +9,7 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage }) {
     <div>
       {page === 0 && (
         <>
+          <h2>Checkout Order</h2>
           <OrderCardContainer>
             {selectedMenu.map((item) => (
               <OrderCard className="checkout" key={item.id}>
@@ -34,7 +35,6 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage }) {
             content={<>Page2</>}
             buttonStyle="fit-content center content"
             callback={() => {
-              console.log('AAA');
               setPage(1);
             }}
           />
@@ -42,15 +42,34 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage }) {
       )}
       {page === 1 && (
         <>
-          <p>Page 2</p>
+          <h2>Delivery</h2>
           <CustomSimpleButton
             disabled={false}
             content={<>Page1</>}
             buttonStyle="fit-content center content"
             callback={() => {
-              console.log('AAA');
-
               setPage(0);
+            }}
+          />
+          <CustomSimpleButton
+            disabled={false}
+            content={<>Page1</>}
+            buttonStyle="fit-content center content"
+            callback={() => {
+              setPage(2);
+            }}
+          />
+        </>
+      )}
+      {page === 2 && (
+        <>
+          <h2>Payment Type</h2>
+          <CustomSimpleButton
+            disabled={false}
+            content={<>Page1</>}
+            buttonStyle="fit-content center content"
+            callback={() => {
+              setPage(1);
             }}
           />
         </>

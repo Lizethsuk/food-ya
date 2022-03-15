@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.cardMenu {
+.cardMenuRes {
   max-width: 390px;
   width: 100%;
   background-color: white;
@@ -30,30 +30,6 @@
       font-size: 12px;
       margin-bottom: 0px;
       line-height: 14px;
-    }
-  }
-  .divBtn {
-    margin: auto 5px;
-    padding: 0px 6px 5px;
-    background-color: rgb(234, 227, 227);
-    border-radius: 20px;
-    p {
-      margin-bottom: 0px;
-    }
-    .btn {
-      padding: 0px;
-      background: transparent;
-      border: none;
-    }
-    .btnPlus {
-      fill: #4c4c4c;
-      display: block;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      font-size: 12px;
-      text-decoration: none;
-      line-height: 36px;
     }
   }
 

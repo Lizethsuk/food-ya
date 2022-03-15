@@ -15,6 +15,7 @@ import RegisterRestaurant from '../pages/RegisterRestaurant';
 import SignInUser from '../pages/SignInUser';
 import SignInRestaurant from '../pages/SignInRestaurant';
 import RestaurantPage from '../pages/RestaurantPage';
+import UpdateRestaurant from '../pages/UpdateRestaurant';
 import DishesManager from '../pages/DishesManager';
 import NotFound from '../pages/NotFound';
 import { UserContext } from '../context/userContext';
@@ -35,6 +36,7 @@ function AppRoutes() {
         />
         <Route path="/register-user" element={(condition ? <Navigate to="/home" /> : <RegisterUser />)} />
         <Route path="/register-restaurant" element={(condition ? <Navigate to="/home" /> : <RegisterRestaurant />)} />
+        <Route path="/update-restaurant" element={<UpdateRestaurant />} />
         <Route path="/restaurant" element={<RestaurantPage />} />
         <Route path="/confirmation-register" element={(condition ? <Navigate to="/home" /> : <ConfirmationRegister />)} />
         <Route path="/sign-in-selection" element={(condition ? <Navigate to="/home" /> : <SignInSelection />)} />

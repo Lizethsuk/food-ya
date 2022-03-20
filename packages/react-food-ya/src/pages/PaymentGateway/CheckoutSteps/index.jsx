@@ -1,14 +1,20 @@
 /* eslint-disable react/forbid-prop-types */
 import PropTypes from 'prop-types';
+import { Container, Row, Col, Form } from 'react-bootstrap/';
+import { motion } from 'framer-motion';
 import CustomSimpleButton from '../../../components/CustomSimpleButton';
 import { OrderCard, TotalContainer } from '../../DishesManager/style';
-import { OrderCardContainer } from './style';
+import { OrderCardContainer, ButtonContainer, DeliveryContainer, PaymentContainer } from './style';
 
 function CheckoutSteps({ page, selectedMenu, GetTotal, setPage }) {
   return (
-    <div>
+    <form>
       {page === 0 && (
-        <>
+        <motion.div
+          initial={{ x: -500 }}
+          animate={{ x: 0 }}
+          exit={{ x: 0 }}
+          transition={{ duration: 1 }}>
           <h2>Checkout Order</h2>
           <OrderCardContainer>
             {selectedMenu.map((item) => (
@@ -30,51 +36,83 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage }) {
           </OrderCardContainer>
 
           <TotalContainer className="checkout">Total: S/ {GetTotal()}</TotalContainer>
-          <CustomSimpleButton
-            disabled={false}
-            content={<>Page2</>}
-            buttonStyle="fit-content center content"
-            callback={() => {
-              setPage(1);
-            }}
-          />
-        </>
+          <ButtonContainer>
+            <CustomSimpleButton
+              disabled={false}
+              content={<>Continue to delivery</>}
+              buttonStyle="fit-content center content"
+              callback={() => {
+                setPage(1);
+              }}
+            />
+          </ButtonContainer>
+        </motion.div>
       )}
       {page === 1 && (
-        <>
+        <motion.div
+          initial={{ x: 500 }}
+          animate={{ x: 0 }}
+          exit={{ x: 0 }}
+          transition={{ duration: 1 }}>
           <h2>Delivery</h2>
-          <CustomSimpleButton
-            disabled={false}
-            content={<>Page1</>}
-            buttonStyle="fit-content center content"
-            callback={() => {
-              setPage(0);
-            }}
-          />
-          <CustomSimpleButton
-            disabled={false}
-            content={<>Page1</>}
-            buttonStyle="fit-content center content"
-            callback={() => {
-              setPage(2);
-            }}
-          />
-        </>
+          <DeliveryContainer>AAAA</DeliveryContainer>
+          <ButtonContainer>
+            <CustomSimpleButton
+              disabled={false}
+              content={<>Return to Checkout</>}
+              buttonStyle="fit-content center content"
+              callback={() => {
+                setPage(0);
+              }}
+            />
+            <CustomSimpleButton
+              disabled={false}
+              content={<>Continue to payment</>}
+              buttonStyle="fit-content center content"
+              callback={() => {
+                setPage(2);
+              }}
+            />
+          </ButtonContainer>
+        </motion.div>
       )}
       {page === 2 && (
-        <>
+        <motion.div
+          initial={{ x: -500 }}
+          animate={{ x: 0 }}
+          exit={{ x: 0 }}
+          transition={{ duration: 1 }}>
           <h2>Payment Type</h2>
-          <CustomSimpleButton
-            disabled={false}
-            content={<>Page1</>}
-            buttonStyle="fit-content center content"
-            callback={() => {
-              setPage(1);
-            }}
-          />
-        </>
+          <PaymentContainer>
+            <Container>
+              <Row>
+                <Col>
+                  <h3>Billing Address</h3>
+                  <Form.Group className="mb-3" controlId="form-name">
+                    <Form.Label>Full Name</Form.Label>
+                    <Form.Control type="text" placeholder="Aldhair Vera Camacho" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="form-email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="email@mail.com" />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </Container>
+          </PaymentContainer>
+          <ButtonContainer>
+            <CustomSimpleButton
+              disabled={false}
+              content={<>Page1</>}
+              buttonStyle="fit-content center content"
+              callback={() => {
+                setPage(1);
+              }}
+            />
+          </ButtonContainer>
+        </motion.div>
       )}
-    </div>
+    </form>
   );
 }
 

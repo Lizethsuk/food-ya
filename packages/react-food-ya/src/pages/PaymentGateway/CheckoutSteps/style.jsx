@@ -31,4 +31,17 @@ const OrderCardContainer = styled.div`
   }
 `;
 
-export { OrderCardContainer };
+const DeliveryContainer = styled.div``;
+
+const PaymentContainer = styled.div``;
+
+const ButtonContainer = styled.div`
+  max-width: calc(100% - 20px);
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export { OrderCardContainer, ButtonContainer, DeliveryContainer, PaymentContainer };

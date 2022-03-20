@@ -59,9 +59,9 @@ function PaymentGateway() {
                 <Stepper>
                   {progressInstance}
                   <div className="step-container">
-                    {steps.map((step) => {
+                    {steps.map((step, index) => {
                       return (
-                        <div key={step.step} className="step">
+                        <div key={step.step} className={page === index ? 'step selected' : 'step'}>
                           {step.icon}
                         </div>
                       );

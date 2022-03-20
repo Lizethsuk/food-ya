@@ -45,6 +45,11 @@ const Stepper = styled.div`
         width: 25px;
         height: 25px;
       }
+      &.selected {
+        background: #ffffffc5;
+        color: #000000;
+        box-shadow: 0px 0px 5px #000000c5;
+      }
     }
   }
 `;

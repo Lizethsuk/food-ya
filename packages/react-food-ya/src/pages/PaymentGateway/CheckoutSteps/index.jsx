@@ -172,19 +172,48 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage, SetDeliveryPrice
           animate={{ x: 0 }}
           exit={{ x: 0 }}
           transition={{ duration: 1 }}>
-          <h2>Payment Type</h2>
+          <h2>Método de Pago</h2>
           <PaymentContainer>
             <Container>
               <Row>
                 <Col>
-                  <h3>Billing Address</h3>
                   <Form.Group className="mb-3" controlId="form-name">
-                    <Form.Label>Full Name</Form.Label>
-                    <Form.Control type="text" placeholder="Aldhair Vera Camacho" />
+                    <Form.Label>Nombre del titular</Form.Label>
+                    <Form.Control type="text" placeholder="Nombre que muestra la tarjeta" />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="form-email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="email@mail.com" />
+                  <Form.Group className="mb-3" controlId="form-card-number">
+                    <Form.Label>Número de tarjeta</Form.Label>
+                    <Form.Control type="number" placeholder="**** **** **** ****" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="form-expiration-date">
+                    <Form.Label>Fecha de expiración de la tarjeta</Form.Label>
+                    <Form.Select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">2</option>
+                    </Form.Select>
+                    <Form.Select>
+                      <option value="1">11</option>
+                      <option value="2">22</option>
+                      <option value="3">33</option>
+                    </Form.Select>
+
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="form-cvv">
+                    <Form.Label>CVV</Form.Label>
+                    <Form.Control type="number" placeholder="Ingresa 3 dígitos" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="form-identity-doc">
+                    <Form.Label>Documento de identificación</Form.Label>
+                    <Form.Select aria-label="Default select example">
+                      <option value="1">DNI del Titular de la Tarjeta</option>
+                      <option value="2">CE del Titular de la Tarjeta</option>
+                      <option value="3">Pasaporte del Titular de la Tarjeta</option>
+                    </Form.Select>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="form-document-number">
+                    <Form.Label>Número de documento</Form.Label>
+                    <Form.Control type="number" placeholder="" />
                   </Form.Group>
                 </Col>
               </Row>

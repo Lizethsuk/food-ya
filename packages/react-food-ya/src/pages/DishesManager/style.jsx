@@ -8,6 +8,7 @@ const OffCanvasTitle = styled.h2`
 `;
 
 const OrderCard = styled.div`
+  position: relative;
   max-width: calc(100% - 20px);
   width: 100%;
   background-color: white;
@@ -58,6 +59,21 @@ const OrderCard = styled.div`
         line-height: 12px;
       }
     }
+  }
+  .delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 10px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #ffffffab;
+    border: none;
+    box-shadow: 1px 2px 5px black;
   }
   .div-img {
     img {

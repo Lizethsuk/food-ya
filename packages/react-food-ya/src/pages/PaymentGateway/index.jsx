@@ -13,7 +13,14 @@ function PaymentGateway() {
   const [page, setPage] = useState(0);
   const [steps, setSteps] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { GetProducts, selectedMenu, setSelectedMenu, GetTotal } = useContext(MenuManageContext);
+  const {
+    GetProducts,
+    selectedMenu,
+    setSelectedMenu,
+    GetTotal,
+    SetDeliveryPriceToTotal,
+    RemoveFromOrder
+  } = useContext(MenuManageContext);
   const progressInstance = <ProgressBar now={(page / (maxPages - 1)) * 100} />;
 
   const GenerateSteps = () => {
@@ -51,11 +58,6 @@ function PaymentGateway() {
           <Container>
             <Row>
               <Col>
-                <h2>Payment Gateway</h2>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
                 <Stepper>
                   {progressInstance}
                   <div className="step-container">
@@ -78,6 +80,8 @@ function PaymentGateway() {
                     selectedMenu={selectedMenu}
                     GetTotal={GetTotal}
                     setPage={setPage}
+                    SetDeliveryPriceToTotal={SetDeliveryPriceToTotal}
+                    RemoveFromOrder={RemoveFromOrder}
                   />
                 )}
               </PaymentContainer>

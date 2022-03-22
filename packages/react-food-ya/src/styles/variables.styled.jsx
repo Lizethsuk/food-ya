@@ -7,3 +7,6 @@ export const colorCream = '#f4ece1';
 export const colorNavbar = '#4c4c4c';
 export const colorDark = '#333333';
 export const colorHighlight = '#fac721ef';
+
+export const colorDelivery = '#3a3a3a';
+export const colorHoverDelivery = '#585858';

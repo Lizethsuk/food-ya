@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
+import { colorGreen } from '../../styles/variables.styled';
 
 const PaymentContainer = styled.div`
   max-width: calc(45% - 20px);
@@ -22,6 +23,9 @@ const Stepper = styled.div`
     z-index: 1;
     width: 100%;
     height: 7px;
+    .progress-bar {
+      background-color: ${colorGreen};
+    }
   }
   .step-container {
     width: 100%;
@@ -32,7 +36,7 @@ const Stepper = styled.div`
     z-index: 2;
 
     .step {
-      background: #000000c5;
+      background: #000000dc;
       color: white;
       padding: 10px;
       border-radius: 50%;
@@ -46,7 +50,7 @@ const Stepper = styled.div`
         height: 25px;
       }
       &.selected {
-        background: #ffffffc5;
+        background: #ffffffdc;
         color: #000000;
         box-shadow: 0px 0px 5px #000000c5;
       }

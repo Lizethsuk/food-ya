@@ -14,6 +14,20 @@ function MenuManageProvider(props) {
   const [countProducts, setCountProducts] = useState(0);
   const [id, setId] = useState(-1);
 
+  const SaveData = () => {
+    localStorage.setItem('products', JSON.stringify(selectedMenu));
+  };
+
+  const GetProducts = () => {
+    let storageContent = [];
+    if (localStorage.getItem('products') !== null) {
+      storageContent = JSON.parse(localStorage.getItem('products'));
+    } else {
+      console.log('ERROR');
+    }
+    return storageContent;
+  };
+
   const ClearMenu = () => {
     setMenu([]);
     setId(-1);
@@ -86,6 +100,20 @@ function MenuManageProvider(props) {
     setMenu(copy);
   };
 
+  const RemoveFromOrder = (_id) => {
+    let storageContent = [];
+    if (localStorage.getItem('products') !== null) {
+      storageContent = JSON.parse(localStorage.getItem('products'));
+    } else {
+      console.log('ERROR');
+    }
+
+    const selectedCopy = storageContent.filter((item) => item.id !== _id);
+    setSelectedMenu(selectedCopy);
+    // SaveData();
+    localStorage.setItem('products', JSON.stringify(selectedCopy));
+  };
+
   const GetTotal = () => {
     const selectedCopy = [...selectedMenu];
     let total = 0;
@@ -95,18 +123,14 @@ function MenuManageProvider(props) {
     return total;
   };
 
-  const SaveData = () => {
-    localStorage.setItem('products', JSON.stringify(selectedMenu));
-  };
-
-  const GetProducts = () => {
-    let storageContent = [];
-    if (localStorage.getItem('products') !== null) {
-      storageContent = JSON.parse(localStorage.getItem('products'));
-    } else {
-      console.log('ERROR');
-    }
-    return storageContent;
+  const SetDeliveryPriceToTotal = (price) => {
+    const selectedCopy = [...selectedMenu];
+    let total = 0;
+    selectedCopy.forEach((item) => {
+      total += item.value * item.price;
+    });
+    total += price;
+    return total;
   };
 
   return (
@@ -125,7 +149,9 @@ function MenuManageProvider(props) {
         ClearMenu,
         GetTotal,
         SaveData,
-        GetProducts
+        GetProducts,
+        SetDeliveryPriceToTotal,
+        RemoveFromOrder
       }}>
       {props.children}
     </MenuManageContext.Provider>

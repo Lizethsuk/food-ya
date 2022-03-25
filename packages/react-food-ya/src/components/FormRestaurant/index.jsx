@@ -1,13 +1,10 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-// import React, { useState } from 'react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
 import './style.scss';
-
-// import CustomButton from '../CustomButton';
 
 function FormRestaurant() {
   const [restaurantState, setRestaurant] = useState({});
@@ -17,10 +14,6 @@ function FormRestaurant() {
     const { name, value } = e.target;
     setRestaurant({ ...restaurantState, [name]: value });
   };
-  // if (restaurantState.password !== restaurantState.password_configuration) {
-  //   navigate('/register-selection');
-  // } else {
-  // }
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch('http://localhost:3001/api/restaurants', {

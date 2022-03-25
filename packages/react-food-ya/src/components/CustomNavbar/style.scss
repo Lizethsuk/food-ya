@@ -76,7 +76,6 @@ body {
       }
       &:hover {
         color: $color_yellow;
-        // background-color: $color_yellow;
       }
     }
     .navSesion {
@@ -151,20 +150,3 @@ body {
     margin-left: 16px;
   }
 }
-
-// .ButtonContainer {
-//   margin-right: 5%;
-//   li {
-//     display: inline-block;
-//     &:first-child {
-//       a {
-//         margin-right: 2vw;
-//       }
-//     }
-//     &:last-child {
-//       a {
-//         margin-left: 2vw;
-//       }
-//     }
-//   }
-// }

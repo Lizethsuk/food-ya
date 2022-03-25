@@ -1,0 +1,107 @@
+[
+  {
+    "id": 0,
+    "name": "Las Canastitas",
+    "type": "Polleria",
+    "schedule": "16:30 p. m. - 22:30 p. m.",
+    "points": 4.5,
+    "card_img": "https://i.ibb.co/yhbYvNG/img-1.jpg",
+    "inner_img": "https://w7.pngwing.com/pngs/954/418/png-transparent-fried-chicken-chicken-as-food-drawing-buffalo-wing-chicken-food-animals-logo.png",
+    "dishes": [
+      {
+        "id": 0,
+        "name": "1 Pollo",
+        "price": 54,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      },
+      {
+        "id": 1,
+        "name": "1/2 Pollo",
+        "price": 28,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "1/4 Pollo",
+        "price": 16,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Doña Lucha",
+    "type": "Anticucheria",
+    "schedule": "16:30 p. m. - 22:30 p. m.",
+    "points": 4,
+    "card_img": "https://i.ibb.co/8M51bnY/img-2.jpg",
+    "inner_img": "https://w7.pngwing.com/pngs/954/418/png-transparent-fried-chicken-chicken-as-food-drawing-buffalo-wing-chicken-food-animals-logo.png",
+    "dishes": [
+      {
+        "id": 0,
+        "name": "1 Pollo",
+        "price": 54,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      },
+      {
+        "id": 1,
+        "name": "1/2 Pollo",
+        "price": 28,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "1/4 Pollo",
+        "price": 16,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "When Wha",
+    "type": "Chifa",
+    "schedule": "13:00 p. m. - 22:30 p. m.",
+    "points": 4,
+    "card_img": "https://i.ibb.co/f0qGzMs/img-3.jpg",
+    "inner_img": "https://w7.pngwing.com/pngs/954/418/png-transparent-fried-chicken-chicken-as-food-drawing-buffalo-wing-chicken-food-animals-logo.png",
+    "dishes": [
+      {
+        "id": 0,
+        "name": "1 Pollo",
+        "price": 54,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      },
+      {
+        "id": 1,
+        "name": "1/2 Pollo",
+        "price": 28,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "1/4 Pollo",
+        "price": 16,
+        "description": "pollo, papas y ensalada",
+        "points": 5,
+        "img": "https://i.ibb.co/yhbYvNG/img-1.jpg"
+      }
+    ]
+  }
+]

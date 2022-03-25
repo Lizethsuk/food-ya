@@ -2,12 +2,21 @@
 .cardGrid {
     max-width: 270px;
     width: 100%;
-    background-color: white;
+    
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 0px 0px 10px;
     margin: 10px auto;
     border-radius: 10px;
     overflow-x: hidden;
+    &.light{
+      background-color: white;
+    }
+    &.dark{
+      background-color: #676767;
+      .div-img img{
+        filter: brightness(50%); 
+      }
+    }
     .content-div {
       padding: 10px 15px;
       h2 {
@@ -27,6 +36,7 @@
           font-size: 17.3px;
           letter-spacing: 0rem;
           color: goldenrod;
+          line-height: 12px;
         }
       }
     }
@@ -39,5 +49,6 @@
     }
     .div-img img {
       width: 100%;
+      height: 187px;
     }
   }

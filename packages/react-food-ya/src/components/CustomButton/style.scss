@@ -1,7 +1,8 @@
 @import "../../styles/variables";
 
 .default-button {
-  width:100%;
+  border: none;
+  width: 100%;
   max-width: 150px;
   height: 50px;
   background: $color_green;
@@ -13,15 +14,16 @@
 }
 
 .fit-content-button {
-  // width: fit-content;
+  border: none;
   height: fit-content;
   background: $color_green;
   padding: 10px 25px;
   border-radius: 10px;
-  color: $color_cream;
+  border: none;
+  color: #ffffff;
   text-decoration: none;
-  &:hover{
-    color:$color_cream;
+  &:hover {
+    color: $color_cream;
   }
   &.margin-top {
     display: block;
@@ -31,5 +33,6 @@
 }
 
 .margin {
+  border: none;
   margin-bottom: 20px;
 }

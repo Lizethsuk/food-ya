@@ -1,0 +1,152 @@
+@import "../../styles/variables";
+
+body {
+  margin: 0px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+
+  &.light {
+    background-color: $color_yellow;
+  }
+  &.dark {
+    background-color: $color_dark;
+    img {
+      width: 70px;
+    }
+  }
+  .logo-link {
+    margin-left: 0px;
+    cursor: pointer;
+  }
+  .navbar-expand-md .navbar-collapse {
+    margin-right: 30px;
+  }
+  .navbar-toggler {
+    margin: 15px;
+  }
+  .buttonTheme {
+    background-color: transparent;
+    border-radius: 50px !important;
+    line-height: 25px;
+    margin: auto;
+    &.dark {
+      color: $color_highlight;
+      filter: drop-shadow(0px 0px 3px $color_highlight);
+    }
+  }
+  .login {
+    .navUser {
+      display: flex;
+      align-items: center;
+      text-decoration: none !important;
+      margin: auto 5px;
+      .img-user {
+        border-radius: 50%;
+        width: 35px;
+        margin-right: 7px;
+      }
+      h4 {
+        color: $color_navbar;
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 0px;
+      }
+      p {
+        font-size: 13px;
+        color: $color_navbar;
+      }
+    }
+    .btn {
+      background-color: transparent;
+      border-color: transparent;
+      margin: auto 0px;
+      svg {
+        font-size: 21px;
+        color: $color_navbar;
+      }
+      .badge {
+        top: -7px !important;
+        left: -6px !important;
+        border-radius: 20px !important;
+      }
+      &:hover {
+        color: $color_yellow;
+      }
+    }
+    .navSesion {
+      display: flex;
+      align-items: center;
+      margin: auto 50px auto 4px;
+      background: none;
+      border: none;
+      color: $color_navbar;
+      p {
+        margin-bottom: 0px;
+        font-size: 12.9px;
+      }
+    }
+
+    &.dark {
+      .navUser {
+        h4 {
+          color: $color_cream;
+        }
+        p {
+          color: $color_cream;
+        }
+      }
+      .btn {
+        svg {
+          color: $color_cream;
+        }
+        .badge {
+          box-shadow: 0px 0px 10px #dc3545;
+        }
+      }
+      .navSesion {
+        color: $color_cream;
+      }
+    }
+  }
+}
+
+.ButtonHeader {
+  z-index: 2;
+  border-radius: 20px;
+  margin: 10px 35px 10px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: $color_green;
+  border: 1px;
+  width: 120px;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: helvetica;
+
+  &:hover {
+    opacity: 0.6;
+    transition: all 0.3s;
+  }
+}
+
+.show {
+  background-color: $color_yellow;
+  z-index: 3;
+  .ButtonHeader {
+    width: 180px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar .logo-link {
+    margin-left: 16px;
+  }
+}

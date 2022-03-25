@@ -1,8 +1,18 @@
 @import "../../styles/variables";
 
 .main-footer {
-  background-color: $color_brown;
+  width: 100%;
+
   padding: 30px 0;
+  &.dark {
+    background-color: #4c4c4c;
+    .logo-container img {
+      width: 70px;
+    }
+  }
+  &.light {
+    background-color: $color_brown;
+  }
   .logo-container {
     margin: 10px;
   }
@@ -26,5 +36,10 @@
       color: $color_cream;
       margin: 0;
     }
+  }
+}
+@media (max-width: 992px) {
+  .main-footer {
+    position: relative;
   }
 }

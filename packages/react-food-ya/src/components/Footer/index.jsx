@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';

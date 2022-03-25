@@ -52,8 +52,6 @@ function SignIn() {
               </Col>
             </Col>
             <Button type="submit" className="Reg-button">Sign In</Button>
-            {/* <CustomButton content="Sign In" url="/home"
-            buttonStyle="fit-content-button" callback={ChangeTokenState} /> */}
           </Form.Group>
         </Form>
       </div>

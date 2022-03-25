@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import {
-  Container, Navbar, Nav, Badge, Button,
+  Container, Navbar, Nav, Badge,
 } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';

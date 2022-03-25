@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-// import React, { useState } from 'react';
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';

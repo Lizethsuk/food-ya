@@ -40,7 +40,6 @@ function GridLogin() {
         <Row className="divUlType">
           {
             !isLoading && restaurants.map((restaurant) => (
-              // eslint-disable-next-line max-len
               <GridCard
                 img={restaurant.card_img}
                 name={restaurant.name}

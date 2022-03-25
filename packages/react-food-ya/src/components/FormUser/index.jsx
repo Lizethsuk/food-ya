@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

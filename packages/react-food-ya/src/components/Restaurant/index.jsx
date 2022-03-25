@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -67,7 +66,6 @@ function Restaurant() {
   };
   const menuRestaurant = restaurantDescription.menu;
   const listMenu = menuRestaurant.map((contact) => (
-    // eslint-disable-next-line max-len
     <CardMenu
       img={contact.img}
       name={contact.name}

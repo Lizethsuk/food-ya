@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/forbid-prop-types */
 import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { MenuManageContext } from '../../context/menuManageContext';
 
 function Dish({ item }) {
@@ -22,5 +23,13 @@ function Dish({ item }) {
     </Card>
   );
 }
+
+Dish.propTypes = {
+  item: PropTypes.object,
+};
+
+Dish.defaultProps = {
+  item: {},
+};
 
 export default Dish;

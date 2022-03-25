@@ -1,7 +1,4 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable max-len */
-/* eslint-disable indent */
-/* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
 import {
   Row,

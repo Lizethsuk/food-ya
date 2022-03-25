@@ -21,8 +21,7 @@ function FormRestaurant() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(restaurantState),
     });
-    const responsejson = await response.json();
-    console.log(responsejson);
+    await response.json();
     navigate('/');
   };
 

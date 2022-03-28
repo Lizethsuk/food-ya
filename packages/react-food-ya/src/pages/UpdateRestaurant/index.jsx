@@ -32,7 +32,7 @@ function UpdateRestaurant() {
   const sendImg = async (image) => {
     await fetch('http://localhost:3001/api/image', {
       method: 'POST',
-      body: JSON.stringify({ imagen: image }),
+      body: JSON.stringify({ imagen: image, token: localStorage.getItem('token'), products: data }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -43,9 +43,12 @@ function UpdateRestaurant() {
     const reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onloadend = () => {
+      console.log('enviando');
+      console.log(data);
       sendImg(reader.result);
     };
   };
+
   return (
     <Container fluid className="restaurant-section">
       <Row>
@@ -55,20 +58,20 @@ function UpdateRestaurant() {
               <Form.Label column sm="2">
                 Nombre
               </Form.Label>
-              <Form.Control type="text" placeholder="Nombre del producto" name="nombre" onChange={funcChanges} />
+              <Form.Control type="text" placeholder="Nombre del producto" name="name" onChange={funcChanges} />
             </Form.Group>
             <Form.Group className="mb-1" controlId="formPlaintextEmail">
               <Form.Label column sm="2">
                 Precio
               </Form.Label>
-              <Form.Control type="text" placeholder="Precio" name="precio" onChange={funcChanges} />
+              <Form.Control type="text" placeholder="Precio" name="price" onChange={funcChanges} />
 
             </Form.Group>
             <Form.Group className="mb-1" controlId="formPlaintextEmail">
               <Form.Label column sm="2">
                 Descripcion
               </Form.Label>
-              <Form.Control type="text" placeholder="Descripcion" name="descripcion" onChange={funcChanges} />
+              <Form.Control type="text" placeholder="Descripcion" name="description" onChange={funcChanges} />
 
             </Form.Group>
 
@@ -86,9 +89,9 @@ function UpdateRestaurant() {
             <Container>
               <Row>
                 <CardMenuRestaurant
-                  name={data.nombre}
-                  price={data.precio}
-                  description={data.descripcion}
+                  name={data.name}
+                  price={data.price}
+                  description={data.description}
                   img={prevImg}
                 />
 

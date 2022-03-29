@@ -1,31 +1,9 @@
-const {model, Schema} = require('mongoose')
-const uniqueValidator = require('mongoose-unique-validator')
-
-// User Schema
-const userSchema = new Schema({
-    name: String,
-    surname: String,
-    email: {type: String, unique: true},
+const mongoose = require('mongoose')
+const userSchema = mongoose.Schema({
+    email: String,
     passwordHash: String,
-    dni: String,
-    direction: String,
-    district: String,
-    city: String,
-    date: Date,
-    confirmation: {type: Boolean, default: false}
+    userTypeID: {type: mongoose.Schema.Types.ObjectId, refPath: 'typeUser'},
+    typeUser: {type: String, enum: ['Clien', 'Restaurant']}
 })
-
-userSchema.set('toJSON', {
-    transform: (document, returnedObject)=>{
-        returnedObject.id = returnedObject._id
-        delete returnedObject._id
-        delete returnedObject.__v
-        delete returnedObject.passwordHash
-    }
-})
-
-userSchema.plugin(uniqueValidator)
-
-const User = model('User', userSchema)
-
+const User = mongoose.model('User', userSchema)
 module.exports = User

@@ -1,13 +1,13 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const usersloginRouter = require('express').Router()
-const User = require('../models/User')
+const Client = require('../models/Client')
 
 
 usersloginRouter.post('/',async (req,res)=>{
     const userlogin = req.body
     const {email, password} = userlogin
-    const user = await User.findOne({email})
+    const user = await Client.findOne({email})
     if(user.confirmation== false){
         res.status(200).json({'error': 'email no confirmado'})
     }

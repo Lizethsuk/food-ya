@@ -25,8 +25,6 @@ app.get('/',(req,res)=>{
     res.send('<h1>Backend foodya</h1>')
 })
 
-
-
 app.use('/api/users', usersRouter)
 app.use('/api/restaurants', restaurantsRouter)
 app.use('/api/userslogin', usersloginRouter)

@@ -2,7 +2,7 @@ const usersRouter = require('express').Router()
 const joi=require('joi');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const User = require('../models/User');
+const Client = require('../models/Client');
 const main = require('./mailing.js');
 const html = require('./template.js')
 
@@ -24,7 +24,7 @@ const getTokenFrom = request => {
 }
 
 usersRouter.get('/', async(req,res)=>{
-    const users = await User.find({})
+    const users = await Client.find({})
     res.json(users)
 })
 
@@ -36,7 +36,7 @@ usersRouter.get('/login',async (req,res,next)=>{
         if (!token || !decodedToken.id) {
             return res.status(401).json({ error: 'token missing or invalid' })
         }
-        const user = await User.findById(decodedToken.id)
+        const user = await Client.findById(decodedToken.id)
         if(user){
             res.json(user)
         }
@@ -50,7 +50,7 @@ usersRouter.get('/login',async (req,res,next)=>{
 
 usersRouter.delete('/:id',(req,res,next)=>{
     const {id} = req.params
-    User.findByIdAndRemove(id).then(result=>{
+    Client.findByIdAndRemove(id).then(result=>{
         res.status(204).end()
     }).catch(err=>next(err))  
 })
@@ -59,7 +59,7 @@ usersRouter.put('/:id',(req,res,next)=>{
     const id = req.params.id
     const newUserInfo = req.body
     const authorized = req.get('authorization')
-    User.findByIdAndUpdate(id, newUserInfo, {new: true}).then(result=>{
+    Client.findByIdAndUpdate(id, newUserInfo, {new: true}).then(result=>{
         res.status(200).json(result)
     }).catch(err=>next(err))
 })
@@ -86,7 +86,7 @@ usersRouter.post('/', async(req,res)=>{
             // Validation success
             const passwordHash = await bcrypt.hash(user.password, 10)
 
-            const newUser = new User({
+            const newUser = new Client({
                 name: user.name,
                 surname: user.surname,
                 email: user.email,

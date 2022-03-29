@@ -28,7 +28,7 @@ function AppRoutes() {
     <BrowserRouter>
       <CustomNavbar />
       <Routes>
-        <Route path="/" element={(condition ? <Navigate to="/home" /> : <Landing />)} />
+        <Route path="/" element={<Landing />} />
         {/* <Route path="/register-selection" element={<RegisterSelection />} /> */}
         <Route
           path="/register-selection"

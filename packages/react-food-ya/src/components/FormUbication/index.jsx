@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 // import React, { useState } from 'react';
 import React, { useState } from 'react';
-/* import { useNavigate } from 'react-router-dom'; */
+import { useNavigate } from 'react-router-dom';
 import {
   Button, Modal,
 } from 'react-bootstrap';
@@ -13,6 +13,7 @@ import './style.scss';
 function FormUbication() {
   const [ubication, setUbication] = useState('');
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
@@ -25,6 +26,7 @@ function FormUbication() {
 
   const funcLocal = () => {
     localStorage.setItem('ubication', ubication);
+    navigate('/sign-in-selection');
   };
 
   return (

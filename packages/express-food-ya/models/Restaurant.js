@@ -1,22 +1,18 @@
+const mongoose = require('mongoose')
 const {model, Schema} = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
 // Restaurant Schema
 const restaurantSchema = new Schema({
-    name: String,
-    surname: String,
-    email: {type: String, unique: true},
-    passwordHash: String,
-    dni: String,
-    direction: String,
+    UserID: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    DishesID: [{type: mongoose.Schema.Types.ObjectId, ref: 'Dish'}],
+    points: Number,
+    address: String,
     district: String,
-    city: String,
-    
-    business_name: String,
+    schedule: String,
     ruc: String,
-    business_phone: String,
-    business_email: String,
-    business_address: String,
+    type: String,
+    ownerName: String,
     date: Date,
     confirmation: {type: Boolean, default: false}
 })

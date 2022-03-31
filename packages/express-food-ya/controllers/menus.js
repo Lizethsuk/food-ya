@@ -11,7 +11,6 @@ menuRouter.put('/:id', async(req, res) => {
     const newProducts = menu.dishes.concat(product);
     const menuUpdate = await Menu.findOneAndUpdate({idRestaurant: id}, {dishes: newProducts}, {new: true});
     res.status(200).json(menuUpdate);
-
 });
 menuRouter.post('/:id', async(req, res) => {
     const {id} = req.params;

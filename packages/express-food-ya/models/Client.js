@@ -26,6 +26,6 @@ userSchema.set('toJSON', {
 
 userSchema.plugin(uniqueValidator)
 
-const Client = model('User', userSchema)
+const Client = model('Client', userSchema)
 
 module.exports = Client

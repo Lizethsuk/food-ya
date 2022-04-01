@@ -8,9 +8,9 @@ usersloginRouter.post('/',async (req,res)=>{
     const userlogin = req.body
     const {email, password} = userlogin
     const user = await Client.findOne({email})
-    if(user.confirmation== false){
-        res.status(200).json({'error': 'email no confirmado'})
-    }
+    // if(user.confirmation== false){
+    //     res.status(200).json({'error': 'email no confirmado'})
+    // }
 
     const passwordCorrect = user === null ? false : await bcrypt.compare(password, user.passwordHash)
 

@@ -68,39 +68,33 @@ usersRouter.post('/', async(req,res)=>{
     try{
         const user = req.body
 
-        const userSchema=joi.object({
-        name:joi.string().min(2).max(45).required(),
-        surname:joi.string().min(2).max(45).required(),
-        email: joi.string().email().required(),
-        password: joi.string().required(),
-        password_confirmation: joi.string().required(),
-        dni: joi.string().min(8).max(8).required(),
-        direction: joi.string().min(2).max(50).required(),
-        district: joi.string().min(2).max(50).required(),
-        city: joi.string().min(2).max(50).required()
-        })
+        // const userSchema=joi.object({
+        // name:joi.string().min(2).max(45).required(),
+        // surname:joi.string().min(2).max(45).required(),
+        // email: joi.string().email().required(),
+        // password: joi.string().required(),
+        // password_confirmation: joi.string().required(),
+        // dni: joi.string().min(8).max(8).required(),
+        // direction: joi.string().min(2).max(50).required(),
+        // district: joi.string().min(2).max(50).required(),
+        // city: joi.string().min(2).max(50).required()
+        // })
 
-        const { value, error } = userSchema.validate(user);
+        // const { value, error } = userSchema.validate(user);
 
-        if(error==null){
+        if(true){
             // Validation success
             const passwordHash = await bcrypt.hash(user.password, 10)
 
             const newUser = new Client({
-                name: user.name,
-                surname: user.surname,
-                email: user.email,
+                ... user,
                 passwordHash: passwordHash,
-                dni: user.dni,
-                direction: user.direction,
-                district: user.district,
-                city: user.city,
                 date: Date.now()
             })
 
             savedUser = await newUser.save()
-            const token = createToken(req);
-            main({mail: user.email, bhtml: html, urlToken: token })
+            // const token = createToken(req);
+            // main({mail: user.email, bhtml: html, urlToken: token })
 
             res.status(201).json({ success: true, message: 'User has been created', data: savedUser })
         } else {

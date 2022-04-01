@@ -42,7 +42,7 @@ function FormRestaurant() {
     <Form className="form-restaurant" onSubmit={handleSubmit}>
       <h1>Registrar</h1>
       <h2>Datos Personales</h2>
-      <Form.Group as={Row} controlId="formFile" className="mb-3">
+      <Form.Group as={Row} className="mb-3">
         <Col sm="6" className="mb-3">
           <Form.Label>Nombre</Form.Label>
           <Form.Control type="text" name="name" onChange={handleChange} />
@@ -53,44 +53,10 @@ function FormRestaurant() {
           <Form.Control type="text" name="surname" onChange={handleChange} />
         </Col>
 
-        <Col sm="12" className="mb-3">
-          <Form.Label>Correo</Form.Label>
-          <Form.Control type="text" name="email" onChange={handleChange} />
-        </Col>
-
-        <Col sm="6" className="mb-3">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="password" name="password" onChange={handleChange} />
-        </Col>
-
-        <Col sm="6" className="mb-3">
-          <Form.Label>Confirmar Contraseña</Form.Label>
-          <Form.Control type="password" name="password_confirmation" onChange={handleChange} />
-        </Col>
-
-        <Col sm="12" className="mb-3">
-          <Form.Label>DNI</Form.Label>
-          <Form.Control type="text" name="dni" onChange={handleChange} />
-        </Col>
-
-        <Col sm="12" className="mb-3">
-          <Form.Label>Dirección</Form.Label>
-          <Form.Control type="text" name="direction" onChange={handleChange} />
-        </Col>
-
-        <Col sm="6" className="mb-3">
-          <Form.Label>Distrito</Form.Label>
-          <Form.Control type="text" name="district" onChange={handleChange} />
-        </Col>
-
-        <Col sm="6" className="mb-3">
-          <Form.Label>Ciudad</Form.Label>
-          <Form.Control type="text" name="city" onChange={handleChange} />
-        </Col>
         <h2>Datos del Restaurant</h2>
         <Col sm="12" className="mb-3">
           <Form.Label>Razón Social</Form.Label>
-          <Form.Control type="text" name="business_name" onChange={handleChange} />
+          <Form.Control type="text" name="restaurantName" onChange={handleChange} />
         </Col>
 
         <Col sm="6" className="mb-3">
@@ -99,16 +65,106 @@ function FormRestaurant() {
         </Col>
         <Col sm="6" className="mb-3">
           <Form.Label>Teléfono del local</Form.Label>
-          <Form.Control type="text" name="business_phone" onChange={handleChange} />
+          <Form.Control type="text" name="phoneNumber" onChange={handleChange} />
         </Col>
         <Col sm="12" className="mb-3">
           <Form.Label>Correo del local</Form.Label>
-          <Form.Control type="text" name="business_email" onChange={handleChange} />
+          <Form.Control type="text" name="email" onChange={handleChange} />
         </Col>
+        <Col sm="6" className="mb-3">
+          <Form.Label>Ciudad</Form.Label>
+          <Form.Control type="text" name="city" onChange={handleChange} />
+        </Col>
+        <Col sm="6" className="mb-3">
+          <Form.Label>Distrito</Form.Label>
+          <Form.Control type="text" name="district" onChange={handleChange} />
+        </Col>
+
         <Col sm="12" className="mb-3">
           <Form.Label>Dirección del local</Form.Label>
-          <Form.Control type="text" name="business_address" onChange={handleChange} />
+          <Form.Control type="text" name="address" onChange={handleChange} />
         </Col>
+
+        <h2>Perfil del restaurant</h2>
+        <Col sm="12" className="mb-3">
+          <Form.Group className="mb-3">
+            <Form.Label>Imagen representativa del restaurant</Form.Label>
+            <Form.Control type="file" />
+          </Form.Group>
+        </Col>
+
+        <Col sm="12" className="mb-3">
+          <Form.Group className="mb-3">
+            <Form.Label>Logo del restaurant</Form.Label>
+            <Form.Control type="file" />
+          </Form.Group>
+        </Col>
+
+        <h2>Horario de Atención</h2>
+        <Col sm="6" className="mb-3">
+          <Form.Label>Desde</Form.Label>
+          <Form.Select aria-label="Default select example">
+            {['9:00', '10:00', '11:00', '24:00'].map((hora) => <option>{hora}</option>)}
+          </Form.Select>
+        </Col>
+        <Col sm="6" className="mb-3">
+          <Form.Label>Hasta</Form.Label>
+          <Form.Select aria-label="Default select example">
+            {['9:00', '10:00', '11:00', '24:00'].map((hora) => <option>{hora}</option>)}
+          </Form.Select>
+        </Col>
+
+        <h2>Datos del delivery</h2>
+        <h4>Tiempo de entrega</h4>
+        <Col sm="6" className="mb-3">
+          <Form.Label>Desde</Form.Label>
+          <Form.Select aria-label="Default select example">
+            {['30', '45', '60', '75'].map((hora) => (
+              <option>
+                {hora}
+                {' '}
+                min
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+        <Col sm="6" className="mb-3">
+          <Form.Label>Hasta</Form.Label>
+          <Form.Select aria-label="Default select example">
+            {['45', '60', '75', '90'].map((hora) => (
+              <option>
+                {hora}
+                {' '}
+                min
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+
+        <h4>Costo del delivery</h4>
+        <Col sm="6" className="mb-3">
+          <Form.Select aria-label="Default select example">
+            {['3.00', '3.50', '4.00', '4.50', '5.00', '5.50', '6.00'].map((precio) => (
+              <option>
+                S/
+                {' '}
+                {precio}
+
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+        <Row>
+          <Col sm="6" className="mb-3">
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control type="password" name="password" onChange={handleChange} />
+          </Col>
+
+          <Col sm="6" className="mb-3">
+            <Form.Label>Confirmar Contraseña</Form.Label>
+            <Form.Control type="password" name="password_confirmation" onChange={handleChange} />
+          </Col>
+        </Row>
         <Button type="submit" className="Reg-button" onClick={handleShow}>
           Registrar
         </Button>

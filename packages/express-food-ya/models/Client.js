@@ -9,9 +9,10 @@ const userSchema = new Schema({
     dni: String,
     address: String,
     phoneNumber: String,
+    date: Date,
     OrdersID: [{type: Schema.Types.ObjectId, ref: 'Order'}],
     PaymentMethodsID: [{type: Schema.Types.ObjectId, ref: 'PaymentMethod'}],
-    confirmation: {type: Boolean, default: false}
+    confirmation: {type: Boolean, default: true}
 })
 
 userSchema.set('toJSON', {

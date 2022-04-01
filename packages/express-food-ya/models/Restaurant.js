@@ -10,10 +10,15 @@ const restaurantSchema = new Schema({
     points: Number,
     address: String,
     district: String,
+    city: String,
     schedule: String,
     ruc: String,
-    type: String,
+    type: [String],
     ownerName: String,
+    deliveryTime: String,
+    deliveryPrice: Number,
+    restaurantName: String,
+    phoneNumber: String,
     date: Date,
     confirmation: {type: Boolean, default: false}
 })

@@ -4,14 +4,13 @@ const uniqueValidator = require('mongoose-unique-validator')
 // User Schema
 const userSchema = new Schema({
     name: String,
-    surname: String,
     email: {type: String, unique: true},
     passwordHash: String,
     dni: String,
-    direction: String,
-    district: String,
-    city: String,
-    date: Date,
+    address: String,
+    phoneNumber: String,
+    OrdersID: [{type: Schema.Types.ObjectId, ref: 'Order'}],
+    PaymentMethodsID: [{type: Schema.Types.ObjectId, ref: 'PaymentMethod'}],
     confirmation: {type: Boolean, default: false}
 })
 

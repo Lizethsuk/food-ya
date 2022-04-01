@@ -4,8 +4,9 @@ const uniqueValidator = require('mongoose-unique-validator')
 
 // Restaurant Schema
 const restaurantSchema = new Schema({
-    UserID: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     DishesID: [{type: mongoose.Schema.Types.ObjectId, ref: 'Dish'}],
+    email: {type: String, unique: true},
+    passwordHash: String,
     points: Number,
     address: String,
     district: String,

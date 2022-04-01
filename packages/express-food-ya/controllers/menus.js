@@ -1,47 +1,36 @@
-const Menu = require('../models/Menu.js');
+const Dish = require('../models/Dish.js');
+const Restaurant = require('../models/Restaurant.js');
 const menuRouter = require('express').Router();
 const joi = require('joi');
 const bcrypt = require('bcrypt');
 
-menuRouter.put('/:id', async(req, res) => {
-    const {id} = req.params;
-    console.log(req.body);
-    const product = req.body;
-    const menu = await Menu.findOne({idRestaurant: id});
-    const newProducts = menu.dishes.concat(product);
-    const menuUpdate = await Menu.findOneAndUpdate({idRestaurant: id}, {dishes: newProducts}, {new: true});
-    res.status(200).json(menuUpdate);
-});
 menuRouter.post('/:id', async(req, res) => {
     const {id} = req.params;
-    console.log(req.body);
-    const data =req.body;
-    const newMenu = Menu({
-        idRestaurant: id,
-        ...data
-    });
-    const saveMenu = await newMenu.save();
-    res.status(201).json({ message: 'ok', newMenu: saveMenu})
+    const dish = {restaurantID: id, ...req.body};
+    const newDish = new Dish(dish)
+    const dishSaved = await newDish.save()
+    const restaurant = await Restaurant.findById(id).exec()
+    const { DishesID } = restaurant
+    const newDishesID = DishesID.concat(dishSaved._id)
+    const restaurantUpdate = await Restaurant.findByIdAndUpdate(id, {DishesID: newDishesID },{new: true})
+    res.status(201).json({"success": "true", "dish": dishSaved, "restaurant": restaurantUpdate})
+});
 
-})
 menuRouter.get('/', async (req, res)=>{
-    const data = await Menu.find({});
-    res.status(200).json(data)
+    const {search, page} = req.query
+    if(!search){
+        const data = await Dish.find({}).populate('restaurantID').exec();
+        res.status(200).json(data)
+    }else{
+        const dishes = await Dish.find({category: { $regex: "pollo"} })
+        .populate('restaurantID')
+        .skip(page-1)
+        .limit(1)
+        .exec()
+        res.status(200).json(dishes)
+    }
 })
-menuRouter.get('/:id',async (req,res,next)=>{
-    const {id} = req.params 
-    try{
-        const menu = await Menu.findOne({idRestaurant: id})
-        if(menu){
-            res.status(200).json(menu)
-        }
-        else{
-            res.status(204).end()
-        }
-    } catch (err) {
-        next(err)
-    } 
-})
+
 
 
 

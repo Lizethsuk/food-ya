@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import { colorBrown } from '../../styles/variables.styled';
+import { colorBrown, colorCream, colorDarkModeBG } from '../../styles/variables.styled';
 
 const OffCanvasTitle = styled.h2`
   color: ${colorBrown};
@@ -190,6 +190,23 @@ const OrderCard = styled.div`
       }
     }
   }
+  &.dark {
+    background-color: ${colorDarkModeBG};
+    .mid-container {
+      color: ${colorCream};
+    }
+    .div-description {
+      .card-title {
+        color: ${colorCream};
+      }
+      .card-price {
+        color: ${colorCream};
+      }
+      .card-description {
+        color: ${colorCream};
+      }
+    }
+  }
 `;
 
 const TotalContainer = styled.p`
@@ -206,6 +223,10 @@ const TotalContainer = styled.p`
     /* max-width: calc(45% - 20px); */
     margin: auto;
     padding-right: 30px;
+    &.dark {
+      border-top: 2.5px solid ${colorCream};
+      color: ${colorCream};
+    }
   }
 `;
 

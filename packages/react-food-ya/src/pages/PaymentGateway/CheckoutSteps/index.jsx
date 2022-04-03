@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/forbid-prop-types */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Form, ButtonGroup, ToggleButton } from 'react-bootstrap/';
 import { motion } from 'framer-motion';
@@ -11,8 +11,10 @@ import CustomSimpleButton from '../../../components/CustomSimpleButton';
 import { OrderCard, TotalContainer } from '../../DishesManager/style';
 import { OrderCardContainer, EmptyShoppingCart, ButtonContainer, DeliveryContainer, PaymentContainer } from './style';
 import CustomButton from '../../../components/CustomButton';
+import { ThemeContext } from '../../../context/themeContext';
 
 function CheckoutSteps({ page, selectedMenu, GetTotal, setPage, SetDeliveryPriceToTotal, RemoveFromOrder }) {
+  const { theme } = useContext(ThemeContext);
   const [deliveryTotal, setDeliveryPrice] = useState(0);
   const [radioValue, setRadioValue] = useState('1');
   const deliveryTypes = [
@@ -46,7 +48,7 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage, SetDeliveryPrice
               <OrderCardContainer>
                 {
                   selectedMenu.map((item) => (
-                    <OrderCard className="checkout" key={item.id}>
+                    <OrderCard className={`checkout ${theme}`} key={item.id}>
                       <button className="delete-button" type='button' onClick={() => { RemoveFromOrder(item.id) }}><AiFillDelete /></button>
                       <div className="div-img">
                         <img className="imgAvatar" src={item.img} alt="" />
@@ -65,7 +67,7 @@ function CheckoutSteps({ page, selectedMenu, GetTotal, setPage, SetDeliveryPrice
                 }
               </OrderCardContainer>
 
-              <TotalContainer className="checkout">Total: S/ {GetTotal()}</TotalContainer>
+              <TotalContainer className={`checkout ${theme}`}>Total: S/ {GetTotal()}</TotalContainer>
               <ButtonContainer>
                 <CustomSimpleButton
                   disabled={false}

@@ -1,10 +1,13 @@
 /* eslint-disable react/forbid-prop-types */
+import React, { useContext } from 'react';
 import { Offcanvas } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import CustomButton from '../../../components/CustomButton';
 import { OrderCard, TotalContainer, OffCanvasTitle } from '../style';
+import { ThemeContext } from '../../../context/themeContext';
 
 function PaymentModal({ show, handleClose, selectedMenu, GetTotal, SaveData }) {
+  const { theme } = useContext(ThemeContext);
   return (
     <Offcanvas show={show} onHide={handleClose} placement="end">
       <Offcanvas.Header closeButton>
@@ -14,7 +17,7 @@ function PaymentModal({ show, handleClose, selectedMenu, GetTotal, SaveData }) {
       </Offcanvas.Header>
       <Offcanvas.Body>
         {selectedMenu.map((item) => (
-          <OrderCard key={item.id}>
+          <OrderCard key={item.id} className={theme}>
             <div className="div-img">
               <img className="imgAvatar" src={item.img} alt="" />
             </div>

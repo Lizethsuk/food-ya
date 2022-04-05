@@ -1,6 +1,7 @@
 const imgRouter = require('express').Router();
 const cloudinary = require('cloudinary').v2;
-const Menu = require('../models/Menu');
+const Dish = require('../models/Dish');
+const Restaurant = require('../models/Restaurant');
 const jwt = require('jsonwebtoken');
 cloudinary.config({
     cloud_name: 'dujnwtncj', //process.env.CLOUDINARY_NAME,
@@ -14,13 +15,19 @@ imgRouter.post('/', async (req, res) => {
     const id = tokenDecode.id;
     const product = req.body.products;
     const response = await cloudinary.uploader.upload(img, {upload_preset: 'rhjanagr'});
-    const productImg = { ...product, img: response.url};
-    const menu = await Menu.findOne({idRestaurant: id});
-    const newProducts = menu.dishes.concat(productImg);
-    console.log(newProducts);
-    const menuUpdate = await Menu.findOneAndUpdate({idRestaurant: id}, {dishes: newProducts}, {new: true});
-    res.status(200).json(menuUpdate);
-    
-   
+    const data = {
+        restaurantID: id,
+        dishName: product.dishName,
+        description: product.description,
+        image: response.url,
+        price: product.price
+    }
+    const dish = new Dish(data);
+    const dishSaved = await dish.save();
+    const restaurant = await Restaurant.findById(id);
+    const dishesId = restaurant.DishesID.concat(dishSaved._id);
+    const category = restaurant.type.concat(product.category);
+    const restaurantUpdate = await Restaurant.findByIdAndUpdate(id, {DishesID: dishesId, type: category}, {new: true});
+    res.status(201).json(restaurantUpdate);
 })
 module.exports= imgRouter

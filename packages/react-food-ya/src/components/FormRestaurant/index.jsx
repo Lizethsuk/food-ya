@@ -11,6 +11,8 @@ import './style.scss';
 
 function FormRestaurant() {
   const [restaurantState, setRestaurant] = useState({});
+  const [image, setImage] = useState();
+  const [logo, setLogo] = useState();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -25,13 +27,33 @@ function FormRestaurant() {
   //   navigate('/register-selection');
   // } else {
   // }
+
+  const uploadImage = (e) => {
+    const img = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(img);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+  };
+
+  const uploadLogo = (e) => {
+    const img = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(img);
+    reader.onloadend = () => {
+      setLogo(reader.result);
+    };
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch('http://localhost:3001/api/restaurants', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(restaurantState),
+      body: JSON.stringify({ data: restaurantState, logo, image }),
     });
+    console.log(JSON.stringify({ data: restaurantState, logo, image }));
     const responsejson = await response.json();
     console.log(responsejson);
     /*    navigate('/'); */
@@ -95,27 +117,27 @@ function FormRestaurant() {
               <Col sm="12" className="mb-3">
                 <Form.Group>
                   <Form.Label>Imagen representativa del restaurant</Form.Label>
-                  <Form.Control type="file" />
+                  <Form.Control type="file" name="imageRestaurant" onChange={uploadImage} />
                 </Form.Group>
               </Col>
 
               <Col sm="12" className="mb-3">
                 <Form.Group>
                   <Form.Label>Logo del restaurant</Form.Label>
-                  <Form.Control type="file" />
+                  <Form.Control type="file" name="logoRestaurant" onChange={uploadLogo} />
                 </Form.Group>
               </Col>
 
               <h3>Horario de Atención</h3>
               <Col sm="6" className="mb-3">
                 <Form.Label>Desde</Form.Label>
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" name="scheduleOpen">
                   {['9:00', '10:00', '11:00', '24:00'].map((hora) => <option>{hora}</option>)}
                 </Form.Select>
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Hasta</Form.Label>
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" name="scheduleClose">
                   {['9:00', '10:00', '11:00', '24:00'].map((hora) => <option>{hora}</option>)}
                 </Form.Select>
               </Col>
@@ -124,7 +146,7 @@ function FormRestaurant() {
               <h5>Tiempo de entrega</h5>
               <Col sm="6" className="mb-3">
                 <Form.Label>Desde</Form.Label>
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" name="timeInit">
                   {['30', '45', '60', '75'].map((hora) => (
                     <option>
                       {hora}
@@ -136,7 +158,7 @@ function FormRestaurant() {
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Hasta</Form.Label>
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" name="timeEnd">
                   {['45', '60', '75', '90'].map((hora) => (
                     <option>
                       {hora}
@@ -149,7 +171,7 @@ function FormRestaurant() {
 
               <h5>Costo del delivery</h5>
               <Col sm="6" className="mb-3">
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" name="deliveryPrice">
                   {['3.00', '3.50', '4.00', '4.50', '5.00', '5.50', '6.00'].map((precio) => (
                     <option>
                       S/
@@ -168,7 +190,7 @@ function FormRestaurant() {
 
                 <Col sm="12" className="mb-3">
                   <Form.Label>Confirmar Contraseña</Form.Label>
-                  <Form.Control type="password" name="password_confirmation" onChange={handleChange} />
+                  <Form.Control type="password" name="passwordConfirm" onChange={handleChange} />
                 </Col>
 
               </Row>

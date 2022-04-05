@@ -1,7 +1,13 @@
 const restaurantsRouter = require('express').Router()
 const Restaurant = require('../models/Restaurant')
+const cloudinary = require('cloudinary').v2
 const joi=require('joi');
 const bcrypt = require('bcrypt');
+cloudinary.config({
+    cloud_name: 'dujnwtncj', //process.env.CLOUDINARY_NAME,
+    api_key: '542636139781841', //process.env.CLOUDINARY_API_KEY,
+    api_secret: 'xkpXm-2oY6qOm20dcQVAbvQpetQ',
+});
 /* const nodemailer = require("nodemailer");
  */
 restaurantsRouter.get('/', async(req,res)=>{
@@ -40,9 +46,31 @@ restaurantsRouter.put('/:id',(req,res,next)=>{
 })
 
 restaurantsRouter.post('/', async(req,res)=>{
+        console.log(req.body)
     try{
-        const restaurant = req.body
-
+        const restaurant = req.body.data
+        const image = req.body.image
+        const logo = req.body.logo
+        const resImage = await cloudinary.uploader.upload(image, {upload_preset: 'rhjanagr'});
+        const resLogo = await cloudinary.uploader.upload(logo, {upload_preset: 'rhjanagr'});
+        const passwordHash = await bcrypt.hash(restaurant.password, 10)
+        const data = {
+            email: restaurant.email,
+            city: restaurant.city,
+            passwordHash: passwordHash,
+            address: restaurant.address,
+            district: restaurant.district,
+            schedule: `${restaurant.scheduleOpen} a ${restaurant.scheduleClose}`,
+            ruc: restaurant.ruc,
+            ownerName: `${restaurant.name} ${restaurant.surname}`,
+            deliveryTime: `${restaurant.timeInit} min a ${restaurant.timeEnd} min`,
+            deliveryPrice: restaurant.deliveryPrice,
+            restaurantName: restaurant.restaurantName,
+            phoneNumber: restaurant.phoneNumber,
+            imageRestaurant: resImage.url,
+            logoRestaurant: resLogo.url,
+            date: Date.now()
+        }
         // const restaurantSchema=joi.object({
         //     name:joi.string().min(2).max(45).required(),
         //     surname:joi.string().min(2).max(45).required(),
@@ -65,13 +93,9 @@ restaurantsRouter.post('/', async(req,res)=>{
 
         if(true){
             // Validation success
-            const passwordHash = await bcrypt.hash(restaurant.password, 10)
+            
 
-            const newResturant = new Restaurant({
-                ...restaurant,
-                passwordHash: passwordHash,
-                date: Date.now()
-            })
+            const newResturant = new Restaurant(data)
 
             savedRestaurant = await newResturant.save()
             res.status(201).json({ success: true, message: 'Restaurant has been created', data: savedRestaurant })

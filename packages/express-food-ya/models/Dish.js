@@ -6,7 +6,7 @@ const dishSchema = new mongoose.Schema({
     dishName: String,
     description: String,
     image: String,
-    price: Number
+    price: String
 })
 
 const Dish = mongoose.model('Dish', dishSchema)

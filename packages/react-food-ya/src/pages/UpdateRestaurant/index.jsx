@@ -30,13 +30,14 @@ function UpdateRestaurant() {
     setImg(imageFile);
   };
   const sendImg = async (image) => {
-    await fetch('http://localhost:3001/api/image', {
+    const res = await fetch('http://localhost:3001/api/image', {
       method: 'POST',
       body: JSON.stringify({ imagen: image, token: localStorage.getItem('token'), products: data }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    console.log(await res.json());
   };
   const sendData = (e) => {
     e.preventDefault();
@@ -58,7 +59,7 @@ function UpdateRestaurant() {
               <Form.Label column sm="2">
                 Nombre
               </Form.Label>
-              <Form.Control type="text" placeholder="Nombre del producto" name="name" onChange={funcChanges} />
+              <Form.Control type="text" placeholder="Nombre del producto" name="dishName" onChange={funcChanges} />
             </Form.Group>
             <Form.Group className="mb-1" controlId="formPlaintextEmail">
               <Form.Label column sm="2">
@@ -72,6 +73,16 @@ function UpdateRestaurant() {
                 Descripcion
               </Form.Label>
               <Form.Control type="text" placeholder="Descripcion" name="description" onChange={funcChanges} />
+
+            </Form.Group>
+
+            <Form.Group className="mb-1">
+              <Form.Label column sm="2">
+                Categoría
+              </Form.Label>
+              <Form.Select name="category" onChange={funcChanges}>
+                {['Pollo a la brasa, carnes y parrillas', 'Pizzas y pastas', 'Hamburguesa, salchipapa y más', 'Comida oriental', 'Comida mexicana', 'Café, jugos y postres', 'Comida criolla', 'Comida marina', 'Complementos'].map((categoria) => <option>{categoria}</option>)}
+              </Form.Select>
 
             </Form.Group>
 
@@ -89,7 +100,7 @@ function UpdateRestaurant() {
             <Container>
               <Row>
                 <CardMenuRestaurant
-                  name={data.name}
+                  name={data.dishName}
                   price={data.price}
                   description={data.description}
                   img={prevImg}

@@ -6,11 +6,11 @@ const uniqueValidator = require('mongoose-unique-validator')
 const restaurantSchema = new Schema({
     DishesID: [{type: mongoose.Schema.Types.ObjectId, ref: 'Dish'}],
     email: {type: String, unique: true},
+    points: {type: Number, default: 3},
+    city: {type: String, default: "Lima"},
     passwordHash: String,
-    points: Number,
     address: String,
     district: String,
-    city: String,
     schedule: String,
     ruc: String,
     type: [String],
@@ -19,6 +19,8 @@ const restaurantSchema = new Schema({
     deliveryPrice: Number,
     restaurantName: String,
     phoneNumber: String,
+    imageRestaurant: String,
+    logoRestaurant:String,
     date: Date,
     confirmation: {type: Boolean, default: false}
 })

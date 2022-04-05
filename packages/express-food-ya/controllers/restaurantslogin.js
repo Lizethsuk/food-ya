@@ -16,11 +16,11 @@ restaurantsloginRouter.post('/',async (req,res)=>{
         const restaurantForToken = {
             id: restaurant._id,
             email: restaurant.email,    
-            name: restaurant.name
+            name: restaurant.ownerName
         }
         const secretword = 'foodya'
         const token = jwt.sign(restaurantForToken, secretword)
-        res.json({email: restaurant.email, name: restaurant.name, token: token})
+        res.json({email: restaurant.email, name: restaurant.ownerName, token: token})
     }
 })
 

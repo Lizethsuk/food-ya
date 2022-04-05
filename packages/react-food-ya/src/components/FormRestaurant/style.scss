@@ -5,9 +5,28 @@
     outline: 1px solid $color_brown;
     border-radius: $border_radius;
     width: 100%;
-    max-width: 450px;
-    padding: 40px 20px;
+    padding: 40px 15px;
     color: #4C4C4C;
+   
+    h2{
+      text-align: left;
+      font-size: 15px;
+    }
+    h3{
+      text-align: left;
+      font-size: 20px;
+      margin-bottom: 25.5px;
+    }
+    h4{
+      text-align: left;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    h5{
+      text-align: left;
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
 
     .form-control{
       border:1px solid #4C4C4C;
@@ -15,6 +34,7 @@
       
     .form-label{
       display: flex;
+      font-size: 12.3px;
     }
 
     .Reg-button {
@@ -22,6 +42,7 @@
       background: $color_green;
       border-radius: 10px;
       border: none;
+      max-width: none;
       &:hover {
         cursor: pointer;
         background: #337aff;

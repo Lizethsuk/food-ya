@@ -18,7 +18,7 @@ function RegisterRestaurant() {
       <section className="bannerRegisterRestaurant">
         <Container>
           <Row>
-            <Col lg={6}>
+            <Col xl={4}>
               <div className="bannerCol">
                 <div className="bannerDiv">
                   <h2>Registra tu negocio!</h2>
@@ -34,7 +34,7 @@ function RegisterRestaurant() {
                 </div>
               </div>
             </Col>
-            <Col lg={6}>
+            <Col xl={8}>
               <FormRestaurant />
             </Col>
           </Row>

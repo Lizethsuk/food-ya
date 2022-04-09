@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .App {
   text-align: center;
@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: 'Readex Pro', sans-serif;
+  font-family: "Readex Pro", sans-serif;
   background: $color_cream;
 }
 
@@ -60,4 +60,18 @@ a {
   margin: auto !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+.error {
+  color: $color_error;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 7px;
+}
+
+.success {
+  color: $color_success;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 7px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");

@@ -63,7 +63,6 @@ restaurantsRouter.post('/', async(req,res)=>{
         const { value, error } = restaurantSchema.validate(restaurant);
 
         if(error==null){
-            // Validation success
             const passwordHash = await bcrypt.hash(restaurant.password, 10)
 
             const newResturant = new Restaurant({
@@ -86,10 +85,6 @@ restaurantsRouter.post('/', async(req,res)=>{
 
             savedRestaurant = await newResturant.save()
             res.status(201).json({ success: true, message: 'Restaurant has been created', data: savedRestaurant })
-
-            // newResturant.save().then( user =>{
-            //     res.status(201).json({ success: true, message: 'User has been created', data: user })
-            // })
         } else {
         res.status(400).json({ success: false, message: 'Validation error', data: value, error: error.details })
         }

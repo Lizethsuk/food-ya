@@ -1,311 +1,304 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    margin: 0px;
-    font-family: 'Readex Pro', sans-serif;
-    background: #F4ECE1;
+  margin: 0px;
+  font-family: "Readex Pro", sans-serif;
+  background: #f4ece1;
 }
-
 
 /* Navbar */
 
 nav {
-    display: flex;
-    background-color: #E8C670;
-    align-items: center;
-    height: 100px;
+  display: flex;
+  background-color: #e8c670;
+  align-items: center;
+  height: 100px;
 }
 
 nav figure {
-    margin-right: 80px;
+  margin-right: 80px;
 }
 
 .btns {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .btns li {
-    display: inline-block;
+  display: inline-block;
 }
 
 .btns li .btn {
-    border-radius: 20px;
-    margin: 30px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    background: #649DFF;
-    border: 1px;
-    width: 120px;
-    height: 40px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: helvetica;
+  border-radius: 20px;
+  margin: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: #649dff;
+  border: 1px;
+  width: 120px;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: helvetica;
 }
 
 .btns li .btn:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
-
 
 /* Banner */
 
 .banner {
-    z-index: 0;
-    /* background:url(https://media.istockphoto.com/photos/delicious-meal-on-a-black-plate-top-view-copy-space-picture-id1165399909?k=20&m=1165399909&s=612x612&w=0&h=5g5C4BDoxaejlIr4r_8cV6jDYXzN8n1-JkIW3LgPUuA=); */
-    background: url(https://iili.io/7XpyPf.md.png);
-    background-size: cover;
-    background-position: center;
-    width: calc(90% - 40px);
-    height: 500px;
-    padding: 20px;
-    margin: 20px auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #000;
+  z-index: 0;
+  background: url(https://iili.io/7XpyPf.md.png);
+  background-size: cover;
+  background-position: center;
+  width: calc(90% - 40px);
+  height: 500px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
 }
 
 .banner .banner-img {
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 10px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
 }
 
 .banner .banner-text {
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    color: #F4ECE1;
-    border-radius: 5px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #f4ece1;
+  border-radius: 5px;
 }
 
 .banner .banner-text h1 {
-    font-size: 3em;
-    font-weight: bold;
-    margin: 0;
+  font-size: 3em;
+  font-weight: bold;
+  margin: 0;
 }
 
 .banner .banner-text p {
-    font-size: 1.5em;
-    margin: 0;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 .banner .banner-text a {
-    width: 200px;
-    margin: 10px 0 0 0;
-    font-size: 1.5em;
-    padding: 10px;
-    /* background: #649DFF; */
-    background: #51B2AF;
-    border-radius: 5px;
-    color: #F4ECE1;
-    text-decoration: none;
-    transition: all 0.5s ease;
+  width: 200px;
+  margin: 10px 0 0 0;
+  font-size: 1.5em;
+  padding: 10px;
+  background: #51b2af;
+  border-radius: 5px;
+  color: #f4ece1;
+  text-decoration: none;
+  transition: all 0.5s ease;
 }
 
 .banner .banner-text a:hover {
-    /* background: rgba(102, 158, 255, 0.85); */
-    background: rgba(81, 178, 175, 0.85);
+  background: rgba(81, 178, 175, 0.85);
 }
 
-
 /* Grid */
-
 .restaurants {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #F4ECE1;
-    color: #4C4C4C;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f4ece1;
+  color: #4c4c4c;
 }
 
 .restaurant {
-    max-width: 300px;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    padding: 0px;
-    margin: 10px;
-    border-radius: 10px;
-    overflow-x: hidden;
+  max-width: 300px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 0px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow-x: hidden;
 }
 
 .restaurant h3 {
-    font-size: 32px;
-    line-height: 32px;
-    margin: 0 auto;
-    color: #4C4C4C;
+  font-size: 32px;
+  line-height: 32px;
+  margin: 0 auto;
+  color: #4c4c4c;
 }
 
 .div-img img {
-    width: 100%;
+  width: 100%;
 }
 
 .div-content {
-    padding: 20px 15px;
+  padding: 20px 15px;
 }
 
 .div-content p {
-    font-size: 14.9px;
-    margin: 8px 0px;
+  font-size: 14.9px;
+  margin: 8px 0px;
 }
 
 .divBtn {
-    text-align: center;
-    padding: 5px 0px;
+  text-align: center;
+  padding: 5px 0px;
 }
 
 .divBtn .btnClass {
-    color: #FFFFFF;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    background-color: #51B2AF;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 12px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  background-color: #51b2af;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
 }
 
 .divUlType {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ulStars {
-    list-style: none;
-    padding-left: 0px;
-    margin: 5px 0px;
-    display: flex;
-    align-items: center;
+  list-style: none;
+  padding-left: 0px;
+  margin: 5px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .ulStars li {
-    display: inline;
+  display: inline;
 }
 
 .star {
-    width: 17.4px;
-    margin-right: 1px;
+  width: 17.4px;
+  margin-right: 1px;
 }
 
-
 /* Footer */
-
 .container {
-    max-width: 1300px;
-    margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+  max-width: 1300px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .testimonio .col-3 {
-    text-align: center;
-    padding: 40px 20px;
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: transform 0.5s;
-    border: #000;
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.5s;
+  border: #000;
 }
 
 .testimonio .col-3 img {
-    width: 50px;
-    margin-top: 20px;
-    border-radius: 50%;
+  width: 50px;
+  margin-top: 20px;
+  border-radius: 50%;
 }
 
 .testimonio .col-3:hover {
-    transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .col-3 q {
-    font-size: 12px;
-    margin: 12px 0;
-    color: #777;
+  font-size: 12px;
+  margin: 12px 0;
+  color: #777;
 }
 
 .col-5 img:hover {
-    filter: grayscale(0);
+  filter: grayscale(0);
 }
 
 .footer {
-    background: #504a3c;
-    color: #8a8a8a;
-    font-size: 14px;
-    padding: 60px 0 20px;
+  background: #504a3c;
+  color: #8a8a8a;
+  font-size: 14px;
+  padding: 60px 0 20px;
 }
 
 .footer p {
-    color: #8a8a8a;
+  color: #8a8a8a;
 }
 
 .footer h3 {
-    color: #fff;
-    margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .footer-col-1,
 .footer-col-2,
 .footer-col-3 {
-    min-width: 250px;
-    margin-bottom: 20px;
+  min-width: 250px;
+  margin-bottom: 20px;
 }
 
 .footer-col-1 {
-    margin: 0;
-    flex-basis: 30%;
+  margin: 0;
+  flex-basis: 30%;
 }
 
 .logo-text {
-    color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: 48px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 48px;
 }
 
 .footer-col-2 {
-    color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    flex-basis: 30%;
-    text-align: center;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  flex-basis: 30%;
+  text-align: center;
 }
 
 .footer-col-2 img {
-    width: 180px;
-    margin-bottom: 20px;
+  width: 180px;
+  margin-bottom: 20px;
 }
 
 .footer-col-3 {
-    flex-basis: 12%;
-    text-align: center;
+  flex-basis: 12%;
+  text-align: center;
 }
 
 ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
 }

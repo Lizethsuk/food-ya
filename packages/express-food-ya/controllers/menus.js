@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 
 menuRouter.put('/:id', async(req, res) => {
     const {id} = req.params;
-    console.log(req.body);
     const product = req.body;
     const menu = await Menu.findOne({idRestaurant: id});
     const newProducts = menu.dishes.concat(product);
@@ -15,7 +14,6 @@ menuRouter.put('/:id', async(req, res) => {
 });
 menuRouter.post('/:id', async(req, res) => {
     const {id} = req.params;
-    console.log(req.body);
     const data =req.body;
     const newMenu = Menu({
         idRestaurant: id,

@@ -1,5 +1,4 @@
 module.exports = (err,req,res,next)=>{
-    //console.log('este es el error',err.name)
     if(err.name === 'CastError'){
         res.status(400).send({error: 'id incorrect'})
     } else if (err.name === 'JsonWebTokenError'){

@@ -1,7 +1,6 @@
 const {model, Schema} = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
-// Restaurant Schema
 const restaurantSchema = new Schema({
     name: String,
     surname: String,

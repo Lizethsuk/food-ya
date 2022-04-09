@@ -72,7 +72,6 @@ usersRouter.post('/', async(req,res)=>{
         const { value, error } = userSchema.validate(user);
 
         if(error==null){
-            // Validation success
             const passwordHash = await bcrypt.hash(user.password, 10)
 
             const newUser = new User({

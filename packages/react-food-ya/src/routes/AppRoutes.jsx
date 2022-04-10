@@ -17,6 +17,7 @@ import NotFound from '../pages/NotFound';
 import Invoice from '../pages/Invoice';
 import PaymentGateway from '../pages/PaymentGateway';
 import { UserContext } from '../context/userContext';
+import ProfileSettings from '../pages/ProfileSettings';
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
@@ -62,6 +63,8 @@ function AppRoutes() {
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         <Route path="/payment" element={<PaymentGateway />} />
         <Route path="/payment-message" element={<Invoice />} />
+        <Route path="/profile/*" element={<ProfileSettings />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

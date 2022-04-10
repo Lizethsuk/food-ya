@@ -35,10 +35,11 @@ function InvoiceProvider(props) {
 
   const InitializeInvoiceList = () => {
     if (localStorage.getItem('invoices') != null) {
-      setInvoice(JSON.parse(localStorage.getItem('invoices')));
+      console.log('AAAA');
+      setInvoices(JSON.parse(localStorage.getItem('invoices')));
     } else {
       localStorage.setItem('invoices', '[]');
-      setInvoice(JSON.parse(localStorage.getItem('invoices')));
+      setInvoices(JSON.parse(localStorage.getItem('invoices')));
     }
   };
 

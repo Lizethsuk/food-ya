@@ -50,7 +50,7 @@ function CustomNavbar() {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
           {user.token && (
             <Nav className={`ms-auto align-items-end login ${theme}`}>
-              <Link to="/" className="navUser">
+              <Link to="/profile/orders" className="navUser">
                 <img
                   src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"
                   alt="logo"

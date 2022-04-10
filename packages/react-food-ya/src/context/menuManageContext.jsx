@@ -14,11 +14,11 @@ function MenuManageProvider(props) {
   const [countProducts, setCountProducts] = useState(0);
   const [id, setId] = useState(-1);
 
-  const SaveData = () => {
+  const saveData = () => {
     localStorage.setItem('products', JSON.stringify(selectedMenu));
   };
 
-  const GetProducts = () => {
+  const getProducts = () => {
     let storageContent = [];
     if (localStorage.getItem('products') !== null) {
       storageContent = JSON.parse(localStorage.getItem('products'));
@@ -28,13 +28,13 @@ function MenuManageProvider(props) {
     return storageContent;
   };
 
-  const ClearMenu = () => {
+  const clearMenu = () => {
     setMenu([]);
     setId(-1);
     setCountProducts(0);
   };
 
-  const InitMenu = (elements, currId) => {
+  const initMenu = (elements, currId) => {
     setIsLoading(true);
     if (currId !== id) {
       const copy = [...menu];
@@ -56,7 +56,7 @@ function MenuManageProvider(props) {
     setIsLoading(false);
   };
 
-  const AddToMenu = (name) => {
+  const addToMenu = (name) => {
     const copy = [...menu];
     copy.forEach((item) => {
       if (item.name === name) {
@@ -78,7 +78,7 @@ function MenuManageProvider(props) {
     setMenu(copy);
   };
 
-  const RemoveFromMenu = (name) => {
+  const removeFromMenu = (name) => {
     const copy = [...menu];
     copy.forEach((item) => {
       if (item.name === name && item.value > 0) {
@@ -100,7 +100,7 @@ function MenuManageProvider(props) {
     setMenu(copy);
   };
 
-  const RemoveFromOrder = (_id) => {
+  const removeFromOrder = (_id) => {
     let storageContent = [];
     if (localStorage.getItem('products') !== null) {
       storageContent = JSON.parse(localStorage.getItem('products'));
@@ -110,11 +110,10 @@ function MenuManageProvider(props) {
 
     const selectedCopy = storageContent.filter((item) => item.id !== _id);
     setSelectedMenu(selectedCopy);
-    // SaveData();
     localStorage.setItem('products', JSON.stringify(selectedCopy));
   };
 
-  const GetTotal = () => {
+  const getTotal = () => {
     const selectedCopy = [...selectedMenu];
     let total = 0;
     selectedCopy.forEach((item) => {
@@ -123,7 +122,7 @@ function MenuManageProvider(props) {
     return total;
   };
 
-  const SetDeliveryPriceToTotal = (price) => {
+  const setDeliveryPriceToTotal = (price) => {
     const selectedCopy = [...selectedMenu];
     let total = 0;
     selectedCopy.forEach((item) => {
@@ -138,20 +137,20 @@ function MenuManageProvider(props) {
       value={{
         menu,
         setMenu,
-        AddToMenu,
-        RemoveFromMenu,
-        InitMenu,
+        AddToMenu: addToMenu,
+        RemoveFromMenu: removeFromMenu,
+        InitMenu: initMenu,
         isLoading,
         setIsLoading,
         selectedMenu,
         setSelectedMenu,
         countProducts,
-        ClearMenu,
-        GetTotal,
-        SaveData,
-        GetProducts,
-        SetDeliveryPriceToTotal,
-        RemoveFromOrder
+        ClearMenu: clearMenu,
+        GetTotal: getTotal,
+        SaveData: saveData,
+        GetProducts: getProducts,
+        SetDeliveryPriceToTotal: setDeliveryPriceToTotal,
+        RemoveFromOrder: removeFromOrder
       }}>
       {props.children}
     </MenuManageContext.Provider>

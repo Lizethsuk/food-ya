@@ -11,16 +11,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './context/themeContext';
 import { UserProvider } from './context/userContext';
 import { MenuManageProvider } from './context/menuManageContext';
+import { InvoiceProvider } from './context/invoiceContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MenuManageProvider>
-      <UserProvider>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </UserProvider>
-    </MenuManageProvider>
+    <InvoiceProvider>
+      <MenuManageProvider>
+        <UserProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </UserProvider>
+      </MenuManageProvider>
+    </InvoiceProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

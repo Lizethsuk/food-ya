@@ -21,10 +21,10 @@ function GridLogin() {
   };
 
   useEffect(() => {
-    setIsLoading(true);
     if (restaurants.length === 0) {
       getRestaurants();
     }
+    setIsLoading(true);
   }, []);
 
   return (
@@ -38,13 +38,12 @@ function GridLogin() {
         <Row className="divUlType">
           {!isLoading &&
             restaurants.map((restaurant) => (
-              // eslint-disable-next-line max-len
               <GridCard
+                key={restaurant.id}
                 img={restaurant.card_img}
                 name={restaurant.name}
                 type={restaurant.type}
                 stars={restaurant.points}
-                key={restaurant.id}
                 isLogin
                 id={restaurant.idRestaurant}
               />

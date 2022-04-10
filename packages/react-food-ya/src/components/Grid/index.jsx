@@ -61,7 +61,6 @@ function Grid() {
         </Row>
         <Row className="divUlType">
           {restaurants.map((restaurant) => (
-            // eslint-disable-next-line max-len
             <GridCard
               img={restaurant.img}
               name={restaurant.name}

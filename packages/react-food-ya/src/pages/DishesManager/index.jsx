@@ -8,22 +8,24 @@ import { MenuManageContext } from '../../context/menuManageContext';
 import RestaurantInfo from './RestaurantInfo';
 import CustomSimpleButton from '../../components/CustomSimpleButton';
 import PaymentModal from './PaymentModal';
+import { InvoiceContext } from '../../context/invoiceContext';
 
 function DishesManager() {
   const { InitMenu, ClearMenu, countProducts, selectedMenu, GetTotal, SaveData } =
     useContext(MenuManageContext);
-
-  const [restaurant, setRestaurant] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const { restaurantId } = useParams();
-
+  const { saveRestaurant } = useContext(InvoiceContext);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const FetchEverything = async (menu) => {
+  const [restaurant, setRestaurant] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const { restaurantId } = useParams();
+
+  const fetchEverything = async (menu) => {
     setRestaurant(menu);
+    saveRestaurant(menu);
     await InitMenu(menu.dishes, restaurantId);
     setIsLoading(false);
   };
@@ -32,7 +34,7 @@ function DishesManager() {
     const url = `http://localhost:3001/api/menus/${restaurantId}`;
     fetch(url)
       .then((response) => response.json())
-      .then((menu) => FetchEverything(menu))
+      .then((menu) => fetchEverything(menu))
       .catch((error) => error(error));
   };
 

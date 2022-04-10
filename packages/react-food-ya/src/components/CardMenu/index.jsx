@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
-// import './style.scss';
 import { Button } from 'react-bootstrap';
 import { MenuManageContext } from '../../context/menuManageContext';
 import { CardMenuContainer } from './style';

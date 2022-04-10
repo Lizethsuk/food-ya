@@ -67,7 +67,6 @@ function Restaurant() {
   };
   const menuRestaurant = restaurantDescription.menu;
   const listMenu = menuRestaurant.map((contact) => (
-    // eslint-disable-next-line max-len
     <CardMenu
       img={contact.img}
       name={contact.name}

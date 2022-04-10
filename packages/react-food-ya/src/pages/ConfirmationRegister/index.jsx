@@ -3,7 +3,6 @@ import './style.scss';
 import { Container, Row, Col, Form } from 'react-bootstrap/';
 
 function ConfirmationRegister() {
-  // eslint-disable-next-line max-len
   return (
     <div className="confirmation-register">
       <section className="sectionWin">

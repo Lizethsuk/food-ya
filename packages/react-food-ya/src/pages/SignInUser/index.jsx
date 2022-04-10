@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-// import Input from '../../components/Input';
-// import CustomButton from '../../components/CustomButton';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
@@ -27,8 +25,6 @@ function SignIn() {
     e.preventDefault();
     try {
       const user = await login(userState);
-      // localStorage.setItem('name', user.name);
-      // ChangeTokenState(user.token);
       ChangeTokenState(user.token, user.name);
       navigate('/');
     } catch {

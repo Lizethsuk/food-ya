@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';

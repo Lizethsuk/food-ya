@@ -9,23 +9,26 @@ import {
 } from '../../styles/variables.styled';
 
 const InvoiceContentContainer = styled.div`
-  min-height: 90vh;
+  min-height: 120vh;
+  max-height: 120vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const InvoiceContainer = styled.div`
-  width: calc(40% - 40px);
+  width: calc(50% - 40px);
   text-align: center;
   color: ${colorNavbar};
   background: ${colorInvoiceLight};
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 0px 10px ${colorBrown};
+  margin-bottom: 20px;
 
   .invoice-title {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 25px;
   }
 
@@ -33,11 +36,11 @@ const InvoiceContainer = styled.div`
     margin-bottom: 10px;
 
     .title {
-      font-size: 22px;
+      font-size: 18px;
       margin: 0;
     }
     .content {
-      font-size: 20px;
+      font-size: 16px;
       margin: 0;
     }
     &:last-of-type {

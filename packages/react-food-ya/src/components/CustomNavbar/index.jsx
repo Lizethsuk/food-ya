@@ -25,7 +25,7 @@ function CustomNavbar() {
   };
 
   const ShoppingCart = () => {
-    navigate('/shopping-cart');
+    navigate('/payment');
   };
   useEffect(() => {
     const restaurantRoute = '/dish-manager/';

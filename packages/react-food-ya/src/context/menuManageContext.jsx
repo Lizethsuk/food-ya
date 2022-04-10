@@ -113,6 +113,11 @@ function MenuManageProvider(props) {
     localStorage.setItem('products', JSON.stringify(selectedCopy));
   };
 
+  const clearOrder = () => {
+    setSelectedMenu([]);
+    localStorage.setItem('products', JSON.stringify([]));
+  };
+
   const getTotal = () => {
     const selectedCopy = [...selectedMenu];
     let total = 0;
@@ -150,7 +155,8 @@ function MenuManageProvider(props) {
         SaveData: saveData,
         GetProducts: getProducts,
         SetDeliveryPriceToTotal: setDeliveryPriceToTotal,
-        RemoveFromOrder: removeFromOrder
+        RemoveFromOrder: removeFromOrder,
+        clearOrder
       }}>
       {props.children}
     </MenuManageContext.Provider>

@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { AiFillDelete } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
 import { Formik, ErrorMessage } from 'formik';
+import { format } from 'date-fns';
 import CustomSimpleButton from '../../../components/CustomSimpleButton';
 import { OrderCard, TotalContainer } from '../../DishesManager/style';
 import {
@@ -21,6 +22,8 @@ import {
 import CustomButton from '../../../components/CustomButton';
 import { ThemeContext } from '../../../context/themeContext';
 import { InvoiceContext } from '../../../context/invoiceContext';
+import { MenuManageContext } from '../../../context/menuManageContext';
+import { orderNumber } from '../../../utils/orderNumberGenerator';
 
 function CheckoutSteps({
   page,
@@ -32,6 +35,7 @@ function CheckoutSteps({
 }) {
   const { theme } = useContext(ThemeContext);
   const { InvoiceSaved, restaurant, InitializeRestaurant } = useContext(InvoiceContext);
+  const { clearOrder } = useContext(MenuManageContext);
   const [deliveryTotal, setDeliveryPrice] = useState(0);
   const [radioValue, setRadioValue] = useState('1');
   const navigate = useNavigate();
@@ -43,6 +47,7 @@ function CheckoutSteps({
 
   useEffect(() => {
     InitializeRestaurant();
+    console.log(orderNumber());
   }, []);
 
   useEffect(() => {
@@ -68,10 +73,14 @@ function CheckoutSteps({
         cardDocType: 'default',
         cardDocNumber: '',
         cardType: '',
-        cardExpirationDate: new Date()
+        documentType: 'default',
+        cardExpirationDate: `${format(new Date(), 'dd/MM/yyyy HH:mm')}`
       }}
       validate={(values) => {
         const errors = {};
+
+        if (!values.documentType || values.documentType === 'default')
+          errors.documentType = 'Por favor ingresa un tipo de documento';
 
         if (!values.cardName) errors.cardName = 'Porfavor ingresa el nombre que muestra la tarjeta';
         else if (/^[a-zA-ZÀ-ÿ\s]{1-40}$/.test(values.cardName))
@@ -87,19 +96,20 @@ function CheckoutSteps({
           errors.cardNumber = 'El número de tarjeta no es válido';
 
         if (!values.cardMonth || values.cardMonth === 'default')
-          errors.cardMonth = 'Porfavor ingresa el mes de expiración de tu tarjeta';
+          errors.cardMonth = 'Por favor ingresa el mes de expiración de tu tarjeta';
 
         if (!values.cardYear || values.cardYear === 'default')
-          errors.cardYear = 'Porfavor ingresa el año de expiración de tu tarjeta';
+          errors.cardYear = 'Por favor ingresa el año de expiración de tu tarjeta';
 
         if (!values.cardCVV) errors.cardCVV = 'Porfavor ingresa el CVV de tu tarjeta';
         else if (!/^[0-9]{3}$/.test(values.cardCVV))
           errors.cardCVV = 'El CVV sólo debe tener 3 dígitos';
 
         if (!values.cardDocType || values.cardDocType === 'default')
-          errors.cardDocType = 'Porfavor ingresa el tipo de documento';
+          errors.cardDocType = 'Por favor ingresa el tipo de documento';
 
-        if (!values.cardDocNumber) errors.cardDocNumber = 'Porfavor ingresa el número de documento';
+        if (!values.cardDocNumber)
+          errors.cardDocNumber = 'Por favor ingresa el número de documento';
 
         return errors;
       }}
@@ -110,10 +120,18 @@ function CheckoutSteps({
         resetForm();
         console.log('SENT FORM: ', values);
         console.log(restaurant);
-        const invoiceValues = { ...values, restaurant, totalPayment: deliveryTotal };
+        const invoiceValues = {
+          ...values,
+          restaurant,
+          orderNumber: orderNumber(),
+          deliveryType: radioValue === '2' ? 'Recojo en tienda' : 'Despacho a domicilio',
+          totalPayment: deliveryTotal
+        };
+
         InvoiceSaved(invoiceValues);
         setTimeout(() => {
           setFormSent(false);
+          clearOrder();
           navigate('/payment-message');
         }, 1000);
       }}>
@@ -267,6 +285,24 @@ function CheckoutSteps({
                 <Container>
                   <Row>
                     <Col>
+                      <Form.Group className="mb-3" controlId="form-documentType">
+                        <Form.Label>Tipo de documento</Form.Label>
+                        <Form.Select
+                          name="documentType"
+                          value={values.documentType}
+                          onChange={handleChange}>
+                          <option value="default" disabled hidden>
+                            Tipo de documento
+                          </option>
+                          <option value="Boleta">Boleta</option>
+                          <option value="Factura">Factura</option>
+                        </Form.Select>
+                        <ErrorMessage
+                          name="documentType"
+                          component={() => <div className="error">{errors.documentType}</div>}
+                        />
+                      </Form.Group>
+
                       <Form.Group className="mb-3" controlId="form-name">
                         <Form.Label>Nombre del titular</Form.Label>
                         <Form.Control

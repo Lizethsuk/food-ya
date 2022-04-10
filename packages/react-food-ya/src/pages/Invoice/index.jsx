@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useContext, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import CustomButton from '../../components/CustomButton';
 import { UserContext } from '../../context/userContext';
 import { ThemeContext } from '../../context/themeContext';
@@ -14,6 +15,7 @@ function Invoice() {
   const { user } = useContext(UserContext);
   const { theme } = useContext(ThemeContext);
   const { invoice, InitializeInvoice } = useContext(InvoiceContext);
+  const [orderInfo, setOrderInfo] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,7 +35,7 @@ function Invoice() {
   useEffect(() => {
     if (Object.keys(invoice).length > 0) {
       const InvoiceToShow = [
-        { title: 'Documento Tributario', content: 'Boleta' },
+        { title: 'Documento Tributario', content: invoice.documentType },
         { title: 'Medio de pago', content: invoice.cardType },
         {
           title: 'Número de tarjeta',
@@ -43,35 +45,63 @@ function Invoice() {
         { title: 'Tipo de restaurante', content: invoice.restaurant.type },
         { title: 'Total pagado', content: `S/ ${invoice.totalPayment}` }
       ];
-
+      const orderToShow = [
+        { title: 'Número de Orden', content: invoice.orderNumber },
+        { title: 'Fecha de Orden', content: invoice.cardExpirationDate }
+      ];
       setInvoiceInfo(InvoiceToShow);
+      setOrderInfo(orderToShow);
     }
     setIsLoading(false);
   }, [invoice]);
 
   return (
-    <InvoiceContentContainer>
-      {isLoading && invoiceInfo <= 0 && <p>Loading...</p>}
-      {!isLoading && invoiceInfo.length > 0 && (
-        <InvoiceContainer className={`${theme}`}>
-          <h2 className="invoice-title">Información de Facturación</h2>
+    <motion.div
+      initial={{ y: 500 }}
+      animate={{ y: 0 }}
+      exit={{ y: 0 }}
+      transition={{ duration: 1 }}>
+      <InvoiceContentContainer>
+        {isLoading && invoiceInfo <= 0 && <p>Loading...</p>}
+        {!isLoading && invoiceInfo.length > 0 && (
+          <>
+            <InvoiceContainer className={`${theme}`}>
+              <h2 className="invoice-title">¡Gracias por tu compra!</h2>
+              <p className="invoice-subtitle">
+                {' '}
+                Recibirás una confirmación a través de un correo electrónico con el resumen de tu
+                pedido{' '}
+              </p>
+              {orderInfo.map((invoiceElement, index) => (
+                <InvoiceSection
+                  key={index}
+                  title={invoiceElement.title}
+                  content={invoiceElement.content}
+                />
+              ))}
+            </InvoiceContainer>
 
-          {invoiceInfo.map((invoiceElement, index) => (
-            <InvoiceSection
-              key={index}
-              title={invoiceElement.title}
-              content={invoiceElement.content}
-            />
-          ))}
+            <InvoiceContainer className={`${theme}`}>
+              <h2 className="invoice-title">Información de Facturación</h2>
 
-          <CustomButton
-            buttonStyle="fit-content-button"
-            content="Go back home"
-            url={!user.token ? '/' : '/home'}
-          />
-        </InvoiceContainer>
-      )}
-    </InvoiceContentContainer>
+              {invoiceInfo.map((invoiceElement, index) => (
+                <InvoiceSection
+                  key={index}
+                  title={invoiceElement.title}
+                  content={invoiceElement.content}
+                />
+              ))}
+
+              <CustomButton
+                buttonStyle="fit-content-button"
+                content="Go back home"
+                url={!user.token ? '/' : '/home'}
+              />
+            </InvoiceContainer>
+          </>
+        )}
+      </InvoiceContentContainer>
+    </motion.div>
   );
 }
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import {
   colorInvoiceLight,
@@ -6,9 +5,9 @@ import {
   colorDark,
   colorNavbar,
   colorCream
-} from '../../../styles/variables.styled';
+} from '../../../../styles/variables.styled';
 
-const OrderCardContainer = styled.div`
+const OrderCardContainer = styled.button`
   width: calc(80% - 40px);
   margin: auto;
   box-shadow: 0px 0px 10px ${colorBrown};
@@ -18,6 +17,7 @@ const OrderCardContainer = styled.div`
   margin-bottom: 20px;
   text-align: left;
   padding: 20px;
+  border: none;
 
   .row {
     margin-bottom: 15px;

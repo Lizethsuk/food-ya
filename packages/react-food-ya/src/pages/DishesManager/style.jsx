@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import { colorBrown, colorCream, colorDarkModeBG } from '../../styles/variables.styled';
 
@@ -97,7 +96,6 @@ const OrderCard = styled.div`
   }
   &.checkout {
     height: 200px;
-    /* max-width: calc(40% - 20px); */
     justify-content: flex-start;
 
     .div-img {
@@ -220,7 +218,6 @@ const TotalContainer = styled.p`
   font-weight: 600;
   color: ${colorBrown};
   &.checkout {
-    /* max-width: calc(45% - 20px); */
     margin: auto;
     padding-right: 30px;
     &.dark {

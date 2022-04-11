@@ -1,21 +1,17 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonContainer } from './style';
 
 function CustomSimpleButton({ content, buttonStyle, callback, disabled, buttonType }) {
   return (
-    <>
-      <ButtonContainer
-        disabled={disabled}
-        className={buttonStyle}
-        type={buttonType}
-        onClick={() => callback()}>
-        {content}
-      </ButtonContainer>
-    </>
+    <ButtonContainer
+      disabled={disabled}
+      className={buttonStyle}
+      type={buttonType}
+      onClick={() => callback()}>
+      {content}
+    </ButtonContainer>
   );
 }
 

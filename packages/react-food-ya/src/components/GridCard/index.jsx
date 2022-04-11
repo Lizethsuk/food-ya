@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';

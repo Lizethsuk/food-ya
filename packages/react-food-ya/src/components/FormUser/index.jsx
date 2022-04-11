@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Row, Col, Button } from 'react-bootstrap';
@@ -20,8 +18,7 @@ function FormUser() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userState)
     });
-    const responsejson = await response.json();
-    console.log(responsejson);
+    await response.json();
     navigate('/');
   };
   return (

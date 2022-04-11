@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import './style.scss';
 import { Container, Row, Col, Accordion } from 'react-bootstrap/';

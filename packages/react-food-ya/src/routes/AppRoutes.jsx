@@ -18,6 +18,7 @@ import Invoice from '../pages/Invoice';
 import PaymentGateway from '../pages/PaymentGateway';
 import { UserContext } from '../context/userContext';
 import ProfileSettings from '../pages/ProfileSettings';
+import SingleOrder from '../pages/ProfileSettings/Orders/SingleOrder';
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
@@ -28,7 +29,6 @@ function AppRoutes() {
       <CustomNavbar />
       <Routes>
         <Route path="/" element={condition ? <Navigate to="/home" /> : <Landing />} />
-        {/* <Route path="/register-selection" element={<RegisterSelection />} /> */}
         <Route
           path="/register-selection"
           element={condition ? <Navigate to="/home" /> : <RegisterSelection />}
@@ -64,6 +64,7 @@ function AppRoutes() {
         <Route path="/payment" element={<PaymentGateway />} />
         <Route path="/payment-message" element={<Invoice />} />
         <Route path="/profile/*" element={<ProfileSettings />} />
+        <Route path="/profile/orders/:id" element={<SingleOrder />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

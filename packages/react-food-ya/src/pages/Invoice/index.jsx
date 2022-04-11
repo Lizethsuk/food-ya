@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import CustomButton from '../../components/CustomButton';

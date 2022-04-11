@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Row, Col, Button } from 'react-bootstrap';
@@ -20,8 +19,7 @@ function FormRestaurant() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(restaurantState)
     });
-    const responsejson = await response.json();
-    console.log(responsejson);
+    await response.json();
     navigate('/');
   };
 

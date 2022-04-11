@@ -10,6 +10,8 @@ function InvoiceProvider(props) {
   const [invoices, setInvoices] = useState([]);
   const [restaurant, setRestaurant] = useState({});
 
+  const [invoiceById, setInvoiceById] = useState({});
+
   const InitializeRestaurant = () => {
     if (localStorage.getItem('restaurantInfo') != null) {
       setRestaurant(JSON.parse(localStorage.getItem('restaurantInfo')));
@@ -35,11 +37,20 @@ function InvoiceProvider(props) {
 
   const InitializeInvoiceList = () => {
     if (localStorage.getItem('invoices') != null) {
-      console.log('AAAA');
       setInvoices(JSON.parse(localStorage.getItem('invoices')));
     } else {
       localStorage.setItem('invoices', '[]');
       setInvoices(JSON.parse(localStorage.getItem('invoices')));
+    }
+  };
+
+  const InitializeInvoiceById = (orderNumber) => {
+    if (localStorage.getItem('invoices') != null) {
+      const invoiceList = JSON.parse(localStorage.getItem('invoices'));
+      const filteredInvoice = invoiceList.filter(
+        (invoiceElement) => invoiceElement.orderNumber === orderNumber
+      )[0];
+      setInvoiceById(filteredInvoice);
     }
   };
 
@@ -67,7 +78,10 @@ function InvoiceProvider(props) {
         restaurant,
         setRestaurant,
         InitializeRestaurant,
-        saveRestaurant
+        saveRestaurant,
+        invoiceById,
+        setInvoiceById,
+        InitializeInvoiceById
       }}>
       {props.children}
     </InvoiceContext.Provider>

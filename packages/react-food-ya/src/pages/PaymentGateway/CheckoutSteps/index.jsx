@@ -47,7 +47,6 @@ function CheckoutSteps({
 
   useEffect(() => {
     InitializeRestaurant();
-    console.log(orderNumber());
   }, []);
 
   useEffect(() => {
@@ -114,18 +113,15 @@ function CheckoutSteps({
         return errors;
       }}
       onSubmit={(values, { resetForm }) => {
-        // values.cardExpirationDate = new Date(`${values.cardYear}-${values.cardMonth}`);
-        // console.log(new Date(`${values.cardYear}-${values.cardMonth}`));
         setFormSent(true);
         resetForm();
-        console.log('SENT FORM: ', values);
-        console.log(restaurant);
         const invoiceValues = {
           ...values,
           restaurant,
           orderNumber: orderNumber(),
           deliveryType: radioValue === '2' ? 'Recojo en tienda' : 'Despacho a domicilio',
-          totalPayment: deliveryTotal
+          totalPayment: deliveryTotal,
+          products: selectedMenu
         };
 
         InvoiceSaved(invoiceValues);
@@ -133,7 +129,7 @@ function CheckoutSteps({
           setFormSent(false);
           clearOrder();
           navigate('/payment-message');
-        }, 1000);
+        }, 100);
       }}>
       {({ values, errors, handleSubmit, handleChange }) => (
         <form onSubmit={handleSubmit}>

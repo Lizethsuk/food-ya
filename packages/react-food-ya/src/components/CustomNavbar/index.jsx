@@ -1,8 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-cycle */
 import React, { useState, useContext, useEffect } from 'react';
-import { Container, Navbar, Nav, Badge, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';

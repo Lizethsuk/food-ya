@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';

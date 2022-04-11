@@ -23,13 +23,9 @@ function SignIn() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const user = await login(userState);
-      ChangeTokenState(user.token, user.name);
-      navigate('/');
-    } catch {
-      console.log('no logeo');
-    }
+    const user = await login(userState);
+    ChangeTokenState(user.token, user.name);
+    navigate('/');
   };
   return (
     <div className="sign-in-page">
@@ -62,8 +58,6 @@ function SignIn() {
             <Button type="submit" className="Reg-button">
               Sign In
             </Button>
-            {/* <CustomButton content="Sign In" url="/home"
-            buttonStyle="fit-content-button" callback={ChangeTokenState} /> */}
           </Form.Group>
         </Form>
       </div>

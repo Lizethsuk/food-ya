@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-prototype-builtins */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-constructed-context-values */
@@ -22,8 +21,6 @@ function MenuManageProvider(props) {
     let storageContent = [];
     if (localStorage.getItem('products') !== null) {
       storageContent = JSON.parse(localStorage.getItem('products'));
-    } else {
-      console.log('ERROR');
     }
     return storageContent;
   };
@@ -104,8 +101,6 @@ function MenuManageProvider(props) {
     let storageContent = [];
     if (localStorage.getItem('products') !== null) {
       storageContent = JSON.parse(localStorage.getItem('products'));
-    } else {
-      console.log('ERROR');
     }
 
     const selectedCopy = storageContent.filter((item) => item.id !== _id);

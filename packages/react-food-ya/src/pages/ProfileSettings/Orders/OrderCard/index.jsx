@@ -12,10 +12,15 @@ function OrderCard({
   buyDate,
   deliveryType,
   totalPayment,
-  theme
+  theme,
+  callback
 }) {
   return (
-    <OrderCardContainer className={theme}>
+    <OrderCardContainer
+      className={theme}
+      onClick={() => {
+        callback(orderNumber);
+      }}>
       <Row>
         <Col xs={6} className="subcontainer">
           <div className="icon-container">
@@ -61,7 +66,8 @@ OrderCard.propTypes = {
   buyDate: PropTypes.string,
   deliveryType: PropTypes.string,
   totalPayment: PropTypes.number,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  callback: PropTypes.func
 };
 
 OrderCard.defaultProps = {
@@ -72,7 +78,8 @@ OrderCard.defaultProps = {
   buyDate: 'Default Buy Date',
   deliveryType: 'Default Delivery Type',
   totalPayment: 0,
-  theme: 'light'
+  theme: 'light',
+  callback: null
 };
 
 export default OrderCard;

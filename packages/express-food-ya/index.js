@@ -5,13 +5,10 @@ const cors = require('cors')
 const app = express();
 const notFound = require('./middleware/notFound')
 const handleErrors = require('./middleware/handleErrors')
-const usersRouter = require('./controllers/users')
-const restaurantsRouter = require('./controllers/restaurants')
-const usersloginRouter = require('./controllers/userslogin')
-const confirmationRouter = require('./controllers/confirmation')
-const restaurantsloginRouter = require('./controllers/restaurantslogin')
-const menuRouter = require('./controllers/menus.js')
-const imgRouter = require('./controllers/image.js')
+const clientRouter = require('./routes/client')
+const restaurantRouter = require('./routes/restaurant')
+const dishRouter = require('./routes/dish')
+const orderRouter = require('./routes/order')
 
 
 app.use(express.static('public'))
@@ -25,13 +22,10 @@ app.get('/',(req,res)=>{
     res.send('<h1>Backend foodya</h1>')
 })
 
-app.use('/api/users', usersRouter)
-app.use('/api/restaurants', restaurantsRouter)
-app.use('/api/userslogin', usersloginRouter)
-app.use('/api/restaurantslogin', restaurantsloginRouter)
-app.use('/api/menus', menuRouter)
-app.use('/confirmation', confirmationRouter)
-app.use('/api/image', imgRouter)
+app.use('/api/client', clientRouter)
+app.use('/api/restaurant', restaurantRouter)
+app.use('/api/dish',dishRouter)
+app.use('/api/order',orderRouter)
 
 
 app.use(notFound)

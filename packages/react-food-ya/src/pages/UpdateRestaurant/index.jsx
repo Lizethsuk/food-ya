@@ -9,8 +9,8 @@ import CardMenuRestaurant from '../../components/CardMenuRestaurant';
 function UpdateRestaurant() {
   const [data, setData] = useState({});
   const [img, setImg] = useState();
-  /*   const [existImage, setExistImage] = useState(false);
- */ const [prevImg, setPrevImg] = useState();
+  const [prevImg, setPrevImg] = useState();
+
   const funcChanges = (e) => {
     const nameInput = e.target.name;
     const valueInput = e.target.value;
@@ -24,28 +24,30 @@ function UpdateRestaurant() {
       setPrevImg(reader.result);
     };
   };
+
   const funcChangeImg = (e) => {
     const imageFile = e.target.files[0];
     prevFile(imageFile);
     setImg(imageFile);
   };
+
   const sendImg = async (image) => {
-    const res = await fetch('http://localhost:3001/api/image', {
+    const res = await fetch('http://localhost:3001/api/dish/', {
       method: 'POST',
       body: JSON.stringify({ imagen: image, token: localStorage.getItem('token'), products: data }),
       headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
     });
-    console.log(await res.json());
+    console.log(res);
   };
+
   const sendData = (e) => {
     e.preventDefault();
     const reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onloadend = () => {
-      console.log('enviando');
-      console.log(data);
       sendImg(reader.result);
     };
   };

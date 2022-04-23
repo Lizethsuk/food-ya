@@ -23,10 +23,6 @@ function FormRestaurant() {
     const { name, value } = e.target;
     setRestaurant({ ...restaurantState, [name]: value });
   };
-  // if (restaurantState.password !== restaurantState.password_configuration) {
-  //   navigate('/register-selection');
-  // } else {
-  // }
 
   const uploadImage = (e) => {
     const img = e.target.files[0];
@@ -48,16 +44,14 @@ function FormRestaurant() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:3001/api/restaurants', {
+    const response = await fetch('http://localhost:3001/api/restaurant/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: restaurantState, logo, image }),
     });
-    console.log(JSON.stringify({ data: restaurantState, logo, image }));
     const responsejson = await response.json();
     console.log(responsejson);
-    /*    navigate('/'); */
-    setTimeout((() => { navigate('/'); }), 3500);
+    setTimeout((() => { navigate('/'); }), 200);
   };
 
   return (
@@ -146,7 +140,7 @@ function FormRestaurant() {
               <h5>Tiempo de entrega</h5>
               <Col sm="6" className="mb-3">
                 <Form.Label>Desde</Form.Label>
-                <Form.Select aria-label="Default select example" name="timeInit">
+                <Form.Select aria-label="Default select example" name="timeMin">
                   {['30', '45', '60', '75'].map((hora) => (
                     <option>
                       {hora}
@@ -158,7 +152,7 @@ function FormRestaurant() {
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Hasta</Form.Label>
-                <Form.Select aria-label="Default select example" name="timeEnd">
+                <Form.Select aria-label="Default select example" name="timeMax">
                   {['45', '60', '75', '90'].map((hora) => (
                     <option>
                       {hora}

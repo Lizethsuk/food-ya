@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 const login = async (credentials) => {
-  const response = await fetch('http://localhost:3001/api/userslogin', {
+  const response = await fetch('http://localhost:3001/api/client/signin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials),

@@ -28,7 +28,7 @@ const restaurantSchema = new Schema({
     innerImg: String,
     innerImgId: String,
     date: Date,
-    confirmation: {type: Boolean, default: false}
+    confirmation: {type: Boolean, default: true}
 })
 
 restaurantSchema.pre('save', async function save(next) {

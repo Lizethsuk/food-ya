@@ -2,7 +2,7 @@ const {model, Schema} = require('mongoose')
 
 const schema = new Schema({
     id: Schema.Types.ObjectId,
-    dishes: [{type: string}],
+    dishes: [{type: String}],
     points: {type: Number, default: 3},
     city: {type: String, default: "Lima"},
     district: String,

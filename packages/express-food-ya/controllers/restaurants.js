@@ -1,15 +1,16 @@
 const Restaurant = require('../models/Restaurant')
 const RestaurantView = require('../models/RestaurantView')
-const cloudinary = require('../config/cloudinary')
+const {cloudinary, UPLOAD_PRESET} = require('../config/cloudinary')
 const {secret} = require('../config/config').token
+const jwt = require('jsonwebtoken')
 
 exports.signup =  async(req,res)=>{
     const restaurant = req.body.data
     const image = req.body.image
     const logo = req.body.logo
     try{
-        const resImage = await cloudinary.uploader.upload(image, {upload_preset: 'rhjanagr'});
-        const resLogo = await cloudinary.uploader.upload(logo, {upload_preset: 'rhjanagr'});
+        const resImage = await cloudinary.uploader.upload(image, {upload_preset: UPLOAD_PRESET});
+        const resLogo = await cloudinary.uploader.upload(logo, {upload_preset: UPLOAD_PRESET});
         const data = {
             ...restaurant,
             card_img: resImage.url,
@@ -34,15 +35,16 @@ exports.signup =  async(req,res)=>{
             restaurantName: savedRestaurant.restaurantName,
             phoneNumber: savedRestaurant.phoneNumber,
             card_img: savedRestaurant.card_img,
-            date: Date,
+            date: Date.now(),
         }
 
-        const newRestaurantView = new Restaurant(dataView)
+        const newRestaurantView = new RestaurantView(dataView)
         const savedRestaurantView = await newRestaurantView.save()
 
         res.status(201).json({ success: true, message: 'Restaurant has been created', data: savedRestaurant })        
     }catch(e){
-        res.status(400).json({error: `Email ${req.body.email} is exist`})
+        console.log(e, e.name)
+        res.status(400).json({error: `Email ${req.body.data.email} is exist`})
     }
 }
 
@@ -119,13 +121,13 @@ exports.update = async (req,res)=>{
         const rest = await Restaurant.findById(id)
         if(image){
             await cloudinary.uploader.destroy(rest.card_img)
-            const card_img = await cloudinary.uploader.upload(image,{upload_preset: 'rhjanagr'})
+            const card_img = await cloudinary.uploader.upload(image,{upload_preset: UPLOAD_PRESET})
             restaurant.card_img = card_img.url
             restaurant.card_imgId = card_img.public_id
         }
         if(logo){
             await cloudinary.uploader.destroy(rest.innerImg)
-            const innerImg = await cloudinary.uploader.upload(image,{upload_preset: 'rhjanagr'})
+            const innerImg = await cloudinary.uploader.upload(image,{upload_preset: UPLOAD_PRESET})
             restaurant.innerImg = innerImg.url
             restaurant.innerImgId = innerImg.public_id
         }

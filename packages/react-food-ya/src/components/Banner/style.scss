@@ -2,7 +2,7 @@
 
 .banner {
   z-index: 0;
-  background: url(https://iili.io/7XpyPf.md.png);
+  background: url('https://iili.io/7XpyPf.md.png');
   background-size: cover;
   background-position: center;
   width: calc(95% - 40px) !important;
@@ -39,7 +39,7 @@
     color: $color_cream;
     border-radius: 5px;
     h1 {
-      font-size: 3em;
+      font-size: 2.1em;
       font-weight: bold;
       margin: 0;
     }

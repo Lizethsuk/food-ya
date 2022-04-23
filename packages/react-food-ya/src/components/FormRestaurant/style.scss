@@ -1,21 +1,53 @@
 @import '../../styles/variables';
 
 .form-restaurant {
-  background-color: $color_cream;
-  outline: 1px solid $color_brown;
-  border-radius: $border_radius;
-  width: 100%;
-  max-width: 450px;
-  padding: 40px 20px;
-  color: #4c4c4c;
+    background-color: $color_cream;
+    outline: 1px solid $color_brown;
+    border-radius: $border_radius;
+    width: 100%;
+    padding: 40px 15px;
+    color: #4C4C4C;
+   
+    h2{
+      text-align: left;
+      font-size: 15px;
+    }
+    h3{
+      text-align: left;
+      font-size: 20px;
+      margin-bottom: 25.5px;
+    }
+    h4{
+      text-align: left;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    h5{
+      text-align: left;
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
 
-  .form-control {
-    border: 1px solid $color_brown;
-  }
+    .form-control{
+      border:1px solid #4C4C4C;
+    }
+      
+    .form-label{
+      display: flex;
+      font-size: 12.3px;
+    }
 
-  .form-label {
-    display: flex;
-  }
+    .Reg-button {
+      font-size: 20px;
+      background: $color_green;
+      border-radius: 10px;
+      border: none;
+      max-width: none;
+      &:hover {
+        cursor: pointer;
+        background: #337aff;
+      }
+    }
 
   .Reg-button {
     font-size: 20px;
@@ -25,6 +57,9 @@
     &:hover {
       cursor: pointer;
       background: #337aff;
+    }
+    .show {
+      background-color: none!important;
     }
   }
 

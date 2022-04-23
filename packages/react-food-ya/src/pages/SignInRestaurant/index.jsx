@@ -23,9 +23,13 @@ function SignIn() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await login(userState);
-    ChangeTokenState(user.token, user.name);
-    navigate('/');
+    try {
+      const user = await login(userState);
+      ChangeTokenState(user.token, user.name);
+      navigate('/update-restaurant');
+    } catch {
+      console.log('no logeo');
+    }
   };
   return (
     <div className="sign-in-page">

@@ -1,10 +1,10 @@
-const {model, Schema} = require('mongoose')
+const { model, Schema } = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
 const userSchema = new Schema({
     name: String,
     surname: String,
-    email: {type: String, unique: true},
+    email: { type: String, unique: true },
     passwordHash: String,
     dni: String,
     direction: String,
@@ -14,7 +14,7 @@ const userSchema = new Schema({
 })
 
 userSchema.set('toJSON', {
-    transform: (document, returnedObject)=>{
+    transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id
         delete returnedObject._id
         delete returnedObject.__v

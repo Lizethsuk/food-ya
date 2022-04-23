@@ -5,6 +5,7 @@ import Landing from '../pages/Landing';
 import RegisterSelection from '../pages/RegisterSelection';
 import SignInSelection from '../pages/SignInSelection';
 import Footer from '../components/Footer';
+import Confirmation from '../components/Confirmation';
 import CustomNavbar from '../components/CustomNavbar';
 import RegisterUser from '../pages/RegisterUser';
 import ConfirmationRegister from '../pages/ConfirmationRegister';
@@ -12,6 +13,7 @@ import RegisterRestaurant from '../pages/RegisterRestaurant';
 import SignInUser from '../pages/SignInUser';
 import SignInRestaurant from '../pages/SignInRestaurant';
 import RestaurantPage from '../pages/RestaurantPage';
+import UpdateRestaurant from '../pages/UpdateRestaurant';
 import DishesManager from '../pages/DishesManager';
 import NotFound from '../pages/NotFound';
 import Invoice from '../pages/Invoice';
@@ -28,7 +30,7 @@ function AppRoutes() {
     <BrowserRouter>
       <CustomNavbar />
       <Routes>
-        <Route path="/" element={condition ? <Navigate to="/home" /> : <Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route
           path="/register-selection"
           element={condition ? <Navigate to="/home" /> : <RegisterSelection />}
@@ -41,6 +43,15 @@ function AppRoutes() {
           path="/register-restaurant"
           element={condition ? <Navigate to="/home" /> : <RegisterRestaurant />}
         />
+        <Route
+          path="/register-user"
+          element={condition ? <Navigate to="/home" /> : <RegisterUser />}
+        />
+        <Route
+          path="/register-restaurant"
+          element={condition ? <Navigate to="/home" /> : <RegisterRestaurant />}
+        />
+        <Route path="/update-restaurant" element={<UpdateRestaurant />} />
         <Route path="/restaurant" element={<RestaurantPage />} />
         <Route
           path="/confirmation-register"
@@ -58,8 +69,9 @@ function AppRoutes() {
           path="/sign-in-restaurant"
           element={condition ? <Navigate to="/home" /> : <SignInRestaurant />}
         />
-        <Route path="/home" element={<Home />} />
-
+        <Route path="/" element={condition ? <Navigate to="/home" /> : <Landing />} />
+        <Route path="/home" element={condition ? <Home /> : <Navigate to="/" />} />
+        <Route path="/confirmation/:token" element={<Confirmation />} />
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         <Route path="/payment" element={<PaymentGateway />} />
         <Route path="/payment-message" element={<Invoice />} />

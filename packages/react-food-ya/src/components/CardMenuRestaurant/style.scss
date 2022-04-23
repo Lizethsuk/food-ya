@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+@import "../../styles/variables";
 
-const CardMenuContainer = styled.div`
+.cardMenuRes {
   max-width: 390px;
   width: 100%;
   background-color: white;
@@ -32,30 +32,6 @@ const CardMenuContainer = styled.div`
       line-height: 14px;
     }
   }
-  .divBtn {
-    margin: auto 5px;
-    padding: 0px 6px 5px;
-    background-color: rgb(234, 227, 227);
-    border-radius: 20px;
-    p {
-      margin-bottom: 0px;
-    }
-    .btn {
-      padding: 0px;
-      background: transparent;
-      border: none;
-    }
-    .btnPlus {
-      fill: #4c4c4c;
-      display: block;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      font-size: 12px;
-      text-decoration: none;
-      line-height: 36px;
-    }
-  }
 
   .div-description {
     text-align: left;
@@ -74,7 +50,6 @@ const CardMenuContainer = styled.div`
   .div-img img {
     width: 120px;
     height: 120px;
-    object-fit: none;
     display: block;
   }
 }
@@ -86,18 +61,7 @@ const CardMenuContainer = styled.div`
     font-size: 13.5px;
     line-height: 13px;
   }
-  @media (max-width: 480px) {
-    .content-div {
-      h2 {
-        font-size: 13.5px;
-        line-height: 13px;
-      }
-    }
-    .div-img {
-      img {
-        width: 107px;
-      }
-    }
+  .cardMenu .div-img img{
+    width: 107px;
   }
-`;
-export { CardMenuContainer };
+}

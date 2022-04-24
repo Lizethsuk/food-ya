@@ -64,7 +64,7 @@ exports.readOne = async(req,res)=>{
 }
 
 exports.readClient = async(req,res)=>{
-    const clientId = req.params
+    const clientId = req.id
     try{
         const order = await Order.find({clientId}).populate('products')
         res.status(200).json({order})
@@ -75,7 +75,7 @@ exports.readClient = async(req,res)=>{
 }
 
 exports.readRestaurant = async(req, res)=>{
-    const restaurantID = req.params
+    const restaurantID = req.id
     try{
         const order = await Order.find({restaurantID}).populate('products')
         res.status(200).json({order})

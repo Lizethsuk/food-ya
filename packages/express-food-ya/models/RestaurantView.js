@@ -5,6 +5,7 @@ const schema = new Schema({
     dishes: [{ type: String }],
     points: { type: Number, default: 3 },
     city: { type: String, default: "Lima" },
+    category: [String],
     district: String,
     scheduleOpen: String,
     scheduleClose: String,

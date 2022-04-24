@@ -151,10 +151,14 @@ function CheckoutSteps({
 
         const orderForServer = {
           orderNumber: orderNumberConst,
+          restaurantID: restaurant.id,
+          restaurantName: restaurant.name,
           deliveryType: radioValue === '2' ? 'Recojo en tienda' : 'Despacho a domicilio',
           totalPayment: deliveryTotal,
           products: [...productsForServer]
         };
+
+        console.log('>>> orderForServer', orderForServer);
 
         InvoiceSaved(invoiceValues);
         submitOrder({ ...orderForServer });

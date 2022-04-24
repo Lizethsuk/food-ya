@@ -45,7 +45,7 @@ function CustomNavbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content">
-          {user.token && (
+          {user.token && user.type !== 'owner' && (
             <Nav className={`ms-auto align-items-end login ${theme}`}>
               <Link to="/profile/orders" className="navUser">
                 <img
@@ -53,7 +53,10 @@ function CustomNavbar() {
                   alt="logo"
                   className="img-user"
                 />
-                <h4>{localStorage.getItem('name')}</h4>
+                <div>
+                  <h4>{localStorage.getItem('name')}</h4>
+                  <h5>Cliente</h5>
+                </div>
               </Link>
               {isInRestaurant && (
                 <button type="button" className="btn" onClick={() => ShoppingCart()}>
@@ -72,13 +75,37 @@ function CustomNavbar() {
               </button>
             </Nav>
           )}
+          {user.token && user.type === 'owner' && (
+            <Nav className={`ms-auto align-items-end login ${theme}`}>
+              <Link to="/restaurant-profile" className="navUser">
+                <img
+                  src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"
+                  alt="logo"
+                  className="img-user"
+                />
+                <div>
+                  <h4>{localStorage.getItem('name')}</h4>
+                  <h5>Dueño</h5>
+                </div>
+              </Link>
+              <button type="button" className="navSesion" onClick={() => LogOut()}>
+                <p>Cerrar Sesión</p>
+              </button>
+              <button
+                type="button"
+                className={`buttonTheme ${theme}`}
+                onClick={() => ToggleTheme()}>
+                {theme === 'dark' ? <BsLightbulbFill /> : <BsFillLightbulbOffFill />}
+              </button>
+            </Nav>
+          )}
           {!user.token && (
             <Nav className="ms-auto align-items-end">
               <Link to="/sign-in-selection" className="ButtonHeader">
-                Sign In
+                Iniciar Sesión
               </Link>
               <Link to="/register-selection" className="ButtonHeader">
-                Sign Up
+                Registrate
               </Link>
               <button
                 type="button"

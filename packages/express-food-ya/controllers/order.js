@@ -15,8 +15,8 @@ exports.create = async (req, res) => {
         orderNumber: body.orderNumber,
         deliveryType: body.deliveryType,
         totalPayment: body.totalPayment,
-        day: date[1],
-        month: date[0],
+        day: date[0],
+        month: date[1],
         year: date[2]
     }
     const newOrder = new Order(data)

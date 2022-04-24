@@ -4,9 +4,15 @@ const orderSchema = new mongoose.Schema({
     restaurantID: {type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'},
     clientID: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
     paymentID: {type: mongoose.Schema.Types.ObjectId, ref: 'Payment'},
-    dishesID: [{type: mongoose.Schema.Types.ObjectId, ref: 'Dish'}],
+    products: [{type: mongoose.Schema.Types.ObjectId, ref: 'DishOrder'}],
+    orderNumber: String,
+    deliveryType: String,
+    totalPayment: Number,
     paid: Boolean,
-    paymentStatus: String
+    paymentStatus: String,  
+    day: String,
+    month: String,
+    year: String
 })
 
 const Order = mongoose.model('Order', orderSchema)

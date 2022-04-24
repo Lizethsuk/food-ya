@@ -25,7 +25,6 @@ function SignIn() {
     e.preventDefault();
     try {
       const user = await login(userState);
-      console.log(user);
       ChangeTokenState(user.token, user.name, user.type);
       navigate('/update-restaurant');
     } catch {

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { InvoiceContext } from '../../../context/invoiceContext';
 import { ThemeContext } from '../../../context/themeContext';
 import OrderCard from './OrderCard';
+import { ParseDate } from '../../../utils/parseDate';
 
 function Orders() {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ function Orders() {
     });
     const responsejson = await response.json();
     setInvoices(responsejson);
-    console.log(responsejson);
   };
 
   useEffect(() => {
@@ -40,18 +40,6 @@ function Orders() {
 
   const RedirectTo = (orderNumber) => {
     navigate(`/profile/orders/${orderNumber}`);
-  };
-
-  const validateDayMonth = (date) => {
-    const cleanedDate = Number(date);
-    if (cleanedDate < 10) {
-      return `0${cleanedDate}`;
-    }
-    return `${cleanedDate}`;
-  };
-
-  const ParseDate = (day, month, year) => {
-    return `${validateDayMonth(day)}/${validateDayMonth(month)}/${year}`;
   };
 
   return (

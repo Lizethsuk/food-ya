@@ -28,7 +28,6 @@ function RestaurantSettingsProfile() {
     });
     const responsejson = await response.json();
     setRestaurantOwnerInfo(responsejson);
-    console.log(responsejson);
   };
 
   useEffect(() => {

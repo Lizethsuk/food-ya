@@ -15,6 +15,7 @@ import {
 } from './style';
 import OrderInfoSection from './OrderInfoSection';
 import ProductCard from './ProductCard';
+import { ParseDate } from '../../../../utils/parseDate';
 
 function SingleOrder() {
   const { theme } = useContext(ThemeContext);
@@ -24,7 +25,6 @@ function SingleOrder() {
   const navigate = useNavigate();
 
   const getOrder = async () => {
-    console.log('ID: ', id);
     const response = await fetch(`http://localhost:3001/api/order/get/${id}`, {
       method: 'GET',
       headers: {
@@ -34,7 +34,6 @@ function SingleOrder() {
     });
     const responsejson = await response.json();
     setInvoiceById(responsejson);
-    console.log(responsejson);
   };
 
   useEffect(() => {
@@ -100,7 +99,7 @@ function SingleOrder() {
                   <p className="text extra-bottom title">Seguimiento de la orden</p>
                   <OrderInfoSection
                     title={`Fecha y hora de pedido: `}
-                    content={invoiceById.cardExpirationDate}
+                    content={ParseDate(invoiceById.day, invoiceById.month, invoiceById.year)}
                   />
                   <OrderInfoSection title={`Restaurante: `} content={invoiceById.restaurantName} />
                   <OrderInfoSection title={`Método de pago: `} content={invoiceById.cardType} />

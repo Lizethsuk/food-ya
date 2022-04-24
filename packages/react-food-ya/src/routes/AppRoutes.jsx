@@ -52,7 +52,10 @@ function AppRoutes() {
           path="/register-restaurant"
           element={condition ? <Navigate to="/home" /> : <RegisterRestaurant />}
         />
-        <Route path="/update-restaurant" element={<UpdateRestaurant />} />
+        <Route
+          path="/update-restaurant"
+          element={!isClient ? <UpdateRestaurant /> : <Navigate to="/home" />}
+        />
         <Route path="/restaurant" element={<RestaurantPage />} />
         <Route
           path="/confirmation-register"
@@ -75,12 +78,25 @@ function AppRoutes() {
           path="/home"
           element={condition ? <Home isClient={isClient} /> : <Navigate to="/" />}
         />
-        <Route path="/confirmation/:token" element={<Confirmation />} />
-        <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
-        <Route path="/payment" element={<PaymentGateway />} />
-        <Route path="/payment-message" element={<Invoice />} />
-        <Route path="/profile/*" element={<ProfileSettings />} />
-        <Route path="/profile/orders/:id" element={<SingleOrder />} />
+        <Route
+          path="/confirmation/:token"
+          element={isClient ? <Confirmation /> : <Navigate to="/home" />}
+        />
+        <Route
+          path="/dish-manager/:restaurantId"
+          element={isClient ? <DishesManager /> : <Navigate to="/home" />}
+        />
+        <Route path="/payment" element={!isClient ? <PaymentGateway /> : <Navigate to="/home" />} />
+        <Route path="/payment-message" element={isClient ? <Invoice /> : <Navigate to="/home" />} />
+        <Route
+          path="/profile/*"
+          element={isClient ? <ProfileSettings /> : <Navigate to="/home" />}
+        />
+        <Route
+          path="/profile/orders/:id"
+          element={isClient ? <SingleOrder /> : <Navigate to="/home" />}
+        />
+
         <Route path="/restaurant-profile/*" element={<RestaurantSettingsProfile />} />
         <Route path="/restaurant-profile/orders/:id" element={<SingleOrder />} />
 

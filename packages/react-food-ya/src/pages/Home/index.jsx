@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import UserHome from './UserHome';
+import RestaurantHome from './RestaurantHome';
 
 function Home({ isClient }) {
   const [dish, setDish] = useState('');
@@ -20,7 +21,7 @@ function Home({ isClient }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}>
         {isClient && <UserHome handleChange={handleChange} searchRestaurant={searchRestaurant} />}
-        {!isClient && <p>Is Owner</p>}
+        {!isClient && <RestaurantHome />}
       </motion.div>
     </div>
   );

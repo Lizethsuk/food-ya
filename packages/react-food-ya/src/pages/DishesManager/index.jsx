@@ -75,7 +75,7 @@ function DishesManager() {
           content={
             <div>
               <FiShoppingCart />
-              <span>Checkout</span>
+              <span>Pagar</span>
             </div>
           }
         />

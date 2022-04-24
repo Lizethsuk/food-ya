@@ -4,7 +4,7 @@ import { Row, Container, Col, Form, Button } from 'react-bootstrap';
 import './style.scss';
 import CardMenuRestaurant from '../../components/CardMenuRestaurant';
 
-function UpdateRestaurant() {
+function AddDishes() {
   const [data, setData] = useState({});
   const [img, setImg] = useState();
   const [prevImg, setPrevImg] = useState();
@@ -60,7 +60,12 @@ function UpdateRestaurant() {
   return (
     <Container fluid className="restaurant-section">
       <Row>
-        <Col lg={4}>
+        <Col lg={12}>
+          <h1 className="title-section">Agregar plato</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={6}>
           <Form id="form-upload-dish">
             <Form.Group className="mb-1" controlId="formPlaintextEmail">
               <Form.Label column sm="2">
@@ -126,17 +131,16 @@ function UpdateRestaurant() {
             </Form.Group>
           </Form>
         </Col>
-        <Col lg={8}>
+        <Col lg={6}>
           <div className="divCards">
-            <Container>
-              <Row>
-                <CardMenuRestaurant
-                  name={data.dishName}
-                  price={data.price}
-                  description={data.description}
-                  img={prevImg}
-                />
-              </Row>
+            <Container fluid>
+              <CardMenuRestaurant
+                name={data.dishName}
+                price={data.price}
+                description={data.description}
+                img={prevImg}
+                size={12}
+              />
             </Container>
           </div>
         </Col>
@@ -145,4 +149,4 @@ function UpdateRestaurant() {
   );
 }
 
-export default UpdateRestaurant;
+export default AddDishes;

@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+.restaurant-section {
+  background-color: #f4ece1;
+  color: #4c4c4c;
+  padding: 40px 0px;
+  width: 100%;
+
+  .divCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 40%;
+    height: 100%;
+  }
+  form {
+    max-width: 460px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px 25px;
+  }
+}
+@media (max-width: 992px) {
+  .restaurant-section {
+    padding: 40px 0px;
+    .divMenu {
+      h4 {
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .infoRestaurant {
+      margin: 10px auto 20px;
+      padding: 15px 5px;
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      .ulDescription {
+        text-align: center;
+        li {
+          line-height: 30px;
+          display: inline;
+          padding: 10px 5px;
+          font-size: 13.4px;
+        }
+      }
+    }
+  }
+}

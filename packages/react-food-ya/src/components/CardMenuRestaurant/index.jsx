@@ -3,9 +3,9 @@ import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function CardMenuRestaurant({ img, name, price, description }) {
+function CardMenuRestaurant({ img, name, price, description, size }) {
   return (
-    <Col xl={4} lg={6} md={6} sm={6}>
+    <Col xl={4} lg={size} md={size} sm={size}>
       <div className="cardMenuRes">
         <div className="div-img">
           <img className="imgAvatar" src={img} alt="" />
@@ -27,14 +27,16 @@ CardMenuRestaurant.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  size: PropTypes.number
 };
 
 CardMenuRestaurant.defaultProps = {
   img: 'Default Image',
   name: 'Default Name',
   price: '0',
-  description: 'Default Description'
+  description: 'Default Description',
+  size: 6
 };
 
 export default CardMenuRestaurant;

@@ -56,6 +56,11 @@ const ButtonContainer = styled.button`
     background: ${colorHoverGreen};
     color: ${colorCream};
   }
+  svg {
+    path {
+      stroke: ${colorCream};
+    }
+  }
 `;
 
 export { ButtonContainer };

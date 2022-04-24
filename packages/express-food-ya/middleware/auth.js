@@ -1,8 +1,9 @@
 const {verify} = require('jsonwebtoken')
+const {secret} = require('../config/config').token
 
 exports.client = async (req,res,next) => {
     const token = req.headers.authorization.slice(7)
-    const tokenDecode = verify(token, 'foodya');
+    const tokenDecode = verify(token, secret);
     const { _id } = tokenDecode
     if(_id) {
         req.id = _id
@@ -14,7 +15,7 @@ exports.client = async (req,res,next) => {
 
 exports.restaurant = async (req,res,next) => {
     const token = req.headers.authorization.slice(7)
-    const tokenDecode = verify(token, 'foodya');
+    const tokenDecode = verify(token, secret);
     const { _id } = tokenDecode
     if(_id) {
         req.id = _id

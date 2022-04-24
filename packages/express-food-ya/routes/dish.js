@@ -1,8 +1,9 @@
 const dishRouter = require('express').Router()
 const controller = require('../controllers/dish')
+const auth = require('../middleware/auth');
 
-dishRouter.post('/', controller.create)
-dishRouter.post('/:id', controller.update)
-dishRouter.delete('/:id', controller.delete)
+dishRouter.post('/', auth.restaurant, controller.create)
+dishRouter.post('/:id', auth.restaurant, controller.update)
+dishRouter.delete('/:id', auth.restaurant, controller.delete)
 
 module.exports = dishRouter

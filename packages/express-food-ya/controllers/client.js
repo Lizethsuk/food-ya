@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const Client = require('../models/Client');
+const {secret} = require('../config/config').token
 
 exports.signup = async(req,res)=>{
     const user = req.body
@@ -34,8 +35,7 @@ exports.signin = async (req,res)=>{
                 })
             } else {
                 const { _id } = user;
-                const secretword = 'foodya'
-                const token = jwt.sign({ _id }, secretword,{ expiresIn: 60 * 60 })
+                const token = jwt.sign({ _id }, secret,{ expiresIn: 60 * 60 })
                 res.status(200).json({succes: true, name: user.name, token})
             }
         }

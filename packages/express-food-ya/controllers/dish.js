@@ -1,12 +1,12 @@
 const Dish = require('../models/Dish')
 const Restaurant = require('../models/Restaurant')
 const RestaurantView = require('../models/RestaurantView')
-const cloudinary = require('../config/cloudinary')
+const {cloudinary, UPLOAD_PRESET} = require('../config/cloudinary')
 
 exports.create = async(req,res)=>{
     const id = req.id
     const {img, product} = req.body
-    const image = await cloudinary.uploader.upload(img, {upload_preset: 'rhjanagr'});
+    const image = await cloudinary.uploader.upload(img, {upload_preset: UPLOAD_PRESET});
     const data = {
         restaurantID: id,
         ...product,

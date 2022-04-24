@@ -13,7 +13,7 @@ function GridLogin() {
   };
 
   const getRestaurants = () => {
-    const url = 'http://localhost:3001/api/menus';
+    const url = 'http://localhost:3001/api/restaurant';
     fetch(url)
       .then((response) => response.json())
       .then((restaurantsFetched) => FetchEverything(restaurantsFetched))

@@ -40,7 +40,7 @@ function MenuManageProvider(props) {
           id: item.id,
           name: item.dishName,
           img: item.image,
-          price: `S/ ${item.price}`,
+          price: item.price,
           points: item.points,
           description: item.description,
           value: 0

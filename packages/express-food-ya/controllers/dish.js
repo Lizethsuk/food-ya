@@ -19,10 +19,10 @@ exports.create = async(req,res)=>{
         const restaurant = await Restaurant.findById(id);
         const dishesId = restaurant.DishesID.concat(dishSaved._id);
         const restaurantUpdate = await Restaurant.findByIdAndUpdate(id, {DishesID: dishesId}, {new: true});
-        const restaurantView = await RestaurantView.findOne({id});
+        const restaurantView = await RestaurantView.findOne({id: id});
         const dishes = restaurantView.dishes.concat(dishSaved.dishName);
         const category = restaurantView.category.concat(product.category)
-        const viewUpdate = await RestaurantView.findByIdAndUpdate(id, {dishes, category}, {new: true});
+        const viewUpdate = await RestaurantView.findOne({id: id}, {dishes, category}, {new: true});
         res.status(201).json({message: "create", data: dishSaved});
     }catch(e){
         console.log(e)

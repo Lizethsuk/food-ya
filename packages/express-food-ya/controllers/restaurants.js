@@ -4,6 +4,19 @@ const { cloudinary, UPLOAD_PRESET } = require('../config/cloudinary')
 const { secret } = require('../config/config').token
 const jwt = require('jsonwebtoken')
 
+const CATEGORY = {
+    1: "Pollo a la brasa, carnes y parrillas",
+    2: 'Pizzas y pastas',
+    3: 'Hamburguesa, salchipapa y más',
+    4: 'Comida oriental',
+    5: 'Comida mexicana',
+    6: 'Café, jugos y postres',
+    7: 'Comida criolla',
+    8: 'Comida marina',
+    9: 'Complementos',
+    10: 'Otros'
+}
+
 exports.signup = async (req, res) => {
     const restaurant = req.body.data
     const image = req.body.image
@@ -77,15 +90,30 @@ exports.signin = async (req, res) => {
 }
 
 exports.getAll = async (req, res) => {
-    if (req.query === {}) {
-
+    let category = {}
+    if(req.query.category){
+        category = { category: { $all: [CATEGORY[req.query.category]] } }
+    }
+    if (req.query.search) {
         const { search, page } = req.query
-        const restaurants = await RestaurantView.find({ dishes: { $all: [new RegExp(search)] } }).exec()
-        res.status(200).json(restaurants)
+        console.log(search)
+        const searchDish = { dishes: { $all: [new RegExp(search, "i")] } }
+        const searchRestaurant = {restaurantName: new RegExp(search, "i")}
+        const searchQuery = {$or: [searchDish, searchRestaurant], ...category}
+        try{
+            const restaurants = await RestaurantView.find(searchQuery).exec()
+            res.status(200).json(restaurants)
+        }catch(e){
+            res.status(401).json({error: e.message})
+        }
     } else {
         console.log('peticion todo')
-        const restaurants = await RestaurantView.find({})
-        res.status(200).json(restaurants)
+        try{
+            const restaurants = await RestaurantView.find(category)
+            res.status(200).json(restaurants)
+        }catch(e){
+            res.status(401).json({error: e.message})
+        }
     }
 }
 

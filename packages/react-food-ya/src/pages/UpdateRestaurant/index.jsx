@@ -32,7 +32,7 @@ function UpdateRestaurant() {
   const sendImg = async (image) => {
     const res = await fetch('http://localhost:3001/api/dish/', {
       method: 'POST',
-      body: JSON.stringify({ imagen: image, token: localStorage.getItem('token'), products: data }),
+      body: JSON.stringify({ img: image, token: localStorage.getItem('token'), product: data }),
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'

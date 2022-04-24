@@ -35,12 +35,12 @@ function MenuManageProvider(props) {
     setIsLoading(true);
     if (currId !== id) {
       const copy = [...menu];
-      elements.forEach((item, index) => {
+      elements.forEach((item) => {
         copy.push({
-          id: index,
-          name: item.name,
-          img: item.img,
-          price: item.price,
+          id: item.id,
+          name: item.dishName,
+          img: item.image,
+          price: `S/ ${item.price}`,
           points: item.points,
           description: item.description,
           value: 0

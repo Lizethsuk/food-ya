@@ -41,18 +41,22 @@ function Orders() {
     navigate(`/profile/orders/${orderNumber}`);
   };
 
+  const ParseDate = (day, month, year) => {
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <>
       {isLoading && <p>Is Loading..</p>}
       {!isLoading &&
-        invoices.order.length > 0 &&
-        invoices.order.map((invoice) => (
+        invoices.order?.length > 0 &&
+        invoices.order?.map((invoice) => (
           <div key={invoice.id}>
             <OrderCard
               // restaurantName={invoice.restaurant.name}
               // restaurantType={invoice.restaurant.type}
               orderNumber={invoice.orderNumber}
-              // buyDate={invoice.cardExpirationDate}
+              buyDate={ParseDate(invoice.day, invoice.month, invoice.year)}
               deliveryType={invoice.deliveryType}
               documentType={invoice.documentType}
               totalPayment={invoice.totalPayment}

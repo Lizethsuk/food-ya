@@ -20,7 +20,7 @@ const restaurantSchema = new Schema({
     surname: String,
     timeMin: String,
     timeMax: String,
-    deliveryPrice: Number,
+    deliveryPrice: String,
     restaurantName: String,
     phoneNumber: String,
     card_img: String,

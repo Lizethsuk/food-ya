@@ -8,6 +8,7 @@ function OrderCard({
   documentType,
   restaurantName,
   orderNumber,
+  orderId,
   buyDate,
   deliveryType,
   totalPayment,
@@ -18,7 +19,7 @@ function OrderCard({
     <OrderCardContainer
       className={theme}
       onClick={() => {
-        callback(orderNumber);
+        callback(orderId);
       }}>
       <Row>
         <Col xs={6} className="subcontainer">
@@ -59,6 +60,7 @@ function OrderCard({
 OrderCard.propTypes = {
   documentType: PropTypes.string,
   restaurantName: PropTypes.string,
+  orderId: PropTypes.string,
   orderNumber: PropTypes.string,
   buyDate: PropTypes.string,
   deliveryType: PropTypes.string,
@@ -70,6 +72,7 @@ OrderCard.propTypes = {
 OrderCard.defaultProps = {
   documentType: 'Default Document Type',
   restaurantName: 'Default Restaurant Name',
+  orderId: 'Default Order Id',
   orderNumber: 'Default Order Number',
   buyDate: 'Default Buy Date',
   deliveryType: 'Default Delivery Type',

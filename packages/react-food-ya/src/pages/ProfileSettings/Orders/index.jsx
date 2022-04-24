@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { InvoiceContext } from '../../../context/invoiceContext';
@@ -59,10 +60,11 @@ function Orders() {
       {!isLoading &&
         invoices.order?.length > 0 &&
         invoices.order?.map((invoice) => (
-          <div key={invoice.id}>
+          <div key={invoice._id}>
             <OrderCard
-              // restaurantName={invoice.restaurant.name}
+              restaurantName={invoice.restaurantName}
               // restaurantType={invoice.restaurant.type}
+              orderId={invoice._id}
               orderNumber={invoice.orderNumber}
               buyDate={ParseDate(invoice.day, invoice.month, invoice.year)}
               deliveryType={invoice.deliveryType}

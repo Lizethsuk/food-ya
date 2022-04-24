@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { InvoiceContext } from '../../../context/invoiceContext';
@@ -41,18 +42,31 @@ function Orders() {
     navigate(`/profile/orders/${orderNumber}`);
   };
 
+  const validateDayMonth = (date) => {
+    const cleanedDate = Number(date);
+    if (cleanedDate < 10) {
+      return `0${cleanedDate}`;
+    }
+    return `${cleanedDate}`;
+  };
+
+  const ParseDate = (day, month, year) => {
+    return `${validateDayMonth(day)}/${validateDayMonth(month)}/${year}`;
+  };
+
   return (
     <>
       {isLoading && <p>Is Loading..</p>}
       {!isLoading &&
-        invoices.order.length > 0 &&
-        invoices.order.map((invoice) => (
-          <div key={invoice.id}>
+        invoices.order?.length > 0 &&
+        invoices.order?.map((invoice) => (
+          <div key={invoice._id}>
             <OrderCard
-              // restaurantName={invoice.restaurant.name}
+              restaurantName={invoice.restaurantName}
               // restaurantType={invoice.restaurant.type}
+              orderId={invoice._id}
               orderNumber={invoice.orderNumber}
-              // buyDate={invoice.cardExpirationDate}
+              buyDate={ParseDate(invoice.day, invoice.month, invoice.year)}
               deliveryType={invoice.deliveryType}
               documentType={invoice.documentType}
               totalPayment={invoice.totalPayment}

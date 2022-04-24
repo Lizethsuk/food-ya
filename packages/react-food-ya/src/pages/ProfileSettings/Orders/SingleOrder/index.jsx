@@ -18,14 +18,29 @@ import ProductCard from './ProductCard';
 
 function SingleOrder() {
   const { theme } = useContext(ThemeContext);
-  const { InitializeInvoiceById, invoiceById } = useContext(InvoiceContext);
+  const { setInvoiceById, invoiceById } = useContext(InvoiceContext);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const getOrder = async () => {
+    console.log('ID: ', id);
+    const response = await fetch(`http://localhost:3001/api/order/get/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    const responsejson = await response.json();
+    setInvoiceById(responsejson);
+    console.log(responsejson);
+  };
+
   useEffect(() => {
     setIsLoading(true);
-    InitializeInvoiceById(id);
+    // InitializeInvoiceById(id);
+    getOrder();
   }, []);
 
   useEffect(() => {
@@ -87,7 +102,7 @@ function SingleOrder() {
                     title={`Fecha y hora de pedido: `}
                     content={invoiceById.cardExpirationDate}
                   />
-                  <OrderInfoSection title={`Restaurante: `} content={invoiceById.restaurant.name} />
+                  <OrderInfoSection title={`Restaurante: `} content={invoiceById.restaurantName} />
                   <OrderInfoSection title={`Método de pago: `} content={invoiceById.cardType} />
                   <OrderInfoSection
                     title={`Tipo de documento: `}
@@ -101,7 +116,7 @@ function SingleOrder() {
                   <p className="text extra-bottom title">Productos</p>
 
                   <ProductsGrid>
-                    {invoiceById.products.map((product, index) => {
+                    {invoiceById.products?.map((product, index) => {
                       return <ProductCard key={index} product={product} index={index} />;
                     })}
                   </ProductsGrid>

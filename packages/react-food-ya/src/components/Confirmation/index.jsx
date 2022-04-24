@@ -14,7 +14,6 @@ const funcFetch = async (token) => {
     },
     body: JSON.stringify({ token })
   });
-  console.log(res.json());
   return res.json();
 };
 
@@ -23,7 +22,6 @@ function Confirmation() {
   const navigate = useNavigate();
   const sendToken = async () => {
     const resp = await funcFetch(token);
-
     console.log(resp);
     navigate('/sign-in-user');
   };

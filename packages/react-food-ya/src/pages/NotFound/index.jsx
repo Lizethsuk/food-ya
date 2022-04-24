@@ -17,7 +17,7 @@ function NotFound() {
         <p>We can't find the page you're looking for.</p>
         <CustomButton
           buttonStyle="fit-content-button"
-          content="Go back home"
+          content="Ir a inicio"
           url={!user.token ? '/' : '/home'}
         />
       </div>

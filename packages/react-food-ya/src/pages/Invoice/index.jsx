@@ -93,7 +93,7 @@ function Invoice() {
 
               <CustomButton
                 buttonStyle="fit-content-button"
-                content="Go back home"
+                content="Ir a inicio"
                 url={!user.token ? '/' : '/home'}
               />
             </InvoiceContainer>

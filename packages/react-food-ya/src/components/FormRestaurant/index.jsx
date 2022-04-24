@@ -16,8 +16,6 @@ function FormRestaurant() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRestaurant({ ...restaurantState, [name]: value });
-    console.log(e.target);
-    console.log(restaurantState);
   };
 
   const uploadImage = (e) => {
@@ -49,7 +47,6 @@ function FormRestaurant() {
       body: JSON.stringify(postData)
     });
     const responsejson = await response.json();
-    console.log(JSON.stringify(postData));
     console.log(responsejson);
     setTimeout(() => {
       navigate('/');

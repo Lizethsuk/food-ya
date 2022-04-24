@@ -5,6 +5,7 @@ import { ButtonGroup, ToggleButton } from 'react-bootstrap/';
 import { ProfileButtonOptions } from './style';
 import MyRestaurantOrders from './MyRestaurantOrders';
 import MyRestaurantProfile from './MyRestaurantProfile';
+import MyDishes from './MyDishes';
 
 function RestaurantSettingsProfile() {
   const [restaurantOwnerInfo, setRestaurantOwnerInfo] = useState({});
@@ -15,7 +16,8 @@ function RestaurantSettingsProfile() {
 
   const options = [
     { name: 'Mi perfil', value: '1' },
-    { name: 'Mis órdenes', value: '2' }
+    { name: 'Mis órdenes', value: '2' },
+    { name: 'Mis platos', value: '3' }
   ];
 
   const fetchOwnerInfo = async () => {
@@ -28,7 +30,7 @@ function RestaurantSettingsProfile() {
     });
     const responsejson = await response.json();
     setRestaurantOwnerInfo(responsejson);
-    console.log(responsejson);
+    console.log('RESPONSE JSON: ', responsejson);
   };
 
   useEffect(() => {
@@ -36,6 +38,9 @@ function RestaurantSettingsProfile() {
     switch (location.pathname) {
       case '/restaurant-profile/orders':
         setRadioValue('2');
+        break;
+      case '/restaurant-profile/dishes':
+        setRadioValue('3');
         break;
       case '/restaurant-profile/profile':
       default:
@@ -56,6 +61,9 @@ function RestaurantSettingsProfile() {
     switch (value) {
       case '2':
         navigate(`${tempLocation}/orders`);
+        break;
+      case '3':
+        navigate(`${tempLocation}/dishes`);
         break;
       case '1':
       default:
@@ -87,33 +95,27 @@ function RestaurantSettingsProfile() {
         </ButtonGroup>
       </ProfileButtonOptions>
 
-      <p>{restaurantOwnerInfo.name}</p>
-
       <Routes>
         <Route
           path="/profile"
           element={
             <MyRestaurantProfile
-            //   dishes={restaurantOwnerInfo.DishesID}
-            //   email={restaurantOwnerInfo.email}
-            //   phoneNumber={restaurantOwnerInfo.phoneNumber}
-            //   name={restaurantOwnerInfo.name}
-            //   surname={restaurantOwnerInfo.surname}
-            //   restaurantName={restaurantOwnerInfo.restaurantName}
-            //   city={restaurantOwnerInfo.city}
-            //   district={restaurantOwnerInfo.district}
-            //   address={restaurantOwnerInfo.address}
+              email={restaurantOwnerInfo.email}
+              phoneNumber={restaurantOwnerInfo.phoneNumber}
+              name={restaurantOwnerInfo.name}
+              surname={restaurantOwnerInfo.surname}
+              restaurantName={restaurantOwnerInfo.restaurantName}
+              city={restaurantOwnerInfo.city}
+              district={restaurantOwnerInfo.district}
+              address={restaurantOwnerInfo.address}
             />
           }
         />
         <Route
           path="/orders"
-          element={
-            <MyRestaurantOrders
-            // orders={restaurantOwnerInfo.OrdersID}
-            />
-          }
+          element={<MyRestaurantOrders orders={restaurantOwnerInfo.OrdersID} />}
         />
+        <Route path="/dishes" element={<MyDishes dishes={restaurantOwnerInfo.DishesID} />} />
       </Routes>
     </>
   );

@@ -16,7 +16,6 @@ function RestaurantHome() {
     });
     const responsejson = await response.json();
     setRestaurantOwnerInfo(responsejson);
-    console.log(responsejson);
   };
   useEffect(() => {
     setIsLoading(true);

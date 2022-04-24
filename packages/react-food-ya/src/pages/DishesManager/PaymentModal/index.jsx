@@ -34,7 +34,7 @@ function PaymentModal({ show, handleClose, selectedMenu, GetTotal, SaveData }) {
         ))}
         <TotalContainer>Total: S/ {GetTotal()}</TotalContainer>
         <CustomButton
-          content="Accept"
+          content="A pagar"
           buttonStyle="full-button"
           url="/payment"
           callback={SaveData}

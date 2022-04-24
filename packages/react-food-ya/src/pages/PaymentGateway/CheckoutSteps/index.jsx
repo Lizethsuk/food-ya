@@ -158,8 +158,6 @@ function CheckoutSteps({
           products: [...productsForServer]
         };
 
-        console.log('>>> orderForServer', orderForServer);
-
         InvoiceSaved(invoiceValues);
         submitOrder({ ...orderForServer });
         setTimeout(() => {

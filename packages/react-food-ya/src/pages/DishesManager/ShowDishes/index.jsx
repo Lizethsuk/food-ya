@@ -20,11 +20,11 @@ function ShowDishes() {
           <CardMenu
             key={dish.id}
             points={dish.points}
-            img={dish.img}
             name={dish.name}
             price={dish.price}
             description={dish.description}
             value={dish.value}
+            img={dish.img}
           />
         ))
       }

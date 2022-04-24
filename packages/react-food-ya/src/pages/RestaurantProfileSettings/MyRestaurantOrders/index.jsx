@@ -1,14 +1,17 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/no-unused-prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-// import { useNavigate } from 'react-router-dom';
-// import { ThemeContext } from '../../../context/themeContext';
+import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../../../context/themeContext';
+import OrderCard from '../../ProfileSettings/Orders/OrderCard';
+import { ParseDate } from '../../../utils/parseDate';
 
 function MyRestaurantOrders({ orders }) {
   console.log('ORDERS: ', orders);
-  //   const { theme } = useContext(ThemeContext);
-  //   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [orderList, setOrderList] = useState([]);
 
@@ -25,9 +28,9 @@ function MyRestaurantOrders({ orders }) {
     console.log(responsejson);
   };
 
-  //   const RedirectTo = (orderNumber) => {
-  //     navigate(`/profile/orders/${orderNumber}`);
-  //   };
+  const RedirectTo = (orderNumber) => {
+    navigate(`/profile/orders/${orderNumber}`);
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -42,16 +45,20 @@ function MyRestaurantOrders({ orders }) {
     <>
       <div>MyRestaurantOrders</div>
       {!isLoading &&
-        orderList.order?.map(() => {
+        orderList.order?.map((order) => {
           return (
-            //   <div key={order.id}>
-            //     {/* <p>{order.dishName}</p>
-            //     <p>{order.description}</p>
-            //     <p>{order.price}</p>
-            //     <p>{order.value}</p> */}
-            //     <p>{order.id}</p>
-            //   </div>
-            <p>AAA</p>
+            <OrderCard
+              restaurantName={order.restaurantName}
+              // restaurantType={invoice.restaurant.type}
+              orderId={order._id}
+              orderNumber={order.orderNumber}
+              buyDate={ParseDate(order.day, order.month, order.year)}
+              deliveryType={order.deliveryType}
+              documentType={order.documentType}
+              totalPayment={order.totalPayment}
+              theme={theme}
+              callback={RedirectTo}
+            />
           );
         })}
     </>

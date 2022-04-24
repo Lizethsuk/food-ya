@@ -22,6 +22,7 @@ import { UserContext } from '../context/userContext';
 import ProfileSettings from '../pages/ProfileSettings';
 import SingleOrder from '../pages/ProfileSettings/Orders/SingleOrder';
 import RestaurantSettingsProfile from '../pages/RestaurantProfileSettings';
+import OrderDetails from '../pages/RestaurantProfileSettings/MyRestaurantOrders/OrderDetails';
 
 function AppRoutes() {
   const { user } = useContext(UserContext);
@@ -89,13 +90,10 @@ function AppRoutes() {
           path="/profile/*"
           element={isClient ? <ProfileSettings /> : <Navigate to="/home" />}
         />
-        <Route
-          path="/profile/orders/:id"
-          element={isClient ? <SingleOrder /> : <Navigate to="/home" />}
-        />
+        <Route path="/profile/orders/:id" element={<SingleOrder />} />
 
         <Route path="/restaurant-profile/*" element={<RestaurantSettingsProfile />} />
-        <Route path="/restaurant-profile/orders/:id" element={<SingleOrder />} />
+        <Route path="/restaurant-profile/order/:id" element={<OrderDetails />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

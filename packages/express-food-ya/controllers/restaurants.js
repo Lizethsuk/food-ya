@@ -153,3 +153,14 @@ exports.update = async (req, res) => {
     const newRestaurantUpdate = await RestaurantView.findOneAndUpdate({ id }, dataView, { new: true })
     res.status(201).json({ success: true, message: 'Restaurant has been updated', data: newRestaurant })
 }
+
+exports.getOwner = async (req, res) =>{
+    const id =req.id
+    try{
+        const restaurant = await Restaurant.findById(id).populate('DishesID').exec()
+        res.status(200).json(restaurant)
+    }catch(e){
+        console.log(e)
+    }
+}
+

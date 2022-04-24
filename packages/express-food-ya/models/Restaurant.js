@@ -50,7 +50,6 @@ restaurantSchema.set('toJSON', {
 })
 
 restaurantSchema.methods.verifyPassword = function verifyPassword(password) {
-    console.log(password);
     return compare(password, this.password);
 }
 

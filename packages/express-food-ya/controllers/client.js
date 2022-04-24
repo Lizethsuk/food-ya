@@ -36,7 +36,7 @@ exports.signin = async (req,res)=>{
             } else {
                 const { _id } = user;
                 const token = jwt.sign({ _id }, secret,{ expiresIn: 60 * 60 })
-                res.status(200).json({succes: true, name: user.name, token})
+                res.status(200).json({succes: true, name: user.name, token, type: "owner"})
             }
         }
     } catch(e){

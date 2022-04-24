@@ -28,10 +28,21 @@ const OrderCardContainer = styled.button`
     .col-2,
     .col-3,
     .col-4,
+    .col-5,
     .col-6,
+    .col-9,
     .col-10 {
       &.subcontainer {
         display: flex !important;
+        .order-container {
+          max-width: 100%;
+          width: 100%;
+
+          .card-text {
+            max-width: 100%;
+            width: 100%;
+          }
+        }
       }
       .icon-container {
         display: flex;
@@ -43,6 +54,8 @@ const OrderCardContainer = styled.button`
         }
       }
       .card-text {
+        max-width: 100%;
+        width: 100%;
         margin: 0;
         &.card-title {
           font-weight: bold;

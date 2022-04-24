@@ -12,12 +12,12 @@ import {
   SingleOrderInfoContainer,
   SingleOrderRetire,
   ProductsGrid
-} from './style';
-import OrderInfoSection from './OrderInfoSection';
-import ProductCard from './ProductCard';
+} from '../../../ProfileSettings/Orders/SingleOrder/style';
+import OrderInfoSection from '../../../ProfileSettings/Orders/SingleOrder/OrderInfoSection';
+import ProductCard from '../../../ProfileSettings/Orders/SingleOrder/ProductCard';
 import { ParseDate } from '../../../../utils/parseDate';
 
-function SingleOrder() {
+function OrderDetails() {
   const { theme } = useContext(ThemeContext);
   const { setInvoiceById, invoiceById } = useContext(InvoiceContext);
   const [isLoading, setIsLoading] = useState(true);
@@ -130,4 +130,4 @@ function SingleOrder() {
   );
 }
 
-export default SingleOrder;
+export default OrderDetails;

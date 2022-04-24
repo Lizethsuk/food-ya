@@ -29,7 +29,7 @@ function MyRestaurantOrders({ orders }) {
   };
 
   const RedirectTo = (orderNumber) => {
-    navigate(`/profile/orders/${orderNumber}`);
+    navigate(`/restaurant-profile/order/${orderNumber}`);
   };
 
   useEffect(() => {
@@ -48,8 +48,9 @@ function MyRestaurantOrders({ orders }) {
         orderList.order?.map((order) => {
           return (
             <OrderCard
-              restaurantName={order.restaurantName}
-              // restaurantType={invoice.restaurant.type}
+              key={order._id}
+              restaurantName={order.clientID.email}
+              email={`${order.clientID.name} ${order.clientID.surname}`}
               orderId={order._id}
               orderNumber={order.orderNumber}
               buyDate={ParseDate(order.day, order.month, order.year)}

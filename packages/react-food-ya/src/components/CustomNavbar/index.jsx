@@ -77,7 +77,7 @@ function CustomNavbar() {
           )}
           {user.token && user.type === 'owner' && (
             <Nav className={`ms-auto align-items-end login ${theme}`}>
-              <Link to="/restaurant-profile" className="navUser">
+              <Link to="/restaurant-profile/profile" className="navUser">
                 <img
                   src="https://media.istockphoto.com/vectors/female-photographer-holds-a-camera-and-takes-a-picture-tourist-and-vector-id1175499661"
                   alt="logo"

@@ -63,7 +63,7 @@ function DishesManager() {
             key={restaurant.id}
             name={restaurant.name}
             innerImg={restaurant.inner_img}
-            type={restaurant.type}
+            // type={restaurant.type}
             schedule={restaurant.schedule}
             points={restaurant.points}
           />

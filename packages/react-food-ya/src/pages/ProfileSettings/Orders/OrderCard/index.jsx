@@ -7,7 +7,6 @@ import { OrderCardContainer } from './style';
 function OrderCard({
   documentType,
   restaurantName,
-  restaurantType,
   orderNumber,
   buyDate,
   deliveryType,
@@ -38,7 +37,6 @@ function OrderCard({
         </Col>
         <Col xs={2}>
           <p className="card-text card-title">{restaurantName}</p>
-          <p className="card-text">{restaurantType}</p>
         </Col>
       </Row>
       <Dropdown.Divider />
@@ -61,7 +59,6 @@ function OrderCard({
 OrderCard.propTypes = {
   documentType: PropTypes.string,
   restaurantName: PropTypes.string,
-  restaurantType: PropTypes.string,
   orderNumber: PropTypes.string,
   buyDate: PropTypes.string,
   deliveryType: PropTypes.string,
@@ -73,7 +70,6 @@ OrderCard.propTypes = {
 OrderCard.defaultProps = {
   documentType: 'Default Document Type',
   restaurantName: 'Default Restaurant Name',
-  restaurantType: 'Default Restaurant Type',
   orderNumber: 'Default Order Number',
   buyDate: 'Default Buy Date',
   deliveryType: 'Default Delivery Type',

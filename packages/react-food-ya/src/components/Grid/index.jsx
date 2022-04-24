@@ -64,7 +64,7 @@ function Grid() {
             <GridCard
               img={restaurant.img}
               name={restaurant.name}
-              type={restaurant.type}
+              // type={restaurant.type}
               stars={restaurant.points}
               key={restaurant.id}
             />

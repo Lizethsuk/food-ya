@@ -32,7 +32,7 @@ function Orders() {
           <div key={invoice.id}>
             <OrderCard
               restaurantName={invoice.restaurant.name}
-              restaurantType={invoice.restaurant.type}
+              // restaurantType={invoice.restaurant.type}
               orderNumber={invoice.orderNumber}
               buyDate={invoice.cardExpirationDate}
               deliveryType={invoice.deliveryType}

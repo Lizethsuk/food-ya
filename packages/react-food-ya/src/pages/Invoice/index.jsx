@@ -41,7 +41,6 @@ function Invoice() {
           content: parseCardNumberFormat(invoice.cardNumber)
         },
         { title: 'Nombre de restaurante', content: invoice.restaurant.name },
-        { title: 'Tipo de restaurante', content: invoice.restaurant.type },
         { title: 'Total pagado', content: `S/ ${invoice.totalPayment}` }
       ];
       const orderToShow = [

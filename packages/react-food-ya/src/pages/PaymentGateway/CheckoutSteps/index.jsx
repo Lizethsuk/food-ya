@@ -62,7 +62,7 @@ function CheckoutSteps({
   }, [radioValue]);
 
   const submitOrder = async (values) => {
-    const response = await fetch('http://localhost:3001/api/restaurant/owner', {
+    const response = await fetch('http://localhost:3001/api/order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -128,17 +128,36 @@ function CheckoutSteps({
       onSubmit={(values, { resetForm }) => {
         setFormSent(true);
         resetForm();
+
+        const orderNumberConst = orderNumber();
+
+        const productsForServer = selectedMenu.map((product) => ({
+          id: product.id,
+          value: product.value,
+          name: product.name,
+          img: product.img,
+          price: product.price,
+          description: product.description
+        }));
+
         const invoiceValues = {
           ...values,
           restaurant,
-          orderNumber: orderNumber(),
+          orderNumber: orderNumberConst,
           deliveryType: radioValue === '2' ? 'Recojo en tienda' : 'Despacho a domicilio',
           totalPayment: deliveryTotal,
           products: selectedMenu
         };
 
+        const orderForServer = {
+          orderNumber: orderNumberConst,
+          deliveryType: radioValue === '2' ? 'Recojo en tienda' : 'Despacho a domicilio',
+          totalPayment: deliveryTotal,
+          products: [...productsForServer]
+        };
+
         InvoiceSaved(invoiceValues);
-        submitOrder({ invoiceValues });
+        submitOrder({ ...orderForServer });
         setTimeout(() => {
           setFormSent(false);
           clearOrder();

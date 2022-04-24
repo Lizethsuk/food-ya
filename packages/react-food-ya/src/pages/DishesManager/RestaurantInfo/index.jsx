@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
-import { VscVerified, VscHistory, VscStarFull } from 'react-icons/vsc';
+import { VscHistory, VscStarFull } from 'react-icons/vsc';
 import ShowDishes from '../ShowDishes';
 import { DivMenu, InfoRestaurant } from './style';
 
-function RestaurantInfo({ name, innerImg, type, schedule, points }) {
+function RestaurantInfo({ name, innerImg, schedule, points }) {
   return (
     <Row>
       <Col lg={3}>
@@ -12,10 +12,6 @@ function RestaurantInfo({ name, innerImg, type, schedule, points }) {
           <h1>{name}</h1>
           <img src={innerImg} alt="" />
           <ul className="ulDescription">
-            <li>
-              <VscVerified />
-              <span>{type}</span>
-            </li>
             <li>
               <VscHistory />
               <span>{schedule}</span>
@@ -42,7 +38,6 @@ function RestaurantInfo({ name, innerImg, type, schedule, points }) {
 RestaurantInfo.propTypes = {
   name: PropTypes.string,
   innerImg: PropTypes.string,
-  type: PropTypes.string,
   schedule: PropTypes.string,
   points: PropTypes.number
 };
@@ -50,7 +45,6 @@ RestaurantInfo.propTypes = {
 RestaurantInfo.defaultProps = {
   name: 'Los Defaults',
   innerImg: 'NOT IMAGE',
-  type: 'Default',
   schedule: 'de 0 a 0',
   points: 5
 };

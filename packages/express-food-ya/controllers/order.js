@@ -56,7 +56,7 @@ exports.create = async (req, res) => {
 exports.readOne = async (req, res) => {
     const orderID = req.params.id
     try {
-        const order = await Order.findById(orderID).populate('products')
+        const order = await Order.findById(orderID).populate('products').populate('clientID').exec()
         res.status(200).json(order)
     } catch (e) {
         console.log(e)

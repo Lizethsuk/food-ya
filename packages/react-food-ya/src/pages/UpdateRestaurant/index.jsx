@@ -38,7 +38,14 @@ function UpdateRestaurant() {
         'Content-Type': 'application/json'
       }
     });
-    console.log(res);
+    const resjson = await res.json();
+    console.log(resjson);
+    if (resjson.message === 'create') {
+      setData({});
+      setPrevImg('');
+      document.getElementById('form-upload-dish').reset();
+      alert('Plato creado');
+    }
   };
 
   const sendData = (e) => {
@@ -54,7 +61,7 @@ function UpdateRestaurant() {
     <Container fluid className="restaurant-section">
       <Row>
         <Col lg={4}>
-          <Form>
+          <Form id="form-upload-dish">
             <Form.Group className="mb-1" controlId="formPlaintextEmail">
               <Form.Label column sm="2">
                 Nombre
@@ -89,6 +96,7 @@ function UpdateRestaurant() {
                 Categoría
               </Form.Label>
               <Form.Select name="category" onChange={funcChanges}>
+                <option hidden>Elija una categoria</option>
                 {[
                   'Pollo a la brasa, carnes y parrillas',
                   'Pizzas y pastas',

@@ -2,9 +2,9 @@ const orderRouter = require('express').Router()
 const controller = require('../controllers/order')
 const auth = require('../middleware/auth')
 
-orderRouter.post('/', controller.create)
-orderRouter.get('/:id', controller.readOne)
-orderRouter.get('/client/:id', controller.readClient)
-orderRouter.get('/restaurant/:id', controller.readRestaurant)
+orderRouter.post('/',auth.client, controller.create)
+orderRouter.get('/client',auth.client, controller.readClient)
+orderRouter.get('/restaurant',auth.client, controller.readRestaurant)
+orderRouter.get('/get/:id', controller.readOne)
 
 module.exports = orderRouter

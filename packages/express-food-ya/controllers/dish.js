@@ -22,7 +22,7 @@ exports.create = async(req,res)=>{
         const restaurantView = await RestaurantView.findOne({id});
         const dishes = restaurantView.dishes.concat(dishSaved.dishName);
         const viewUpdate = await Restaurant.findByIdAndUpdate(id, {dishes}, {new: true});
-        res.status(201).json(dishSaved);
+        res.status(201).json({message: "create", data: dishSaved});
     }catch(e){
         console.log(e)
     }

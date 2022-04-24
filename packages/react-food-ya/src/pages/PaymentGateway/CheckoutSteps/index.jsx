@@ -61,6 +61,19 @@ function CheckoutSteps({
     }
   }, [radioValue]);
 
+  const submitOrder = async (values) => {
+    const response = await fetch('http://localhost:3001/api/restaurant/owner', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({ ...values })
+    });
+    const responsejson = await response.json();
+    console.log(responsejson);
+  };
+
   return (
     <Formik
       initialValues={{
@@ -125,6 +138,7 @@ function CheckoutSteps({
         };
 
         InvoiceSaved(invoiceValues);
+        submitOrder({ invoiceValues });
         setTimeout(() => {
           setFormSent(false);
           clearOrder();

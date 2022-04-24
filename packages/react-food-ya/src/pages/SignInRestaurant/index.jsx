@@ -25,7 +25,8 @@ function SignIn() {
     e.preventDefault();
     try {
       const user = await login(userState);
-      ChangeTokenState(user.token, user.name);
+      console.log(user);
+      ChangeTokenState(user.token, user.name, user.type);
       navigate('/update-restaurant');
     } catch {
       console.log('no logeo');

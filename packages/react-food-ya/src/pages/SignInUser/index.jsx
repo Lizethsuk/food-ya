@@ -24,7 +24,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = await login(userState);
-    ChangeTokenState(user.token, user.name);
+    ChangeTokenState(user.token, user.name, user.type);
     navigate('/');
   };
   return (

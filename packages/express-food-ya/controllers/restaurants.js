@@ -68,7 +68,7 @@ exports.signin = async (req, res) => {
             } else {
                 const { _id } = user;
                 const token = jwt.sign({ _id }, secret, { expiresIn: 60 * 60 })
-                res.status(200).json({ succes: true, name: user.name, token })
+                res.status(200).json({ succes: true, name: user.name, token, type: "owner" })
             }
         }
     } catch (e) {
@@ -77,11 +77,13 @@ exports.signin = async (req, res) => {
 }
 
 exports.getAll = async (req, res) => {
-    if (req.query) {
+    if (req.query === {}) {
+
         const { search, page } = req.query
         const restaurants = await RestaurantView.find({ dishes: { $all: [new RegExp(search)] } }).exec()
         res.status(200).json(restaurants)
     } else {
+        console.log('peticion todo')
         const restaurants = await RestaurantView.find({})
         res.status(200).json(restaurants)
     }
@@ -94,11 +96,11 @@ exports.getOne = async (req, res, next) => {
         const data = {
             dishes: restaurant.DishesID,
             id,
-            name: restaurantName,
+            name: restaurant.restaurantName,
             innerImg: restaurant.innerImg,
             card_img: restaurant.card_img,
             type: restaurant.type,
-            schedule: restaurant.schedule,
+            schedule: `${restaurant.scheduleOpen} hasta ${restaurant.scheduleClose}`,
             points: restaurant.points
         }
         if (restaurant) {
@@ -108,6 +110,7 @@ exports.getOne = async (req, res, next) => {
             res.status(204).end()
         }
     } catch (err) {
+        console.log(err)
         next(err)
     }
 }

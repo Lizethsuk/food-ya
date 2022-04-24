@@ -31,7 +31,7 @@ function DishesManager() {
   };
 
   const getRestaurant = () => {
-    const url = `http://localhost:3001/api/menus/${restaurantId}`;
+    const url = `http://localhost:3001/api/restaurant/${restaurantId}`;
     fetch(url)
       .then((response) => response.json())
       .then((menu) => fetchEverything(menu))

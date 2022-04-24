@@ -13,25 +13,29 @@ function UserProvider(props) {
       setUser({
         ...user,
         token: localStorage.getItem('token'),
-        name: localStorage.getItem('name')
+        name: localStorage.getItem('name'),
+        type: localStorage.getItem('type')
       });
     } else {
       localStorage.setItem('token', '');
       localStorage.setItem('name', '');
+      localStorage.setItem('type', '');
       setUser(user);
     }
   };
 
-  const ChangeTokenState = (tokenValue, nameValue) => {
+  const ChangeTokenState = (tokenValue, nameValue, typeValue) => {
     localStorage.setItem('token', tokenValue);
     localStorage.setItem('name', nameValue);
-    setUser({ ...user, token: tokenValue, name: nameValue });
+    localStorage.setItem('type', typeValue);
+    setUser({ ...user, token: tokenValue, name: nameValue, type: typeValue });
   };
 
   const ClearTokenState = () => {
     localStorage.setItem('token', '');
     localStorage.setItem('name', '');
-    setUser({ token: '', name: '' });
+    localStorage.setItem('type', '');
+    setUser({ token: '', name: '', type: '' });
   };
 
   return (

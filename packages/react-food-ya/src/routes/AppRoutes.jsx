@@ -25,6 +25,7 @@ import SingleOrder from '../pages/ProfileSettings/Orders/SingleOrder';
 function AppRoutes() {
   const { user } = useContext(UserContext);
   const condition = user.token !== '';
+  const isUser = user.type === 'user';
 
   return (
     <BrowserRouter>
@@ -70,7 +71,7 @@ function AppRoutes() {
           element={condition ? <Navigate to="/home" /> : <SignInRestaurant />}
         />
         <Route path="/" element={condition ? <Navigate to="/home" /> : <Landing />} />
-        <Route path="/home" element={condition ? <Home /> : <Navigate to="/" />} />
+        <Route path="/home" element={condition ? <Home isUser={isUser} /> : <Navigate to="/" />} />
         <Route path="/confirmation/:token" element={<Confirmation />} />
         <Route path="/dish-manager/:restaurantId" element={<DishesManager />} />
         <Route path="/payment" element={<PaymentGateway />} />

@@ -35,7 +35,6 @@ userSchema.set('toJSON', {
 })
 
 userSchema.methods.verifyPassword = function verifyPassword(password) {
-    console.log(password);
     return compare(password, this.password);
 }
 

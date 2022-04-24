@@ -16,6 +16,8 @@ function FormRestaurant() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRestaurant({ ...restaurantState, [name]: value });
+    console.log(e.target);
+    console.log(restaurantState);
   };
 
   const uploadImage = (e) => {
@@ -123,7 +125,10 @@ function FormRestaurant() {
               <h3>Horario de Atención</h3>
               <Col sm="6" className="mb-3">
                 <Form.Label>Desde</Form.Label>
-                <Form.Select aria-label="Default select example" name="scheduleOpen">
+                <Form.Select
+                  aria-label="Default select example"
+                  name="scheduleOpen"
+                  onChange={handleChange}>
                   {['9:00', '10:00', '11:00', '24:00'].map((hora) => (
                     <option>{hora}</option>
                   ))}
@@ -131,7 +136,10 @@ function FormRestaurant() {
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Hasta</Form.Label>
-                <Form.Select aria-label="Default select example" name="scheduleClose">
+                <Form.Select
+                  aria-label="Default select example"
+                  name="scheduleClose"
+                  onChange={handleChange}>
                   {['9:00', '10:00', '11:00', '24:00'].map((hora) => (
                     <option>{hora}</option>
                   ))}
@@ -142,7 +150,10 @@ function FormRestaurant() {
               <h5>Tiempo de entrega</h5>
               <Col sm="6" className="mb-3">
                 <Form.Label>Desde</Form.Label>
-                <Form.Select aria-label="Default select example" name="timeMin">
+                <Form.Select
+                  aria-label="Default select example"
+                  name="timeMin"
+                  onChange={handleChange}>
                   {['30', '45', '60', '75'].map((hora) => (
                     <option>{hora} min</option>
                   ))}
@@ -150,7 +161,10 @@ function FormRestaurant() {
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Hasta</Form.Label>
-                <Form.Select aria-label="Default select example" name="timeMax">
+                <Form.Select
+                  aria-label="Default select example"
+                  name="timeMax"
+                  onChange={handleChange}>
                   {['45', '60', '75', '90'].map((hora) => (
                     <option>{hora} min</option>
                   ))}
@@ -159,7 +173,10 @@ function FormRestaurant() {
 
               <h5>Costo del delivery</h5>
               <Col sm="6" className="mb-3">
-                <Form.Select aria-label="Default select example" name="deliveryPrice">
+                <Form.Select
+                  aria-label="Default select example"
+                  name="deliveryPrice"
+                  onChange={handleChange}>
                   {['3.00', '3.50', '4.00', '4.50', '5.00', '5.50', '6.00'].map((precio) => (
                     <option>S/ {precio}</option>
                   ))}

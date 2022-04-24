@@ -14,6 +14,7 @@ const funcFetch = async (token) => {
     },
     body: JSON.stringify({ token })
   });
+  console.log(res.json());
   return res.json();
 };
 

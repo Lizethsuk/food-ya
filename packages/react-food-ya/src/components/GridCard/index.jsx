@@ -5,7 +5,7 @@ import CustomButton from '../CustomButton';
 import './style.scss';
 import { ThemeContext } from '../../context/themeContext';
 
-function GridCard({ img, name, type, stars, isLogin, id }) {
+function GridCard({ img, name, scheduleOpen, scheduleClose, stars, isLogin, id }) {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -19,16 +19,26 @@ function GridCard({ img, name, type, stars, isLogin, id }) {
             <div className="content-div">
               <h2>{name}</h2>
               <div className="div-type-start">
-                <span>{type}</span>
                 <ul className="ulStars">
                   <li className="star">{' ★ '.repeat(stars)}</li>
                 </ul>
               </div>
-              <CustomButton
-                buttonStyle="fit-content-button "
-                content="Ir a Restaurante"
-                url="/sign-in-selection"
-              />
+              <div className="content-div">
+                <h2>{name}</h2>
+                <div className="div-type-start">
+                  <span>
+                    {scheduleOpen}h hasta {scheduleClose}h
+                  </span>
+                  <ul className="ulStars">
+                    <li className="star">{' ★ '.repeat(stars)}</li>
+                  </ul>
+                </div>
+                <CustomButton
+                  buttonStyle="fit-content-button "
+                  content="Ir a Restaurante"
+                  url="/sign-in-selection"
+                />
+              </div>
             </div>
           </li>
         </Col>
@@ -42,7 +52,9 @@ function GridCard({ img, name, type, stars, isLogin, id }) {
             <div className="content-div">
               <h2>{name}</h2>
               <div className="div-type-start">
-                <span>{type}</span>
+                <span>
+                  {scheduleOpen}h hasta {scheduleClose}h
+                </span>
                 <ul className="ulStars">
                   <li className="star">{' ★ '.repeat(stars)}</li>
                 </ul>
@@ -64,7 +76,8 @@ function GridCard({ img, name, type, stars, isLogin, id }) {
 GridCard.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
-  type: PropTypes.string,
+  scheduleOpen: PropTypes.string,
+  scheduleClose: PropTypes.string,
   stars: PropTypes.number,
   isLogin: PropTypes.bool,
   id: PropTypes.string
@@ -73,7 +86,8 @@ GridCard.propTypes = {
 GridCard.defaultProps = {
   img: 'Default Image',
   name: 'Default name',
-  type: 'Default Type',
+  scheduleOpen: 'Default init',
+  scheduleClose: 'Default end',
   stars: 2,
   isLogin: false,
   id: '0'

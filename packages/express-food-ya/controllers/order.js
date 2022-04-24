@@ -78,7 +78,7 @@ exports.readClient = async (req, res) => {
 exports.readRestaurant = async (req, res) => {
     const restaurantID = req.id
     try {
-        const order = await Order.find({ restaurantID }).populate('products')
+        const order = await Order.find({ restaurantID }).populate('products').populate('clientID').exec()
         res.status(200).json({ order })
     } catch (e) {
         console.log(e)

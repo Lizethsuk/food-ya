@@ -41,8 +41,16 @@ function Orders() {
     navigate(`/profile/orders/${orderNumber}`);
   };
 
+  const validateDayMonth = (date) => {
+    const cleanedDate = Number(date);
+    if (cleanedDate < 10) {
+      return `0${cleanedDate}`;
+    }
+    return `${cleanedDate}`;
+  };
+
   const ParseDate = (day, month, year) => {
-    return `${day}/${month}/${year}`;
+    return `${validateDayMonth(day)}/${validateDayMonth(month)}/${year}`;
   };
 
   return (

@@ -6,10 +6,8 @@ const {cloudinary, UPLOAD_PRESET} = require('../config/cloudinary')
 exports.create = async(req,res)=>{
     const id = req.id
     const {img, product} = req.body
-    console.log(img,product)
     try{
         const image = await cloudinary.uploader.upload(img, {upload_preset: UPLOAD_PRESET});
-        console.log(image)
         const data = {
             restaurantID: id,
             ...product,

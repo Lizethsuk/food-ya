@@ -5,6 +5,7 @@ const orderSchema = new mongoose.Schema({
     clientID: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
     paymentID: {type: mongoose.Schema.Types.ObjectId, ref: 'Payment'},
     products: [{type: mongoose.Schema.Types.ObjectId, ref: 'DishOrder'}],
+    restaurantName: String,
     orderNumber: String,
     deliveryType: String,
     totalPayment: Number,

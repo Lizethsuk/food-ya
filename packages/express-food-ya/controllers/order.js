@@ -9,6 +9,7 @@ exports.create = async(req,res)=>{
     const products = body.products
     const date = new Date().toLocaleDateString().split('/')
     const data = {
+        restaurantName: body.restaurantName,
         clientID,
         restaurantID: body.restaurantID,
         orderNumber: body.orderNumber,
@@ -38,7 +39,7 @@ exports.create = async(req,res)=>{
             let dishOrder=await newDish.save()
             idarray.push(dishOrder._id)
         }
-        const order = await Order.findByIdAndUpdate(savedOrder_id, {products: idarray})
+        const order = await Order.findByIdAndUpdate(savedOrder._id, {products: idarray}, {new: true})
         const restaurant = await Restaurant.findById(data.restaurantID)
         let OrdersID = restaurant.OrdersID.concat(savedOrder._id)
         await Restaurant.findByIdAndUpdate(data.restaurantID, {OrdersID})

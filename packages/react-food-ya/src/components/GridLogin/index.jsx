@@ -43,12 +43,13 @@ function GridLogin() {
               // eslint-disable-next-line max-len
               <GridCard
                 img={restaurant.card_img}
-                name={restaurant.name}
-                type={restaurant.type}
+                name={restaurant.restaurantName}
                 stars={restaurant.points}
+                scheduleOpen={restaurant.scheduleOpen}
+                scheduleClose={restaurant.scheduleClose}
                 key={restaurant.id}
                 isLogin
-                id={restaurant.idRestaurant}
+                id={restaurant.id}
               />
             ))
           }

@@ -26,7 +26,7 @@ function DishesManager() {
   };
 
   const getRestaurant = () => {
-    const url = `http://localhost:3001/api/menus/${restaurantId}`;
+    const url = `http://localhost:3001/api/restaurant/${restaurantId}`;
     fetch(url)
       .then((response) => response.json())
       .then((menu) => (FetchEverything(menu)))
@@ -62,7 +62,7 @@ function DishesManager() {
               <Col lg={3}>
                 <div className="infoRestaurant">
                   <h1>{restaurant.name}</h1>
-                  <img src={restaurant.inner_img} alt="" />
+                  <img src={restaurant.innerImg} alt="" />
                   <ul className="ulDescription">
                     <li>
                       <VscVerified />

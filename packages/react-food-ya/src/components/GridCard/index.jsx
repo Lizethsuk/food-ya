@@ -8,7 +8,7 @@ import './style.scss';
 import { ThemeContext } from '../../context/themeContext';
 
 function GridCard({
-  img, name, type, stars, isLogin, id,
+  img, name, scheduleOpen, scheduleClose, stars, isLogin, id,
 }) {
   const { theme } = useContext(ThemeContext);
 
@@ -24,7 +24,15 @@ function GridCard({
               <div className="content-div">
                 <h2>{name}</h2>
                 <div className="div-type-start">
-                  <span>{type}</span>
+                  <span>
+                    {scheduleOpen}
+                    h
+                    {' '}
+                    hasta
+                    {' '}
+                    {scheduleClose}
+                    h
+                  </span>
                   <ul className="ulStars">
                     <li className="star">{' ★ '.repeat(stars)}</li>
                   </ul>
@@ -49,7 +57,15 @@ function GridCard({
               <div className="content-div">
                 <h2>{name}</h2>
                 <div className="div-type-start">
-                  <span>{type}</span>
+                  <span>
+                    {scheduleOpen}
+                    h
+                    {' '}
+                    hasta
+                    {' '}
+                    {scheduleClose}
+                    h
+                  </span>
                   <ul className="ulStars">
                     <li className="star">{' ★ '.repeat(stars)}</li>
                   </ul>
@@ -72,7 +88,8 @@ function GridCard({
 GridCard.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
-  type: PropTypes.string,
+  scheduleOpen: PropTypes.string,
+  scheduleClose: PropTypes.string,
   stars: PropTypes.number,
   isLogin: PropTypes.bool,
   id: PropTypes.string,
@@ -81,7 +98,8 @@ GridCard.propTypes = {
 GridCard.defaultProps = {
   img: 'Default Image',
   name: 'Default name',
-  type: 'Default Type',
+  scheduleOpen: 'Default init',
+  scheduleClose: 'Default end',
   stars: 2,
   isLogin: false,
   id: '0',

@@ -10,6 +10,14 @@ const dishSchema = new mongoose.Schema({
     price: String
 })
 
+dishSchema.set('toJSON', {
+    transform: (document, returnedObject)=>{
+        returnedObject.id = returnedObject._id
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
+
 const Dish = mongoose.model('Dish', dishSchema)
 
 module.exports = Dish

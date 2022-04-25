@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { io } from 'socket.io-client';
 import { Container, Col, Row } from 'react-bootstrap/';
 import { AiOutlineSearch } from 'react-icons/ai';
 import GridCard from '../GridCard';
@@ -11,11 +10,6 @@ import CONFIG from '../../utils/host';
 function GridLogin({ handleChange, searchRestaurant, query }) {
   const [isLoading, setIsLoading] = useState(true);
   const [restaurants, setRestaurants] = useState([]);
-
-  const prueba = () => {
-    const socket = io(CONFIG.url);
-    socket.emit('Pedido', { idrestaurant: '626499932deff33462ac2deb' });
-  };
 
   const FetchEverything = async (info) => {
     setRestaurants(info);
@@ -68,9 +62,6 @@ function GridLogin({ handleChange, searchRestaurant, query }) {
         src="https://live.pystatic.com/webassets/AppscoreWeb/monolith/4.0.42/images/monolith-people-users-search.6494c324.svg"
         alt="Busca un producto"
       />
-      <button type="button" onClick={prueba}>
-        prueba
-      </button>
       <h3 className="sc-xsbquu-1 fnsLFP">Busca en FoodYa</h3>
       <div className="sc-xsbquu-2 dsfBpo">Encuentra lo que buscas de la forma más rápida</div>
 

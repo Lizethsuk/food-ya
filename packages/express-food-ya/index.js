@@ -38,11 +38,7 @@ const server = app.listen(port,()=>{
     console.log(`Server is listen in port: ${port}`)
 })
 
-const io = socket(server, {
-    cors:{
-      origin:"http://localhost:3000"
-    }
-  })
+const io = socket(server)
   
   let onlineUsers = []
   

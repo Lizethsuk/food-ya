@@ -36,6 +36,12 @@ function CustomNavbar() {
     });
   }, [socket]);
 
+  useEffect(() => {
+    if (localStorage.getItem('type') === 'owner') {
+      socket?.emit('newRestaurant', localStorage.getItem('id'));
+    }
+  }, [socket]);
+
   return (
     <Navbar expand="md" className={theme}>
       <Container className="pe-0 ps-0">

@@ -108,7 +108,7 @@ function OrderDetails() {
                   />
                   <OrderInfoSection
                     title={`Cliente: `}
-                    content={`${invoiceById.clientID.name} ${invoiceById.clientID.surname}`}
+                    content={`${invoiceById.clientID?.name} ${invoiceById.clientID?.surname}`}
                   />
                   <OrderInfoSection
                     title={`Tipo de entrega: `}

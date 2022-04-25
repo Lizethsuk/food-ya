@@ -1,13 +1,11 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import CONFIG from '../../../utils/host';
-import { UserContext } from '../../../context/userContext';
 
 function RestaurantHome() {
   const [restaurantOwnerInfo, setRestaurantOwnerInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { socket } = useContext(UserContext);
 
   const fetchOwnerInfo = async () => {
     const response = await fetch(`${CONFIG.url}/api/restaurant/owner`, {
@@ -24,7 +22,6 @@ function RestaurantHome() {
     setIsLoading(true);
     fetchOwnerInfo();
     setIsLoading(false);
-    socket?.emit('newRestaurant', localStorage.getItem('id'));
   }, []);
 
   return (

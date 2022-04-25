@@ -85,5 +85,6 @@ const io = socket(server, {
     socket.on("disconnect",()=>{
       removeUser(socket.id)
       console.log("se salio")
+      console.log(onlineUsers)
     })
   })

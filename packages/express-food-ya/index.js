@@ -1,4 +1,5 @@
 const express = require('express')
+const socket = require('socket.io')
 const cors = require('cors')
 const config = require('./config/config');
 const { port } = config.server;
@@ -37,4 +38,52 @@ const server = app.listen(port,()=>{
     console.log(`Server is listen in port: ${port}`)
 })
 
-module.exports = {app, server}
+const io = socket(server, {
+    cors:{
+      origin:"http://localhost:3000"
+    }
+  })
+  
+  let onlineUsers = []
+  
+  const addNewUser = (userid, socketId) => {
+    !onlineUsers.some((user)=>user.userid === userid) && onlineUsers.push({userid, socketId})
+  }
+  
+  const removeUser = (socketId) => {
+    onlineUsers = onlineUsers.filter((user)=>user.socketId !== socketId)
+  }
+  
+  const getUser = (userId) => {
+    return onlineUsers.find(user=>user.userid === userId)
+  }
+  
+  
+  io.on("connection", (socket)=>{
+      console.log("se unio usuario")
+    socket.on("newRestaurant", (userId)=>{
+      addNewUser(userId, socket.id);
+      console.log("se unio")
+      console.log(onlineUsers)
+    })
+  
+    socket.on("Pedido", ({idrestaurant})=>{
+      const restaurant = getUser(idrestaurant)
+      console.log(idrestaurant)
+      console.log(restaurant)
+      if(restaurant!==undefined){
+        console.log("enviando pedido")
+        io.to(restaurant?.socketId).emit("tomarPedido")
+      }
+      socket.disconnect(true)
+    })
+  
+    socket.on("salir",()=>{
+      socket.disconnect(true)
+    })
+  
+    socket.on("disconnect",()=>{
+      removeUser(socket.id)
+      console.log("se salio")
+    })
+  })

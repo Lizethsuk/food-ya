@@ -36,7 +36,7 @@ exports.signin = async (req,res)=>{
             } else {
                 const { _id } = user;
                 const token = jwt.sign({ _id }, secret)
-                res.status(200).json({succes: true, name: user.name, token, type: "client"})
+                res.status(200).json({succes: true, name: user.name, token, type: "client",id: _id})
             }
         }
     } catch(e){

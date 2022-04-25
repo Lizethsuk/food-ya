@@ -10,7 +10,6 @@ import { ThemeContext } from '../../context/themeContext';
 
 function RegisterRestaurant() {
   const { theme } = useContext(ThemeContext);
-  // eslint-disable-next-line max-len
   return (
     <div className="register-restaurant">
       <section className="bannerRegisterRestaurant">

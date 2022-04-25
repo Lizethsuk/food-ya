@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -96,21 +97,7 @@ function RestaurantSettingsProfile() {
       </ProfileButtonOptions>
 
       <Routes>
-        <Route
-          path="/profile"
-          element={
-            <MyRestaurantProfile
-              email={restaurantOwnerInfo.email}
-              phoneNumber={restaurantOwnerInfo.phoneNumber}
-              name={restaurantOwnerInfo.name}
-              surname={restaurantOwnerInfo.surname}
-              restaurantName={restaurantOwnerInfo.restaurantName}
-              city={restaurantOwnerInfo.city}
-              district={restaurantOwnerInfo.district}
-              address={restaurantOwnerInfo.address}
-            />
-          }
-        />
+        <Route path="/profile" element={<MyRestaurantProfile />} />
         <Route
           path="/orders"
           element={<MyRestaurantOrders orders={restaurantOwnerInfo.OrdersID} />}

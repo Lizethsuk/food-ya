@@ -1,9 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Form, Row, Col, Button, Modal, Container } from 'react-bootstrap';
-import './style.scss';
 
-function FormRestaurant() {
+function UpdateFormRestaurant({ passMethod, defaultValues }) {
   const [restaurantState, setRestaurant] = useState({});
   const [image, setImage] = useState();
   const [logo, setLogo] = useState();
@@ -12,6 +13,18 @@ function FormRestaurant() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
+
+  useState(() => {
+    if (passMethod === 'PATCH') {
+      setRestaurant(defaultValues);
+    }
+  }, []);
+
+  useState(() => {
+    if (passMethod === 'PATCH') {
+      setRestaurant(defaultValues);
+    }
+  }, [defaultValues]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,14 +53,17 @@ function FormRestaurant() {
     e.preventDefault();
 
     const postData = { data: restaurantState, logo, image };
+    const url = 'http://localhost:3001/api/restaurant';
 
-    const response = await fetch('http://localhost:3001/api/restaurant/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch(url, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      },
       body: JSON.stringify(postData)
     });
     const responsejson = await response.json();
-    console.log(JSON.stringify(postData));
     console.log(responsejson);
     setTimeout(() => {
       navigate('/');
@@ -56,51 +72,96 @@ function FormRestaurant() {
 
   return (
     <Form className="form-restaurant" onSubmit={handleSubmit}>
-      <h1 className="mb-4">Registrar</h1>
+      <h1 className="mb-4">Actualizar</h1>
       <Container fluid>
         <Row>
           <Col lg={6}>
             <Form.Group as={Row} className="mb-3">
               <Col sm="12" className="mb-3">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control type="text" name="name" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={restaurantState?.name}
+                  onChange={handleChange}
+                />
               </Col>
 
               <Col sm="12" className="mb-3">
                 <Form.Label>Apellidos</Form.Label>
-                <Form.Control type="text" name="surname" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="surname"
+                  value={restaurantState?.surname}
+                  onChange={handleChange}
+                />
               </Col>
 
               <h4>Datos del Restaurant</h4>
               <Col sm="12" className="mb-3">
                 <Form.Label>Razón Social</Form.Label>
-                <Form.Control type="text" name="restaurantName" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="restaurantName"
+                  value={restaurantState?.restaurantName}
+                  onChange={handleChange}
+                />
               </Col>
 
               <Col sm="12" className="mb-3">
                 <Form.Label>RUC</Form.Label>
-                <Form.Control type="text" name="ruc" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="ruc"
+                  value={restaurantState?.ruc}
+                  onChange={handleChange}
+                />
               </Col>
               <Col sm="12" className="mb-3">
                 <Form.Label>Teléfono del local</Form.Label>
-                <Form.Control type="text" name="phoneNumber" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="phoneNumber"
+                  value={restaurantState?.phoneNumber}
+                  onChange={handleChange}
+                />
               </Col>
               <Col sm="12" className="mb-3">
                 <Form.Label>Correo del local</Form.Label>
-                <Form.Control type="text" name="email" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="email"
+                  value={restaurantState?.email}
+                  onChange={handleChange}
+                />
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Ciudad</Form.Label>
-                <Form.Control type="text" name="city" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="city"
+                  value={restaurantState?.city}
+                  onChange={handleChange}
+                />
               </Col>
               <Col sm="6" className="mb-3">
                 <Form.Label>Distrito</Form.Label>
-                <Form.Control type="text" name="district" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="district"
+                  value={restaurantState?.district}
+                  onChange={handleChange}
+                />
               </Col>
 
               <Col sm="12" className="mb-3">
                 <Form.Label>Dirección del local</Form.Label>
-                <Form.Control type="text" name="address" onChange={handleChange} />
+                <Form.Control
+                  type="text"
+                  name="address"
+                  value={restaurantState?.address}
+                  onChange={handleChange}
+                />
               </Col>
             </Form.Group>
           </Col>
@@ -130,6 +191,7 @@ function FormRestaurant() {
                   {['9:00', '10:00', '11:00', '24:00'].map((hora) => (
                     <option>{hora}</option>
                   ))}
+                  {/* value={restaurantState?.innerImg} */}
                 </Form.Select>
               </Col>
               <Col sm="6" className="mb-3">
@@ -183,12 +245,7 @@ function FormRestaurant() {
               <Row>
                 <Col sm="12" className="mb-3">
                   <Form.Label className="mb-2">Contraseña</Form.Label>
-                  <Form.Control type="password" name="password" onChange={handleChange} />
-                </Col>
-
-                <Col sm="12" className="mb-3">
-                  <Form.Label>Confirmar Contraseña</Form.Label>
-                  <Form.Control type="password" name="passwordConfirm" onChange={handleChange} />
+                  <Form.Control type="text" name="password" onChange={handleChange} />
                 </Col>
               </Row>
             </Form.Group>
@@ -197,7 +254,7 @@ function FormRestaurant() {
         <Row>
           <Col>
             <Button type="submit" className="Reg-button" onClick={handleShow}>
-              Registrar
+              Actualizar
             </Button>
           </Col>
         </Row>
@@ -205,12 +262,22 @@ function FormRestaurant() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title>Gracias por registrarte!!!</Modal.Title>
+          <Modal.Title>¡Actualizaste los datos!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Revisa tu correo, para confirmar tu registro!</Modal.Body>
+        <Modal.Body>¡Tus datos fueron actualizados!</Modal.Body>
       </Modal>
     </Form>
   );
 }
 
-export default FormRestaurant;
+UpdateFormRestaurant.propTypes = {
+  passMethod: PropTypes.string,
+  defaultValues: PropTypes.object
+};
+
+UpdateFormRestaurant.defaultProps = {
+  passMethod: 'POST',
+  defaultValues: {}
+};
+
+export default UpdateFormRestaurant;

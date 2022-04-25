@@ -50,7 +50,7 @@ function OrderDetails() {
   }, [invoiceById]);
 
   const Redirect = () => {
-    const tempLocation = '/profile';
+    const tempLocation = '/restaurant-profile';
     navigate(`${tempLocation}/orders`);
   };
 
@@ -92,7 +92,10 @@ function OrderDetails() {
                     </div>
                     <p className="text">Pedido</p>
                   </div>
-                  <p className="text title600">1 producto</p>
+                  <p className="text title600">
+                    {invoiceById.products?.length}{' '}
+                    {invoiceById.products?.length > 1 ? 'productos' : 'producto'}
+                  </p>
                 </SingleOrderRetire>
               </Col>
               <Col xs={8}>
@@ -102,11 +105,9 @@ function OrderDetails() {
                     title={`Fecha y hora de pedido: `}
                     content={ParseDate(invoiceById.day, invoiceById.month, invoiceById.year)}
                   />
-                  <OrderInfoSection title={`Restaurante: `} content={invoiceById.restaurantName} />
-                  <OrderInfoSection title={`Método de pago: `} content={invoiceById.cardType} />
                   <OrderInfoSection
-                    title={`Tipo de documento: `}
-                    content={invoiceById.documentType}
+                    title={`Cliente: `}
+                    content={`${invoiceById.clientID.name} ${invoiceById.clientID.surname}`}
                   />
                   <OrderInfoSection
                     title={`Tipo de entrega: `}

@@ -43,7 +43,7 @@ function MyRestaurantOrders({ orders }) {
 
   return (
     <>
-      <div>MyRestaurantOrders</div>
+      <h1>Mis Órdenes</h1>
       {!isLoading &&
         orderList.order?.map((order) => {
           return (

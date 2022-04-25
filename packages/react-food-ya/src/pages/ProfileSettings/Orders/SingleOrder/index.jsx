@@ -92,7 +92,10 @@ function SingleOrder() {
                     </div>
                     <p className="text">Pedido</p>
                   </div>
-                  <p className="text title600">1 producto</p>
+                  <p className="text title600">
+                    {invoiceById.products?.length}{' '}
+                    {invoiceById.products?.length > 1 ? 'productos' : 'producto'}
+                  </p>
                 </SingleOrderRetire>
               </Col>
               <Col xs={8}>
@@ -103,11 +106,6 @@ function SingleOrder() {
                     content={ParseDate(invoiceById.day, invoiceById.month, invoiceById.year)}
                   />
                   <OrderInfoSection title={`Restaurante: `} content={invoiceById.restaurantName} />
-                  <OrderInfoSection title={`Método de pago: `} content={invoiceById.cardType} />
-                  <OrderInfoSection
-                    title={`Tipo de documento: `}
-                    content={invoiceById.documentType}
-                  />
                   <OrderInfoSection
                     title={`Tipo de entrega: `}
                     content={invoiceById.deliveryType}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import CONFIG from '../../utils/host';
 
 /* import ConfirmationRegister from '../../pages/ConfirmationRegister';
  */ /* import Col from 'react-bootstrap/Col';
@@ -7,7 +8,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa'; */
 /* import './style.scss'; */
 const funcFetch = async (token) => {
-  const res = await fetch('http://localhost:3001/confirmation', {
+  const res = await fetch(`${CONFIG.url}/confirmation`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

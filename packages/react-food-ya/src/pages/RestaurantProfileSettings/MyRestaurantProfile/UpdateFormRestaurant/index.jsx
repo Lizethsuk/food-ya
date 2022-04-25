@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Form, Row, Col, Button, Modal, Container } from 'react-bootstrap';
+import CONFIG from '../../../../utils/host';
 
 function UpdateFormRestaurant({ passMethod, defaultValues }) {
   const [restaurantState, setRestaurant] = useState({});
@@ -53,7 +54,7 @@ function UpdateFormRestaurant({ passMethod, defaultValues }) {
     e.preventDefault();
 
     const postData = { data: restaurantState, logo, image };
-    const url = 'http://localhost:3001/api/restaurant';
+    const url = `${CONFIG.url}/api/restaurant`;
 
     const response = await fetch(url, {
       method: 'PATCH',

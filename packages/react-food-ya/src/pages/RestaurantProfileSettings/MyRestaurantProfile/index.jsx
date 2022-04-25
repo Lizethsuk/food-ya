@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap/';
 import UpdateFormRestaurant from './UpdateFormRestaurant';
+import CONFIG from '../../../utils/host';
 
 function MyRestaurantProfile() {
   const [restaurantOwnerInfo, setRestaurantOwnerInfo] = useState({
@@ -19,7 +20,7 @@ function MyRestaurantProfile() {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchOwnerInfo = async () => {
-    const response = await fetch('http://localhost:3001/api/restaurant/owner', {
+    const response = await fetch(`${CONFIG.url}/api/restaurant/owner`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

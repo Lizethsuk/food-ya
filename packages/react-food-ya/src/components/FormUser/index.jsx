@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import CONFIG from '../../utils/host';
 
 function FormUser() {
   const [userState, setUser] = useState({});
@@ -13,7 +14,7 @@ function FormUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:3001/api/client/signup', {
+    const response = await fetch(`${CONFIG.url}/api/client/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userState)

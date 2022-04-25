@@ -3,9 +3,10 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
+import CONFIG from '../../utils/host';
 
 const login = async (credentials) => {
-  const response = await fetch('http://localhost:3001/api/client/signin', {
+  const response = await fetch(`${CONFIG.url}/api/client/signin`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials)

@@ -9,6 +9,7 @@ import RestaurantInfo from './RestaurantInfo';
 import CustomSimpleButton from '../../components/CustomSimpleButton';
 import PaymentModal from './PaymentModal';
 import { InvoiceContext } from '../../context/invoiceContext';
+import CONFIG from '../../utils/host';
 
 function DishesManager() {
   const { InitMenu, ClearMenu, countProducts, selectedMenu, GetTotal, SaveData } =
@@ -31,7 +32,7 @@ function DishesManager() {
   };
 
   const getRestaurant = () => {
-    const url = `http://localhost:3001/api/restaurant/${restaurantId}`;
+    const url = `${CONFIG.url}/api/restaurant/${restaurantId}`;
     fetch(url)
       .then((response) => response.json())
       .then((menu) => fetchEverything(menu))

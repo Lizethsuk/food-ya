@@ -7,6 +7,7 @@ import { ProfileButtonOptions } from './style';
 import MyRestaurantOrders from './MyRestaurantOrders';
 import MyRestaurantProfile from './MyRestaurantProfile';
 import MyDishes from './MyDishes';
+import CONFIG from '../../utils/host';
 
 function RestaurantSettingsProfile() {
   const [restaurantOwnerInfo, setRestaurantOwnerInfo] = useState({});
@@ -22,7 +23,7 @@ function RestaurantSettingsProfile() {
   ];
 
   const fetchOwnerInfo = async () => {
-    const response = await fetch('http://localhost:3001/api/restaurant/owner', {
+    const response = await fetch(`${CONFIG.url}/api/restaurant/owner`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

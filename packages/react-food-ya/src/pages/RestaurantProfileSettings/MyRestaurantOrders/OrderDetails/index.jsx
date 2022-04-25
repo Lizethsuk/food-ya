@@ -16,6 +16,7 @@ import {
 import OrderInfoSection from '../../../ProfileSettings/Orders/SingleOrder/OrderInfoSection';
 import ProductCard from '../../../ProfileSettings/Orders/SingleOrder/ProductCard';
 import { ParseDate } from '../../../../utils/parseDate';
+import CONFIG from '../../../../utils/host';
 
 function OrderDetails() {
   const { theme } = useContext(ThemeContext);
@@ -25,7 +26,7 @@ function OrderDetails() {
   const navigate = useNavigate();
 
   const getOrder = async () => {
-    const response = await fetch(`http://localhost:3001/api/order/get/${id}`, {
+    const response = await fetch(`${CONFIG.url}/api/order/get/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

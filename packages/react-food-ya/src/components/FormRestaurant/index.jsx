@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Row, Col, Button, Modal, Container } from 'react-bootstrap';
+import CONFIG from '../../utils/host';
 import './style.scss';
 
 function FormRestaurant() {
@@ -41,7 +42,7 @@ function FormRestaurant() {
 
     const postData = { data: restaurantState, logo, image };
 
-    const response = await fetch('http://localhost:3001/api/restaurant/signup', {
+    const response = await fetch(`${CONFIG.url}/api/restaurant/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postData)

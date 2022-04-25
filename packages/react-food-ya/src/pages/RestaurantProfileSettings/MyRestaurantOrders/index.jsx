@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../../../context/themeContext';
 import OrderCard from '../../ProfileSettings/Orders/OrderCard';
 import { ParseDate } from '../../../utils/parseDate';
+import CONFIG from '../../../utils/host';
 
 function MyRestaurantOrders({ orders }) {
   console.log('ORDERS: ', orders);
@@ -16,7 +17,7 @@ function MyRestaurantOrders({ orders }) {
   const [orderList, setOrderList] = useState([]);
 
   const getOrders = async () => {
-    const response = await fetch('http://localhost:3001/api/order/restaurant', {
+    const response = await fetch(`${CONFIG.url}/api/order/restaurant`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Row, Container, Col, Form, Button } from 'react-bootstrap';
 import './style.scss';
 import CardMenuRestaurant from '../../components/CardMenuRestaurant';
+import CONFIG from '../../utils/host';
 
 function AddDishes() {
   const [data, setData] = useState({});
@@ -30,7 +31,7 @@ function AddDishes() {
   };
 
   const sendImg = async (image) => {
-    const res = await fetch('http://localhost:3001/api/dish/', {
+    const res = await fetch(`${CONFIG.url}/api/dish/`, {
       method: 'POST',
       body: JSON.stringify({ img: image, token: localStorage.getItem('token'), product: data }),
       headers: {

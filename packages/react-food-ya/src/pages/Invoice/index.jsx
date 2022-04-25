@@ -1,12 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { io } from 'socket.io-client';
 import CustomButton from '../../components/CustomButton';
 import { UserContext } from '../../context/userContext';
 import { ThemeContext } from '../../context/themeContext';
 import { InvoiceContext } from '../../context/invoiceContext';
 import { InvoiceContentContainer, InvoiceContainer } from './style';
 import InvoiceSection from './InvoiceSection';
+import CONFIG from '../../utils/host';
 
 function Invoice() {
   const [invoiceInfo, setInvoiceInfo] = useState([]);
@@ -19,6 +21,8 @@ function Invoice() {
   useEffect(() => {
     setIsLoading(true);
     InitializeInvoice();
+    const socket = io(CONFIG.url);
+    socket.emit('Pedido', { idrestaurant: localStorage.getItem('restaurantInfo').id });
   }, []);
 
   const parseCardNumberFormat = (cardNumber) => {

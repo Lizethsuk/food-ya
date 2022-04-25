@@ -24,6 +24,7 @@ import { ThemeContext } from '../../../context/themeContext';
 import { InvoiceContext } from '../../../context/invoiceContext';
 import { MenuManageContext } from '../../../context/menuManageContext';
 import { orderNumber } from '../../../utils/orderNumberGenerator';
+import CONFIG from '../../../utils/host';
 
 function CheckoutSteps({
   page,
@@ -62,7 +63,7 @@ function CheckoutSteps({
   }, [radioValue]);
 
   const submitOrder = async (values) => {
-    const response = await fetch('http://localhost:3001/api/order', {
+    const response = await fetch(`${CONFIG.url}/api/order`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -3,6 +3,8 @@ import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import { ThemeContext } from '../../context/themeContext';
 import './style.scss';
 import { UserContext } from '../../context/userContext';
@@ -10,12 +12,11 @@ import { MenuManageContext } from '../../context/menuManageContext';
 
 function CustomNavbar() {
   const [isInRestaurant, setIsInRestaurant] = useState(false);
-  const { ClearTokenState, user } = useContext(UserContext);
+  const { ClearTokenState, user, socket } = useContext(UserContext);
   const { theme, ToggleTheme } = useContext(ThemeContext);
   const { countProducts } = useContext(MenuManageContext);
   const navigate = useNavigate();
   const location = useLocation();
-
   const LogOut = () => {
     ClearTokenState();
     navigate('/');
@@ -29,9 +30,16 @@ function CustomNavbar() {
     setIsInRestaurant(location.pathname.includes(restaurantRoute));
   }, [location]);
 
+  useEffect(() => {
+    socket?.on('tomarPedido', () => {
+      NotificationManager.success('Pedido');
+    });
+  }, [socket]);
+
   return (
     <Navbar expand="md" className={theme}>
       <Container className="pe-0 ps-0">
+        <NotificationContainer />
         <Navbar.Brand>
           <Link className="logo-link" to={!user.token ? '/' : '/home'}>
             <img

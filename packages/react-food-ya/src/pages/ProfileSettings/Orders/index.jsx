@@ -5,6 +5,7 @@ import { InvoiceContext } from '../../../context/invoiceContext';
 import { ThemeContext } from '../../../context/themeContext';
 import OrderCard from './OrderCard';
 import { ParseDate } from '../../../utils/parseDate';
+import CONFIG from '../../../utils/host';
 
 function Orders() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Orders() {
   const [isLoading, setIsLoading] = useState(true);
 
   const getOrders = async () => {
-    const response = await fetch('http://localhost:3001/api/order/client', {
+    const response = await fetch(`${CONFIG.url}/api/order/client`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

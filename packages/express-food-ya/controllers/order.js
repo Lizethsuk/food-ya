@@ -2,6 +2,9 @@ const Order = require('../models/Order')
 const Restaurant = require('../models/Restaurant')
 const Client = require('../models/Client')
 const DishOrder = require('../models/DishOrder')
+const {sgMail, foodyaEmail, isDev} = require('../config/sendgrid')
+const email = require('../template/orderMail')
+const {frontend} = require('../config/config')
 
 exports.create = async (req, res) => {
     const clientID = req.id
@@ -46,6 +49,21 @@ exports.create = async (req, res) => {
         const client = await Client.findById(data.clientID)
         OrdersID = client.OrdersID.concat(savedOrder._id)
         await Client.findByIdAndUpdate(data.clientID, { OrdersID })
+
+        const msg = {
+            to: client.email,
+            from: `FoodYa! 🍔 <${foodyaEmail}>`,
+            subject: 'Su pedido se ha realizado con éxito',
+            html: email.template({numero: body.orderNumber,nombre: restaurant.restaurantName, total: body.totalPayment}),
+            mail_settings: {
+                sandbox_mode: {
+                  enable: isDev
+                }
+            }
+        }
+
+        await sgMail.send(msg)
+
         res.status(200).json(order)
     } catch (e) {
         console.log(e)

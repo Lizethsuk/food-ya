@@ -9,6 +9,9 @@ const config = {
     },
     server: {
         port: process.env.SERVER_PORT,
+    },
+    frontend: {
+        dominio: process.env.URL_FRONTEND
     }
 }
 

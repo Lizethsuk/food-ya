@@ -3,6 +3,9 @@ const RestaurantView = require('../models/RestaurantView')
 const { cloudinary, UPLOAD_PRESET } = require('../config/cloudinary')
 const { secret } = require('../config/config').token
 const jwt = require('jsonwebtoken')
+const {sgMail, foodyaEmail, isDev} = require('../config/sendgrid')
+const email = require('../template/ownerMail')
+const {frontend} = require('../config/config')
 
 const CATEGORY = {
     1: "Pollo a la brasa, carnes y parrillas",
@@ -52,7 +55,21 @@ exports.signup = async (req, res) => {
         }
 
         const newRestaurantView = new RestaurantView(dataView)
-        const savedRestaurantView = await newRestaurantView.save()
+        await newRestaurantView.save()
+
+        const msg = {
+            to: restaurant.email,
+            from: `FoodYa! 🍔 <${foodyaEmail}>`,
+            subject: 'Gracias por registrarte a Foodya',
+            html: email.template({url: frontend.dominio}),
+            mail_settings: {
+                sandbox_mode: {
+                  enable: isDev
+                }
+            }
+        }
+
+        await sgMail.send(msg)
 
         res.status(201).json({ success: true, message: 'Restaurant has been created', data: savedRestaurant })
     } catch (e) {

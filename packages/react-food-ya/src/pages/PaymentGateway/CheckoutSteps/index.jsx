@@ -10,6 +10,7 @@ import { AiFillDelete } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
 import { Formik, ErrorMessage } from 'formik';
 import { format } from 'date-fns';
+import { io } from 'socket.io-client';
 import CustomSimpleButton from '../../../components/CustomSimpleButton';
 import { OrderCard, TotalContainer } from '../../DishesManager/style';
 import {
@@ -45,6 +46,7 @@ function CheckoutSteps({
     { name: 'Recojo en tienda', value: '2' }
   ];
   const [formSent, setFormSent] = useState(false);
+  const socket = io(CONFIG.url);
 
   useEffect(() => {
     InitializeRestaurant();
@@ -158,7 +160,7 @@ function CheckoutSteps({
           totalPayment: deliveryTotal,
           products: [...productsForServer]
         };
-
+        socket.emit('Pedido', { idrestaurant: restaurant.id });
         InvoiceSaved(invoiceValues);
         submitOrder({ ...orderForServer });
         setTimeout(() => {

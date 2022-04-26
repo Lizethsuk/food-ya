@@ -7,13 +7,16 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: process.env.NODEMAILER_USER, 
-        pass: process.env.NODEMAILER_KEY, 
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_KEY,
     },
     logger: true,
-    transactionLog: true
+    transactionLog: true,
+    tls: {
+        rejectUnauthorized: false
+    }
 });
 
 const NODE_MAILER_EMAIL = process.env.NODEMAILER_USER
 
-module.exports = {transporter, NODE_MAILER_EMAIL, isDev}
+module.exports = { transporter, NODE_MAILER_EMAIL, isDev }

@@ -3,9 +3,9 @@ const RestaurantView = require('../models/RestaurantView')
 const { cloudinary, UPLOAD_PRESET } = require('../config/cloudinary')
 const { secret } = require('../config/config').token
 const jwt = require('jsonwebtoken')
-const {sgMail, foodyaEmail, isDev} = require('../config/sendgrid')
 const email = require('../template/ownerMail')
 const {frontend} = require('../config/config')
+const {transporter, NODE_MAILER_EMAIL, isDev} = require('../config/nodemailer')
 
 const CATEGORY = {
     1: "Pollo a la brasa, carnes y parrillas",
@@ -59,17 +59,17 @@ exports.signup = async (req, res) => {
 
         const msg = {
             to: restaurant.email,
-            from: `FoodYa! 🍔 <${foodyaEmail}>`,
+            from: `FoodYa! 🍔 <${NODE_MAILER_EMAIL}>`,
             subject: 'Gracias por registrarte a Foodya',
             html: email.template({url: frontend.dominio}),
-            mail_settings: {
-                sandbox_mode: {
-                  enable: isDev
-                }
-            }
         }
 
-        await sgMail.send(msg)
+        if(!isDev){
+            transporter.verify().then(()=> console.log('nodemailer config is correct'))
+            transporter.sendMail(msg)
+                .then(()=>console.log('email registro restaurant enviado'))
+                .catch((e)=>console.log('ocurrió un error', e.message))
+        }
 
         res.status(201).json({ success: true, message: 'Restaurant has been created', data: savedRestaurant })
     } catch (e) {

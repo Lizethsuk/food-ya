@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
 const Client = require('../models/Client');
 const {secret} = require('../config/config').token
-const {sgMail, foodyaEmail, isDev} = require('../config/sendgrid')
 const email = require('../template/clientMail')
 const {frontend} = require('../config/config')
+const {transporter, NODE_MAILER_EMAIL, isDev} = require('../config/nodemailer')
 
 exports.signup = async(req,res)=>{
     const user = req.body
@@ -15,16 +15,15 @@ exports.signup = async(req,res)=>{
         const savedClient = await newClient.save()
         const msg = {
             to: user.email,
-            from: `FoodYa! 🍔 <${foodyaEmail}>`,
+            from: `FoodYa! 🍔 <${NODE_MAILER_EMAIL}>`,
             subject: 'Gracias por registrarte a Foodya',
-            html: email.template({url: frontend.dominio}),
-            mail_settings: {
-                sandbox_mode: {
-                  enable: isDev
-                }
-            }
+            html: email.template({url: frontend.dominio})
         }
-        await sgMail.send(msg)
+        if(!isDev){
+            transporter.sendMail(msg)
+                .then(()=>console.log('email registro cliente enviado'))
+                .catch((e)=>console.log('ocurrió un error', e.message))
+        }
 
         res.status(201).json({ success: true, message: 'User has been created', data: savedClient})
     }catch(e){

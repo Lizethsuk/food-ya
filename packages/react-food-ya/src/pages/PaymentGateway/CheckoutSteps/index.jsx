@@ -46,7 +46,6 @@ function CheckoutSteps({
     { name: 'Recojo en tienda', value: '2' }
   ];
   const [formSent, setFormSent] = useState(false);
-  const socket = io(CONFIG.url);
 
   useEffect(() => {
     InitializeRestaurant();
@@ -160,6 +159,7 @@ function CheckoutSteps({
           totalPayment: deliveryTotal,
           products: [...productsForServer]
         };
+        const socket = io(CONFIG.url);
         socket.emit('Pedido', { idrestaurant: restaurant.id });
         InvoiceSaved(invoiceValues);
         submitOrder({ ...orderForServer });

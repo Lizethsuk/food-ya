@@ -2,9 +2,8 @@ const Order = require('../models/Order')
 const Restaurant = require('../models/Restaurant')
 const Client = require('../models/Client')
 const DishOrder = require('../models/DishOrder')
-const {sgMail, foodyaEmail, isDev} = require('../config/sendgrid')
 const email = require('../template/orderMail')
-const {frontend} = require('../config/config')
+const {transporter, NODE_MAILER_EMAIL, isDev} = require('../config/nodemailer')
 
 exports.create = async (req, res) => {
     const clientID = req.id
@@ -52,17 +51,17 @@ exports.create = async (req, res) => {
 
         const msg = {
             to: client.email,
-            from: `FoodYa! 🍔 <${foodyaEmail}>`,
+            from: `FoodYa! 🍔 <${NODE_MAILER_EMAIL}>`,
             subject: 'Su pedido se ha realizado con éxito',
-            html: email.template({numero: body.orderNumber,nombre: restaurant.restaurantName, total: body.totalPayment}),
-            mail_settings: {
-                sandbox_mode: {
-                  enable: isDev
-                }
-            }
+            html: email.template({numero: body.orderNumber,nombre: restaurant.restaurantName, total: body.totalPayment})
         }
 
-        await sgMail.send(msg)
+        if(!isDev){
+            transporter.verify().then(()=> console.log('nodemailer config is correct'))
+            transporter.sendMail(msg)
+                .then(()=>console.log('email registro orden enviado'))
+                .catch((e)=>console.log('ocurrió un error', e.message))
+        }
 
         res.status(200).json(order)
     } catch (e) {

@@ -50,8 +50,8 @@ function MyRestaurantOrders({ orders }) {
           return (
             <OrderCard
               key={order._id}
-              restaurantName={order.clientID.email}
-              email={`${order.clientID.name} ${order.clientID.surname}`}
+              restaurantName={order.clientID?.email}
+              email={`${order.clientID?.name} ${order.clientID?.surname}`}
               orderId={order._id}
               orderNumber={order.orderNumber}
               buyDate={ParseDate(order.day, order.month, order.year)}
